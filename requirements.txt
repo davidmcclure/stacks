@@ -1,0 +1,6 @@
+
+ipython
+django
+django-extensions
+psycopg2
+gunicorn
