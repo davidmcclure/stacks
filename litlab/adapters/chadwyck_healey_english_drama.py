@@ -1,8 +1,10 @@
 
 
 import os
+import glob
 
 from litlab.conf import settings
+
 
 
 class Corpus:
@@ -22,6 +24,38 @@ class Corpus:
 
         """
         Set the corpus path.
+
+        Args:
+            path (str): The corpus path.
         """
 
         self.path = os.path.abspath(path)
+
+
+    def texts(self):
+
+        """
+        Generate text text metadata.
+
+        Yields:
+            dict: Properties for the each text.
+        """
+
+        for path in glob.glob(os.path.join(self.path, '*.new')):
+            yield Text(path)
+
+
+
+class Text:
+
+
+    def __init__(self, path):
+
+        """
+        Parse the XML.
+
+        Args:
+            path (str): The text path.
+        """
+
+        pass
