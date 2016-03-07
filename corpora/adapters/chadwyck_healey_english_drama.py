@@ -13,7 +13,8 @@ class Corpus:
         Get an instance for the settings-defined corpus.
         """
 
-        return cls(settings.CHADWYCK_HEALEY_ENGLISH_DRAMA_PATH)
+        # TODO
+        return cls()
 
 
     def __init__(self, path):

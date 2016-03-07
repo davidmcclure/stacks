@@ -6,3 +6,4 @@ psycopg2
 gunicorn
 pytest-django
 factory_boy
+django-appconf
