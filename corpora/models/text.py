@@ -8,13 +8,11 @@ class Text(models.Model):
 
     corpus = models.ForeignKey('Corpus')
 
-
     # The raw, unmodified representation of the text.
     source_text = models.TextField()
 
     # Plain text extracted from the source markup.
     plain_text = models.TextField(null=True)
-
 
     # Dublin Core - Library Application Profile
     # http://dublincore.org/documents/library-application-profile/
