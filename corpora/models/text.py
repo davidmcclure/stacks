@@ -9,9 +9,15 @@ class Text(models.Model):
     corpus = models.ForeignKey('Corpus')
 
 
+    # The raw, unmodified representation of the text.
+    source_text = models.TextField()
+
+    # Plain text extracted from the source markup.
+    plain_text = models.TextField(null=True)
+
+
     # Dublin Core - Library Application Profile
     # http://dublincore.org/documents/library-application-profile/
-
 
     title = models.TextField(null=True)
     alternative = models.TextField(null=True)
@@ -57,10 +63,3 @@ class Text(models.Model):
     audience = models.TextField(null=True)
     edition = models.TextField(null=True)
     location = models.TextField(null=True)
-
-
-    # The raw, unmodified representation of the text.
-    source_text = models.TextField()
-
-    # Plain text extracted from the source markup.
-    plain_text = models.TextField(null=True)
