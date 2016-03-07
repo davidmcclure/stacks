@@ -2,6 +2,8 @@
 
 import os
 
+from litlab.conf import settings
+
 
 class Corpus:
 
@@ -10,11 +12,10 @@ class Corpus:
     def from_env(cls):
 
         """
-        Get an instance for the settings-defined corpus.
+        Wrap the settings-defined path.
         """
 
-        # TODO
-        return cls()
+        return cls(settings.LITLAB_CHADH_ENGLISH_DRAMA)
 
 
     def __init__(self, path):
