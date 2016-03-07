@@ -3,6 +3,8 @@
 import os
 import glob
 
+from bs4 import BeautifulSoup
+
 from litlab.conf import settings
 
 
@@ -58,4 +60,5 @@ class Text:
             path (str): The text path.
         """
 
-        pass
+        with open(path, 'rb') as fh:
+            self.xml = BeautifulSoup(fh, 'lxml')
