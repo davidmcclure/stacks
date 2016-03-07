@@ -17,16 +17,3 @@ class Corpus(models.Model):
 
     def __str__(self):
         return self.name
-
-
-    @classmethod
-    def ingest(cls, adapter):
-
-        """
-        Ingest a corpus.
-
-        Args:
-            adapter (stacks.corpora.Adapter)
-        """
-
-        pass
