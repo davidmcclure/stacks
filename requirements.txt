@@ -2,5 +2,6 @@
 ipython
 django
 django-extensions
+pytest-django
 psycopg2
 gunicorn
