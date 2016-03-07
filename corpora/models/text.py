@@ -57,3 +57,10 @@ class Text(models.Model):
     audience = models.TextField(null=True)
     edition = models.TextField(null=True)
     location = models.TextField(null=True)
+
+
+    # The raw, unmodified representation of the text.
+    source_text = models.TextField()
+
+    # Plain text extracted from the source markup.
+    plain_text = models.TextField(null=True)
