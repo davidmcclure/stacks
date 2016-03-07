@@ -12,4 +12,5 @@ DATABASES = {
     }
 }
 
+
 STATIC_ROOT = '/opt/stacks/static'

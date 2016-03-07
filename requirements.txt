@@ -7,3 +7,5 @@ gunicorn
 pytest-django
 factory_boy
 django-appconf
+lxml
+beautifulsoup4
