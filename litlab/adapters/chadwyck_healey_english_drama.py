@@ -60,5 +60,7 @@ class Text:
             path (str): The text path.
         """
 
-        with open(path, 'rb') as fh:
+        self.path = os.path.abspath(path)
+
+        with open(self.path, 'rb') as fh:
             self.xml = BeautifulSoup(fh, 'lxml')
