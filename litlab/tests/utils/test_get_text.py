@@ -16,7 +16,7 @@ from litlab.utils import get_text
     # Strip whitespace.
     ('<tag>  Book Title  </tag>', 'Book Title'),
 
-    # Empty text -> None.
+    # Empty content -> None.
     ('<tag></tag>', None),
     ('<tag>  </tag>', None),
 
