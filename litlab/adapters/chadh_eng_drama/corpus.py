@@ -33,7 +33,7 @@ class Corpus:
         self.path = os.path.abspath(path)
 
 
-    def texts(self):
+    def __iter__(self):
 
         """
         Generate text text metadata.
@@ -43,4 +43,4 @@ class Corpus:
         """
 
         for path in glob.glob(os.path.join(self.path, '*.new')):
-            yield Text(path)
+            yield Text(path).row

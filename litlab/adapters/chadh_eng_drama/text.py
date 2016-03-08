@@ -71,3 +71,20 @@ class Text:
         """
 
         return get_text(self.xml, 'volauth')
+
+
+    @property
+    def row(self):
+
+        """
+        Assemble columns for a Text instances.
+
+        Returns: dict
+        """
+
+        return dict(
+            plain_text  = self.plain_text,
+            source_text = self.source_text,
+            title       = self.title,
+            author      = self.author,
+        )
