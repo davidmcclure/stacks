@@ -11,6 +11,9 @@ from .text import Text
 class Corpus:
 
 
+    slug = 'chadwyck-healey-english-drama'
+
+
     @classmethod
     def from_env(cls):
 
