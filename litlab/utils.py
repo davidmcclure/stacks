@@ -17,7 +17,8 @@ def get_text(tree, selector):
     tag = tree.select_one(selector)
 
     if tag:
-        return tag.get_text(strip=True) or None
+        strings = [s.strip() for s in tag.strings if s.strip()]
+        return ' '.join(strings) or None
 
     else:
         return None

@@ -9,6 +9,8 @@ from litlab.utils import get_text
 
 @pytest.mark.parametrize('tag,text', [
 
+
+    # Unchanged.
     ('<tag>Book Title</tag>', 'Book Title'),
 
     # Strip whitespace.
@@ -18,8 +20,31 @@ from litlab.utils import get_text
     ('<tag></tag>', None),
     ('<tag>  </tag>', None),
 
-    # Missing tag -> None.
+    # Missing -> None.
     ('', None),
+
+
+    # Join adjacent texts with a space.
+    (
+        '''
+        <tag>
+            <span>text1</span><span>text2</span>
+        </tag>
+        ''',
+        'text1 text2'
+    ),
+
+    # Replace \n with space.
+    (
+        '''
+        <tag>
+            <span>text1</span>
+            <span>text2</span>
+        </tag>
+        ''',
+        'text1 text2'
+    ),
+
 
 ])
 def test_get_text(tag, text):
