@@ -25,24 +25,6 @@ class Text:
             self.xml = BeautifulSoup(fh, 'lxml')
 
 
-    def __enter__(self):
-
-        """
-        Provide the instance to a `with` block.
-        """
-
-        return self
-
-
-    def __exit__(self, exc_type, exc_value, traceback):
-
-        """
-        Destroy the XML tree.
-        """
-
-        self.xml.decompose()
-
-
     @property
     def source_text(self):
 
@@ -92,15 +74,19 @@ class Text:
 
 
     @property
-    def row(self):
+    def build_row(self, corpus_id):
 
         """
         Assemble columns for a Text instances.
+
+        Args:
+            corpus_id (int)
 
         Returns: dict
         """
 
         return dict(
+            corpus      = corpus_id,
             plain_text  = self.plain_text,
             source_text = self.source_text,
             title       = self.title,

@@ -5,6 +5,7 @@ import os
 
 from litlab.conf import settings
 
+from corpora.models import Text as PGText, Corpus as PGCorpus
 from .text import Text
 
 
@@ -26,6 +27,26 @@ class Corpus:
         return cls(settings.LITLAB_CHADH_ENGLISH_DRAMA)
 
 
+    @classmethod
+    def insert_text(cls, corpus_id, path):
+
+        """
+        Add an individual text.
+
+        Args:
+            corpus_id (int): The id of the parent corpus.
+            path (str): The path of the XML file.
+        """
+
+        text = Text(path)
+
+        # Build the text params.
+        row = text.make_row(corpus_id)
+
+        # Write the new text.
+        PGText.objects.create(**row)
+
+
     def __init__(self, path):
 
         """
@@ -38,15 +59,33 @@ class Corpus:
         self.path = os.path.abspath(path)
 
 
-    def __iter__(self):
+    def paths(self):
 
         """
-        Generate text text metadata.
+        Generate text paths.
 
         Yields:
-            dict: Properties for the each text.
+            str: The next path
         """
 
         for path in glob.glob(os.path.join(self.path, '*.new')):
-            with Text(path) as text:
-                yield text.row
+            yield path
+
+
+    def queue(self):
+
+        """
+        Queue accessioning jobs.
+        """
+
+        # Delete the existing corpus.
+        PGCorpus.objects.filter(slug=self.slug).delete()
+
+        # Create a new corpus.
+        corpus = PGCorpus.objects.create(
+            name=self.name,
+            slug=self.slug,
+        )
+
+        for path in self.paths():
+            print(path)
