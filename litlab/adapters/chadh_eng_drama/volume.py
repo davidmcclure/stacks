@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 from litlab.utils import get_text
 
 
-class Text:
+class Volume:
 
 
     def __init__(self, path):
@@ -76,7 +76,7 @@ class Text:
     def build_row(self, corpus_id):
 
         """
-        Assemble columns for a Text instances.
+        Assemble fields for a Text instances.
 
         Args:
             corpus_id (int)

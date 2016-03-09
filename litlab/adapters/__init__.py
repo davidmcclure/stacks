@@ -1,3 +1,3 @@
 
 
-from .chadh_eng_drama.corpus import Corpus as ChadwyckHealeyEnglishDrama
+from .chadh_eng_drama import ChadwyckHealeyEnglishDrama
