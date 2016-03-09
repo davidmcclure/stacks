@@ -10,21 +10,45 @@ class QueueAdapter:
 
     @property
     def name(self):
+
+        """
+        A human-readable name for the corpus.
+        """
+
         raise NotImplementedError
 
 
     @property
     def slug(self):
+
+        """
+        A unique slug for the corpus (for URLs, etc).
+        """
+
         raise NotImplementedError
 
 
     @property
     def paths(self):
+
+        """
+        A stream of paths for individual resources in the corpus.
+        """
+
         raise NotImplementedError
 
 
     @classmethod
     def job(self, corpus_id, path):
+
+        """
+        Given a corpus id and a resource path, insert a new text.
+
+        Args:
+            corpus_id (int): The id of the parent corpus.
+            path (str): The filesystem path of the resource.
+        """
+
         raise NotImplementedError
 
 
