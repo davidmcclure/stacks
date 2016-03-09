@@ -47,8 +47,6 @@ class Corpus:
         # Write the new text.
         PGText.objects.create(**row)
 
-        print(path)
-
 
     def __init__(self, path):
 
