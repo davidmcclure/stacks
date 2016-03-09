@@ -1,3 +1,3 @@
 
 
-from .chadh_eng_drama import ChadwyckHealeyEnglishDrama
+from .chadwyck_healey_english_drama import ChadwyckHealeyEnglishDrama

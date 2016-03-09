@@ -25,7 +25,7 @@ class ChadwyckHealeyEnglishDrama(QueueAdapter):
         Wrap the settings-defined path.
         """
 
-        return cls(settings.LITLAB_CHADH_ENG_DRAMA)
+        return cls(settings.LITLAB_CHADWYCK_HEALEY_ENGLISH_DRAMA)
 
 
     @classmethod
