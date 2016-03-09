@@ -13,4 +13,13 @@ DATABASES = {
 }
 
 
+RQ_QUEUES = {
+    'default': {
+        'HOST': 'localhost',
+        'PORT': 6379,
+        'DB': 0,
+    },
+}
+
+
 STATIC_ROOT = '/opt/stacks/static'
