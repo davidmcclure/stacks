@@ -2,6 +2,7 @@
 
 import glob
 import os
+import django_rq
 
 from litlab.conf import settings
 
@@ -89,6 +90,8 @@ class Corpus:
             slug=self.slug,
         )
 
-        # TODO|dev
+        queue = django_rq.get_queue()
+
+        # Queue the accessioning jobs.
         for path in self.paths():
-            self.__class__.insert_text(corpus.id, path)
+            queue.enqueue(self.__class__.insert_text, corpus.id, path)
