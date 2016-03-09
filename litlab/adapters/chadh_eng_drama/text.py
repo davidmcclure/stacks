@@ -86,5 +86,5 @@ class Text:
             plain_text  = self.plain_text,
             source_text = self.source_text,
             title       = self.title,
-            author      = self.author,
+            creator     = self.author,
         )

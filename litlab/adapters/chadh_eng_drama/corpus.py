@@ -11,6 +11,8 @@ from .text import Text
 class Corpus:
 
 
+    name = 'Chadwyck Healey English Drama'
+
     slug = 'chadwyck-healey-english-drama'
 
 

@@ -1,8 +1,11 @@
 
 
+import sys
+
 from django.db import models
 
 from corpora import fields
+from corpora.models import Text
 
 
 class Corpus(models.Model):
@@ -35,17 +38,20 @@ class Corpus(models.Model):
             adapter (Adapter)
         """
 
-        # delete existing corpus
-        # create new corpus
-        # iterate over the adapter
-        # merge in the corpus reference
-        # insert the text
-
         # Delete the existing corpus.
         cls.objects.filter(slug=adapter.slug).delete()
 
         # Create a new corpus.
-        corpus = cls.objects.create(slug=adapter.slug)
+        corpus = cls.objects.create(
+            name=adapter.name,
+            slug=adapter.slug,
+        )
 
-        for row in adapter:
-            pass
+        for i, row in enumerate(adapter):
+
+            # Insert the text.
+            row.update(dict(corpus=corpus))
+            Text.objects.create(**row)
+
+            sys.stdout.write('\r'+str(i))
+            sys.stdout.flush()
