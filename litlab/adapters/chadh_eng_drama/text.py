@@ -25,6 +25,24 @@ class Text:
             self.xml = BeautifulSoup(fh, 'lxml')
 
 
+    def __enter__(self):
+
+        """
+        Provide the instance to a `with` block.
+        """
+
+        return self
+
+
+    def __exit__(self, exc_type, exc_value, traceback):
+
+        """
+        Destroy the XML tree.
+        """
+
+        self.xml.decompose()
+
+
     @property
     def source_text(self):
 

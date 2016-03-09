@@ -48,4 +48,5 @@ class Corpus:
         """
 
         for path in glob.glob(os.path.join(self.path, '*.new')):
-            yield Text(path).row
+            with Text(path) as text:
+                yield text.row
