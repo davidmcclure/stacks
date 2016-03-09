@@ -41,10 +41,12 @@ class Corpus:
         text = Text(path)
 
         # Build the text params.
-        row = text.make_row(corpus_id)
+        row = text.build_row(corpus_id)
 
         # Write the new text.
         PGText.objects.create(**row)
+
+        print(path)
 
 
     def __init__(self, path):
@@ -87,5 +89,6 @@ class Corpus:
             slug=self.slug,
         )
 
+        # TODO|dev
         for path in self.paths():
-            print(path)
+            self.__class__.insert_text(corpus.id, path)

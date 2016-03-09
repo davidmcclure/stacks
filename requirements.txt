@@ -9,3 +9,4 @@ factory_boy
 django-appconf
 lxml
 beautifulsoup4
+django-rq

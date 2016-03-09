@@ -73,7 +73,6 @@ class Text:
         return get_text(self.xml, 'volauth')
 
 
-    @property
     def build_row(self, corpus_id):
 
         """
@@ -86,7 +85,7 @@ class Text:
         """
 
         return dict(
-            corpus      = corpus_id,
+            corpus_id   = corpus_id,
             plain_text  = self.plain_text,
             source_text = self.source_text,
             title       = self.title,
