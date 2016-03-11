@@ -7,7 +7,7 @@ from litlab.conf import settings
 
 from corpora.models import Text
 from corpora.adapters import QueueAdapter
-from .volume import Volume
+from .source import Source
 
 
 class Corpus(QueueAdapter):
@@ -32,18 +32,20 @@ class Corpus(QueueAdapter):
     def job(cls, corpus_id, path):
 
         """
-        Add an individual text.
+        Ingest volumes from a source path.
 
         Args:
             corpus_id (int): The id of the parent corpus.
-            path (str): The path of the XML file.
+            path (str): The path of the source file.
         """
 
-        volume = Volume(path)
+        source = Source(path)
 
-        # Write the new text.
-        text = volume.build_text(corpus_id)
-        Text.objects.create(**text)
+        for volume in source.volumes:
+
+            # Write the new text.
+            text = volume.build_text(corpus_id)
+            Text.objects.create(**text)
 
 
     def __init__(self, path):

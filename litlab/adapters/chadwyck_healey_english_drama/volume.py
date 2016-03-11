@@ -10,19 +10,16 @@ from litlab.utils import get_text
 class Volume:
 
 
-    def __init__(self, path):
+    def __init__(self, tree):
 
         """
-        Parse the XML.
+        Set the source tree.
 
         Args:
-            path (str): The text path.
+            tree (BeautifulSoup): The parent <div0>.
         """
 
-        self.path = os.path.abspath(path)
-
-        with open(self.path, 'rb') as fh:
-            self.xml = BeautifulSoup(fh, 'lxml')
+        self.tree = tree
 
 
     @property
@@ -34,7 +31,7 @@ class Volume:
         Returns: str
         """
 
-        return str(self.xml)
+        return str(self.tree)
 
 
     @property
@@ -46,7 +43,7 @@ class Volume:
         Returns: str
         """
 
-        return get_text(self.xml, 'play')
+        return get_text(self.tree, 'play')
 
 
     @property
@@ -58,7 +55,7 @@ class Volume:
         Returns: str
         """
 
-        return get_text(self.xml, 'voltitle')
+        return get_text(self.tree, 'voltitle')
 
 
     @property
@@ -70,7 +67,7 @@ class Volume:
         Returns: str
         """
 
-        return get_text(self.xml, 'volauth')
+        return get_text(self.tree, 'volauth')
 
 
     def build_text(self, corpus_id):
