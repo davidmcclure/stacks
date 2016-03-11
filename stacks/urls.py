@@ -21,5 +21,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^rq/', include('django_rq.urls')),
+    url(r'^queue/', include('django_rq.urls')),
 ]
