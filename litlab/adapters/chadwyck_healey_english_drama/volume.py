@@ -52,6 +52,11 @@ class Volume:
         return get_text(self.tree, 'comcitn y1')
 
 
+    @property
+    def genre(self):
+        return get_text(self.tree, 'attgenre')
+
+
     def build_text(self, corpus_id):
 
         """
@@ -73,5 +78,6 @@ class Volume:
             alternative = self.full_title,
             creator     = self.author,
             date        = self.year,
+            type        = self.genre,
 
         )
