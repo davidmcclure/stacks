@@ -8,3 +8,5 @@
 /dist
 /.cache
 /.env
+
+/stacks/settings/production.py
