@@ -9,4 +9,5 @@ factory_boy
 django-appconf
 lxml
 beautifulsoup4
-django-rq
+
+-e git+https://github.com/ui/django-rq.git#egg=django-rq
