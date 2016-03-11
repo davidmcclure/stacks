@@ -24,49 +24,26 @@ class Volume:
 
     @property
     def source_text(self):
-
-        """
-        Get the raw markup as a string.
-
-        Returns: str
-        """
-
         return str(self.tree)
 
 
     @property
     def plain_text(self):
-
-        """
-        Extract plaintext.
-
-        Returns: str
-        """
-
         return get_text(self.tree, 'play')
 
 
     @property
     def title(self):
-
-        """
-        Query the title.
-
-        Returns: str
-        """
-
         return get_text(self.tree, 'voltitle')
 
 
     @property
+    def full_title(self):
+        return get_text(self.tree, 'pubtitle')
+
+
+    @property
     def author(self):
-
-        """
-        Query the author.
-
-        Returns: str
-        """
-
         return get_text(self.tree, 'volauth')
 
 
@@ -82,9 +59,13 @@ class Volume:
         """
 
         return dict(
+
             corpus_id   = corpus_id,
             plain_text  = self.plain_text,
             source_text = self.source_text,
+
             title       = self.title,
+            alternative = self.full_title,
             creator     = self.author,
+
         )
