@@ -57,6 +57,11 @@ class Volume:
         return get_text(self.tree, 'attgenre')
 
 
+    @property
+    def period(self):
+        return get_text(self.tree, 'newatts attperi')
+
+
     def build_text(self, corpus_id):
 
         """
@@ -79,5 +84,6 @@ class Volume:
             creator     = self.author,
             date        = self.year,
             type        = self.genre,
+            temporal    = self.period,
 
         )
