@@ -73,7 +73,7 @@ class Volume:
         return get_text(self.xml, 'volauth')
 
 
-    def build_row(self, corpus_id):
+    def build_text(self, corpus_id):
 
         """
         Assemble fields for a Text instances.

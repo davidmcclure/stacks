@@ -42,8 +42,8 @@ class ChadwyckHealeyEnglishDrama(QueueAdapter):
         volume = Volume(path)
 
         # Write the new text.
-        row = volume.build_row(corpus_id)
-        Text.objects.create(**row)
+        text = volume.build_text(corpus_id)
+        Text.objects.create(**text)
 
 
     def __init__(self, path):
