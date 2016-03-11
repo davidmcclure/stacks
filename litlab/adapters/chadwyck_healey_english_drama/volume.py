@@ -47,6 +47,11 @@ class Volume:
         return get_text(self.tree, 'volauth')
 
 
+    @property
+    def year(self):
+        return get_text(self.tree, 'comcitn y1')
+
+
     def build_text(self, corpus_id):
 
         """
@@ -61,11 +66,12 @@ class Volume:
         return dict(
 
             corpus_id   = corpus_id,
-            plain_text  = self.plain_text,
             source_text = self.source_text,
+            plain_text  = self.plain_text,
 
             title       = self.title,
             alternative = self.full_title,
             creator     = self.author,
+            date        = self.year,
 
         )
