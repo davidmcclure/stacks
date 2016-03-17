@@ -41,7 +41,7 @@ class Corpus(QueueAdapter):
 
         source = Source(path)
 
-        for volume in source.volumes:
+        for volume in source.volumes():
 
             # Write the new text.
             text = volume.build_text(corpus_id)

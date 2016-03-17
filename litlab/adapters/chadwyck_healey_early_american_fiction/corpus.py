@@ -7,6 +7,7 @@ from litlab.conf import settings
 
 from corpora.models import Text
 from corpora.adapters import QueueAdapter
+from .source import Source
 
 
 class Corpus(QueueAdapter):
@@ -38,7 +39,13 @@ class Corpus(QueueAdapter):
             path (str): The path of the source file.
         """
 
-        pass
+        source = Source(path)
+
+        for volume in source.volumes():
+
+            # Write the new text.
+            text = volume.build_text(corpus_id)
+            Text.objects.create(**text)
 
 
     def __init__(self, path):
