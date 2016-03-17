@@ -28,7 +28,6 @@ class QueueAdapter:
         raise NotImplementedError
 
 
-    @property
     def paths(self):
 
         """
@@ -70,5 +69,5 @@ class QueueAdapter:
         queue = django_rq.get_queue()
 
         # Spool a job for each source.
-        for path in self.paths:
+        for path in self.paths():
             queue.enqueue(self.__class__.job, corpus.id, path)
