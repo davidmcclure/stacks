@@ -13,3 +13,7 @@ class LitlabAppConf(AppConf):
 
     CHADWYCK_HEALEY_EARLY_AMERICAN_FICTION = \
         '/data/chadwyck-healey/early-american-fiction'
+
+
+    CHADWYCK_HEALEY_AMERICAN_DRAMA = \
+        '/data/chadwyck-healey/american-drama'
