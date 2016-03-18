@@ -28,6 +28,16 @@ class QueueAdapter:
         raise NotImplementedError
 
 
+    @classmethod
+    def from_env(cls):
+
+        """
+        Make an instance from the ENV-defined corpus path.
+        """
+
+        raise NotImplementedError
+
+
     def paths(self):
 
         """
