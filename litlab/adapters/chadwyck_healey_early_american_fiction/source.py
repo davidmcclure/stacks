@@ -22,7 +22,7 @@ class Source:
         self.path = os.path.abspath(path)
 
         with open(self.path, 'rb') as fh:
-            self.xml = BeautifulSoup(fh, 'lxml')
+            self.xml = BeautifulSoup(fh, 'lxml-xml')
 
 
     def volumes(self):
