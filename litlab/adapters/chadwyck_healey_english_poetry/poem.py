@@ -32,7 +32,8 @@ class Poem:
 
         # Remove metadata containers.
         for selector in ['comhd3', 'attribs', 'newatts']:
-            copy.select_one(tag).extract()
+            tag = copy.select_one(selector)
+            if tag: tag.extract()
 
         return get_text(copy, 'poem')
 
