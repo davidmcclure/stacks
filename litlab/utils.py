@@ -1,5 +1,8 @@
 
 
+from bs4 import BeautifulSoup
+
+
 def get_text(tree, selector):
 
     """
@@ -21,3 +24,17 @@ def get_text(tree, selector):
 
     else:
         return None
+
+
+def clone_tree(tree, parser='lxml'):
+
+    """
+    Create an copy of bs4 tree.
+
+    Args:
+        tree (BeautifulSoup): A bs4 tree.
+
+    Returns: BeautifulSoup
+    """
+
+    return BeautifulSoup(str(tree), parser)
