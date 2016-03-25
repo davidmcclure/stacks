@@ -32,7 +32,7 @@ class Corpus(QueueAdapter):
     def job(cls, corpus_id, path):
 
         """
-        Ingest volumes from a source path.
+        Ingest poems from a source path.
 
         Args:
             corpus_id (int): The id of the parent corpus.
@@ -41,10 +41,10 @@ class Corpus(QueueAdapter):
 
         source = Source(path)
 
-        for volume in source.volumes():
+        for poem in source.poems():
 
             # Write the new text.
-            text = volume.build_text(corpus_id)
+            text = poem.build_text(corpus_id)
             Text.objects.create(**text)
 
 

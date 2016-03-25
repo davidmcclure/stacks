@@ -31,7 +31,7 @@ class Poem:
         copy = clone_tree(self.tree)
 
         # Remove metadata containers.
-        for tag in ['comhd3', 'attribs', 'newatts']:
+        for selector in ['comhd3', 'attribs', 'newatts']:
             copy.select_one(tag).extract()
 
         return get_text(copy, 'poem')
@@ -48,5 +48,41 @@ class Poem:
 
 
     @property
+    def year(self):
+        return get_text(self.tree, 'attputn1')
+
+
+    @property
+    def period(self):
+        return get_text(self.tree, 'attperi')
+
+
+    @property
     def genre(self):
         return get_text(self.tree, 'attgenre')
+
+
+    def build_text(self, corpus_id):
+
+        """
+        Assemble fields for a Text instances.
+
+        Args:
+            corpus_id (int)
+
+        Returns: dict
+        """
+
+        return dict(
+
+            corpus_id   = corpus_id,
+            source_text = self.source_text,
+            plain_text  = self.plain_text,
+
+            title       = self.title,
+            creator     = self.author,
+            date        = self.year,
+            temporal    = self.period,
+            type        = self.genre,
+
+        )
