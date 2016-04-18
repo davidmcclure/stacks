@@ -13,7 +13,7 @@ class Text(models.Model):
     source_text = models.TextField()
 
     # Plain text extracted from the source markup.
-    plain_text = models.TextField(null=True)
+    plain_text = models.TextField()
 
 
     # Dublin Core - Library Application Profile
