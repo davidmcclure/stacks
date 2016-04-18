@@ -15,3 +15,7 @@ from .chadwyck_healey_american_drama import (
 from .chadwyck_healey_english_poetry import (
     ChadwyckHealeyEnglishPoetry
 )
+
+from .chadwyck_healey_american_poetry import (
+    ChadwyckHealeyAmericanPoetry
+)
