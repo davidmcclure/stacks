@@ -31,7 +31,7 @@ class Poem:
         copy = clone_tree(self.tree)
 
         # Remove metadata containers.
-        for selector in ['comhd3', 'attribs', 'newatts']:
+        for selector in ['comhd2', 'somhead', 'attribs', 'newatts']:
             tag = copy.select_one(selector)
             if tag: tag.extract()
 
@@ -50,7 +50,7 @@ class Poem:
 
     @property
     def year(self):
-        return get_text(self.tree, 'attputn1')
+        return get_text(self.tree, 'attpubn1')
 
 
     @property

@@ -33,5 +33,5 @@ class Source:
         Yields: Poem
         """
 
-        for tree in self.xml.find_all('div3'):
+        for tree in self.xml.find_all('div2'):
             yield Poem(tree)
