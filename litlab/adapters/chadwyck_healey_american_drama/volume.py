@@ -44,7 +44,7 @@ class Volume:
 
     @property
     def author(self):
-        return get_text(self.tree, 'volauth')
+        return get_text(self.tree, 'attauth')
 
 
     @property
