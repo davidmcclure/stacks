@@ -15,7 +15,7 @@ pytestmark = pytest.mark.django_db
 def test_ingest():
 
     """
-    TODO: Adapter testing harness.
+    TODO|dev
     """
 
     path = os.path.join(os.path.dirname(__file__), 'fixtures')
@@ -27,7 +27,9 @@ def test_ingest():
 
     text = Text.objects.first()
 
-    assert text.title == 'Favelle: Or The Fatal Duel (1809)'
+    assert text.title   == 'Favelle: Or The Fatal Duel (1809)'
     assert text.creator == 'Adams, C. L. (Charles L.)'
-    assert text.date == '1809'
-    assert text.type == 'Drama'
+    assert text.date    == '1809'
+    assert text.type    == 'Drama'
+
+    assert 'it is possible that an unguarded word may' in text.plain_text
