@@ -14,10 +14,24 @@ pytestmark = [
 ]
 
 
-def test_ingest():
+@pytest.mark.parametrize('query', [
+
+    dict(
+
+        title   = 'Favelle: Or The Fatal Duel (1809)',
+        creator = 'Adams, C. L. (Charles L.)',
+        date    = '1809',
+        type    = 'Drama',
+
+        plain_text__icontains = 'it is possible that an unguarded word may',
+
+    ),
+
+])
+def test_ingest(query):
 
     """
-    TODO|dev
+    Test text ingest.
     """
 
     path = os.path.join(os.path.dirname(__file__), 'fixtures')
@@ -27,13 +41,4 @@ def test_ingest():
 
     django_rq.get_worker().work(burst=True)
 
-    assert Text.objects.filter(
-
-        title   = 'Favelle: Or The Fatal Duel (1809)',
-        creator = 'Adams, C. L. (Charles L.)',
-        date    = '1809',
-        type    = 'Drama',
-
-        plain_text__icontains = 'it is possible that an unguarded word may'
-
-    ).exists()
+    assert Text.objects.filter(**query).exists()
