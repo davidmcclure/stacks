@@ -9,7 +9,10 @@ from litlab.adapters import ChadwyckHealeyAmericanDrama
 from corpora.models import Text
 
 
-pytestmark = pytest.mark.django_db
+pytestmark = [
+    pytest.mark.django_db,
+    pytest.mark.usefixtures('redis'),
+]
 
 
 def test_ingest():
