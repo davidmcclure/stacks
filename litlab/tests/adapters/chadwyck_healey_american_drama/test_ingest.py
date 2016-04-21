@@ -1,9 +1,8 @@
 
 
-import pytest
 import os
-
-from django_rq import get_worker
+import django_rq
+import pytest
 
 from litlab.adapters import ChadwyckHealeyAmericanDrama
 from corpora.models import Text
@@ -26,7 +25,7 @@ def test_ingest():
 
     corpus.queue()
 
-    get_worker().work(burst=True)
+    django_rq.get_worker().work(burst=True)
 
     text = Text.objects.first()
 
