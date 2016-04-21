@@ -38,15 +38,6 @@ class QueueAdapter:
         raise NotImplementedError
 
 
-    def paths(self):
-
-        """
-        A stream of paths for individual resources in the corpus.
-        """
-
-        raise NotImplementedError
-
-
     @classmethod
     def job(self, corpus_id, path):
 
@@ -56,6 +47,15 @@ class QueueAdapter:
         Args:
             corpus_id (int): The id of the parent corpus.
             path (str): The filesystem path of the resource.
+        """
+
+        raise NotImplementedError
+
+
+    def paths(self):
+
+        """
+        A stream of paths for individual resources in the corpus.
         """
 
         raise NotImplementedError
