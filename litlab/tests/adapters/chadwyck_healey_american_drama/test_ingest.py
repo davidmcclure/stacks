@@ -27,11 +27,13 @@ def test_ingest():
 
     django_rq.get_worker().work(burst=True)
 
-    text = Text.objects.first()
+    assert Text.objects.filter(
 
-    assert text.title   == 'Favelle: Or The Fatal Duel (1809)'
-    assert text.creator == 'Adams, C. L. (Charles L.)'
-    assert text.date    == '1809'
-    assert text.type    == 'Drama'
+        title   = 'Favelle: Or The Fatal Duel (1809)',
+        creator = 'Adams, C. L. (Charles L.)',
+        date    = '1809',
+        type    = 'Drama',
 
-    assert 'it is possible that an unguarded word may' in text.plain_text
+        plain_text__icontains = 'it is possible that an unguarded word may'
+
+    ).exists()
