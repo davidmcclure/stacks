@@ -5,6 +5,7 @@ import django_rq
 import pytest
 
 from litlab.adapters import ChadwyckHealeyAmericanDrama
+from django.core.management import call_command
 from corpora.models import Text
 
 
@@ -40,11 +41,8 @@ def test_ingest(query, settings):
         'fixtures',
     )
 
-    # Queue jobs.
-    corpus = ChadwyckHealeyAmericanDrama.from_env()
-    corpus.queue()
-
-    # Execute jobs.
+    # Run the ingest.
+    call_command('queue_ingest', 'ChadwyckHealeyAmericanDrama')
     django_rq.get_worker().work(burst=True)
 
     assert Text.objects.filter(**query).exists()
