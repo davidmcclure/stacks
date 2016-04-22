@@ -28,6 +28,16 @@ pytestmark = [
 
     ),
 
+    dict(
+
+        title   = 'Vanity; or, A Lord in Philadelphia (1854)',
+        creator = 'Addis, J. B.',
+        date    = '1854',
+
+        plain_text__icontains = 'Of course, I sent a liveried servant',
+
+    ),
+
 ])
 def test_ingest(query, settings):
 
