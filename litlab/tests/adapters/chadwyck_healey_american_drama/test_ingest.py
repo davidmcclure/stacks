@@ -28,17 +28,23 @@ pytestmark = [
     ),
 
 ])
-def test_ingest(query):
+def test_ingest(query, settings):
 
     """
     Test text ingest.
     """
 
-    path = os.path.join(os.path.dirname(__file__), 'fixtures')
-    corpus = ChadwyckHealeyAmericanDrama(path)
+    # Inject fixtures.
+    settings.LITLAB_CHADWYCK_HEALEY_AMERICAN_DRAMA = os.path.join(
+        os.path.dirname(__file__),
+        'fixtures',
+    )
 
+    # Queue jobs.
+    corpus = ChadwyckHealeyAmericanDrama.from_env()
     corpus.queue()
 
+    # Execute jobs.
     django_rq.get_worker().work(burst=True)
 
     assert Text.objects.filter(**query).exists()
