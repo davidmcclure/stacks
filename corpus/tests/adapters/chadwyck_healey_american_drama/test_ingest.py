@@ -40,10 +40,6 @@ pytestmark = [
 ])
 def test_ingest(query, settings):
 
-    """
-    Test text ingest.
-    """
-
     # Inject fixtures.
     settings.CORPUS_CHADWYCK_HEALEY_AMERICAN_DRAMA = os.path.join(
         os.path.dirname(__file__),

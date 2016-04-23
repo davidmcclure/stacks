@@ -40,12 +40,12 @@ class Poem:
 
     @property
     def title(self):
-        return get_text(self.tree, 'mainhead')
+        return get_text(self.tree, 'newatts mainhead')
 
 
     @property
     def author(self):
-        return get_text(self.tree, 'somauth')
+        return get_text(self.tree, 'attpoet')
 
 
     @property
@@ -80,10 +80,8 @@ class Poem:
             source_text = self.source_text,
             plain_text  = self.plain_text,
 
-            title       = self.title,
-            creator     = self.author,
-            date        = self.year,
-            temporal    = self.period,
-            type        = self.genre,
+            title   = self.title,
+            author  = self.author,
+            year    = self.year,
 
         )
