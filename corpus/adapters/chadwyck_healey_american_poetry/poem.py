@@ -53,16 +53,6 @@ class Poem:
         return get_text(self.tree, 'attpubn1')
 
 
-    @property
-    def period(self):
-        return get_text(self.tree, 'attperi')
-
-
-    @property
-    def genre(self):
-        return get_text(self.tree, 'attgenre')
-
-
     def build_text(self, corpus_id):
 
         """

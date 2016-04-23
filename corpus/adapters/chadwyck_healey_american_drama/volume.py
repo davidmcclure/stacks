@@ -38,11 +38,6 @@ class Volume:
 
 
     @property
-    def full_title(self):
-        return get_text(self.tree, 'pubtitle')
-
-
-    @property
     def author(self):
         return get_text(self.tree, 'attauth')
 
@@ -50,11 +45,6 @@ class Volume:
     @property
     def year(self):
         return get_text(self.tree, 'comhd1 y1')
-
-
-    @property
-    def genre(self):
-        return get_text(self.tree, 'attgenre')
 
 
     def build_text(self, corpus_id):
