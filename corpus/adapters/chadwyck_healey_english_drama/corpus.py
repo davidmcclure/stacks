@@ -4,9 +4,8 @@ import glob
 import os
 
 from corpus.conf import settings
-
 from corpus.models import Text
-from corpus.adapters import QueueAdapter
+from corpus.adapters.base import QueueAdapter
 from .source import Source
 
 

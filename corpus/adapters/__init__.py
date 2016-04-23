@@ -1,7 +1,5 @@
 
 
-from .queue import QueueAdapter
-
 from .chadwyck_healey_english_drama import (
     ChadwyckHealeyEnglishDrama
 )
