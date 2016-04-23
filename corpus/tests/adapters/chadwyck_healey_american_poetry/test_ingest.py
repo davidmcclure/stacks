@@ -27,6 +27,16 @@ pytestmark = [
 
     ),
 
+    dict(
+
+        title   = 'THE CONSPIRACY OF KINGS.',
+        author  = 'Barlow, Joel, 1754-1812',
+        year    = 1792,
+
+        plain_text__icontains = 'Where Justice reigns, and tyrants tread no more,',
+
+    ),
+
 ])
 def test_ingest(query, settings):
 
