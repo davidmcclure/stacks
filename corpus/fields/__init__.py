@@ -1,0 +1,3 @@
+
+
+from .slug import SlugField
