@@ -6,7 +6,7 @@ import pytest
 
 from litlab.adapters import ChadwyckHealeyAmericanDrama
 from django.core.management import call_command
-from corpora.models import Text
+from corpus.models import Text
 
 
 pytestmark = [

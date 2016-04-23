@@ -5,8 +5,8 @@ import os
 
 from litlab.conf import settings
 
-from corpora.models import Text
-from corpora.adapters import QueueAdapter
+from corpus.models import Text
+from corpus.adapters import QueueAdapter
 from .source import Source
 
 
