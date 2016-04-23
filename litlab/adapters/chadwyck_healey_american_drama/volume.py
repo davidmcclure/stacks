@@ -74,10 +74,8 @@ class Volume:
             source_text = self.source_text,
             plain_text  = self.plain_text,
 
-            title       = self.title,
-            alternative = self.full_title,
-            creator     = self.author,
-            date        = self.year,
-            type        = self.genre,
+            title   = self.title,
+            author  = self.author,
+            year    = self.year,
 
         )

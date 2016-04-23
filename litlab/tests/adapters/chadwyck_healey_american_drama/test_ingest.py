@@ -20,9 +20,8 @@ pytestmark = [
     dict(
 
         title   = 'Favelle: Or The Fatal Duel (1809)',
-        creator = 'Adams, C. L. (Charles L.)',
-        date    = '1809',
-        type    = 'Drama',
+        author  = 'Adams, C. L. (Charles L.)',
+        year    = 1809,
 
         plain_text__icontains = 'it is possible that an unguarded word may',
 
@@ -31,8 +30,8 @@ pytestmark = [
     dict(
 
         title   = 'Vanity; or, A Lord in Philadelphia (1854)',
-        creator = 'Addis, J. B.',
-        date    = '1854',
+        author  = 'Addis, J. B.',
+        year    = 1854,
 
         plain_text__icontains = 'Of course, I sent a liveried servant',
 
