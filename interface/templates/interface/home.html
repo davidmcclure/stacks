@@ -18,7 +18,12 @@
       <form>
 
         <div class="form-group">
+
           <label>Corpora</label>
+
+          <p class="help-block">Select a set of corpora to draw texts from. If
+          no values are selected, the query will draw from everything.</p>
+
           <select multiple class="form-control">
 
             <optgroup label="Chadwyck Healey">
@@ -48,38 +53,57 @@
             <option>Literary Lab - 20th Century</option>
 
           </select>
+
         </div>
 
         <div class="form-group">
           <label>Start Year</label>
+          <p class="help-block">Exclude texts published before this year.</p>
           <input type="number" class="form-control" value="1750" />
         </div>
 
         <div class="form-group">
           <label>End Year</label>
+          <p class="help-block">Exclude texts published after this year.</p>
           <input type="number" class="form-control" value="1920" />
         </div>
 
         <!-- year range -->
 
         <div class="form-group">
+
           <label>Category</label>
+
+          <p class="help-block">Filter on high-level text categories.</p>
+
           <select multiple class="form-control">
             <option>Prose</option>
             <option>Poetry</option>
             <option>Drama</option>
           </select>
+
         </div>
 
         <div class="form-group">
-          <label>OCR Percentage</label>
-          <input type="number" class="form-control" value="80" />
+
+          <label>Minimum OCR Percentage</label>
+
+          <p class="help-block">Require that a given percentage of words in a
+          text exist in a standardized dictionary, which weeds out texts with
+          large numbers of OCR errors.</p>
+
+          <input type="number" class="form-control" value="90" />
+
         </div>
 
         <div class="form-group">
+
           <label>Classified Genre</label>
-          <select multiple class="form-control">
 
+          <p class="help-block">Filter on genre assignments computed by an
+          in-house classifier. These are fairly correct, but not 100%.</p>
+
+          <select multiple class="form-control">
             <optgroup label="Novels">
               <option>National</option>
               <option>Industrial</option>
@@ -91,8 +115,8 @@
               <option>Gothic</option>
               <option>Historical</option>
             </optgroup>
-
           </select>
+
         </div>
 
         <button type="submit" class="btn btn-primary btn-lg">
