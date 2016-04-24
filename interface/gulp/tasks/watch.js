@@ -7,5 +7,5 @@ import {$, paths} from '../config';
 
 gulp.task('watch', () => {
   $.livereload.listen()
-  gulp.watch(`${paths.css}/**/*.scss`, ['less']);
+  gulp.watch(`${paths.css}/**/*.scss`, ['sass']);
 });
