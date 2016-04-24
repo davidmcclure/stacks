@@ -22,5 +22,8 @@
     "merge-stream": "^1.0.0",
     "require-dir": "^0.3.0",
     "yargs": "^4.6.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6"
   }
 }
