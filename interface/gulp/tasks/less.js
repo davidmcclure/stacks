@@ -6,20 +6,26 @@ import merge from 'merge-stream';
 import {$, paths, min} from '../config';
 
 
-gulp.task('sass', () => {
+gulp.task('less', () => {
 
   const opts = {
-    includePaths: 'node_modules',
-    outputStyle: min ? 'compressed' : 'nested',
+    paths: 'node_modules',
+    compress: min,
   };
 
   return merge([
     'home',
   ].map(app => {
 
-    return gulp.src(`${paths.css}/${app}/${app}.scss`)
+    return gulp.src(`${paths.css}/${app}/${app}.less`)
+
       .pipe($.if(!min, $.sourcemaps.init()))
-      .pipe($.sass(opts).on('error', $.sass.logError))
+
+      .pipe($.less(opts).on('error', function(err) {
+        console.log(err);
+        this.end()
+      }))
+
       .pipe($.if(!min, $.sourcemaps.write()))
       .pipe(gulp.dest(paths.out))
       .pipe($.livereload())
