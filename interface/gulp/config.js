@@ -9,6 +9,7 @@ export const $ = loadPlugins();
 export const min = yargs.argv.min;
 
 export const paths = {
-  css: './assets/stylesheets',
-  out: './static/interface',
+  css:  './assets/stylesheets',
+  js:   './assets/javascripts',
+  out:  './static/interface',
 };
