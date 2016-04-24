@@ -2,4 +2,7 @@
 
 from django.shortcuts import render
 
-# Create your views here.
+
+# TODO|dev
+def home(request):
+    return render(request, 'interface/home.html')
