@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django_rq',
 
     'corpus',
-    'interface',
 
 ]
 
