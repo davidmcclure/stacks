@@ -2,18 +2,22 @@
 
 
 Z200140145:
-  title: THE COLUMBIAD. A Poem, WITH THE LAST CORRECTIONS OF THE AUTHOR.
-  author: Barlow, Joel, 1754-1812
-  year: 1825
 
-  source_text__icontains: <l>Tu spiegherni, Colombo, a un novo polo</l>
-  plain_text__icontains: Tu spiegherni, Colombo, a un novo polo
+  equals:
+    title: THE COLUMBIAD. A Poem, WITH THE LAST CORRECTIONS OF THE AUTHOR.
+    author: Barlow, Joel, 1754-1812
+    year: 1825
+
+  contains:
+    source_text: <l>Tu spiegherni, Colombo, a un novo polo</l>
+    plain_text: Tu spiegherni, Colombo, a un novo polo
 
 
-Z200140159:
-  title: THE CONSPIRACY OF KINGS.
-  author: Barlow, Joel, 1754-1812
-  year: 1792
+#Z200140159:
 
-  source_text__icontains: <hi r="smcap">Eternal</hi> Truth, thy trump undaunted lend
-  plain_text__icontains: Truth, thy trump undaunted lend
+  #title: THE CONSPIRACY OF KINGS.
+  #author: Barlow, Joel, 1754-1812
+  #year: 1792
+
+  #source_text__icontains: <hi r="smcap">Eternal</hi> Truth, thy trump undaunted lend
+  #plain_text__icontains: Eternal Truth, thy trump undaunted lend

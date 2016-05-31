@@ -7,7 +7,7 @@ import yaml
 
 from django.core.management import call_command
 
-from corpus.models import Text
+from corpus.models import Text, Corpus
 
 
 pytestmark = [
@@ -30,11 +30,19 @@ def test_ingest(settings):
     call_command('queue_ingest', 'ChadwyckHealeyAmericanPoetry')
     django_rq.get_worker().work(burst=True)
 
+    corpus = Corpus.objects.get(slug='chadwyck-healey-american-poetry')
+
     # Read the YAML cases.
     with open(text_path) as fh:
         texts = yaml.load(fh)
 
-    # Check for text.
-    for id, params in texts.items():
-        for key, val in params.items():
-            assert Text.objects.filter(identifier=id, **{key: val})
+    # Check for texts.
+    for id, fields in texts.items():
+
+        text = Text.objects.get(corpus=corpus, identifier=id)
+
+        for key, val in fields.get('equals', {}).items():
+            assert getattr(text, key) == val
+
+        for key, val in fields.get('contains', {}).items():
+            assert val in getattr(text, key)
