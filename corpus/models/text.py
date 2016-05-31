@@ -5,6 +5,7 @@ from django.db import models
 
 class Text(models.Model):
 
+
     corpus = models.ForeignKey('Corpus')
 
     # The original representation of the text.
@@ -13,14 +14,15 @@ class Text(models.Model):
     # Plain text extracted from the source markup.
     plain_text = models.TextField()
 
+
     # Metadata:
 
     title = models.TextField()
 
     author = models.TextField(
-        null=True
+        null=True,
     )
 
     year = models.IntegerField(
-        null=True
+        null=True,
     )
