@@ -6,7 +6,7 @@ import pytest
 import yaml
 
 from django.core.management import call_command
-from corpus.adapters import ChadwyckHealeyAmericanDrama
+
 from corpus.models import Text
 
 
@@ -20,17 +20,18 @@ def test_ingest(settings):
 
     dirname = os.path.dirname(__file__)
 
+    fixtures_path = os.path.join(dirname, 'fixtures')
+    text_path = os.path.join(dirname, 'texts.yml')
+
     # Inject fixtures.
-    settings.CORPUS_CHADWYCK_HEALEY_AMERICAN_POETRY = os.path.join(
-        dirname, 'fixtures',
-    )
+    settings.CORPUS_CHADWYCK_HEALEY_AMERICAN_POETRY = fixtures_path
 
     # Run the ingest.
     call_command('queue_ingest', 'ChadwyckHealeyAmericanPoetry')
     django_rq.get_worker().work(burst=True)
 
     # Read the YAML cases.
-    with open(os.path.join(dirname, 'texts.yml')) as fh:
+    with open(text_path) as fh:
         texts = yaml.load(fh)
 
     # Check for text.
