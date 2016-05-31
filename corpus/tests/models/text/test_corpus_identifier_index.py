@@ -12,7 +12,7 @@ pytestmark = pytest.mark.django_db
 def test_block_duplicate_identifiers_in_the_same_corpus():
 
     """
-    Within a given corpus, block duplicate identifiers.
+    Within a given corpus, identifiers must be unique.
     """
 
     corpus = CorpusFactory.create()
@@ -26,7 +26,7 @@ def test_block_duplicate_identifiers_in_the_same_corpus():
 def test_allow_duplicate_identifiers_in_different_corpora():
 
     """
-    Texts in different corpora should be allowed to have the same identifiers.
+    Texts in different corpora can have the same identifiers.
     """
 
     corpus1 = CorpusFactory.create()
