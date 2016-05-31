@@ -29,10 +29,11 @@ def test_ingest(settings):
     call_command('queue_ingest', 'ChadwyckHealeyAmericanPoetry')
     django_rq.get_worker().work(burst=True)
 
-    # Check for texts.
+    # Read the YAML cases.
     with open(os.path.join(dirname, 'texts.yml')) as fh:
-
         texts = yaml.load(fh)
 
-        for text in texts:
-            assert Text.objects.filter(**text).exists()
+    # Check for text.
+    for id, params in texts.items():
+        for key, val in params.items():
+            assert Text.objects.filter(identifier=id, **{key: val})
