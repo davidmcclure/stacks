@@ -29,8 +29,6 @@ def test_ingest(settings):
     call_command('queue_ingest', 'ChadwyckHealeyAmericanPoetry')
     django_rq.get_worker().work(burst=True)
 
-    print(Text.objects.count())
-
     # Check for texts.
     with open(os.path.join(dirname, 'texts.yml')) as fh:
 

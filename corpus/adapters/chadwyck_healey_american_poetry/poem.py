@@ -15,6 +15,11 @@ class Poem:
 
 
     @property
+    def identifier(self):
+        return get_text(self.tree, 'comhd2 idref')
+
+
+    @property
     def source_text(self):
         return str(self.tree)
 
@@ -67,6 +72,7 @@ class Poem:
         return dict(
 
             corpus_id   = corpus_id,
+            identifier  = self.identifier,
             source_text = self.source_text,
             plain_text  = self.plain_text,
 

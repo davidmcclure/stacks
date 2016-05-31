@@ -8,14 +8,19 @@ class Text(models.Model):
 
     corpus = models.ForeignKey('Corpus')
 
+    identifier = models.CharField(
+        db_index=True,
+        max_length=100,
+    )
+
     # The original representation of the text.
     source_text = models.TextField()
 
-    # Plain text extracted from the source markup.
+    # Plain-text extracted from the original.
     plain_text = models.TextField()
 
 
-    # Metadata:
+    # ** Metadata
 
     title = models.TextField()
 
@@ -26,3 +31,7 @@ class Text(models.Model):
     year = models.IntegerField(
         null=True,
     )
+
+
+    class Meta:
+        unique_together = ('corpus', 'identifier')
