@@ -6,6 +6,7 @@ import pytest
 import yaml
 
 from django.core.management import call_command
+from django.conf import settings
 
 from corpus.models import Text, Corpus
 
@@ -14,6 +15,25 @@ pytestmark = [
     pytest.mark.django_db,
     pytest.mark.usefixtures('redis'),
 ]
+
+
+@pytest.fixture(scope='module', autouse=True)
+def ingest(_django_db_setup, _django_cursor_wrapper):
+
+    """
+    Run the corpus ingest.
+    """
+
+    path = os.path.join(os.path.dirname(__file__), 'fixtures')
+
+    # Patch the corpus path.
+    settings.CORPUS_CHADWYCK_HEALEY_AMERICAN_POETRY = path
+
+    with _django_cursor_wrapper:
+
+        # Run the ingest.
+        call_command('queue_ingest', 'ChadwyckHealeyAmericanPoetry')
+        django_rq.get_worker().work(burst=True)
 
 
 def pytest_generate_tests(metafunc):
@@ -32,20 +52,10 @@ def pytest_generate_tests(metafunc):
 
 def test_ingest(settings, id, fields):
 
-    path = os.path.join(os.path.dirname(__file__), 'fixtures')
-
-    # Patch the corpus path.
-    settings.CORPUS_CHADWYCK_HEALEY_AMERICAN_POETRY = path
-
-    # Run the ingest.
-    call_command('queue_ingest', 'ChadwyckHealeyAmericanPoetry')
-    django_rq.get_worker().work(burst=True)
-
-    corpus = Corpus.objects.get(slug='chadwyck-healey-american-poetry')
-
-    # Check for text.
-
-    text = Text.objects.get(corpus=corpus, identifier=id)
+    text = Text.objects.get(
+        corpus__slug='chadwyck-healey-american-poetry',
+        identifier=id,
+    )
 
     for key, val in fields.get('equals', {}).items():
         assert getattr(text, key) == val
