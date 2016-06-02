@@ -16,7 +16,7 @@ class Source:
         Parse the XML.
 
         Args:
-            path (str): The text path.
+            path (str)
         """
 
         self.path = os.path.abspath(path)

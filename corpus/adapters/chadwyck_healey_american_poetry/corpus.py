@@ -34,8 +34,8 @@ class Corpus(QueueAdapter):
         Ingest poems from a source path.
 
         Args:
-            corpus_id (int): The id of the parent corpus.
-            path (str): The path of the source file.
+            corpus_id (int)
+            path (str)
         """
 
         source = Source(path)
@@ -53,7 +53,7 @@ class Corpus(QueueAdapter):
         Set the corpus path.
 
         Args:
-            path (str): The corpus path.
+            path (str)
         """
 
         self.path = os.path.abspath(path)
@@ -64,8 +64,7 @@ class Corpus(QueueAdapter):
         """
         Generate text paths.
 
-        Yields:
-            str: The next path
+        Yields: str
         """
 
         return glob.glob(os.path.join(self.path, '*.new'))
