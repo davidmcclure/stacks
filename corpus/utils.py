@@ -38,3 +38,23 @@ def clone_tree(tree, parser='lxml'):
     """
 
     return BeautifulSoup(str(tree), parser)
+
+
+def remove_tags(tree, tags):
+
+    """
+    Copy a tree and remove all instances of the passed tags.
+
+    Args:
+        tags (list<str>)
+
+    Returns: BeautifulSoup
+    """
+
+    copy = clone_tree(tree)
+
+    for tag in tags:
+        for el in copy.select(tag):
+            el.extract()
+
+    return copy

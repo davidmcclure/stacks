@@ -4,7 +4,7 @@ import os
 
 from bs4 import BeautifulSoup
 
-from corpus.utils import get_text, clone_tree
+from corpus.utils import get_text, remove_tags
 
 
 class Poem:
@@ -33,13 +33,13 @@ class Poem:
         Returns: str
         """
 
-        copy = clone_tree(self.tree)
+        clean = remove_tags(self.tree, [
+            'comhd2',
+            'attribs',
+            'newatts',
+        ])
 
-        # Remove metadata containers.
-        for tag in copy.select('comhd2, attribs, newatts'):
-            tag.extract()
-
-        return get_text(copy, 'poem')
+        return get_text(clean, 'poem')
 
 
     @property
