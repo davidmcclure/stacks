@@ -15,32 +15,23 @@ class Poem:
 
 
     @property
+    def identifier(self):
+        return get_text(self.tree, 'comhd3 idref')
+
+
+    @property
     def source_text(self):
         return str(self.tree)
 
 
     @property
     def plain_text(self):
-
-        """
-        Strip out the header metadata.
-
-        Returns: str
-        """
-
-        copy = clone_tree(self.tree)
-
-        # Remove metadata containers.
-        for selector in ['comhd3', 'attribs', 'newatts']:
-            tag = copy.select_one(selector)
-            if tag: tag.extract()
-
-        return get_text(copy, 'poem')
+        return get_text(self.tree, 'l')
 
 
     @property
     def title(self):
-        return get_text(self.tree, 'mainhead')
+        return get_text(self.tree, 'newatts mainhead')
 
 
     @property
@@ -51,16 +42,6 @@ class Poem:
     @property
     def year(self):
         return get_text(self.tree, 'attputn1')
-
-
-    @property
-    def period(self):
-        return get_text(self.tree, 'attperi')
-
-
-    @property
-    def genre(self):
-        return get_text(self.tree, 'attgenre')
 
 
     def build_text(self, corpus_id):
@@ -77,13 +58,12 @@ class Poem:
         return dict(
 
             corpus_id   = corpus_id,
+            identifier  = self.identifier,
             source_text = self.source_text,
             plain_text  = self.plain_text,
 
-            title       = self.title,
-            creator     = self.author,
-            date        = self.year,
-            temporal    = self.period,
-            type        = self.genre,
+            title   = self.title,
+            author  = self.author,
+            year    = self.year,
 
         )

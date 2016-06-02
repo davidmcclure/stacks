@@ -27,12 +27,12 @@ def ingest(_django_db_setup, _django_cursor_wrapper):
     path = os.path.join(os.path.dirname(__file__), 'fixtures')
 
     # Patch the corpus path.
-    settings.CORPUS_CHADWYCK_HEALEY_AMERICAN_POETRY = path
+    settings.CORPUS_CHADWYCK_HEALEY_ENGLISH_POETRY = path
 
     with _django_cursor_wrapper:
 
         # Run the ingest.
-        call_command('queue_ingest', 'ChadwyckHealeyAmericanPoetry')
+        call_command('queue_ingest', 'ChadwyckHealeyEnglishPoetry')
         django_rq.get_worker().work(burst=True)
 
 
@@ -50,10 +50,11 @@ def pytest_generate_tests(metafunc):
     metafunc.parametrize('id,fields', tests.items())
 
 
+@pytest.mark.skip
 def test_ingest(settings, id, fields):
 
     text = Text.objects.get(
-        corpus__slug='chadwyck-healey-american-poetry',
+        corpus__slug='chadwyck-healey-english-poetry',
         identifier=id,
     )
 
