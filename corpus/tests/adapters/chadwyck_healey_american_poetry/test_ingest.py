@@ -62,3 +62,6 @@ def test_ingest(settings, id, fields):
 
     for key, val in fields.get('contains', {}).items():
         assert val in getattr(text, key)
+
+    for key, val in fields.get('not_contains', {}).items():
+        assert val not in getattr(text, key)

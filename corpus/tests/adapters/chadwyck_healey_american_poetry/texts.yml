@@ -12,6 +12,17 @@ Z200140145:
     source_text: <signed><hi r="smcap">Gierus. Lib.</hi> Can. XV.</signed>
     plain_text: Gierus. Lib. Can. XV.
 
+  not_contains:
+
+    # <comdh2>
+    plain_text: Z200140145
+
+    # <attribs>
+    plain_text: A2000002
+
+    # <newatts>
+    plain_text: American Poetry
+
 
 Z200140159:
 

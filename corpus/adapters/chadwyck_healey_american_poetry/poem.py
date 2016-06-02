@@ -36,7 +36,7 @@ class Poem:
         copy = clone_tree(self.tree)
 
         # Remove metadata containers.
-        for tag in copy.select('comhd2, somhead, attribs, newatts'):
+        for tag in copy.select('comhd2, attribs, newatts'):
             tag.extract()
 
         return get_text(copy, 'poem')
