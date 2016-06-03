@@ -50,7 +50,7 @@ def pytest_generate_tests(metafunc):
     metafunc.parametrize('id,fields', tests.items())
 
 
-def test_ingest(settings, id, fields):
+def test_ingest(id, fields):
 
     text = Text.objects.get(
         corpus__slug='chadwyck-healey-american-poetry',
