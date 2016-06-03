@@ -4,7 +4,7 @@ import os
 
 from bs4 import BeautifulSoup
 
-from corpus.utils import get_text, clone_tree
+from corpus.utils import get_text, remove_tags
 
 
 class Poem:
@@ -16,7 +16,7 @@ class Poem:
 
     @property
     def identifier(self):
-        return get_text(self.tree, 'comhd3 idref')
+        return get_text(self.tree, 'comhd2 idref')
 
 
     @property
@@ -26,7 +26,20 @@ class Poem:
 
     @property
     def plain_text(self):
-        return get_text(self.tree, 'l')
+
+        """
+        Strip out the header metadata.
+
+        Returns: str
+        """
+
+        clean = remove_tags(self.tree, [
+            # 'comhd2',
+            # 'attribs',
+            # 'newatts',
+        ])
+
+        return get_text(clean, 'poem')
 
 
     @property
@@ -41,7 +54,7 @@ class Poem:
 
     @property
     def year(self):
-        return get_text(self.tree, 'attputn1')
+        return get_text(self.tree, 'attpubn1')
 
 
     def build_text(self, corpus_id):
@@ -54,6 +67,8 @@ class Poem:
 
         Returns: dict
         """
+
+        print(self.plain_text)
 
         return dict(
 
