@@ -10,5 +10,6 @@ django-appconf
 lxml
 beautifulsoup4
 PyYAML
+inflection
 
 -e git+https://github.com/ui/django-rq.git#egg=django-rq
