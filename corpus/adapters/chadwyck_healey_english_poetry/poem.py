@@ -16,7 +16,7 @@ class Poem:
 
     @property
     def identifier(self):
-        return get_text(self.tree, 'comhd2 idref')
+        return get_text(self.tree, 'comhd3 idref')
 
 
     @property
@@ -33,13 +33,15 @@ class Poem:
         Returns: str
         """
 
-        clean = remove_tags(self.tree, [
+        # clean = remove_tags(self.tree, [
             # 'comhd2',
             # 'attribs',
             # 'newatts',
-        ])
+        # ])
 
-        return get_text(clean, 'poem')
+        # return get_text(clean, 'poem')
+
+        return self.tree.get_text()
 
 
     @property
@@ -67,8 +69,6 @@ class Poem:
 
         Returns: dict
         """
-
-        print(self.plain_text)
 
         return dict(
 
