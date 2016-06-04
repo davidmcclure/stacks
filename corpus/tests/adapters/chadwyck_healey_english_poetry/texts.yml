@@ -8,6 +8,21 @@ Z300137674:
     author: Fortescue, G.
     year: 1647
 
+  contains:
+    source_text: <hi r="smcapit">VVho</hi>'s this? who like the rosy
+    plain_text: Whose mystick locks charg'd with the drops of nights,
+
+  not_contains:
+
+    # <comhd3>
+    plain_text: Z300137674
+
+    # <somhead>
+    plain_text: Fortescue, G.
+
+    # <newatts>
+    plain_text: Jacobean and Caroline 1603-1660
+
 
 Z300137675:
 

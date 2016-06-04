@@ -33,15 +33,12 @@ class Poem:
         Returns: str
         """
 
-        # clean = remove_tags(self.tree, [
-            # 'comhd2',
-            # 'attribs',
-            # 'newatts',
-        # ])
+        clean = remove_tags(self.tree, [
+            'comhd3',
+            'newatts',
+        ])
 
-        # return get_text(clean, 'poem')
-
-        return self.tree.get_text()
+        return clean.get_text()
 
 
     @property
