@@ -13,10 +13,10 @@ class Text(models.Model):
         max_length=100,
     )
 
-    # The original representation of the text.
+    # ** Content
+
     source_text = models.TextField()
 
-    # Plain-text extracted from the original.
     plain_text = models.TextField()
 
 
