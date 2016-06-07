@@ -14,11 +14,6 @@ class Command(BaseCommand):
         parser.add_argument('corpus', type=str)
 
 
+    # TODO
     def handle(self, corpus, **kwargs):
-
-        """
-        Import the requested corpus adapter, queue jobs.
-        """
-
-        Corpus = locate('corpus.adapters.{0}'.format(corpus))
-        Corpus.from_env().queue()
+        pass
