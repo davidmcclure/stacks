@@ -6,6 +6,10 @@ from django.db import models
 class Text(models.Model):
 
 
+    class Meta:
+        unique_together = ('corpus', 'identifier')
+
+
     corpus = models.ForeignKey('Corpus')
 
     identifier = models.CharField(
@@ -31,7 +35,3 @@ class Text(models.Model):
     year = models.IntegerField(
         null=True,
     )
-
-
-    class Meta:
-        unique_together = ('corpus', 'identifier')
