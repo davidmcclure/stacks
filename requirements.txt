@@ -11,5 +11,4 @@ lxml
 beautifulsoup4
 PyYAML
 configobj
-
--e git+https://github.com/ui/django-rq.git#egg=django-rq
+django-rq
