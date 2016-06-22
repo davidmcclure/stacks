@@ -4,8 +4,6 @@ import os
 
 from configobj import ConfigObj
 
-from .text import Text
-
 
 class Author:
 
@@ -54,18 +52,3 @@ class Author:
         """
 
         return ', '.join(self.metadata['name_full'])
-
-
-    def texts(self):
-
-        """
-        Generate texts for the author.
-
-        Yields: Text
-        """
-
-        for tdir in next(os.walk(self.path))[1]:
-
-            path = os.path.join(self.path, tdir)
-
-            yield Text(path)

@@ -4,6 +4,8 @@ import os
 
 from configobj import ConfigObj
 
+from .author import Author
+
 
 class Text:
 
@@ -18,6 +20,18 @@ class Text:
         """
 
         self.path = os.path.abspath(path)
+
+
+    @property
+    def author_path(self):
+
+        """
+        Get the path of the parent author.
+
+        Returns: str
+        """
+
+        return os.path.dirname(self.path)
 
 
     @property
@@ -42,6 +56,17 @@ class Text:
         """
 
         return os.path.join(self.path, 'text.txt')
+
+
+    def author(self):
+
+        """
+        Get the parent author instance.
+
+        Returns: Author
+        """
+
+        return Author(self.author_path)
 
 
     def metadata(self):
