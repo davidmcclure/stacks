@@ -32,6 +32,7 @@ class Author:
         return os.path.join(self.path, 'metadata.txt')
 
 
+    @property
     def metadata(self):
 
         """
@@ -43,6 +44,7 @@ class Author:
         return dict(ConfigObj(self.metadata_path))
 
 
+    @property
     def name_full(self):
 
         """

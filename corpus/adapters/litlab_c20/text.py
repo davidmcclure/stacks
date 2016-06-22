@@ -58,6 +58,7 @@ class Text:
         return os.path.join(self.path, 'text.txt')
 
 
+    @property
     def author(self):
 
         """
@@ -69,6 +70,7 @@ class Text:
         return Author(self.author_path)
 
 
+    @property
     def metadata(self):
 
         """
@@ -80,7 +82,8 @@ class Text:
         return dict(ConfigObj(self.metadata_path))
 
 
-    def text(self):
+    @property
+    def plain_text(self):
 
         """
         Read the text file.
@@ -88,5 +91,29 @@ class Text:
         Returns: str
         """
 
-        with open(self.text_path, 'r') as fh:
+        with open(self.text_path, encoding='utf8', mode='r') as fh:
             return fh.read()
+
+
+    @property
+    def title(self):
+
+        """
+        Get a canonicalized text title.
+
+        Returns: str
+        """
+
+        return self.metadata['title']
+
+
+    @property
+    def year(self):
+
+        """
+        Get the publication year.
+
+        Returns: int
+        """
+
+        return int(self.metadata['year'])

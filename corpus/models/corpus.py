@@ -4,11 +4,15 @@ import sys
 
 from django.db import models
 
+from corpus.managers import CorpusManager
+
 from corpus import fields
-from corpus.models import Text
 
 
 class Corpus(models.Model):
+
+
+    objects = CorpusManager()
 
 
     class Meta:

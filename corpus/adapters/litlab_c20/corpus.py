@@ -2,7 +2,10 @@
 
 import os
 
+from corpus.models import Corpus as StacksCorpus
+
 from .text import Text
+from .jobs import ingest
 
 
 class Corpus:
@@ -57,4 +60,9 @@ class Corpus:
         Load text rows.
         """
 
-        pass
+        StacksCorpus.objects.queue_ingest(
+            'litlab-c20',
+            'Literary Lab 20th Century Corpus',
+            self.text_paths(),
+            ingest,
+        )
