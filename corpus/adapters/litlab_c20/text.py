@@ -118,9 +118,12 @@ class Text:
     def identifier(self):
 
         """
-        Make a slug from the title.
+        Make a slug from the author + title.
 
         Returns: str
         """
 
-        return slugify(self.title())
+        return slugify(' '.join([
+            self.author.name_full(),
+            self.title(),
+        ]))
