@@ -52,4 +52,7 @@ class Author:
         Returns: str
         """
 
-        return ', '.join(self.metadata['name_full'])
+        return ', '.join([
+            self.metadata['name_last'],
+            self.metadata['name_first'],
+        ])

@@ -1,21 +1,25 @@
 
 
 import pytest
+import os
 
-from .mock_litlab_c20 import MockLitLabC20
+from corpus.adapters.litlab_c20.author import Author
 
 
-@pytest.yield_fixture
-def mock_corpus():
+@pytest.fixture()
+def get_author():
 
     """
-    Provide a mock corpus instance.
-
-    Yields: MockLitLabC20
+    Wrap an author fixture.
     """
 
-    corpus = MockLitLabC20()
+    def _get_author(name):
 
-    yield corpus
+        path = os.path.join(
+            os.path.dirname(__file__),
+            'fixtures', name,
+        )
 
-    corpus.teardown()
+        return Author(path)
+
+    return _get_author

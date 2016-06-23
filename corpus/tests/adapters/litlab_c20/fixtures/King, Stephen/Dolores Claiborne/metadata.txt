@@ -1,0 +1,6 @@
+title=Dolores Claiborne
+year=1992
+genre=
+source=
+notes=
+genre_confirmed=
