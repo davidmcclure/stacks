@@ -2,8 +2,9 @@
 
 import os
 
-from slugify import slugify
 from configobj import ConfigObj
+from cached_property import cached_property
+from slugify import slugify
 
 from .author import Author
 
@@ -23,7 +24,6 @@ class Text:
         self.path = os.path.abspath(path)
 
 
-    @property
     def author_path(self):
 
         """
@@ -35,7 +35,6 @@ class Text:
         return os.path.dirname(self.path)
 
 
-    @property
     def metadata_path(self):
 
         """
@@ -47,7 +46,6 @@ class Text:
         return os.path.join(self.path, 'metadata.txt')
 
 
-    @property
     def text_path(self):
 
         """
@@ -68,10 +66,10 @@ class Text:
         Returns: Author
         """
 
-        return Author(self.author_path)
+        return Author(self.author_path())
 
 
-    @property
+    @cached_property
     def metadata(self):
 
         """
@@ -80,10 +78,9 @@ class Text:
         Returns: dict
         """
 
-        return dict(ConfigObj(self.metadata_path))
+        return dict(ConfigObj(self.metadata_path()))
 
 
-    @property
     def plain_text(self):
 
         """
@@ -92,11 +89,10 @@ class Text:
         Returns: str
         """
 
-        with open(self.text_path, encoding='utf8', mode='r') as fh:
+        with open(self.text_path(), encoding='utf8', mode='r') as fh:
             return fh.read()
 
 
-    @property
     def title(self):
 
         """
@@ -108,7 +104,6 @@ class Text:
         return self.metadata['title']
 
 
-    @property
     def year(self):
 
         """
@@ -120,7 +115,6 @@ class Text:
         return int(self.metadata['year'])
 
 
-    @property
     def identifier(self):
 
         """
@@ -129,4 +123,4 @@ class Text:
         Returns: str
         """
 
-        return slugify(self.title)
+        return slugify(self.title())

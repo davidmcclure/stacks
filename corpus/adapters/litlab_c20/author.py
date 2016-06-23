@@ -2,6 +2,7 @@
 
 import os
 
+from cached_property import cached_property
 from configobj import ConfigObj
 
 
@@ -20,7 +21,6 @@ class Author:
         self.path = os.path.abspath(path)
 
 
-    @property
     def metadata_path(self):
 
         """
@@ -32,7 +32,7 @@ class Author:
         return os.path.join(self.path, 'metadata.txt')
 
 
-    @property
+    @cached_property
     def metadata(self):
 
         """
@@ -41,10 +41,9 @@ class Author:
         Returns: dict
         """
 
-        return dict(ConfigObj(self.metadata_path))
+        return dict(ConfigObj(self.metadata_path()))
 
 
-    @property
     def name_full(self):
 
         """

@@ -13,3 +13,4 @@ PyYAML
 configobj
 python-slugify
 django-rq
+cached-property
