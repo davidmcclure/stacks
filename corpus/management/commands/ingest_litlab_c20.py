@@ -8,7 +8,7 @@ from corpus.adapters.litlab_c20.corpus import Corpus
 class Command(BaseCommand):
 
 
-    help = 'Ingest the Literary Lab 20th century corpus.'
+    help = 'Ingest Literary Lab 20th Century.'
 
 
     def handle(self, *args, **kwargs):
