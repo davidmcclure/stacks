@@ -2,6 +2,8 @@
 
 import os
 
+from django.conf import settings
+
 from corpus.models import Corpus as StacksCorpus
 
 from .text import Text
@@ -15,13 +17,12 @@ class Corpus:
     def from_env(cls):
 
         """
-        Make an instance from the ENV-defined root.
+        Wrap the ENV-defined root.
 
         Returns: cls
         """
 
-        # TODO: Env-ify.
-        return cls('/data/litlab-c20')
+        return cls(settings.CORPUS_LITLAB_C20)
 
 
     def __init__(self, path):
