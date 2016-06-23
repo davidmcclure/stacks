@@ -11,6 +11,19 @@ from .jobs import ingest
 class Corpus:
 
 
+    @classmethod
+    def from_env(cls):
+
+        """
+        Make an instance from the ENV-defined root.
+
+        Returns: cls
+        """
+
+        # TODO: Env-ify.
+        return cls('/data/litlab-c20')
+
+
     def __init__(self, path):
 
         """
@@ -57,12 +70,12 @@ class Corpus:
     def ingest(self):
 
         """
-        Load text rows.
+        Queue ingest jobs for each text.
         """
 
         StacksCorpus.objects.queue_ingest(
-            'litlab-c20',
-            'Literary Lab 20th Century Corpus',
-            self.text_paths(),
-            ingest,
+            slug='litlab-c20',
+            name='Literary Lab 20th Century Corpus',
+            paths=self.text_paths(),
+            job=ingest,
         )
