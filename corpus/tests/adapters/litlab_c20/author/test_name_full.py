@@ -1,7 +1,14 @@
 
 
-def test_test(mock_corpus):
+import pytest
 
-    author = mock_corpus.add_author('McClure, D. W.')
+from corpus.adapters.litlab_c20.author import Author
 
-    print(author.path)
+
+@pytest.fixture
+def stephen_king(get_author):
+    return get_author('King, Stephen')
+
+
+def test_name_full(stephen_king):
+    assert stephen_king.name_full() == 'King, Stephen'
