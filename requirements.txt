@@ -11,4 +11,5 @@ lxml
 beautifulsoup4
 PyYAML
 configobj
+python-slugify
 django-rq

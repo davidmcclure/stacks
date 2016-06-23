@@ -2,6 +2,7 @@
 
 import os
 
+from slugify import slugify
 from configobj import ConfigObj
 
 from .author import Author
@@ -117,3 +118,15 @@ class Text:
         """
 
         return int(self.metadata['year'])
+
+
+    @property
+    def identifier(self):
+
+        """
+        Make a slug from the title.
+
+        Returns: str
+        """
+
+        return slugify(self.title)
