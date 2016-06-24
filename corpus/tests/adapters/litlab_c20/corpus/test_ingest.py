@@ -13,15 +13,15 @@ pytestmark = [
 
 
 @pytest.fixture(scope='module', autouse=True)
-def ingest(_django_db_setup, _django_cursor_wrapper, corpus):
+def ingest(django_db_module, corpus):
 
     """
-    Ingest the corpus.
+    Run ingest jobs.
     """
 
-    with _django_cursor_wrapper:
-        corpus.ingest()
-        django_rq.get_worker().work(burst=True)
+    corpus.ingest()
+
+    django_rq.get_worker().work(burst=True)
 
 
 @pytest.mark.parametrize('identifier,title,author,year,snippet', [

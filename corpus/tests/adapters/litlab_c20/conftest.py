@@ -8,21 +8,6 @@ from corpus.adapters.litlab_c20.author import Author
 from corpus.adapters.litlab_c20.text import Text
 
 
-@pytest.fixture(scope='module')
-def corpus():
-
-    """
-    Wrap the corpus fixture.
-    """
-
-    path = os.path.join(
-        os.path.dirname(__file__),
-        'fixtures',
-    )
-
-    return Corpus(path)
-
-
 @pytest.fixture()
 def get_author():
 
@@ -59,3 +44,18 @@ def get_text():
         return Text(path)
 
     return _get_text
+
+
+@pytest.fixture(scope='module')
+def corpus():
+
+    """
+    Wrap the corpus fixture.
+    """
+
+    path = os.path.join(
+        os.path.dirname(__file__),
+        'fixtures',
+    )
+
+    return Corpus(path)
