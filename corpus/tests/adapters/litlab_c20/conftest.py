@@ -8,7 +8,7 @@ from corpus.adapters.litlab_c20.author import Author
 from corpus.adapters.litlab_c20.text import Text
 
 
-@pytest.fixture()
+@pytest.fixture(scope='module')
 def corpus():
 
     """
