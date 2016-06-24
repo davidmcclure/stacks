@@ -2,6 +2,7 @@
 
 import os
 
+from pathlib import Path
 from cached_property import cached_property
 from configobj import ConfigObj
 
@@ -47,12 +48,11 @@ class Author:
     def name_full(self):
 
         """
-        Get the author's full name as a single string.
+        Get the author's full name.
 
         Returns: str
         """
 
-        return ', '.join([
-            self.metadata['name_last'],
-            self.metadata['name_first'],
-        ])
+        author_dir = Path(self.path)
+
+        return author_dir.parts[-1]

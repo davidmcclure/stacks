@@ -112,7 +112,11 @@ class Text:
         Returns: int
         """
 
-        return int(self.metadata['year'])
+        # Split year ranges into arrays.
+        years = self.metadata['year'].split('-')
+
+        # TODO: For ranges, store start + end year?
+        return int(years[0])
 
 
     def identifier(self):

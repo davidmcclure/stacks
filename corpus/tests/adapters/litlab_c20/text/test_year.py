@@ -11,6 +11,9 @@ import pytest
     ('King, Stephen', 'The Talisman', 1984),
     ('King, Stephen', 'The Tommyknockers', 1987),
 
+    # If the year is a range, take first year.
+    ('Tolkien, J.R.R.', 'The Lord of the Rings', 1937),
+
 ])
 def test_title(author_name, text_name, year, get_text):
 

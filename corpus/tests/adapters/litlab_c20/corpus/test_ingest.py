@@ -58,6 +58,14 @@ pytestmark = pytest.mark.usefixtures('ingest')
         'The spaceship floated gently, anchored by a beam of lavender light to the earth below.',
     ),
 
+    (
+        'tolkien-j-r-r-the-lord-of-the-rings',
+        'The Lord of the Rings',
+        'Tolkien, J.R.R.',
+        1937,
+        'Three Rings for the Elven-kings under the sky,',
+    ),
+
 ])
 def test_test(identifier, title, author, year, snippet):
 
