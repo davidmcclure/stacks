@@ -66,6 +66,14 @@ pytestmark = pytest.mark.usefixtures('ingest')
         'Three Rings for the Elven-kings under the sky,',
     ),
 
+    (
+        'matthews-harry-tlooth',
+        'Tlooth',
+        'Matthews, Harry',
+        1966,
+        'Center field: Lynn Petomi, dentist, mutilated the mouths of patients.',
+    ),
+
 ])
 def test_test(identifier, title, author, year, snippet):
 
