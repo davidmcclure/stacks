@@ -1,0 +1,11 @@
+author_id=
+dob=1938
+dod=
+gender=M
+name_first=William
+name_full=Kotzwinkle, William
+name_last=Kotzwinkle
+name_middle=
+name_title=
+nation=American
+notes=

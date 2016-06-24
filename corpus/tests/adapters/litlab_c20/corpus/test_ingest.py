@@ -50,6 +50,14 @@ pytestmark = pytest.mark.usefixtures('ingest')
         'Well we picked up Harry Truman, floating down from Independence,',
     ),
 
+    (
+        'kotzwinkle-william-e-t-the-extraterrestrial',
+        'E.T., The Extraterrestrial',
+        'Kotzwinkle, William',
+        1982,
+        'The spaceship floated gently, anchored by a beam of lavender light to the earth below.',
+    ),
+
 ])
 def test_test(identifier, title, author, year, snippet):
 

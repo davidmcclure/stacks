@@ -78,7 +78,7 @@ class Text:
         Returns: dict
         """
 
-        return dict(ConfigObj(self.metadata_path()))
+        return dict(ConfigObj(self.metadata_path(), list_values=False))
 
 
     def plain_text(self):
