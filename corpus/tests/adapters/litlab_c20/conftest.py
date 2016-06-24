@@ -2,6 +2,7 @@
 
 import pytest
 import os
+import django_rq
 
 from corpus.adapters.litlab_c20.corpus import Corpus
 from corpus.adapters.litlab_c20.author import Author
@@ -47,10 +48,10 @@ def get_text():
 
 
 @pytest.fixture(scope='module')
-def corpus():
+def ingest(django_db_module, redis_module):
 
     """
-    Wrap the corpus fixture.
+    Run ingest jobs.
     """
 
     path = os.path.join(
@@ -58,4 +59,8 @@ def corpus():
         'fixtures',
     )
 
-    return Corpus(path)
+    corpus = Corpus(path)
+
+    corpus.ingest()
+
+    django_rq.get_worker().work(burst=True)
