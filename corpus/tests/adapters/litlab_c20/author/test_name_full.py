@@ -1,10 +1,21 @@
 
 
+import pytest
+
 from corpus.adapters.litlab_c20.author import Author
 
 
-def test_name_full(get_author):
+@pytest.mark.parametrize('author_dir,name_full', [
 
-    stephen_king = get_author('King, Stephen')
+    ('King, Stephen', 'King, Stephen'),
 
-    assert stephen_king.name_full() == 'King, Stephen'
+    ('Kotzwinkle, William', 'Kotzwinkle, William'),
+
+    ('Tolkien, J.R.R.', 'Tolkien, J.R.R.'),
+
+])
+def test_name_full(author_dir, name_full, get_author):
+
+    author = get_author(author_dir)
+
+    assert author.name_full() == name_full
