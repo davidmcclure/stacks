@@ -1,27 +1,11 @@
 
 
 import pytest
-import django_rq
 
-from corpus.models import Corpus, Text
-
-
-pytestmark = [
-    pytest.mark.django_db,
-    pytest.mark.usefixtures('redis'),
-]
+from corpus.models import Text
 
 
-@pytest.fixture(scope='module', autouse=True)
-def ingest(django_db_module, corpus):
-
-    """
-    Run ingest jobs.
-    """
-
-    corpus.ingest()
-
-    django_rq.get_worker().work(burst=True)
+pytestmark = pytest.mark.usefixtures('ingest')
 
 
 @pytest.mark.parametrize('identifier,title,author,year,snippet', [

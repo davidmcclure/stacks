@@ -15,8 +15,8 @@ def django_db_module(_django_db_setup, _django_cursor_wrapper):
         yield
 
 
-@pytest.fixture
-def redis():
+@pytest.fixture(scope='module')
+def redis_module():
 
     """
     Clear Redis.
