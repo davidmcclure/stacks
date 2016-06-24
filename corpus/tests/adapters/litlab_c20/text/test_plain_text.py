@@ -35,6 +35,12 @@ import pytest
         'Well we picked up Harry Truman, floating down from Independence,',
     ),
 
+    (
+        'Matthews, Harry',
+        'Tlooth',
+        'Center field: Lynn Petomi, dentist, mutilated the mouths of patients.',
+    ),
+
 ])
 def test_title(author_name, text_name, snippet, get_text):
 

@@ -89,7 +89,13 @@ class Text:
         Returns: str
         """
 
-        with open(self.text_path(), encoding='utf8', mode='r') as fh:
+        with open(
+            self.text_path(),
+            mode='r',
+            encoding='utf8',
+            errors='ignore'
+        ) as fh:
+
             return fh.read()
 
 
@@ -115,7 +121,7 @@ class Text:
         # Split year ranges into arrays.
         years = self.metadata['year'].split('-')
 
-        # TODO: For ranges, store start + end year?
+        # TODO: Store start + end year?
         return int(years[0])
 
 
