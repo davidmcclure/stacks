@@ -24,7 +24,7 @@ def ingest(corpus_id, path):
         plain_text  = text.plain_text(),
 
         title   = text.title(),
-        author  = text.author.name_full(),
+        author  = text.author.folder_name(),
         year    = text.year(),
 
     )

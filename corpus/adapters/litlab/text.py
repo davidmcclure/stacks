@@ -4,6 +4,7 @@ import os
 
 from configobj import ConfigObj
 from cached_property import cached_property
+from pathlib import Path
 from slugify import slugify
 
 from .author import Author
@@ -55,6 +56,19 @@ class Text:
         """
 
         return os.path.join(self.path, 'text.txt')
+
+
+    def folder_name(self):
+
+        """
+        Get the name of the text directory.
+
+        Returns: str
+        """
+
+        text_dir = Path(self.path)
+
+        return text_dir.parts[-1]
 
 
     @property
@@ -138,6 +152,6 @@ class Text:
         """
 
         return slugify(' '.join([
-            self.author.name_full(),
-            self.title(),
+            self.author.folder_name(),
+            self.folder_name(),
         ]))
