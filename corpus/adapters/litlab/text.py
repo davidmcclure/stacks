@@ -78,7 +78,11 @@ class Text:
         Returns: dict
         """
 
-        return dict(ConfigObj(self.metadata_path(), list_values=False))
+        with open(self.metadata_path(), 'r') as fh:
+
+            lines = fh.read().splitlines()
+
+            return dict(ConfigObj(lines, list_values=False))
 
 
     def plain_text(self):
