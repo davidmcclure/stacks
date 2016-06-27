@@ -18,6 +18,14 @@ pytestmark = pytest.mark.usefixtures('ingest')
         'Antimatter is the most powerful energy source known to man.',
     ),
 
+    (
+        'hemingway-ernest-the-sun-also-rises',
+        'The Sun Also Rises',
+        'Hemingway, Ernest',
+        1926,
+        'Robert Cohn was once middleweight boxing champion of Princeton.',
+    ),
+
 ])
 def test_test(identifier, title, author, year, snippet):
 

@@ -1,0 +1,7 @@
+title=The Sun Also Rises
+year=1926
+genre=
+source=
+notes=
+genre_confirmed=
+project=suspense
