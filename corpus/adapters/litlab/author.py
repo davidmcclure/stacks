@@ -45,7 +45,7 @@ class Author:
         return dict(ConfigObj(self.metadata_path()))
 
 
-    def name_full(self):
+    def folder_name(self):
 
         """
         Get the author's full name.

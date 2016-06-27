@@ -1,0 +1,11 @@
+author_id=1230
+dob=1782
+dod=1825
+gender=F
+name_first=Charlotte
+name_full=Dacre, Charlotte
+name_last=Dacre
+name_middle=
+name_title=
+nation=English
+notes=born Charlotte King, later Charlotte Byrne; also published under pseudonym Rosa Matilda

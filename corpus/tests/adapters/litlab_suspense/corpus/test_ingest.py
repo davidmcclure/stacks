@@ -26,6 +26,14 @@ pytestmark = pytest.mark.usefixtures('ingest')
         'Robert Cohn was once middleweight boxing champion of Princeton.',
     ),
 
+    (
+        'dacre-charlotte-zofloya',
+        'Zofloya; or, The Moor: A Romance of the Fifteenth Century. In Three Volumes. By Charlotte Dacre, Better Known As Rosa Matilda',
+        'Dacre, Charlotte',
+        1806,
+        'The historian who would wish his lessons',
+    ),
+
 ])
 def test_test(identifier, title, author, year, snippet):
 
