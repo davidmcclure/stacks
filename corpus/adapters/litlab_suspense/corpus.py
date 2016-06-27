@@ -46,7 +46,6 @@ class Corpus:
         groups = [
             'Suspenseful',
             'Unsuspenseful',
-            # 'Refuse',
         ]
 
         # Groups
