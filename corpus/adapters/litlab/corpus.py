@@ -39,15 +39,3 @@ class Corpus:
 
                 # Yield each text path.
                 yield os.path.join(author_path, text_dir)
-
-
-    def texts(self):
-
-        """
-        Generate Text instances.
-
-        Yields: Text
-        """
-
-        for path in self.text_paths():
-            yield Text(path)
