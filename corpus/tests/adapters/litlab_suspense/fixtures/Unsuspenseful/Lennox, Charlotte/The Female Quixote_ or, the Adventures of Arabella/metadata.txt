@@ -1,0 +1,10 @@
+genre=Picaresque
+id_ecco=0005700701
+id_estc=T071886
+language=English
+numvol=2.0
+pubcity=London
+pubnotes=London : printed for A. Millar, 1752.
+title=The female Quixote; or, the adventures of Arabella. In two volumes. ...
+year=1752.0
+project=suspense
