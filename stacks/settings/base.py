@@ -124,3 +124,5 @@ STATIC_URL = '/static/'
 CORPUS_LITLAB_C20 = '/data/litlab-c20'
 
 CORPUS_LITLAB_SUSPENSE = '/data/litlab-suspense'
+
+CORPUS_CHICAGO = '/data/chicago'
