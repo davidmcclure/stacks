@@ -5,6 +5,7 @@ from django.core.management.base import BaseCommand
 from corpus.adapters.litlab_c20.corpus import Corpus
 
 
+
 class Command(BaseCommand):
 
 
