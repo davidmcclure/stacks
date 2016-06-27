@@ -34,6 +34,14 @@ pytestmark = pytest.mark.usefixtures('ingest')
         'The historian who would wish his lessons',
     ),
 
+    (
+        'lennox-charlotte-the-female-quixote-or-the-adventures-of-arabella',
+        'The female Quixote; or, the adventures of Arabella. In two volumes. ...',
+        'Lennox, Charlotte',
+        1752,
+        'This extensive Authority could not fail of',
+    ),
+
 ])
 def test_test(identifier, title, author, year, snippet):
 

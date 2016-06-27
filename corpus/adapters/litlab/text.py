@@ -140,7 +140,7 @@ class Text:
         years = self.metadata['year'].split('-')
 
         # TODO: Store start + end year?
-        return int(years[0])
+        return round(float(years[0]))
 
 
     def identifier(self):
