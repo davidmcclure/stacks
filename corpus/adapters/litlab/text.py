@@ -92,7 +92,11 @@ class Text:
         Returns: dict
         """
 
-        with open(self.metadata_path(), 'r') as fh:
+        with open(
+            self.metadata_path(),
+            mode='r',
+            encoding='utf8',
+        ) as fh:
 
             lines = fh.read().splitlines()
 

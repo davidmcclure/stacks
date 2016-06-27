@@ -42,6 +42,14 @@ pytestmark = pytest.mark.usefixtures('ingest')
         'This extensive Authority could not fail of',
     ),
 
+    (
+        'highsmith-patricia-ripley-s-game',
+        'Ripley’s Game',
+        'Highsmith, Patricia',
+        1974,
+        'He was sitting in one of the yellow silk armchairs,',
+    ),
+
 ])
 def test_test(identifier, title, author, year, snippet):
 
