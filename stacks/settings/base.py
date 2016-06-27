@@ -122,3 +122,5 @@ STATIC_URL = '/static/'
 # TODO: Put these under Ansible?
 
 CORPUS_LITLAB_C20 = '/data/litlab-c20'
+
+CORPUS_LITLAB_SUSPENSE = '/data/litlab-suspense'
