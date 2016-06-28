@@ -60,6 +60,24 @@ pytestmark = pytest.mark.usefixtures('ingest')
         text='He was sitting in one of the yellow silk armchairs,',
     )),
 
+    ('schwartz-alvin-scary-stories-to-tell-in-the-dark', dict(
+        title='Scary Stories to Tell in the Dark',
+        author_name_full='Schwartz, Alvin',
+        author_name_first='Alvin',
+        author_name_last='Schwartz',
+        year=1981,
+        text='Pioneers used to entertain themselves by telling scary stories.',
+    )),
+
+    ('utterson-sarah-elizabeth-fantasmagoriana', dict(
+        title='Fantasmagoriana',
+        author_name_full='Utterson, Sarah Elizabeth',
+        author_name_first='Sarah',
+        author_name_last='Utterson',
+        year=1813,
+        text='As was usual with young men of rank, he had visited several universities;',
+    )),
+
 ])
 def test_ingest(identifier, fields):
 

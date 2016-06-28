@@ -1,5 +1,8 @@
 
 
+import re
+
+
 def parse_metadata(path):
 
     """
@@ -11,8 +14,19 @@ def parse_metadata(path):
     Returns: dict
     """
 
+    # name_first=David
+    pattern = re.compile('^(?P<key>.*)=(?P<val>.*)$')
+
     with open(path, mode='r', encoding='utf8') as fh:
 
         lines = fh.read().splitlines()
 
-        return dict(map(lambda x: x.split('='), lines))
+        params = []
+        for line in lines:
+
+            match = pattern.match(line)
+
+            if match:
+                params.append(match.groups())
+
+        return dict(params)
