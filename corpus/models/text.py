@@ -31,15 +31,15 @@ class Text(models.Model):
 
     title = models.TextField()
 
-    author_full = models.TextField(
+    author_name_full = models.TextField(
         null=True,
     )
 
-    author_first = models.TextField(
+    author_name_first = models.TextField(
         null=True,
     )
 
-    author_last = models.TextField(
+    author_name_last = models.TextField(
         null=True,
     )
 
