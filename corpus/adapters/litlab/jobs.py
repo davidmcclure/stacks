@@ -1,6 +1,7 @@
 
 
 from corpus.models import Text as StacksText
+
 from .text import Text
 
 
