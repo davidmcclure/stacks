@@ -5,10 +5,8 @@ from django.db import models
 
 class Text(models.Model):
 
-
     class Meta:
         unique_together = ('corpus', 'identifier')
-
 
     corpus = models.ForeignKey('Corpus')
 
@@ -17,14 +15,15 @@ class Text(models.Model):
         max_length=100,
     )
 
-    # ** Content
+    # Content
+    # -------
 
     source_text = models.TextField()
 
     plain_text = models.TextField()
 
-
-    # ** Metadata
+    # Metadata
+    # --------
 
     title = models.TextField()
 
