@@ -8,6 +8,7 @@ from django.db import models
 class CorpusManager(models.Manager):
 
     def queue_ingest(self, slug, name, args, job):
+
         """
         Reset a corpus and queue text ingest jobs in RQ.
 
@@ -17,6 +18,7 @@ class CorpusManager(models.Manager):
             args (iter)
             job (func)
         """
+
         # Delete existing corpus.
         self.filter(slug=slug).delete()
 
