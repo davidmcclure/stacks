@@ -23,5 +23,7 @@ def ingest(corpus_id, corpus_path, metadata):
         plain_text=novel.plain_text(),
         title=novel.title(),
         author_full=novel.author_full(),
+        author_first=novel.author_first(),
+        author_last=novel.author_last(),
         year=novel.year(),
     )
