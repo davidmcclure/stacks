@@ -6,6 +6,8 @@ from pathlib import Path
 from cached_property import cached_property
 from configobj import ConfigObj
 
+from .utils import parse_metadata
+
 
 class Author:
 
@@ -39,15 +41,7 @@ class Author:
         Returns: dict
         """
 
-        with open(
-            self.metadata_path(),
-            mode='r',
-            encoding='utf8',
-        ) as fh:
-
-            lines = fh.read().splitlines()
-
-            return dict(map(lambda x: x.split('='), lines))
+        return parse_metadata(self.metadata_path())
 
     def folder_name(self):
 
