@@ -58,7 +58,7 @@ class Novel:
 
         return self.metadata['TITLE']
 
-    def author(self):
+    def author_full(self):
 
         """
         Returns: str
