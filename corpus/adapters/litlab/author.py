@@ -47,7 +47,7 @@ class Author:
 
             lines = fh.read().splitlines()
 
-            return dict(ConfigObj(lines, list_values=False))
+            return dict(map(lambda x: x.split('='), lines))
 
     def folder_name(self):
 

@@ -14,3 +14,4 @@ configobj
 python-slugify
 django-rq
 cached-property
+pylint

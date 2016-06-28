@@ -38,12 +38,17 @@ pytestmark = pytest.mark.usefixtures('ingest')
     )),
 
     ('lennox-charlotte-the-female-quixote-or-the-adventures-of-arabella', dict(
+
         title='The female Quixote; or, the adventures of Arabella. In two volumes. ...',
         author_name_full='Lennox, Charlotte',
-        author_name_first='Charlotte',
-        author_name_last='Lennox',
+
+        # Missing names in metadata file.
+        author_name_first=None,
+        author_name_last=None,
+
         year=1752,
         text='This extensive Authority could not fail of',
+
     )),
 
     ('highsmith-patricia-ripley-s-game', dict(
