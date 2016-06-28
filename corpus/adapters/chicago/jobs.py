@@ -5,7 +5,8 @@ from corpus.models import Text as StacksText
 from .novel import Novel
 
 
-def ingest(corpus_id, metadata):
+def ingest(corpus_id, corpus_path, metadata):
+
     """
     Ingest a Chicago novel.
 
@@ -13,7 +14,8 @@ def ingest(corpus_id, metadata):
         corpus_id (int)
         metadata (dict)
     """
-    novel = Novel.from_env(metadata)
+
+    novel = Novel(corpus_path, metadata)
 
     StacksText.objects.create(
         corpus_id=corpus_id,

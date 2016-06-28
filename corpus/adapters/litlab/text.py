@@ -12,7 +12,6 @@ from .author import Author
 
 class Text:
 
-
     def __init__(self, path):
 
         """
@@ -24,7 +23,6 @@ class Text:
 
         self.path = os.path.abspath(path)
 
-
     def author_path(self):
 
         """
@@ -34,7 +32,6 @@ class Text:
         """
 
         return os.path.dirname(self.path)
-
 
     def metadata_path(self):
 
@@ -46,7 +43,6 @@ class Text:
 
         return os.path.join(self.path, 'metadata.txt')
 
-
     def text_path(self):
 
         """
@@ -56,7 +52,6 @@ class Text:
         """
 
         return os.path.join(self.path, 'text.txt')
-
 
     def folder_name(self):
 
@@ -70,7 +65,6 @@ class Text:
 
         return text_dir.parts[-1]
 
-
     @property
     def author(self):
 
@@ -81,7 +75,6 @@ class Text:
         """
 
         return Author(self.author_path())
-
 
     @cached_property
     def metadata(self):
@@ -102,7 +95,6 @@ class Text:
 
             return dict(ConfigObj(lines, list_values=False))
 
-
     def plain_text(self):
 
         """
@@ -120,7 +112,6 @@ class Text:
 
             return fh.read()
 
-
     def title(self):
 
         """
@@ -130,7 +121,6 @@ class Text:
         """
 
         return self.metadata['title']
-
 
     def year(self):
 
@@ -145,7 +135,6 @@ class Text:
 
         # TODO: Store start + end year?
         return round(float(years[0]))
-
 
     def identifier(self):
 
