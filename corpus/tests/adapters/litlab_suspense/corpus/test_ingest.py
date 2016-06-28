@@ -69,6 +69,7 @@ pytestmark = pytest.mark.usefixtures('ingest')
         text='Pioneers used to entertain themselves by telling scary stories.',
     )),
 
+    # Metadata file with empty lines.
     ('utterson-sarah-elizabeth-fantasmagoriana', dict(
         title='Fantasmagoriana',
         author_name_full='Utterson, Sarah Elizabeth',
