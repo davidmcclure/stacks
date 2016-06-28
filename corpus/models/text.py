@@ -35,13 +35,13 @@ class Text(models.Model):
         null=True,
     )
 
-    # author_first = models.TextField(
-        # null=True,
-    # )
+    author_first = models.TextField(
+        null=True,
+    )
 
-    # author_last = models.TextField(
-        # null=True,
-    # )
+    author_last = models.TextField(
+        null=True,
+    )
 
     year = models.IntegerField(
         null=True,
