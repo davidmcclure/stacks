@@ -8,10 +8,8 @@ from corpus.models import Text
 
 class TextFactory(factory.DjangoModelFactory):
 
-
     class Meta:
         model = Text
-
 
     corpus = factory.SubFactory(CorpusFactory)
 

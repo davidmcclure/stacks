@@ -4,7 +4,6 @@ import csv
 import os
 
 from django.conf import settings
-
 from corpus.models import Corpus as StacksCorpus
 
 from .jobs import ingest
