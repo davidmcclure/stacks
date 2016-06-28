@@ -56,7 +56,7 @@ def test_test(identifier, title, author, year, snippet):
     text = Text.objects.get(identifier=identifier)
 
     assert text.title == title
-    assert text.author == author
+    assert text.author_full == author
     assert text.year == year
 
     assert snippet in text.plain_text

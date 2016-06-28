@@ -17,13 +17,10 @@ def ingest(corpus_id, path):
     text = Text(path)
 
     StacksText.objects.create(
-
-        corpus_id   = corpus_id,
-        identifier  = text.identifier(),
-        plain_text  = text.plain_text(),
-
-        title   = text.title(),
-        author  = text.author.folder_name(),
-        year    = text.year(),
-
+        corpus_id=corpus_id,
+        identifier=text.identifier(),
+        plain_text=text.plain_text(),
+        title=text.title(),
+        author_full=text.author.folder_name(),
+        year=text.year(),
     )
