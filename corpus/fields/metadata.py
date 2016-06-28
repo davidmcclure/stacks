@@ -11,6 +11,7 @@ class MetadataField(models.TextField):
         Strip metadata values.
         """
 
-        cleaned = value.strip()
+        if value:
+            value = value.strip()
 
-        return super().clean(cleaned, model_instance)
+        return super().clean(value, model_instance)

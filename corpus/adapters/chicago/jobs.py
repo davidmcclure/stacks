@@ -17,7 +17,7 @@ def ingest(corpus_id, corpus_path, metadata):
 
     novel = Novel(corpus_path, metadata)
 
-    StacksText.objects.create(
+    row = StacksText(
         corpus_id=corpus_id,
         identifier=novel.identifier(),
         source_text=novel.source_text(),
@@ -27,3 +27,7 @@ def ingest(corpus_id, corpus_path, metadata):
         author_name_last=novel.author_name_last(),
         year=novel.year(),
     )
+
+    row.full_clean()
+
+    row.save()

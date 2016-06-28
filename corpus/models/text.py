@@ -25,7 +25,10 @@ class Text(models.Model):
 
     source_text = models.TextField()
 
-    plain_text = models.TextField()
+    plain_text = models.TextField(
+        null=True,
+        blank=True,
+    )
 
 
     # Metadata
@@ -35,16 +38,20 @@ class Text(models.Model):
 
     author_name_full = fields.MetadataField(
         null=True,
+        blank=True,
     )
 
     author_name_first = fields.MetadataField(
         null=True,
+        blank=True,
     )
 
     author_name_last = fields.MetadataField(
         null=True,
+        blank=True,
     )
 
     year = models.IntegerField(
         null=True,
+        blank=True,
     )
