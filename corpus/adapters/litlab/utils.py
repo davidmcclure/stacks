@@ -21,12 +21,17 @@ def parse_metadata(path):
 
         lines = fh.read().splitlines()
 
-        params = []
+        params = {}
         for line in lines:
 
             match = pattern.match(line)
 
             if match:
-                params.append(match.groups())
+
+                key = match.group('key')
+                val = match.group('val')
+
+                # TODO: Handle this on the Text model?
+                params[key] = val.strip()
 
         return dict(params)
