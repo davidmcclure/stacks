@@ -21,7 +21,7 @@ class Novel:
 
         self.metadata = metadata
 
-    def plain_text_path(self):
+    def source_text_path(self):
 
         """
         Returns: str
@@ -33,13 +33,13 @@ class Novel:
             self.metadata['FILENAME'],
         )
 
-    def plain_text(self):
+    def source_text(self):
 
         """
         Returns: str
         """
 
-        with open(self.plain_text_path(), 'r') as fh:
+        with open(self.source_text_path(), 'r') as fh:
             return fh.read()
 
     def identifier(self):

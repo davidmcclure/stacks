@@ -76,4 +76,4 @@ def test_ingest(identifier, fields):
         assert text.year == fields['year']
 
     if 'text' in fields:
-        assert fields['text'] in text.plain_text
+        assert fields['text'] in text.source_text

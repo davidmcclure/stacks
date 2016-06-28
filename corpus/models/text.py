@@ -2,6 +2,8 @@
 
 from django.db import models
 
+from corpus import fields
+
 
 class Text(models.Model):
 
@@ -29,17 +31,17 @@ class Text(models.Model):
     # Metadata
     # --------
 
-    title = models.TextField()
+    title = fields.MetadataField()
 
-    author_name_full = models.TextField(
+    author_name_full = fields.MetadataField(
         null=True,
     )
 
-    author_name_first = models.TextField(
+    author_name_first = fields.MetadataField(
         null=True,
     )
 
-    author_name_last = models.TextField(
+    author_name_last = fields.MetadataField(
         null=True,
     )
 

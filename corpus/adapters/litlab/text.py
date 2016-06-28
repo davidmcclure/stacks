@@ -88,7 +88,7 @@ class Text:
 
         return parse_metadata(self.metadata_path())
 
-    def plain_text(self):
+    def source_text(self):
 
         """
         Read the text file.
