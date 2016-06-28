@@ -27,11 +27,8 @@ def parse_metadata(path):
             match = pattern.match(line)
 
             if match:
-
                 key = match.group('key')
                 val = match.group('val')
-
-                # TODO: Handle this on the Text model?
-                params[key] = val.strip()
+                params[key] = val
 
         return dict(params)
