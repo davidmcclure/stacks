@@ -39,16 +39,38 @@ class Author:
         Returns: dict
         """
 
-        return dict(ConfigObj(self.metadata_path()))
+        with open(
+            self.metadata_path(),
+            mode='r',
+            encoding='utf8',
+        ) as fh:
+
+            lines = fh.read().splitlines()
+
+            return dict(ConfigObj(lines, list_values=False))
 
     def folder_name(self):
 
         """
-        Get the author's full name.
-
         Returns: str
         """
 
         author_dir = Path(self.path)
 
         return author_dir.parts[-1]
+
+    def name_first(self):
+
+        """
+        Returns: str
+        """
+
+        return self.metadata.get('name_first')
+
+    def name_last(self):
+
+        """
+        Returns: str
+        """
+
+        return self.metadata.get('name_last')
