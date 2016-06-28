@@ -8,79 +8,77 @@ from corpus.models import Text
 pytestmark = pytest.mark.usefixtures('ingest')
 
 
-@pytest.mark.parametrize('identifier,title,author,year,snippet', [
+@pytest.mark.parametrize('identifier,fields', [
 
-    (
-        'king-stephen-dolores-claiborne',
-        'Dolores Claiborne',
-        'King, Stephen',
-        1992,
-        'Gorry! What makes some men so numb?',
-    ),
+    ('king-stephen-dolores-claiborne', dict(
+        title='Dolores Claiborne',
+        author_name_full='King, Stephen',
+        year=1992,
+        text='Gorry! What makes some men so numb?',
+    )),
 
-    (
-        'king-stephen-it',
-        'It',
-        'King, Stephen',
-        1986,
-        'The terror, which would not end for another twenty-eight years—if it ever did end',
-    ),
+    ('king-stephen-it', dict(
+        title='It',
+        author_name_full='King, Stephen',
+        year=1986,
+        text='The terror, which would not end for another twenty-eight years—if it ever did end',
+    )),
 
-    (
-        'king-stephen-the-stand',
-        'The Stand',
-        'King, Stephen',
-        1978,
-        'Her husband was deathly pale. His eyes started and bulged from their sockets.',
-    ),
+    ('king-stephen-the-stand', dict(
+        title='The Stand',
+        author_name_full='King, Stephen',
+        year=1978,
+        text='Her husband was deathly pale. His eyes started and bulged from their sockets.',
+    )),
 
-    (
-        'king-stephen-the-talisman',
-        'The Talisman',
-        'King, Stephen',
-        1984,
-        'Jack turned around, looking up the empty beach first to the left, then to the right.',
-    ),
+    ('king-stephen-the-talisman', dict(
+        title='The Talisman',
+        author_name_full='King, Stephen',
+        year=1984,
+        text='Jack turned around, looking up the empty beach first to the left, then to the right.',
+    )),
 
-    (
-        'king-stephen-the-tommyknockers',
-        'The Tommyknockers',
-        'King, Stephen',
-        1987,
-        'Well we picked up Harry Truman, floating down from Independence,',
-    ),
+    ('king-stephen-the-tommyknockers', dict(
+        title='The Tommyknockers',
+        author_name_full='King, Stephen',
+        year=1987,
+        text='Well we picked up Harry Truman, floating down from Independence,',
+    )),
 
-    (
-        'kotzwinkle-william-e-t-the-extraterrestrial',
-        'E.T., The Extraterrestrial',
-        'Kotzwinkle, William',
-        1982,
-        'The spaceship floated gently, anchored by a beam of lavender light to the earth below.',
-    ),
+    ('kotzwinkle-william-e-t-the-extraterrestrial', dict(
+        title='E.T., The Extraterrestrial',
+        author_name_full='Kotzwinkle, William',
+        year=1982,
+        text='The spaceship floated gently, anchored by a beam of lavender light to the earth below.',
+    )),
 
-    (
-        'tolkien-j-r-r-the-lord-of-the-rings',
-        'The Lord of the Rings',
-        'Tolkien, J.R.R.',
-        1937,
-        'Three Rings for the Elven-kings under the sky,',
-    ),
+    ('tolkien-j-r-r-the-lord-of-the-rings', dict(
+        title='The Lord of the Rings',
+        author_name_full='Tolkien, J.R.R.',
+        year=1937,
+        text='Three Rings for the Elven-kings under the sky,',
+    )),
 
-    (
-        'matthews-harry-tlooth',
-        'Tlooth',
-        'Matthews, Harry',
-        1966,
-        'Center field: Lynn Petomi, dentist, mutilated the mouths of patients.',
-    ),
+    ('matthews-harry-tlooth', dict(
+        title='Tlooth',
+        author_name_full='Matthews, Harry',
+        year=1966,
+        text='Center field: Lynn Petomi, dentist, mutilated the mouths of patients.',
+    )),
 
 ])
-def test_test(identifier, title, author, year, snippet):
+def test_ingest(identifier, fields):
 
     text = Text.objects.get(identifier=identifier)
 
-    assert text.title == title
-    assert text.author_name_full == author
-    assert text.year == year
+    if 'title' in fields:
+        assert text.title == fields['title']
 
-    assert snippet in text.plain_text
+    if 'author_name_full' in fields:
+        assert text.author_name_full == fields['author_name_full']
+
+    if 'year' in fields:
+        assert text.year == fields['year']
+
+    if 'text' in fields:
+        assert fields['text'] in text.plain_text
