@@ -10,7 +10,6 @@ from corpus.adapters.litlab.jobs import ingest
 
 class Corpus:
 
-
     @classmethod
     def from_env(cls):
 
@@ -22,7 +21,6 @@ class Corpus:
 
         return cls(settings.CORPUS_LITLAB_SUSPENSE)
 
-
     def __init__(self, path):
 
         """
@@ -33,7 +31,6 @@ class Corpus:
         """
 
         self.path = os.path.abspath(path)
-
 
     def text_paths(self):
 
@@ -62,16 +59,17 @@ class Corpus:
                 for text_dir in next(os.walk(author_path))[1]:
                     yield os.path.join(author_path, text_dir)
 
-
     def ingest(self):
 
         """
         Queue ingest jobs for each text.
         """
 
+        paths = [[p] for p in self.text_paths()]
+
         StacksCorpus.objects.queue_ingest(
             slug='litlab-suspense',
             name='Literary Lab Suspense Corpus',
-            paths=self.text_paths(),
+            args=paths,
             job=ingest,
         )

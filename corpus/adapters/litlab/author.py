@@ -9,7 +9,6 @@ from configobj import ConfigObj
 
 class Author:
 
-
     def __init__(self, path):
 
         """
@@ -21,7 +20,6 @@ class Author:
 
         self.path = os.path.abspath(path)
 
-
     def metadata_path(self):
 
         """
@@ -31,7 +29,6 @@ class Author:
         """
 
         return os.path.join(self.path, 'metadata.txt')
-
 
     @cached_property
     def metadata(self):
@@ -43,7 +40,6 @@ class Author:
         """
 
         return dict(ConfigObj(self.metadata_path()))
-
 
     def folder_name(self):
 

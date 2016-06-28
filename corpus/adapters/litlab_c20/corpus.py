@@ -10,18 +10,14 @@ from corpus.adapters.litlab.jobs import ingest
 
 class Corpus:
 
-
     @classmethod
     def from_env(cls):
 
         """
         Wrap the ENV-defined root.
-
-        Returns: cls
         """
 
         return cls(settings.CORPUS_LITLAB_C20)
-
 
     def __init__(self, path):
 
@@ -33,7 +29,6 @@ class Corpus:
         """
 
         self.path = os.path.abspath(path)
-
 
     def text_paths(self):
 
@@ -53,16 +48,17 @@ class Corpus:
                 # Yield each text path.
                 yield os.path.join(author_path, text_dir)
 
-
     def ingest(self):
 
         """
         Queue ingest jobs for each text.
         """
 
+        paths = [[p] for p in self.text_paths()]
+
         StacksCorpus.objects.queue_ingest(
             slug='litlab-c20',
             name='Literary Lab 20th Century Corpus',
-            paths=self.text_paths(),
+            args=paths,
             job=ingest,
         )
