@@ -3,6 +3,9 @@
 from django.db import models
 
 
+# TODO: test
+
+
 class MetadataField(models.TextField):
 
     def clean(self, value, model_instance):
