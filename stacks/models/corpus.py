@@ -2,10 +2,10 @@
 
 from sqlalchemy import Column, String
 
-from .base import BaseModel
+from .base import Base
 
 
-class Corpus(BaseModel):
+class Corpus(Base):
 
     __tablename__ = 'corpus'
 
