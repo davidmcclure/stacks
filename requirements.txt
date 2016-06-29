@@ -2,5 +2,6 @@
 ipython
 sqlalchemy
 psycopg2
-anyconfig
 PyYAML
+anyconfig
+pytest
