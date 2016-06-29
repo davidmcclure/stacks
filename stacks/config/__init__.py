@@ -18,9 +18,13 @@ class Config:
         Get a config instance with the default files.
         """
 
+        # TODO: How to handle dev, prod, test?
+
+        cwd = os.path.dirname(__file__)
+
         return cls([
-            os.path.join(os.path.dirname(__file__), 'base.yml'),
-            # TODO: prod, dev, test
+            os.path.join(cwd, 'base.yml'),
+            # TODO: prod, dev
         ])
 
     def __init__(self, paths):
