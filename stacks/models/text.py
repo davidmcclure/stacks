@@ -2,10 +2,10 @@
 
 from sqlalchemy import Column, Integer, ForeignKey, String
 
-from .base import BaseModel
+from .base import Base
 
 
-class Text(BaseModel):
+class Text(Base):
 
     __tablename__ = 'text'
 
