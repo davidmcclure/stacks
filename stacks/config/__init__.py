@@ -5,7 +5,7 @@ import anyconfig
 import yaml
 
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import sessionmaker, scoped_session
 from contextlib import contextmanager
 
 
@@ -63,8 +63,8 @@ class Config:
         # Parse the configuration.
         self.config = anyconfig.load(self.paths, ignore_missing=True)
 
-        # SQLAlchemy session maker.
-        self.Session = self.build_sessionmaker()
+        # SQLAlchemy scoped session.
+        self.Session = self.build_session()
 
     def build_engine(self):
 
@@ -76,7 +76,7 @@ class Config:
 
         return create_engine(self['database_uri'])
 
-    def build_sessionmaker(self):
+    def build_session_factory(self):
 
         """
         Build a SQLAlchemy session class.
@@ -86,24 +86,12 @@ class Config:
 
         return sessionmaker(bind=self.build_engine())
 
-    @contextmanager
-    def get_session(self):
+    def build_session(self):
 
         """
-        Provide a transactional scope around a query.
+        Build a scoped session manager.
 
-        Yields: Session
+        Returns: Session
         """
 
-        session = self.Session()
-
-        try:
-            yield session
-            session.commit()
-
-        except:
-            session.rollback()
-            raise
-
-        finally:
-            session.close()
+        return scoped_session(self.build_session_factory())
