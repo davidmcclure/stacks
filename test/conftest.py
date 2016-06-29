@@ -17,6 +17,20 @@ def test_config():
     _config.build()
 
 
+@pytest.yield_fixture
+def config():
+
+    """
+    Reset the configuration object after each test.
+
+    Yields:
+        The modify-able config object.
+    """
+
+    yield _config
+    _config.build()
+
+
 @pytest.fixture()
 def db(config):
 
@@ -26,5 +40,5 @@ def db(config):
 
     engine = config.build_engine()
 
-    BaseModel.metadata.drop_all(engine)
-    BaseModel.metadata.create_all(engine)
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
