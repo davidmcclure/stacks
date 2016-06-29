@@ -5,3 +5,4 @@ psycopg2
 PyYAML
 anyconfig
 pytest
+factory_boy
