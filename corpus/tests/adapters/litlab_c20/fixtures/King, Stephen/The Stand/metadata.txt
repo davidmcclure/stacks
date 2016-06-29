@@ -1,6 +1,0 @@
-title=The Stand
-year=1978
-genre=
-source=
-notes=
-genre_confirmed=

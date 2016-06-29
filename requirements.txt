@@ -1,17 +1,6 @@
 
 ipython
-django
-django-extensions
+sqlalchemy
 psycopg2
-gunicorn
-pytest-django
-factory_boy
-django-appconf
-lxml
-beautifulsoup4
+anyconfig
 PyYAML
-configobj
-python-slugify
-django-rq
-cached-property
-pylint

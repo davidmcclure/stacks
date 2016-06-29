@@ -1,7 +1,0 @@
-title=Scary Stories to Tell in the Dark
-year=1981
-genre=
-source=
-notes=
-genre_confirmed=
-project=suspense

@@ -1,6 +1,0 @@
-title=E.T., The Extraterrestrial
-year=1982
-genre=
-source=
-notes=
-genre_confirmed=

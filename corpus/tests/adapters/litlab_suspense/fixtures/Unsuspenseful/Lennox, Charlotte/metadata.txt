@@ -1,8 +1,0 @@
-dob=ca. 1729
-dod=1804.0
-gender=F
-name_full=Lennox, Charlotte
-nation=English
-notes=
-link=<http://en.wikipedia.org/wiki/Charlotte_Lennox>
-link=<http://viaf.org/viaf/100288562>

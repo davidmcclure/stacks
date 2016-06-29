@@ -1,6 +1,0 @@
-title=The Lord of the Rings
-year=1937-1949
-genre=
-source=
-notes=Published as a trilogy.
-genre_confirmed=

@@ -1,6 +1,0 @@
-title=The Silmarillion
-year=1977
-genre=
-source=
-notes=
-genre_confirmed=

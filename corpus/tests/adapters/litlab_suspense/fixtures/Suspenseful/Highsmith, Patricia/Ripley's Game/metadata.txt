@@ -1,2 +1,0 @@
-title=Ripley’s Game
-year=1974genre=source=notes=genre_confirmed=project=suspense

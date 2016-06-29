@@ -1,6 +1,0 @@
-BOOK_ID,FILENAME,LIBRARIES,TITLE,AUTH_LAST,AUTH_FIRST,AUTH_ID,WRITTEN_AS,PUBL_CITY,PUBLISHER,PUBL_DATE,SOURCE,NATIONALITY,GENRE,CLEAN
-1,00000001.txt,152,Democracy,Adams,Henry,A_00017,,New York,Henry Holt & Co.,1880,g,American,,c
-3,00000003.txt,56,The Stillwater tragedy,Aldrich,Thomas Bailey,A_00034,,Boston,Houghton Mifflin Co.,1880,g,American,,
-13,00000013.txt,163,Louisiana,Burnett,Frances Hodgson,A_00486,,New York,Charles Scribner's Sons,1880,g,American,,
-15,00000015.txt,56,The Grandissimes,Cable,George Washington,A_00512,,New York,Charles Scribner's Sons,1880,g,American,,
-21,00000021.txt,57,Hope Mills: or: Between friend and sweetheart,Douglas,Amanda M.,A_00984,,Boston,Lee & Shepard,1880,g,American,,
