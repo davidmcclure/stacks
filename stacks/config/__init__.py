@@ -18,8 +18,6 @@ class Config:
         Get a config instance with the default files.
         """
 
-        # TODO: How to handle dev, prod, test?
-
         cwd = os.path.dirname(__file__)
 
         return cls([
@@ -38,7 +36,7 @@ class Config:
 
         self.paths = paths
 
-        self.build()
+        self.read()
 
     def __getitem__(self, key):
 
@@ -54,17 +52,13 @@ class Config:
 
         return self.config.get(key)
 
-    def build(self):
+    def read(self):
 
         """
-        Load the configuration files, set globals.
+        Read the configuration files.
         """
 
-        # Parse the configuration.
         self.config = anyconfig.load(self.paths, ignore_missing=True)
-
-        # SQLAlchemy scoped session.
-        self.Session = self.build_session()
 
     def build_engine(self):
 

@@ -2,7 +2,7 @@
 
 import pytest
 
-from stacks import config as _config
+from stacks import config as _config, session
 from stacks.models import Base
 
 
@@ -14,7 +14,7 @@ def test_config():
     """
 
     _config.paths.append('~/.stacks.test.yml')
-    _config.build()
+    _config.read()
 
 
 @pytest.yield_fixture
@@ -28,7 +28,7 @@ def config():
     """
 
     yield _config
-    _config.build()
+    _config.read()
 
 
 @pytest.fixture()
@@ -39,6 +39,8 @@ def db(config):
     """
 
     engine = config.build_engine()
+
+    session.configure(bind=engine)
 
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
