@@ -19,24 +19,9 @@ def test_required():
     Block null values.
     """
 
-    CorpusFactory(slug=None)
+    CorpusFactory(name=None)
 
     with pytest.raises(IntegrityError) as e:
         session.commit()
 
-    assert 'slug' in str(e)
-
-
-def test_unique():
-
-    """
-    Block duplicate slugs.
-    """
-
-    c1 = CorpusFactory(slug='slug')
-    c2 = CorpusFactory(slug='slug')
-
-    with pytest.raises(IntegrityError) as e:
-        session.commit()
-
-    assert 'corpus_slug_key' in str(e)
+    assert 'name' in str(e)
