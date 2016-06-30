@@ -14,10 +14,6 @@ class TextFactory(factory.alchemy.SQLAlchemyModelFactory):
         sqlalchemy_session = session
         model = Text
 
-    id = factory.Sequence(
-        lambda n: n
-    )
-
     corpus = factory.SubFactory(CorpusFactory)
 
     identifier = factory.Sequence(

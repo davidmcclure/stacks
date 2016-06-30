@@ -12,10 +12,6 @@ class CorpusFactory(factory.alchemy.SQLAlchemyModelFactory):
         sqlalchemy_session = session
         model = Corpus
 
-    id = factory.Sequence(
-        lambda n: n
-    )
-
     name = factory.Sequence(
         lambda n: 'Corpus {0}'.format(n)
     )
