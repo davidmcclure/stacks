@@ -2,49 +2,39 @@
 
 import pytest
 
-from stacks.common import config as _config, session
+import stacks
+
+from stacks import common
+from stacks.common.config import Config
 from stacks.models import Base
 
 
-@pytest.fixture(scope='session', autouse=True)
+@pytest.fixture(autouse=True)
 def test_config():
 
     """
-    Register the testing config file.
+    Patch in the testing config file.
     """
 
-    _config.paths.append('~/.stacks.test.yml')
-    _config.read()
-
-
-@pytest.yield_fixture
-def config():
-
-    """
-    Reset the configuration object after each test.
-
-    Yields:
-        The modify-able config object.
-    """
-
-    yield _config
-    _config.read()
+    common.config = Config.from_env('/etc/stacks/stacks.test.yml')
 
 
 @pytest.yield_fixture()
-def db(config):
+def db():
 
     """
     Reset the testing database, yield a session.
     """
 
-    engine = config.build_engine()
+    # Set the test database.
+    engine = common.config.build_engine()
+    common.session.configure(bind=engine)
 
-    session.configure(bind=engine)
-
+    # Reset the tables.
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
     yield
 
-    session.remove()
+    # Clear the session.
+    common.session.remove()

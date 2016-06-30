@@ -12,18 +12,21 @@ from contextlib import contextmanager
 class Config:
 
     @classmethod
-    def from_env(cls):
+    def from_env(cls, *extra_paths):
 
         """
         Get a config instance with the default files.
+
+        Args:
+            *extra_paths (str)
         """
 
-        cwd = os.path.dirname(__file__)
+        paths = [
+            os.path.join(os.path.dirname(__file__), 'stacks.yml'),
+            '/etc/stacks/stacks.yml'
+        ]
 
-        return cls([
-            os.path.join(cwd, 'base.yml'),
-            # TODO: prod, dev
-        ])
+        return cls(paths + list(extra_paths))
 
     def __init__(self, paths):
 
@@ -34,9 +37,7 @@ class Config:
             paths (list): YAML paths, from most to least specific.
         """
 
-        self.paths = paths
-
-        self.read()
+        self.config = anyconfig.load(paths, ignore_missing=True)
 
     def __getitem__(self, key):
 
@@ -52,14 +53,6 @@ class Config:
 
         return self.config.get(key)
 
-    def read(self):
-
-        """
-        Read the configuration files.
-        """
-
-        self.config = anyconfig.load(self.paths, ignore_missing=True)
-
     def build_engine(self):
 
         """
@@ -70,7 +63,7 @@ class Config:
 
         return create_engine(self['database_uri'])
 
-    def build_session_factory(self):
+    def build_sessionmaker(self):
 
         """
         Build a SQLAlchemy session class.
@@ -88,4 +81,4 @@ class Config:
         Returns: Session
         """
 
-        return scoped_session(self.build_session_factory())
+        return scoped_session(self.build_sessionmaker())
