@@ -7,3 +7,6 @@ anyconfig
 pytest
 factory_boy
 alembic
+rq
+rq-dashboard
+flask
