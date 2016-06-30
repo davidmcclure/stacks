@@ -6,3 +6,4 @@ PyYAML
 anyconfig
 pytest
 factory_boy
+alembic

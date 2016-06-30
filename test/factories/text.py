@@ -19,3 +19,17 @@ class TextFactory(factory.alchemy.SQLAlchemyModelFactory):
     identifier = factory.Sequence(
         lambda n: n
     )
+
+    title = factory.Sequence(
+        lambda n: 'Text {0}'.format(n)
+    )
+
+    author_name_full = 'Wharton, Edith'
+
+    author_name_first = 'Edith'
+
+    author_name_last = 'Wharton'
+
+    year = 1900
+
+    plain_text = 'To keep a kind of republic of the spirit...'
