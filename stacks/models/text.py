@@ -8,6 +8,8 @@ from sqlalchemy import (
     UniqueConstraint,
 )
 
+from sqlalchemy.orm import relationship
+
 from .base import Base
 
 
@@ -20,5 +22,7 @@ class Text(Base):
     )
 
     corpus_id = Column(Integer, ForeignKey('corpus.id'))
+
+    corpus = relationship('Corpus')
 
     identifier = Column(String, nullable=False)
