@@ -3,7 +3,7 @@
 import factory
 
 from stacks.core import session
-from stacks.models import Corpus
+from stacks.corpus.models import Corpus
 
 
 class CorpusFactory(factory.alchemy.SQLAlchemyModelFactory):
