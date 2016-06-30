@@ -2,7 +2,7 @@
 
 import factory
 
-from stacks.common import session
+from stacks.core import session
 from stacks.models import Text
 
 from test.factories import CorpusFactory

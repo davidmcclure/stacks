@@ -4,8 +4,8 @@ import pytest
 
 import stacks
 
-from stacks import common
-from stacks.common.config import Config
+from stacks import core
+from stacks.core.config import Config
 from stacks.models import Base
 
 
@@ -16,7 +16,7 @@ def set_test_config():
     Patch in the testing config file.
     """
 
-    common.config = Config.from_test_env()
+    core.config = Config.from_test_env()
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -27,8 +27,8 @@ def init_testing_db(set_test_config):
     """
 
     # Apply the testing config.
-    engine = common.config.build_engine()
-    common.session.configure(bind=engine)
+    engine = core.config.build_engine()
+    core.session.configure(bind=engine)
 
     # Reset the tables.
     Base.metadata.drop_all(engine)
@@ -44,5 +44,5 @@ def db():
 
     yield
 
-    common.session.rollback()
-    common.session.remove()
+    core.session.rollback()
+    core.session.remove()
