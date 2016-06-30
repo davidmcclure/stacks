@@ -16,7 +16,7 @@ def test_config():
     Patch in the testing config file.
     """
 
-    common.config = Config.from_env('/etc/stacks/stacks.test.yml')
+    common.config = Config.from_test_env()
 
 
 @pytest.yield_fixture()
