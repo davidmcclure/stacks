@@ -2,7 +2,7 @@
 
 import factory
 
-from stacks import session
+from stacks.common import session
 from stacks.models import Corpus
 
 

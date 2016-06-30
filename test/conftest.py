@@ -2,7 +2,7 @@
 
 import pytest
 
-from stacks import config as _config, session
+from stacks.common import config as _config, session
 from stacks.models import Base
 
 
