@@ -18,9 +18,9 @@ def test_required():
     Block null values.
     """
 
-    TextFactory(corpus=None)
+    TextFactory(plain_text=None)
 
     with pytest.raises(IntegrityError) as e:
         session.commit()
 
-    assert 'corpus_id' in str(e)
+    assert 'plain_text' in str(e)
