@@ -13,7 +13,7 @@ from test.factories import CorpusFactory, TextFactory
 pytestmark = pytest.mark.usefixtures('db')
 
 
-def test_unique(config):
+def test_unique():
 
     """
     Block duplicate corpus+identifier pairs.
