@@ -11,7 +11,7 @@ from sqlalchemy import (
 
 from sqlalchemy.orm import relationship
 
-from stacks.core.models import Base
+from stacks.common.models import Base
 
 
 class Text(Base):
