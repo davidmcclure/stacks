@@ -28,6 +28,15 @@ class Config:
 
         return cls(paths + list(extra_paths))
 
+    @classmethod
+    def from_test_env(cls):
+
+        """
+        Apply the testing configuration.
+        """
+
+        return cls.from_env('/etc/stacks/stacks.yml')
+
     def __init__(self, paths):
 
         """
