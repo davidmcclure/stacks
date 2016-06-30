@@ -6,7 +6,7 @@ from sqlalchemy.exc import IntegrityError
 
 from stacks.common import session
 
-from test.factories import CorpusFactory
+from test.corpus.factories import CorpusFactory
 
 
 pytestmark = pytest.mark.usefixtures('db')

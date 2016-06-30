@@ -5,7 +5,7 @@ import factory
 from stacks.common import session
 from stacks.corpus.models import Text
 
-from test.factories import CorpusFactory
+from test.corpus.factories import CorpusFactory
 
 
 class TextFactory(factory.alchemy.SQLAlchemyModelFactory):
