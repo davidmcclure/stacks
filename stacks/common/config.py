@@ -35,7 +35,7 @@ class Config:
         Apply the testing configuration.
         """
 
-        return cls.from_env('/etc/stacks/stacks.yml')
+        return cls.from_env('/etc/stacks/stacks.test.yml')
 
     def __init__(self, paths):
 
