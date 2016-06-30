@@ -6,6 +6,7 @@ from sqlalchemy import (
     ForeignKey,
     String,
     UniqueConstraint,
+    Text,
 )
 
 from sqlalchemy.orm import relationship
@@ -21,8 +22,24 @@ class Text(Base):
         UniqueConstraint('corpus_id', 'identifier'),
     )
 
-    corpus_id = Column(Integer, ForeignKey('corpus.id'), nullable=False)
+    corpus_id = Column(
+        Integer,
+        ForeignKey('corpus.id'),
+        nullable=False,
+    )
 
     corpus = relationship('Corpus')
 
     identifier = Column(String, nullable=False)
+
+    title = Column(String, nullable=False)
+
+    author_name_full = Column(String)
+
+    author_name_first = Column(String)
+
+    author_name_last = Column(String)
+
+    year = Column(Integer)
+
+    plain_text = Column(Text, nullable=False)
