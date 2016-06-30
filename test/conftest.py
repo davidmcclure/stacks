@@ -31,11 +31,11 @@ def config():
     _config.read()
 
 
-@pytest.fixture()
+@pytest.yield_fixture()
 def db(config):
 
     """
-    Create / reset the testing database.
+    Reset the testing database, yield a session.
     """
 
     engine = config.build_engine()
@@ -44,3 +44,7 @@ def db(config):
 
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
+
+    yield
+
+    session.remove()
