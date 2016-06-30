@@ -5,7 +5,7 @@ import re
 from sqlalchemy import Column, String, UniqueConstraint
 from sqlalchemy.orm import validates
 
-from .base import Base
+from stacks.core.models import Base
 
 
 class Corpus(Base):

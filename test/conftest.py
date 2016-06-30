@@ -6,7 +6,7 @@ import stacks
 
 from stacks import core
 from stacks.core.config import Config
-from stacks.models import Base
+from stacks.core.models import Base
 
 
 @pytest.fixture(scope='session', autouse=True)
