@@ -1,6 +1,7 @@
 
 
 from sqlalchemy import Column, String, UniqueConstraint
+from sqlalchemy.orm import validates
 
 from .base import Base
 
