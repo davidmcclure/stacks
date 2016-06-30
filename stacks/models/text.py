@@ -21,7 +21,7 @@ class Text(Base):
         UniqueConstraint('corpus_id', 'identifier'),
     )
 
-    corpus_id = Column(Integer, ForeignKey('corpus.id'))
+    corpus_id = Column(Integer, ForeignKey('corpus.id'), nullable=False)
 
     corpus = relationship('Corpus')
 
