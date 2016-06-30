@@ -9,14 +9,30 @@ from stacks.common.config import Config
 from stacks.models import Base
 
 
-@pytest.fixture(autouse=True)
-def test_config():
+@pytest.fixture(scope='session', autouse=True)
+def set_test_config():
 
     """
     Patch in the testing config file.
     """
 
     common.config = Config.from_test_env()
+
+
+@pytest.fixture(scope='session', autouse=True)
+def init_testing_db(set_test_config):
+
+    """
+    Patch in the testing config file.
+    """
+
+    # Apply the testing config.
+    engine = common.config.build_engine()
+    common.session.configure(bind=engine)
+
+    # Reset the tables.
+    Base.metadata.drop_all(engine)
+    Base.metadata.create_all(engine)
 
 
 @pytest.yield_fixture()
@@ -26,15 +42,7 @@ def db():
     Reset the testing database, yield a session.
     """
 
-    # Set the test database.
-    engine = common.config.build_engine()
-    common.session.configure(bind=engine)
-
-    # Reset the tables.
-    Base.metadata.drop_all(engine)
-    Base.metadata.create_all(engine)
-
     yield
 
-    # Clear the session.
+    common.session.rollback()
     common.session.remove()
