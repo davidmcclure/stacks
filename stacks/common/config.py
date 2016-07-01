@@ -63,6 +63,16 @@ class Config:
 
         return self.config.get(key)
 
+    def build_database_url(self):
+
+        """
+        Build a SQLAlchemy connection string.
+
+        Returns: Engine
+        """
+
+        return URL(**self['database'])
+
     def build_engine(self):
 
         """
@@ -71,7 +81,9 @@ class Config:
         Returns: Engine
         """
 
-        return create_engine(URL(**self['database']))
+        url = self.build_database_url()
+
+        return create_engine(url)
 
     def build_sessionmaker(self):
 
