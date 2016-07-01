@@ -16,7 +16,7 @@ config = context.config
 # Patch in the ENV-defined database URI.
 config.set_main_option(
     'sqlalchemy.url',
-    str(stacks_config.build_database_url()),
+    str(stacks_config.build_sqla_url()),
 )
 
 # Interpret the config file for Python logging.

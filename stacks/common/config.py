@@ -63,7 +63,7 @@ class Config:
 
         return self.config.get(key)
 
-    def build_database_url(self):
+    def build_sqla_url(self):
 
         """
         Build a SQLAlchemy connection string.
@@ -73,7 +73,7 @@ class Config:
 
         return URL(**self['database'])
 
-    def build_engine(self):
+    def build_sqla_engine(self):
 
         """
         Build a SQLAlchemy engine.
@@ -81,11 +81,11 @@ class Config:
         Returns: Engine
         """
 
-        url = self.build_database_url()
+        url = self.build_sqla_url()
 
         return create_engine(url)
 
-    def build_sessionmaker(self):
+    def build_sqla_sessionmaker(self):
 
         """
         Build a SQLAlchemy session class.
@@ -93,9 +93,9 @@ class Config:
         Returns: Session
         """
 
-        return sessionmaker(bind=self.build_engine())
+        return sessionmaker(bind=self.build_sqla_engine())
 
-    def build_session(self):
+    def build_sqla_session(self):
 
         """
         Build a scoped session manager.
@@ -103,4 +103,4 @@ class Config:
         Returns: Session
         """
 
-        return scoped_session(self.build_sessionmaker())
+        return scoped_session(self.build_sqla_sessionmaker())
