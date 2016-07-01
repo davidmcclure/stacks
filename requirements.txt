@@ -10,3 +10,4 @@ alembic
 rq
 rq-dashboard
 flask
+gunicorn
