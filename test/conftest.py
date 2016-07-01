@@ -27,7 +27,7 @@ def init_testing_db(set_test_config):
     """
 
     # Apply the testing config.
-    engine = common.config.build_engine()
+    engine = common.config.build_sqla_engine()
     common.session.configure(bind=engine)
 
     # Reset the tables.
