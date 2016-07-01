@@ -6,7 +6,7 @@ from sqlalchemy import engine_from_config, pool
 from logging.config import fileConfig
 
 from stacks.common import config as stacks_config
-from stacks.models import Base
+from stacks.common.models import Base
 
 
 # this is the Alembic Config object, which provides
@@ -14,7 +14,10 @@ from stacks.models import Base
 config = context.config
 
 # Patch in the ENV-defined database URI.
-config.set_main_option('sqlalchemy.url', stacks_config['database_uri'])
+config.set_main_option(
+    'sqlalchemy.url',
+    str(stacks_config.build_database_url()),
+)
 
 # Interpret the config file for Python logging.
 # This line sets up loggers basically.
