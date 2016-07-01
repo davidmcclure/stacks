@@ -1,3 +1,6 @@
 ---
 
-database_uri: postgresql://localhost/stacks
+database:
+  drivername: postgresql
+  host: localhost
+  database: stacks

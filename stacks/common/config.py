@@ -6,6 +6,7 @@ import yaml
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
+from sqlalchemy.engine.url import URL
 from contextlib import contextmanager
 
 
@@ -70,7 +71,7 @@ class Config:
         Returns: Engine
         """
 
-        return create_engine(self['database_uri'])
+        return create_engine(URL(**self['database']))
 
     def build_sessionmaker(self):
 
