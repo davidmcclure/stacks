@@ -10,14 +10,12 @@ pytestmark = pytest.mark.usefixtures('ingest')
 
 @pytest.mark.parametrize('identifier,fields', [
 
-    # ('1', dict(
-        # title='Democracy',
-        # author_name_full='Adams, Henry',
-        # author_name_first='Henry',
-        # author_name_last='Adams',
-        # year=1880,
-        # text='After talking of Herbert Spencer for an entire evening with a very',
-    # )),
+    ('0031300100', dict(
+        title='Bibliotheca topographica Anglicana: or, a new and compleat catalogue of all the books extant relating to the antiquity, description, and natural history of England, the Counties thereof, &amp;c. to the present year 1736, Alphabetically digested in an easy Method; giving an Account of their various Editions, Dates, and Prices, and wherein they differ. Compil\'d by John Worrall.',
+        author_name_full='Worrall, John',
+        year=1736,
+        text='beautifully Engraven on Copper Plates and Coloured from the Life,',
+    )),
 
 ])
 def test_ingest(identifier, fields):
@@ -29,12 +27,6 @@ def test_ingest(identifier, fields):
 
     if 'author_name_full' in fields:
         assert text.author_name_full == fields['author_name_full']
-
-    if 'author_name_first' in fields:
-        assert text.author_name_first == fields['author_name_first']
-
-    if 'author_name_last' in fields:
-        assert text.author_name_last == fields['author_name_last']
 
     if 'year' in fields:
         assert text.year == fields['year']
