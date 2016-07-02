@@ -24,6 +24,20 @@ pytestmark = pytest.mark.usefixtures('ingest')
         text='on the Doses. and EfieOs of Medi- cines;',
     )),
 
+    ('0002200200', dict(
+        title='Abstract of the republics of antiquity.',
+        author_name_full='Warrington, W.',
+        year=1800,
+        text='TOL rectify unstable, or visionary ideas on the subject of politicks:',
+    )),
+
+    ('0002300100', dict(
+        title='An authentic account of the capture of the Dutch Fleet, consisting of Nine Sail of Men of War, Frigates, &c. at Saldanha Bay, Near the Cape of Good Hope, August 17, 1796. Illustrated with a chart, shewing The Situation of the Dutch Fleet, at the time they surrendered to Vice-Admiral Sir G. K. Elphinstone.',
+        author_name_full=None,
+        year=1796,
+        text='this Day received by the Right Honorable Henry Dundas,',
+    )),
+
 ])
 def test_ingest(identifier, fields):
 
