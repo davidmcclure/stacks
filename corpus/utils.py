@@ -1,5 +1,8 @@
 
 
+import os
+import yaml
+
 from bs4 import BeautifulSoup
 
 
@@ -58,3 +61,21 @@ def remove_tags(tree, tags):
             el.extract()
 
     return copy
+
+
+def read_yaml(from_path, fname):
+
+    """
+    Open a YAML file relative to the passed path.
+
+    Args:
+        from_path (str)
+        fname (str)
+
+    Returns: dict
+    """
+
+    path = os.path.join(os.path.dirname(from_path), fname)
+
+    with open(path, 'r') as fh:
+        return yaml.load(fh)
