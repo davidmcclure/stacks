@@ -20,7 +20,7 @@ def ingest(corpus_id, corpus_path, metadata):
     row = StacksText(
         corpus_id=corpus_id,
         identifier=novel.identifier(),
-        source_text=novel.source_text(),
+        plain_text=novel.source_text(),
         title=novel.title(),
         author_name_full=novel.author_name_full(),
         author_name_first=novel.author_name_first(),
