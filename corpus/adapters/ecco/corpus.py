@@ -6,6 +6,8 @@ import re
 
 from django.conf import settings
 
+from corpus.models import Corpus as StacksCorpus
+
 
 class Corpus:
 
@@ -45,3 +47,16 @@ class Corpus:
                 # Match .xml files.
                 if pattern.match(name):
                     yield os.path.join(root, name)
+
+    def ingest(self):
+
+        """
+        Queue ingest jobs for each text.
+        """
+
+        StacksCorpus.objects.queue_ingest(
+            slug='ecco',
+            name='Eighteenth Century Collections Online',
+            args=self.text_paths(),
+            job=ingest,
+        )
