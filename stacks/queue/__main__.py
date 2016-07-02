@@ -2,10 +2,11 @@
 
 import os
 
-from . import app
+from stacks.queue import app
 
 
 app.run(
-    port=os.getenv('PORT', 5000),
+    debug=True,
+    port=int(os.getenv('PORT', 5000)),
     host='0.0.0.0',
 )
