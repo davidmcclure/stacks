@@ -39,7 +39,13 @@ class Novel:
         Returns: str
         """
 
-        with open(self.source_text_path(), 'r') as fh:
+        with open(
+            self.source_text_path(),
+            mode='r',
+            encoding='utf8',
+            errors='ignore'
+        ) as fh:
+
             return fh.read()
 
     def identifier(self):
