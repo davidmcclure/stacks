@@ -1,26 +1,26 @@
 
 
-import pytest
-import os
-import django_rq
+# import pytest
+# import os
+# import django_rq
 
-from corpus.adapters.ecco.corpus import Corpus
+# from corpus.adapters.ecco.corpus import Corpus
 
 
-@pytest.fixture(scope='module')
-def ingest(django_db_module, redis_module):
+# @pytest.fixture(scope='module')
+# def ingest(django_db_module, redis_module):
 
-    """
-    Run ingest jobs.
-    """
+    # """
+    # Run ingest jobs.
+    # """
 
-    path = os.path.join(
-        os.path.dirname(__file__),
-        'fixtures',
-    )
+    # path = os.path.join(
+        # os.path.dirname(__file__),
+        # 'fixtures',
+    # )
 
-    corpus = Corpus(path)
+    # corpus = Corpus(path)
 
-    corpus.ingest()
+    # corpus.ingest()
 
-    django_rq.get_worker().work(burst=True)
+    # django_rq.get_worker().work(burst=True)
