@@ -20,7 +20,7 @@ def ingest(corpus_id, path):
     row = StacksText(
         corpus_id=corpus_id,
         identifier=text.identifier(),
-        source_text=text.source_text(),
+        plain_text=text.source_text(),
         title=text.title(),
         author_name_full=text.author.folder_name(),
         author_name_first=text.author.name_first(),
