@@ -1,9 +1,11 @@
 
 
-from .app import app
+import os
+
+from . import app
 
 
 app.run(
-    host='0.0.0.0',
     port=os.getenv('PORT', 5000),
+    host='0.0.0.0',
 )
