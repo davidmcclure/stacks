@@ -31,6 +31,14 @@ class Text:
 
         return get_text(self.xml, 'documentID')
 
+    def title(self):
+
+        """
+        Returns: str
+        """
+
+        return get_text(self.xml, 'fullTitle')
+
     def author_marc_name(self):
 
         """
