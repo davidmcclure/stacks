@@ -10,5 +10,4 @@
 /.env
 
 /stacks/settings/production.py
-
-node_modules
+/stacks/settings/test.py
