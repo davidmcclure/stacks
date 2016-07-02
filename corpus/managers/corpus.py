@@ -28,5 +28,10 @@ class CorpusManager(models.Manager):
         queue = django_rq.get_queue()
 
         # Spool a job for each source.
-        for _args in args:
-            queue.enqueue(job, corpus.id, *_args)
+        for arg in args:
+
+            if type(arg) is dict:
+                queue.enqueue(job, corpus.id, **arg)
+
+            else:
+                queue.enqueue(job, corpus.id, arg)

@@ -65,11 +65,9 @@ class Corpus:
         Queue ingest jobs for each text.
         """
 
-        paths = [[p] for p in self.text_paths()]
-
         StacksCorpus.objects.queue_ingest(
             slug='litlab-suspense',
             name='Literary Lab Suspense Corpus',
-            args=paths,
+            args=self.text_paths(),
             job=ingest,
         )
