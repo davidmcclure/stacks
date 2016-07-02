@@ -23,15 +23,7 @@ class Text(models.Model):
     # Content
     # -------
 
-    source_text = models.TextField(
-        null=True,
-        blank=True,
-    )
-
-    plain_text = models.TextField(
-        null=True,
-        blank=True,
-    )
+    plain_text = models.TextField()
 
 
     # Metadata
