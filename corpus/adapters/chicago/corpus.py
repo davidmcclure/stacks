@@ -60,7 +60,7 @@ class Corpus:
         """
 
         args = [
-            [self.path, row]
+            dict(corpus_path=self.path, metadata=row)
             for row in self.novels_metadata()
         ]
 
