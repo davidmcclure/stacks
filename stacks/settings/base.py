@@ -128,3 +128,5 @@ CORPUS_LITLAB_SUSPENSE = '/data/litlab-suspense'
 CORPUS_CHICAGO = '/data/chicago'
 
 CORPUS_ECCO = '/data/ecco'
+
+CORPUS_GAIL_AMFIC = '/data/gail-amfic'
