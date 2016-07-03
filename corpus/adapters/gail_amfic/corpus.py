@@ -5,6 +5,10 @@ import scandir
 
 from django.conf import settings
 
+from corpus.models import Corpus as StacksCorpus
+
+from .jobs import ingest
+
 
 class Corpus:
 
@@ -42,3 +46,16 @@ class Corpus:
                 # Match .xml files.
                 if os.path.splitext(name)[1] == '.xml':
                     yield os.path.join(root, name)
+
+    def ingest(self):
+
+        """
+        Queue ingest jobs for each text.
+        """
+
+        StacksCorpus.objects.queue_ingest(
+            slug='gail-american-fiction',
+            name='Gail American Fiction',
+            args=self.text_paths(),
+            job=ingest,
+        )
