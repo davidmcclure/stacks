@@ -7,6 +7,7 @@ import re
 from django.conf import settings
 
 from corpus.models import Corpus as StacksCorpus
+from corpus.utils import scan_paths
 
 from .jobs import ingest
 
@@ -41,14 +42,7 @@ class Corpus:
         Yields: str
         """
 
-        pattern = re.compile('[0-9]{10}.xml')
-
-        for root, dirs, files in scandir.walk(self.path):
-            for name in files:
-
-                # Match .xml files.
-                if pattern.match(name):
-                    yield os.path.join(root, name)
+        return scan_paths(self.path, '[0-9]{10}\.xml$')
 
     def ingest(self):
 

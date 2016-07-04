@@ -5,7 +5,7 @@ import os
 from django.conf import settings
 
 from corpus.models import Corpus as StacksCorpus
-from corpus.utils import scan_ext
+from corpus.utils import scan_paths
 
 from .jobs import ingest
 
@@ -40,7 +40,7 @@ class Corpus:
         Yields: str
         """
 
-        return scan_ext(self.path, '.xml')
+        return scan_paths(self.path, '\.xml$')
 
     def ingest(self):
 
