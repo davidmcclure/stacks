@@ -39,6 +39,30 @@ class Text:
 
         return get_text(self.xml, 'titleGroup fullTitle')
 
+    def author_name_full(self):
+
+        """
+        Returns: str
+        """
+
+        return get_text(self.xml, 'author composed')
+
+    def author_name_first(self):
+
+        """
+        Returns: str
+        """
+
+        return get_text(self.xml, 'author first')
+
+    def author_name_last(self):
+
+        """
+        Returns: str
+        """
+
+        return get_text(self.xml, 'author last')
+
     def year(self):
 
         """
