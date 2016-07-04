@@ -136,3 +136,5 @@ CORPUS_GAIL_AMFIC = '/data/gail-amfic'
 CORPUS_BPO = '/data/bpo'
 
 CORPUS_CHADH_POETRY = '/data/chadwyck-healey/poetry'
+
+CORPUS_CHADH_DRAMA = '/data/chadwyck-healey/drama'
