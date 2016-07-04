@@ -38,3 +38,18 @@ class Corpus:
         """
 
         return scan_ext(self.path, '\.new$')
+
+    def ingest(self):
+
+        """
+        Queue ingest jobs for each text.
+        """
+
+        # TODO: Ingest the segments as separate corpora?
+
+        StacksCorpus.objects.queue_ingest(
+            slug='chadwyck-healey-poetry',
+            name='Chadwyck Healey Poetry',
+            args=self.source_paths(),
+            job=ingest,
+        )
