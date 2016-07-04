@@ -6,6 +6,7 @@ import scandir
 from django.conf import settings
 
 from corpus.models import Corpus as StacksCorpus
+from corpus.utils import scan_ext
 
 from .jobs import ingest
 
@@ -40,12 +41,7 @@ class Corpus:
         Yields: str
         """
 
-        for root, dirs, files in scandir.walk(self.path):
-            for name in files:
-
-                # Match .xml files.
-                if os.path.splitext(name)[1] == '.xml':
-                    yield os.path.join(root, name)
+        return scan_ext(self.path, '.xml')
 
     def ingest(self):
 

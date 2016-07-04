@@ -1,9 +1,30 @@
 
 
-import os
 import yaml
+import os
+import scandir
 
 from bs4 import BeautifulSoup
+
+
+def scan_ext(root, ext):
+
+    """
+    Walk a directory and gather up all file paths with a given extension.
+
+    Args:
+        root (str)
+        ext (str)
+
+    Yields: str
+    """
+
+    for root, dirs, files in scandir.walk(root):
+        for name in files:
+
+            # Match the extension.
+            if os.path.splitext(name)[1] == ext:
+                yield os.path.join(root, name)
 
 
 def get_text(tree, selector):

@@ -1,13 +1,12 @@
 
 
 import os
-import scandir
 
 from zipfile import ZipFile
-
 from django.conf import settings
 
 from corpus.models import Corpus as StacksCorpus
+from corpus.utils import scan_ext
 
 from .jobs import ingest
 
@@ -42,12 +41,7 @@ class Corpus:
         Yields: str
         """
 
-        for root, dirs, files in scandir.walk(self.path):
-            for name in files:
-
-                # Match .zip files.
-                if os.path.splitext(name)[1] == '.zip':
-                    yield os.path.join(root, name)
+        return scan_ext(self.path, '.zip')
 
     def xml_paths(self):
 
