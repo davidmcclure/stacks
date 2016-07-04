@@ -20,12 +20,12 @@ def ingest(corpus_id, zipfile_path, xml_name):
     row = StacksText(
         corpus_id=corpus_id,
         identifier=article.identifier(),
-        plain_text=article.plain_text(),
         title=article.title(),
         author_name_full=article.author_name_full(),
         author_name_first=article.author_name_first(),
         author_name_last=article.author_name_last(),
         year=article.year(),
+        plain_text=article.plain_text(),
     )
 
     row.full_clean()
