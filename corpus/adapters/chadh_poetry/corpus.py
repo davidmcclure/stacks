@@ -4,7 +4,7 @@ import os
 import scandir
 
 from django.conf import settings
-from corpus.utils import scan_ext
+from corpus.utils import scan_paths
 
 
 class Corpus:
@@ -37,4 +37,4 @@ class Corpus:
         Yields: str
         """
 
-        return scan_ext(self.path, '.new')
+        return scan_ext(self.path, '\.new$')
