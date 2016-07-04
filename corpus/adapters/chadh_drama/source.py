@@ -26,9 +26,7 @@ class Source:
     def plays(self):
 
         """
-        Generate Poem instances.
-
-        Yields: Poem
+        Yields: Play
         """
 
         for tree in self.xml.find_all('div0'):
