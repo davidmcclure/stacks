@@ -2,6 +2,8 @@
 
 from corpus.models import Text
 
+from .source import Source
+
 
 def ingest(corpus_id, path):
 
@@ -18,7 +20,12 @@ def ingest(corpus_id, path):
     for poem in source.poems():
 
         text = Text(
-            # TODO
+            corpus_id=corpus_id,
+            identifier=poem.identifier(),
+            title=poem.title(),
+            author_name_full=poem.author_name_full(),
+            year=poem.year(),
+            plain_text=poem.plain_text(),
         )
 
         text.full_clean()

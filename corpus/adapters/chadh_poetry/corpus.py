@@ -4,7 +4,11 @@ import os
 import scandir
 
 from django.conf import settings
+
+from corpus.models import Corpus as StacksCorpus
 from corpus.utils import scan_paths
+
+from .jobs import ingest
 
 
 class Corpus:
@@ -37,7 +41,7 @@ class Corpus:
         Yields: str
         """
 
-        return scan_ext(self.path, '\.new$')
+        return scan_paths(self.path, '\.new$')
 
     def ingest(self):
 
