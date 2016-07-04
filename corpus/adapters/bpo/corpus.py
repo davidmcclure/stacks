@@ -7,6 +7,10 @@ from zipfile import ZipFile
 
 from django.conf import settings
 
+from corpus.models import Corpus as StacksCorpus
+
+from .jobs import ingest
+
 
 class Corpus:
 
@@ -57,3 +61,21 @@ class Corpus:
             with ZipFile(zpath) as archive:
                 for name in archive.namelist():
                     yield (zpath, name)
+
+    def ingest(self):
+
+        """
+        Queue ingest jobs for each text.
+        """
+
+        args = [
+            dict(zipfile_path=zpath, xml_name=name)
+            for zpath, name in self.xml_paths()
+        ]
+
+        StacksCorpus.objects.queue_ingest(
+            slug='british-periodicals-online',
+            name='British Periodicals Online',
+            args=args,
+            job=ingest,
+        )

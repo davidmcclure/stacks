@@ -4,7 +4,7 @@ import pytest
 import os
 import django_rq
 
-from corpus.adapters.ecco.corpus import Corpus
+from corpus.adapters.bpo.corpus import Corpus
 
 
 @pytest.fixture(scope='module')
