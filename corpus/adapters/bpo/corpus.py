@@ -45,7 +45,7 @@ class Corpus:
         for root, dirs, files in scandir.walk(self.path):
             for name in files:
 
-                # Match .xml files.
+                # Match .zip files.
                 if os.path.splitext(name)[1] == '.zip':
                     yield os.path.join(root, name)
 
