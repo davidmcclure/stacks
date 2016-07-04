@@ -4,6 +4,7 @@ import os
 import scandir
 
 from django.conf import settings
+from corpus.utils import scan_ext
 
 
 class Corpus:
@@ -28,7 +29,7 @@ class Corpus:
 
         self.path = os.path.abspath(path)
 
-    def text_paths(self):
+    def source_paths(self):
 
         """
         Generate paths to the XML sources.
@@ -36,9 +37,4 @@ class Corpus:
         Yields: str
         """
 
-        for root, dirs, files in scandir.walk(self.path):
-            for name in files:
-
-                # Match .new files.
-                if os.path.splitext(name)[1] == '.new':
-                    yield os.path.join(root, name)
+        return scan_ext(self.path, '.new')
