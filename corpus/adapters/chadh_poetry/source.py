@@ -21,13 +21,11 @@ class Source:
         self.path = os.path.abspath(path)
 
         with open(self.path, 'rb') as fh:
-            self.xml = BeautifulSoup(fh, 'lxml')
+            self.xml = BeautifulSoup(fh, 'xml')
 
     def poems(self):
 
         """
-        Generate Poem instances.
-
         Yields: Poem
         """
 

@@ -21,14 +21,12 @@ class Source:
         self.path = os.path.abspath(path)
 
         with open(self.path, 'rb') as fh:
-            self.xml = BeautifulSoup(fh, 'lxml')
+            self.xml = BeautifulSoup(fh, 'xml')
 
-    def plays(self):
+    def texts(self):
 
         """
-        Generate Poem instances.
-
-        Yields: Poem
+        Yields: Text
         """
 
         for tree in self.xml.find_all('div0'):

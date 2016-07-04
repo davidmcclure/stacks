@@ -17,17 +17,17 @@ def ingest(corpus_id, path):
 
     source = Source(path)
 
-    for play in source.plays():
+    for text in source.texts():
 
-        text = Text(
+        row = Text(
             corpus_id=corpus_id,
-            identifier=play.identifier(),
-            title=play.title(),
-            author_name_full=play.author_name_full(),
-            year=play.year(),
-            plain_text=play.plain_text(),
+            identifier=text.identifier(),
+            title=text.title(),
+            author_name_full=text.author_name_full(),
+            year=text.year(),
+            plain_text=text.plain_text(),
         )
 
-        text.full_clean()
+        row.full_clean()
 
-        text.save()
+        row.save()
