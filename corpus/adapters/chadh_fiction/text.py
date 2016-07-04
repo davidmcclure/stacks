@@ -44,7 +44,7 @@ class Text:
 
         return (
             get_text(self.xml, 'attribs attauth') or
-            get_text(self.xml, 'A1')
+            get_text(self.xml, 'a1')
         )
 
     def year(self):
