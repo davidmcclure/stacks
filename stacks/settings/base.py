@@ -129,6 +129,10 @@ CORPUS_CHICAGO = '/data/chicago'
 
 CORPUS_ECCO = '/data/ecco'
 
+CORPUS_NCCO = '/data/ncco'
+
 CORPUS_GAIL_AMFIC = '/data/gail-amfic'
 
 CORPUS_BPO = '/data/bpo'
+
+CORPUS_CHADH_POETRY = '/data/chadwyck-healey/poetry'
