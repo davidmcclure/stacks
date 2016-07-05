@@ -46,6 +46,14 @@ class BundleWriter:
 
         return os.path.join(self.directory_path(), 'metadata.json')
 
+    def query(self):
+
+        """
+        Returns: QuerySet
+        """
+
+        return Text.objects.filter(**self.filters)
+
     def create_directory(self):
 
         """
@@ -65,6 +73,7 @@ class BundleWriter:
 
         metadata = dict(
             created=dt.now().isoformat(),
+            text_count=self.query().count(),
             stacks_version=git_head_sha(),
             filters=self.filters,
         )
@@ -78,7 +87,7 @@ class BundleWriter:
         Write the text files.
         """
 
-        for text in Text.objects.filter(**self.filters):
+        for text in self.query():
 
             checksum = text.checksum()
 
