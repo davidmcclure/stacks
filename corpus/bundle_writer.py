@@ -112,3 +112,8 @@ class BundleWriter:
             # Write the JSON.
             with open(path, 'w') as fh:
                 json.dump(data, fh, indent=2)
+
+    def write(self):
+        self.create_directory()
+        self.write_texts()
+        self.write_metadata()
