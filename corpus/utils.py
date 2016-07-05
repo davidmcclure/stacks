@@ -4,6 +4,7 @@ import yaml
 import os
 import scandir
 import re
+import git
 
 from bs4 import BeautifulSoup
 
@@ -103,3 +104,16 @@ def read_yaml(from_path, fname):
 
     with open(path, 'r') as fh:
         return yaml.load(fh)
+
+
+def git_head_sha():
+
+    """
+    Get the hash for the current commit of the repo.
+
+    Returns: str
+    """
+
+    repo = git.Repo()
+
+    return repo.head.object.hexsha

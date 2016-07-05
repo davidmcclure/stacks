@@ -7,6 +7,7 @@ import json
 from datetime import datetime as dt
 
 from corpus.models import Text
+from corpus.utils import git_head_sha
 
 
 class BundleWriter:
@@ -62,6 +63,7 @@ class BundleWriter:
 
         metadata = dict(
             created=dt.now().isoformat(),
+            stacks_version=git_head_sha(),
             filters=self.filters,
         )
 

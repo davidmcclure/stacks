@@ -17,3 +17,4 @@ django-rq
 cached-property
 pylint
 scandir
+gitpython
