@@ -118,8 +118,14 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# Corpus paths
 # TODO: Put these under Ansible?
+
+
+# The output location for generated text bundles.
+BUNDLE_ROOT = '/var/stacks/bundles'
+
+
+# Corpus paths
 
 CORPUS_LITLAB_C20 = '/data/litlab-c20'
 
