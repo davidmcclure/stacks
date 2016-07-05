@@ -6,6 +6,8 @@ import json
 
 from datetime import datetime as dt
 
+from django.forms.models import model_to_dict
+
 from corpus.models import Text
 from corpus.utils import git_head_sha
 
@@ -73,8 +75,31 @@ class BundleWriter:
     def write_texts(self):
 
         """
-        Write bzipped text files.
+        Write the text files.
         """
 
         for text in Text.objects.filter(**self.filters):
-            pass
+
+            checksum = text.checksum()
+
+            segment = checksum[:3]
+
+            # Form the file name.
+            file_name = '{0}.json'.format(checksum[3:])
+
+            segment_dir = os.path.join(
+                self.directory_path(),
+                'texts', segment,
+            )
+
+            # Create the segment dir.
+            if not os.path.exists(segment_dir):
+                os.makedirs(segment_dir)
+
+            path = os.path.join(segment_dir, file_name)
+
+            data = model_to_dict(text)
+
+            # Write the JSON.
+            with open(path, 'w') as fh:
+                json.dump(data, fh, indent=2)
