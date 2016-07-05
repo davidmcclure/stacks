@@ -69,3 +69,12 @@ class BundleWriter:
 
         with open(self.metadata_path(), 'w') as fh:
             json.dump(metadata, fh, indent=2)
+
+    def write_texts(self):
+
+        """
+        Write bzipped text files.
+        """
+
+        for text in Text.objects.filter(**self.filters):
+            pass

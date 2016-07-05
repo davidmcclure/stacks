@@ -1,5 +1,7 @@
 
 
+import hashlib
+
 from django.db import models
 
 from corpus import fields
@@ -50,3 +52,18 @@ class Text(models.Model):
         null=True,
         blank=True,
     )
+
+
+    def checksum(self):
+
+        """
+        Get a checksum for the plain text.
+
+        Returns: str
+        """
+
+        md5 = hashlib.md5()
+
+        md5.update(self.plain_text.encode('utf8'))
+
+        return md5.hexdigest()
