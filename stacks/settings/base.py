@@ -127,7 +127,9 @@ CORPUS_LITLAB_SUSPENSE = '/data/litlab-suspense'
 
 CORPUS_CHICAGO = '/data/chicago'
 
-CORPUS_ECCO = '/data/ecco'
+CORPUS_ECCO1 = '/data/ecco1'
+
+CORPUS_ECCO2 = '/data/ecco2'
 
 CORPUS_NCCO = '/data/ncco'
 
@@ -136,5 +138,7 @@ CORPUS_GAIL_AMFIC = '/data/gail-amfic'
 CORPUS_BPO = '/data/bpo'
 
 CORPUS_CHADH_POETRY = '/data/chadwyck-healey/poetry'
+
+CORPUS_CHADH_FICTION = '/data/chadwyck-healey/fiction'
 
 CORPUS_CHADH_DRAMA = '/data/chadwyck-healey/drama'
