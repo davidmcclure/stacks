@@ -21,7 +21,7 @@ class Corpus:
         Wrap the ENV-defined root.
         """
 
-        return cls(settings.CORPUS_ECCO)
+        return cls(settings.CORPUS_ECCO1)
 
     def __init__(self, path):
 
