@@ -140,3 +140,5 @@ CORPUS_CHADH_POETRY = '/data/chadwyck-healey/poetry'
 CORPUS_CHADH_FICTION = '/data/chadwyck-healey/fiction'
 
 CORPUS_CHADH_DRAMA = '/data/chadwyck-healey/drama'
+
+CORPUS_EEBO = '/data/EEBO'
