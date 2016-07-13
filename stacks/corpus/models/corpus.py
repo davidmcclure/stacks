@@ -37,8 +37,7 @@ class Corpus(Base):
 
         if type(val) is str:
 
-            assert re.match('^[a-z0-9-]+$', val), (
+            assert re.match('^[a-z0-9-]+$', val), \
                 'Slugs can only contain letters, numbers, and underscores.'
-            )
 
         return val
