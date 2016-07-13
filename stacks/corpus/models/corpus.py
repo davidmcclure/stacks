@@ -5,6 +5,7 @@ import re
 from sqlalchemy import Column, String, UniqueConstraint
 from sqlalchemy.orm import validates
 
+from stacks.common.singletons import session
 from stacks.common.models import Base
 
 
@@ -41,3 +42,26 @@ class Corpus(Base):
                 'Slugs can only contain letters, numbers, and underscores.'
 
         return val
+
+
+    @classmethod
+    def queue_ingest(cls, slug, name, args, job):
+
+        """
+        Reset a corpus and queue text ingest jobs in RQ.
+
+        Args:
+            slug (str)
+            name (str)
+            args (iter)
+            job (func)
+        """
+
+        # Delete the existing corpus.
+        session.query(cls).filter(cls.slug==slug).delete()
+
+        # Create a new corpus.
+        session.add(cls(slug=slug, name=name))
+        session.commit()
+
+        # TODO: Queue jobs.
