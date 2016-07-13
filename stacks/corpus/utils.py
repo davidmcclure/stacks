@@ -2,6 +2,7 @@
 
 import re
 import scandir
+import os
 
 
 def scan_paths(root, pattern):
