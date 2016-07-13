@@ -4,3 +4,8 @@ database:
   drivername: postgresql
   host: localhost
   database: stacks
+
+redis:
+  host: localhost
+  port: 6379
+  db: 0
