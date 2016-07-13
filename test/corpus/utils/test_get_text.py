@@ -9,7 +9,6 @@ from stacks.corpus.utils import get_text
 
 @pytest.mark.parametrize('tag,text', [
 
-
     # Unchanged.
     ('<tag>Book Title</tag>', 'Book Title'),
 
@@ -22,7 +21,6 @@ from stacks.corpus.utils import get_text
 
     # Missing -> None.
     ('', None),
-
 
     # Join adjacent texts with a space.
     (
@@ -44,7 +42,6 @@ from stacks.corpus.utils import get_text
         ''',
         'text1 text2'
     ),
-
 
 ])
 def test_get_text(tag, text):
