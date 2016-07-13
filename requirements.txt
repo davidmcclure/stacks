@@ -11,3 +11,4 @@ rq
 rq-dashboard
 flask
 gunicorn
+scandir
