@@ -4,7 +4,7 @@ import pytest
 
 from sqlalchemy.exc import IntegrityError
 
-from stacks.common import session
+from stacks.common.singletons import session
 
 from test.corpus.factories import CorpusFactory, TextFactory
 
