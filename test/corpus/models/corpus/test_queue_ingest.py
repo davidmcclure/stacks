@@ -5,7 +5,7 @@ import pytest
 from stacks.common.singletons import session
 from stacks.corpus.models import Corpus
 
-from test.corpus.factories import CorpusFactory
+from test.corpus.factories import CorpusFactory, TextFactory
 
 
 pytestmark = pytest.mark.usefixtures('db')
@@ -25,6 +25,24 @@ def test_delete_existing_corpus():
 
     assert query.count() == 1
     assert query.one().id != old.id
+
+
+def test_delete_existing_texts():
+
+    """
+    When an existing corpus is deleted, texts associated with the old corpus
+    should also be removed.
+    """
+
+    old = CorpusFactory(slug='test')
+
+    TextFactory(corpus=old)
+    TextFactory(corpus=old)
+    TextFactory(corpus=old)
+
+    Corpus.queue_ingest('test', 'Test Corpus', [], lambda: None)
+
+    assert session.query(Text).filter_by(corpus=old).count() == 0
 
 
 def test_create_new_corpus():
