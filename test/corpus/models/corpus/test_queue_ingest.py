@@ -3,7 +3,7 @@
 import pytest
 
 from stacks.common.singletons import session
-from stacks.corpus.models import Corpus
+from stacks.corpus.models import Corpus, Text
 
 from test.corpus.factories import CorpusFactory, TextFactory
 
