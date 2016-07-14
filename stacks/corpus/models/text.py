@@ -24,7 +24,7 @@ class Text(Base):
 
     corpus_id = Column(
         Integer,
-        ForeignKey('corpus.id'),
+        ForeignKey('corpus.id', ondelete='CASCADE'),
         nullable=False,
     )
 

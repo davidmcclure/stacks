@@ -42,7 +42,21 @@ def db():
     Reset the testing database, yield a session.
     """
 
+    # TODO|dev
+
+    engine = singletons.config.build_sqla_engine()
+
+    conn = engine.connect()
+
+    trans = conn.begin_nested()
+
+    singletons.session.configure(bind=conn)
+
     yield
 
-    singletons.session.rollback()
+    singletons.session.close()
+
+    trans.rollback()
+
+    # singletons.session.rollback()
     singletons.session.remove()
