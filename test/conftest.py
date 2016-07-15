@@ -29,22 +29,18 @@ def db():
     Reset the testing database.
     """
 
-    # TODO|dev
-
+    # Get a new connection.
     engine = config.build_sqla_engine()
+    connection = engine.connect()
 
-    conn = engine.connect()
-
-    trans = conn.begin_nested()
-
-    session.configure(bind=conn)
+    # Start a nested transaction.
+    transaction = connection.begin_nested()
+    session.configure(bind=connection)
 
     yield
 
-    session.close()
-
-    trans.rollback()
-
+    # Rollback changes.
+    transaction.rollback()
     session.remove()
 
 
