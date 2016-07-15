@@ -11,6 +11,23 @@ from test.corpus.factories import CorpusFactory, TextFactory
 pytestmark = pytest.mark.usefixtures('db')
 
 
+def test_create_new_corpus():
+
+    """
+    A corpus should be created with the passed slug and name.
+    """
+
+    Corpus.queue_ingest('test', 'Test Corpus', [], lambda: None)
+
+    corpus = session.query(Corpus).filter_by(slug='test').one()
+
+    assert corpus.name == 'Test Corpus'
+
+
+def test_replace_existing_corpus():
+    pass
+
+
 def test_delete_existing_corpus():
 
     """
@@ -43,10 +60,6 @@ def test_delete_existing_texts():
     Corpus.queue_ingest('test', 'Test Corpus', [], lambda: None)
 
     assert session.query(Text).filter_by(corpus=old).count() == 0
-
-
-def test_create_new_corpus():
-    pass
 
 
 def test_queue_ingest_jobs():
