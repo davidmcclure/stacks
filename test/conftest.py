@@ -2,6 +2,8 @@
 
 import pytest
 
+from sqlalchemy import event
+
 from stacks.common.singletons import config, session, rq as _rq
 from stacks.common.models import Base
 
