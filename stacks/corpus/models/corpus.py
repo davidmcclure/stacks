@@ -5,7 +5,7 @@ import re
 from sqlalchemy import Column, String, UniqueConstraint
 from sqlalchemy.orm import validates
 
-from stacks.common.singletons import session
+from stacks.common.singletons import session, rq
 from stacks.common.models import Base
 
 
@@ -61,7 +61,10 @@ class Corpus(Base):
         session.query(cls).filter(cls.slug==slug).delete()
 
         # Create a new corpus.
-        session.add(cls(slug=slug, name=name))
+        corpus = cls(slug=slug, name=name)
+        session.add(corpus)
         session.commit()
 
-        # TODO: Queue jobs.
+        # Spool a job for each source.
+        for arg in args:
+            rq.enqueue(job, corpus.id, job)

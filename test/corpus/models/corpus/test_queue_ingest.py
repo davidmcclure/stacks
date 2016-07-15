@@ -2,7 +2,7 @@
 
 import pytest
 
-from stacks.common.singletons import session
+from stacks.common.singletons import session, rq
 from stacks.corpus.models import Corpus, Text
 
 from test.corpus.factories import CorpusFactory, TextFactory
@@ -12,6 +12,10 @@ pytestmark = pytest.mark.usefixtures('db')
 
 
 # TODO: Make this an instance method on Corpus?
+
+
+# Test job function.
+def job(): pass
 
 
 def test_create_new_corpus():
@@ -73,7 +77,6 @@ def test_queue_ingest_jobs():
         '/path/3',
     ]
 
-    def job():
-        pass
-
     Corpus.queue_ingest('test', 'Test Corpus', args, job)
+
+    assert rq.count == 3
