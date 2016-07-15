@@ -11,6 +11,9 @@ from test.corpus.factories import CorpusFactory, TextFactory
 pytestmark = pytest.mark.usefixtures('db')
 
 
+# TODO: Make this an instance method on Corpus?
+
+
 def test_create_new_corpus():
 
     """
@@ -25,10 +28,6 @@ def test_create_new_corpus():
 
 
 def test_replace_existing_corpus():
-    pass
-
-
-def test_delete_existing_corpus():
 
     """
     If a corpus already exists with the passed slug, delete it.
@@ -47,7 +46,7 @@ def test_delete_existing_corpus():
 def test_delete_existing_texts():
 
     """
-    When an existing corpus is deleted, texts associated with the old corpus
+    When an existing corpus is replaced, texts associated with the old corpus
     should also be removed.
     """
 
