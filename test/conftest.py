@@ -12,14 +12,11 @@ from stacks.common.models import Base
 def init_testing_db():
 
     """
-    Patch in the testing config file.
+    Drop and recreate the tables.
     """
 
-    # Apply the testing config.
     engine = config.build_sqla_engine()
-    session.configure(bind=engine)
 
-    # Reset the tables.
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
