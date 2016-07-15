@@ -58,5 +58,4 @@ def db():
 
     trans.rollback()
 
-    # singletons.session.rollback()
     singletons.session.remove()
