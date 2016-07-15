@@ -65,10 +65,11 @@ def test_delete_existing_texts():
     assert session.query(Text).filter_by(corpus=old).count() == 0
 
 
-def test_queue_ingest_jobs():
+def test_queue_ingest_jobs_with_scalar_args():
 
     """
-    RQ jobs should be queued for each of the passed arguments.
+    RQ jobs should be queued for each of the passed arguments. When the
+    arguments are scalars, they should be passed in *args.
     """
 
     args = [
@@ -84,4 +85,29 @@ def test_queue_ingest_jobs():
     assert rq.count == 3
 
     for i, arg in enumerate(args):
+        assert rq.jobs[i].args == (corpus.id, arg)
+        assert rq.jobs[i].func == job
+
+
+def test_queue_ingest_jobs_with_dict_args():
+
+    """
+    When the arguments are dictionaries, they should be passed as **kwargs.
+    """
+
+    args = [
+        dict(zip_path='1.zip', xml_path='1.xml'),
+        dict(zip_path='2.zip', xml_path='2.xml'),
+        dict(zip_path='3.zip', xml_path='3.xml'),
+    ]
+
+    Corpus.queue_ingest('test', 'Test Corpus', args, job)
+
+    corpus = session.query(Corpus).filter_by(slug='test').one()
+
+    assert rq.count == 3
+
+    for i, arg in enumerate(args):
+        assert rq.jobs[i].args == (corpus.id,)
+        assert rq.jobs[i].kwargs == arg
         assert rq.jobs[i].func == job
