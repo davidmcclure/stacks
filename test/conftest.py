@@ -35,19 +35,9 @@ def db():
     session.remove()
 
 
-# TODO: dry
 @pytest.yield_fixture(scope='module')
 def db_module():
-
-    """
-    Reset the testing database.
-    """
-
-    session.begin_nested()
-
-    yield
-
-    session.remove()
+    yield from db()
 
 
 @pytest.fixture
@@ -60,12 +50,6 @@ def rq():
     _rq.connection.flushdb()
 
 
-# TODO: dry
 @pytest.fixture(scope='module')
 def rq_module():
-
-    """
-    Clear the RQ queue.
-    """
-
-    _rq.connection.flushdb()
+    rq()
