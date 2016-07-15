@@ -62,4 +62,18 @@ def test_delete_existing_texts():
 
 
 def test_queue_ingest_jobs():
-    pass
+
+    """
+    RQ jobs should be queued for each of the passed arguments.
+    """
+
+    args = [
+        '/path/1',
+        '/path/2',
+        '/path/3',
+    ]
+
+    def job():
+        pass
+
+    Corpus.queue_ingest('test', 'Test Corpus', args, job)
