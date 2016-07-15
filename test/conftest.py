@@ -2,33 +2,20 @@
 
 import pytest
 
-import stacks
-
-from stacks.common import singletons
-from stacks.common.config import Config
+from stacks.common.singletons import config, session
 from stacks.common.models import Base
 
 
 @pytest.fixture(scope='session', autouse=True)
-def set_test_config():
-
-    """
-    Patch in the testing config file.
-    """
-
-    singletons.config = Config.from_test_env()
-
-
-@pytest.fixture(scope='session', autouse=True)
-def init_testing_db(set_test_config):
+def init_testing_db():
 
     """
     Patch in the testing config file.
     """
 
     # Apply the testing config.
-    engine = singletons.config.build_sqla_engine()
-    singletons.session.configure(bind=engine)
+    engine = config.build_sqla_engine()
+    session.configure(bind=engine)
 
     # Reset the tables.
     Base.metadata.drop_all(engine)
@@ -44,18 +31,18 @@ def db():
 
     # TODO|dev
 
-    engine = singletons.config.build_sqla_engine()
+    engine = config.build_sqla_engine()
 
     conn = engine.connect()
 
     trans = conn.begin_nested()
 
-    singletons.session.configure(bind=conn)
+    session.configure(bind=conn)
 
     yield
 
-    singletons.session.close()
+    session.close()
 
     trans.rollback()
 
-    singletons.session.remove()
+    session.remove()

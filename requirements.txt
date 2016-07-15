@@ -5,6 +5,7 @@ psycopg2
 PyYAML
 anyconfig
 pytest
+pytest-env
 factory_boy
 alembic
 redis
