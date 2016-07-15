@@ -17,19 +17,9 @@ cases = read_yaml(__file__, 'ingest.yml')
 @pytest.mark.parametrize('identifier,fields', cases.items())
 def test_ingest(identifier, fields):
 
-    corpus = (
-        session
-        .query(Corpus)
-        .filter_by(slug='british-periodicals-online')
-        .one()
-    )
+    corpus = Corpus.get_by(slug='bpo')
 
-    text = (
-        session
-        .query(Text)
-        .filter_by(corpus=corpus, identifier=identifier)
-        .one()
-    )
+    text = Text.get_by(corpus=corpus, identifier=identifier)
 
     if 'title' in fields:
         assert text.title == fields['title']
