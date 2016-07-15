@@ -3,7 +3,7 @@
 import pytest
 
 from stacks.common.singletons import session
-from stacks.corpus.models import Text
+from stacks.corpus.models import Corpus, Text
 
 from test.utils import read_yaml
 
@@ -17,11 +17,17 @@ cases = read_yaml(__file__, 'ingest.yml')
 @pytest.mark.parametrize('identifier,fields', cases.items())
 def test_ingest(identifier, fields):
 
-    # TODO: get_by_identifer()
+    corpus = (
+        session
+        .query(Corpus)
+        .filter_by(slug='british-periodicals-online')
+        .one()
+    )
+
     text = (
         session
         .query(Text)
-        .filter_by(identifier=identifier)
+        .filter_by(corpus=corpus, identifier=identifier)
         .one()
     )
 
