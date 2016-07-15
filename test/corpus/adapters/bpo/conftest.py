@@ -3,10 +3,12 @@
 import pytest
 import os
 
+from rq import Worker
+
+from stacks.common.singletons import rq
 from stacks.corpus.adapters.bpo.corpus import Corpus
 
 
-# TODO: db and redis
 @pytest.fixture(scope='module')
 def ingest(db_module, rq_module):
 
@@ -23,4 +25,6 @@ def ingest(db_module, rq_module):
 
     corpus.ingest()
 
-    # TODO: Process jobs.
+    # Process jobs.
+    worker = Worker([rq], connection=rq.connection)
+    worker.work(burst=True)
