@@ -8,7 +8,7 @@ from stacks.corpus.adapters.bpo.corpus import Corpus
 
 # TODO: db and redis
 @pytest.fixture(scope='module')
-def ingest():
+def ingest(db_module, rq_module):
 
     """
     Run ingest jobs.

@@ -14,7 +14,6 @@ pytestmark = pytest.mark.usefixtures('ingest')
 cases = read_yaml(__file__, 'ingest.yml')
 
 
-@pytest.mark.skip
 @pytest.mark.parametrize('identifier,fields', cases.items())
 def test_ingest(identifier, fields):
 
@@ -22,7 +21,7 @@ def test_ingest(identifier, fields):
     text = (
         session
         .query(Text)
-        .filter(Text.identifier==identifier)
+        .filter_by(identifier=identifier)
         .one()
     )
 
