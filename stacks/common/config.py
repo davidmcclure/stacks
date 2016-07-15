@@ -15,30 +15,23 @@ from rq import Queue
 class Config:
 
     @classmethod
-    def from_env(cls, *extra_paths):
+    def from_env(cls):
 
         """
         Get a config instance with the default files.
-
-        Args:
-            *extra_paths (str)
         """
 
+        # Default paths.
         paths = [
             os.path.join(os.path.dirname(__file__), 'stacks.yml'),
-            '/etc/stacks/stacks.yml'
+            '/etc/stacks/stacks.yml',
         ]
 
-        return cls(paths + list(extra_paths))
+        # Patch in the testing config.
+        if os.environ.get('STACKS_ENV') == 'test':
+            paths.append('/etc/stacks/stacks.test.yml')
 
-    @classmethod
-    def from_test_env(cls):
-
-        """
-        Apply the testing configuration.
-        """
-
-        return cls.from_env('/etc/stacks/stacks.test.yml')
+        return cls(paths)
 
     def __init__(self, paths):
 
