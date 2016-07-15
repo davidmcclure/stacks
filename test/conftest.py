@@ -31,18 +31,10 @@ def db():
     Reset the testing database.
     """
 
-    # Get a new connection.
-    engine = config.build_sqla_engine()
-    connection = engine.connect()
-
-    # Start a nested transaction.
-    transaction = connection.begin_nested()
-    session.configure(bind=connection)
+    session.begin_nested()
 
     yield
 
-    # Rollback changes.
-    transaction.rollback()
     session.remove()
 
 
@@ -54,24 +46,9 @@ def db_module():
     Reset the testing database.
     """
 
-    engine = config.build_sqla_engine()
-
-    connection = engine.connect()
-
-    transaction = connection.begin()
-
-    session.configure(bind=connection)
-
     session.begin_nested()
 
-    @event.listens_for(session, "after_transaction_end")
-    def restart_savepoint(sess, trans):
-        if trans.nested and not trans._parent.nested:
-            sess.begin_nested()
-
     yield
-
-    transaction.rollback()
 
     session.remove()
 
