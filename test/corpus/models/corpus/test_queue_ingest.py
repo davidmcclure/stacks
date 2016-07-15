@@ -8,7 +8,7 @@ from stacks.corpus.models import Corpus, Text
 from test.corpus.factories import CorpusFactory, TextFactory
 
 
-pytestmark = pytest.mark.usefixtures('db')
+pytestmark = pytest.mark.usefixtures('db', 'rq')
 
 
 # TODO: Make this an instance method on Corpus?
@@ -79,4 +79,9 @@ def test_queue_ingest_jobs():
 
     Corpus.queue_ingest('test', 'Test Corpus', args, job)
 
+    corpus = session.query(Corpus).filter_by(slug='test').one()
+
     assert rq.count == 3
+
+    for i, arg in enumerate(args):
+        assert rq.jobs[i].func == job

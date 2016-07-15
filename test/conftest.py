@@ -2,7 +2,7 @@
 
 import pytest
 
-from stacks.common.singletons import config, session
+from stacks.common.singletons import config, session, rq as _rq
 from stacks.common.models import Base
 
 
@@ -26,7 +26,7 @@ def init_testing_db():
 def db():
 
     """
-    Reset the testing database, yield a session.
+    Reset the testing database.
     """
 
     # TODO|dev
@@ -46,3 +46,13 @@ def db():
     trans.rollback()
 
     session.remove()
+
+
+@pytest.fixture
+def rq():
+
+    """
+    Clear the RQ queue.
+    """
+
+    _rq.connection.flushdb()
