@@ -67,4 +67,9 @@ class Corpus(Base):
 
         # Spool a job for each source.
         for arg in args:
-            rq.enqueue(job, corpus.id, job)
+
+            if type(arg) == dict:
+                rq.enqueue(job, corpus.id, **arg)
+
+            else:
+                rq.enqueue(job, corpus.id, arg)
