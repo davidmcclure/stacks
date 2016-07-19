@@ -29,4 +29,8 @@ def ingest(corpus_id, zipfile_path, xml_name):
 
     session.add(row)
 
-    session.commit()
+    try:
+        session.commit()
+
+    except:
+        session.rollback()
