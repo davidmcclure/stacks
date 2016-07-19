@@ -3,7 +3,7 @@
 import pytest
 import os
 
-from rq import Worker
+from rq import SimpleWorker
 
 from stacks.common.singletons import rq
 from stacks.corpus.adapters.bpo.corpus import Corpus
@@ -26,5 +26,5 @@ def ingest(db_module, rq_module):
     corpus.ingest()
 
     # Process jobs.
-    worker = Worker([rq], connection=rq.connection)
+    worker = SimpleWorker([rq], connection=rq.connection)
     worker.work(burst=True)
