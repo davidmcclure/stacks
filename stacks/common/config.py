@@ -11,8 +11,6 @@ from sqlalchemy.engine.url import URL
 from redis import StrictRedis
 from rq import Queue
 
-from .session import Session
-
 
 class Config:
 
@@ -90,10 +88,7 @@ class Config:
         Returns: Session
         """
 
-        return sessionmaker(
-            bind=self.build_sqla_engine(),
-            class_=Session,
-        )
+        return sessionmaker(bind=self.build_sqla_engine())
 
     def build_sqla_session(self):
 

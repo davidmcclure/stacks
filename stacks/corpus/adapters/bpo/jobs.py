@@ -27,5 +27,12 @@ def ingest(corpus_id, zipfile_path, xml_name):
         plain_text=article.plain_text(),
     )
 
-    with session().atomic():
-        session.add(row)
+    session.add(row)
+
+    # TODO: context manager?
+
+    try:
+        session.commit()
+
+    except:
+        session.rollback()
