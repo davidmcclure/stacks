@@ -26,7 +26,7 @@ def test_create_new_corpus():
 
     Corpus.queue_ingest('test', 'Test Corpus', [], job)
 
-    corpus = Corpus.query.filter_by(slug='test').one()
+    corpus = Corpus.get_by(slug='test')
 
     assert corpus.name == 'Test Corpus'
 
@@ -62,7 +62,7 @@ def test_delete_existing_texts():
 
     Corpus.queue_ingest('test', 'Test Corpus', [], job)
 
-    assert session.query(Text).filter_by(corpus=old).count() == 0
+    assert Text.query.filter_by(corpus=old).count() == 0
 
 
 def test_queue_ingest_jobs_with_scalar_args():
@@ -80,7 +80,7 @@ def test_queue_ingest_jobs_with_scalar_args():
 
     Corpus.queue_ingest('test', 'Test Corpus', args, job)
 
-    corpus = Corpus.query.filter_by(slug='test').one()
+    corpus = Corpus.get_by(slug='test')
 
     assert rq.count == 3
 
@@ -103,7 +103,7 @@ def test_queue_ingest_jobs_with_dict_args():
 
     Corpus.queue_ingest('test', 'Test Corpus', args, job)
 
-    corpus = Corpus.query.filter_by(slug='test').one()
+    corpus = Corpus.get_by(slug='test')
 
     assert rq.count == 3
 
