@@ -48,6 +48,8 @@ class Corpus(Base):
 
         """
         Delete an existing corpus with the passed slug, create a new one.
+
+        Returns: Corpus
         """
 
         slug = kwargs.get('slug')
