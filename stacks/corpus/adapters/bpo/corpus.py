@@ -65,11 +65,4 @@ class Corpus:
             name='British Periodicals Online',
         )
 
-        corpus.queue(ingest, args)
-
-        # StacksCorpus.queue_ingest(
-            # slug='bpo',
-            # name='British Periodicals Online',
-            # args=args,
-            # job=ingest,
-        # )
+        corpus.queue_ingest(ingest, args)

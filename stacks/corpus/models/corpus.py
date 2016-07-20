@@ -58,7 +58,7 @@ class Corpus(Base):
         # Create a new corpus.
         return cls.create(**kwargs)
 
-    def queue(self, job, args):
+    def queue_ingest(self, job, args):
 
         """
         Queue text ingest jobs.
@@ -75,31 +75,3 @@ class Corpus(Base):
 
             else:
                 rq.enqueue(job, self.id, arg)
-
-    @classmethod
-    def queue_ingest(cls, slug, name, args, job):
-
-        """
-        Reset a corpus and queue text ingest jobs in RQ.
-
-        Args:
-            slug (str)
-            name (str)
-            args (iter)
-            job (func)
-        """
-
-        # Delete the existing corpus.
-        cls.query.filter_by(slug=slug).delete()
-
-        # Create a new corpus.
-        corpus = cls.create(slug=slug, name=name)
-
-        # Spool a job for each source.
-        for arg in args:
-
-            if type(arg) == dict:
-                rq.enqueue(job, corpus.id, **arg)
-
-            else:
-                rq.enqueue(job, corpus.id, arg)
