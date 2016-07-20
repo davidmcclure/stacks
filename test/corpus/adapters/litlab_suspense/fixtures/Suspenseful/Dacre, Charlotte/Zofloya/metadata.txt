@@ -1,0 +1,6 @@
+title=Zofloya; or, The Moor: A Romance of the Fifteenth Century. In Three Volumes. By Charlotte Dacre, Better Known As Rosa Matilda
+year=1806
+genre=Gothic
+source=Allison, Sarah, Ryan Heuser, Matthew Jockers, Franco Moretti, Michael Witmore. “Quantitative Formalism: an Experiment.” Stanford: Stanford Literary Lab, 2011. Print.
+notes=
+project=suspense

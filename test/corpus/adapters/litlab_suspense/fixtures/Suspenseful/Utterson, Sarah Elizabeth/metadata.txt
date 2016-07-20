@@ -1,0 +1,12 @@
+author_id=
+dob=1781
+dod=
+gender=F
+name_first=Sarah 
+name_full=Utterson, Sarah Elizabeth
+name_last=Utterson
+name_middle=Elizabeth
+name_title=
+nation=Britain
+notes=
+

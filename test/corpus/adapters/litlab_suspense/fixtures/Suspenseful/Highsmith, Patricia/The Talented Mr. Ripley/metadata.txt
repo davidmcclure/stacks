@@ -1,0 +1,7 @@
+title=The Talented Mr. Ripley
+year=1955
+genre=
+source=
+notes=first novel in the five-book Ripliad
+genre_confirmed=
+project=suspense
