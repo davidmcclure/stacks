@@ -38,7 +38,7 @@ class Corpus:
         """
 
         corpus = StacksCorpus.replace(
-            slug='ecco1',
+            slug='ecco',
             name='Eighteenth Century Collections Online',
         )
 
