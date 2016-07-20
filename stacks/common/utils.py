@@ -22,21 +22,42 @@ def rollback():
         raise
 
 
+@contextmanager
+def flush():
+
+    """
+    Flush around a block.
+    """
+
+    with rollback():
+        yield
+        session.flush()
+
+
+@contextmanager
+def commit():
+
+    """
+    Flush around a block.
+    """
+
+    with rollback():
+        yield
+        session.commit()
+
+
 def with_flush(f):
 
     """
-    Flush after a function.
+    Flush around a function.
 
     Returns: func
     """
 
     @wraps(f)
     def wrapper(*args, **kwargs):
-
-        with rollback():
-            res = f(*args, **kwargs)
-            session.flush()
-            return res
+        with flush():
+            return f(*args, **kwargs)
 
     return wrapper
 
@@ -44,17 +65,14 @@ def with_flush(f):
 def with_commit(f):
 
     """
-    Commit after a function.
+    Commit around a function.
 
     Returns: func
     """
 
     @wraps(f)
     def wrapper(*args, **kwargs):
-
-        with rollback():
-            res = f(*args, **kwargs)
-            session.commit()
-            return res
+        with commit():
+            return f(*args, **kwargs)
 
     return wrapper
