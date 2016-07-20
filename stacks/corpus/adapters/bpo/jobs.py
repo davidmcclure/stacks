@@ -1,10 +1,7 @@
 
 
-import os
-
-from stacks.common.singletons import session
+from stacks.corpus.models import Text
 from stacks.common.utils import with_commit
-from stacks.corpus.models import Text, Corpus
 
 from .article import Article
 
