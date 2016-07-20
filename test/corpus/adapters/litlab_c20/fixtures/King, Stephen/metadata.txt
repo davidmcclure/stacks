@@ -1,0 +1,11 @@
+author_id=
+dob=1947
+dod=
+gender=M
+name_first=Stephen
+name_full=King, Stephen
+name_last=King
+name_middle=Edwin
+name_title=
+nation=American
+notes=
