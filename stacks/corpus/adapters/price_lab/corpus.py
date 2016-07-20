@@ -5,7 +5,7 @@ import os
 
 from stacks.corpus.models import Corpus as StacksCorpus
 
-# from .jobs import ingest
+from .jobs import ingest
 
 
 class Corpus:
@@ -52,20 +52,20 @@ class Corpus:
         with open(self.metadata_path(), 'r') as fh:
             yield from csv.DictReader(fh)
 
-    # def ingest(self):
+    def ingest(self):
 
-        # """
-        # Queue ingest jobs for each text.
-        # """
+        """
+        Queue ingest jobs for each text.
+        """
 
-        # args = [
-            # dict(corpus_path=self.path, metadata=row)
-            # for row in self.novels_metadata()
-        # ]
+        args = [
+            dict(texts_path=self.texts_path(), metadata=row)
+            for row in self.metadata()
+        ]
 
-        # corpus = StacksCorpus.replace(
-            # slug='chicago',
-            # name='Chicago Corpus',
-        # )
+        corpus = StacksCorpus.replace(
+            slug='price-lab',
+            name='Price Lab Corpus',
+        )
 
-        # corpus.queue_ingest(ingest, args)
+        corpus.queue_ingest(ingest, args)
