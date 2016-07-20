@@ -58,7 +58,7 @@ class Corpus(Base):
         """
 
         # Delete the existing corpus.
-        session.query(cls).filter(cls.slug==slug).delete()
+        session.query(cls).filter_by(slug=slug).delete()
 
         # Create a new corpus.
         corpus = cls(slug=slug, name=name)
