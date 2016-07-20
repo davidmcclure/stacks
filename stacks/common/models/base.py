@@ -17,12 +17,7 @@ class Base:
         Get the first row that matches a set of filters.
         """
 
-        return (
-            session
-            .query(cls)
-            .filter_by(**kwargs)
-            .first()
-        )
+        return cls.query.filter_by(**kwargs).one()
 
 
 Base = declarative_base(cls=Base)
