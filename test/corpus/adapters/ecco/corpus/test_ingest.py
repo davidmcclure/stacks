@@ -16,7 +16,7 @@ cases = read_yaml(__file__, 'ingest.yml')
 @pytest.mark.parametrize('identifier,fields', cases.items())
 def test_ingest(identifier, fields):
 
-    corpus = Corpus.get_by(slug='ecco1')
+    corpus = Corpus.get_by(slug='ecco')
 
     text = Text.get_by(corpus=corpus, identifier=identifier)
 

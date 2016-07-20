@@ -6,7 +6,7 @@ import os
 from rq import SimpleWorker
 
 from stacks.common.singletons import rq
-from stacks.corpus.adapters.ecco1.corpus import Corpus
+from stacks.corpus.adapters.ecco.corpus import Corpus
 
 
 @pytest.fixture(scope='module')
