@@ -3,6 +3,7 @@
 from sqlalchemy import Column, Integer
 from sqlalchemy.ext.declarative import declarative_base
 
+from stacks.common.utils import with_flush
 from stacks.common.singletons import session
 
 
@@ -11,6 +12,7 @@ class Base:
     id = Column(Integer, primary_key=True)
 
     @classmethod
+    @with_flush
     def create(cls, **kwargs):
 
         """

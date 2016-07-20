@@ -58,11 +58,10 @@ class Corpus(Base):
         """
 
         # Delete the existing corpus.
-        session.query(cls).filter_by(slug=slug).delete()
+        cls.query.filter_by(slug=slug).delete()
 
         # Create a new corpus.
         corpus = cls.create(slug=slug, name=name)
-        session.flush()
 
         # Spool a job for each source.
         for arg in args:
