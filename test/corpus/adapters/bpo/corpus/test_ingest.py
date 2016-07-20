@@ -2,7 +2,6 @@
 
 import pytest
 
-from stacks.common.singletons import session
 from stacks.corpus.models import Corpus, Text
 
 from test.utils import read_yaml
