@@ -8,6 +8,9 @@
 /dist
 /.cache
 /.env
+<<<<<<< HEAD
 
 /stacks/settings/production.py
 /stacks/settings/test.py
+=======
+>>>>>>> feature/sa
