@@ -40,8 +40,7 @@ class Corpus:
         """
 
         with open(self.novels_metadata_path(), 'r') as fh:
-            for row in csv.DictReader(fh):
-                yield row
+            yield from csv.DictReader(fh)
 
     def ingest(self):
 
