@@ -9,7 +9,7 @@ from sqlalchemy import (
     Text,
 )
 
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, validates
 
 from stacks.common.models import Base
 
@@ -43,3 +43,22 @@ class Text(Base):
     year = Column(Integer)
 
     plain_text = Column(Text, nullable=False)
+
+
+    @validates(
+        'title',
+        'author_name_full',
+        'author_name_first',
+        'author_name_last',
+    )
+    def strip(self, key, val):
+
+        """
+        Strip whitespace.
+
+        Args:
+            key (str)
+            val (mixed)
+        """
+
+        return val.strip() if type(val) is str else val
