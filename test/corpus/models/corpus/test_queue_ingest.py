@@ -24,9 +24,9 @@ def test_create_new_corpus():
     A corpus should be created with the passed slug and name.
     """
 
-    Corpus.queue_ingest('test', 'Test Corpus', [], lambda: None)
+    Corpus.queue_ingest('test', 'Test Corpus', [], job)
 
-    corpus = Corpus.get_by(slug='test')
+    corpus = Corpus.query.filter_by(slug='test').one()
 
     assert corpus.name == 'Test Corpus'
 
@@ -39,9 +39,9 @@ def test_replace_existing_corpus():
 
     old = CorpusFactory(slug='test')
 
-    Corpus.queue_ingest('test', 'Test Corpus', [], lambda: None)
+    Corpus.queue_ingest('test', 'Test Corpus', [], job)
 
-    query = session.query(Corpus).filter_by(slug='test')
+    query = Corpus.query.filter_by(slug='test')
 
     assert query.count() == 1
     assert query.one().id != old.id
@@ -60,7 +60,7 @@ def test_delete_existing_texts():
     TextFactory(corpus=old)
     TextFactory(corpus=old)
 
-    Corpus.queue_ingest('test', 'Test Corpus', [], lambda: None)
+    Corpus.queue_ingest('test', 'Test Corpus', [], job)
 
     assert session.query(Text).filter_by(corpus=old).count() == 0
 
@@ -80,7 +80,7 @@ def test_queue_ingest_jobs_with_scalar_args():
 
     Corpus.queue_ingest('test', 'Test Corpus', args, job)
 
-    corpus = Corpus.get_by(slug='test')
+    corpus = Corpus.query.filter_by(slug='test').one()
 
     assert rq.count == 3
 
@@ -103,7 +103,7 @@ def test_queue_ingest_jobs_with_dict_args():
 
     Corpus.queue_ingest('test', 'Test Corpus', args, job)
 
-    corpus = Corpus.get_by(slug='test')
+    corpus = Corpus.query.filter_by(slug='test').one()
 
     assert rq.count == 3
 

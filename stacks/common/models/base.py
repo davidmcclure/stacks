@@ -26,3 +26,4 @@ class Base:
 
 
 Base = declarative_base(cls=Base)
+Base.query = session.query_property()
