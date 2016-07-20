@@ -63,7 +63,9 @@ class Corpus(Base):
         # Create a new corpus.
         corpus = cls(slug=slug, name=name)
         session.add(corpus)
-        session.commit()
+
+        # Hydrate the new corpus id.
+        session.flush()
 
         # Spool a job for each source.
         for arg in args:
