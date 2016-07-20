@@ -60,9 +60,16 @@ class Corpus:
             for zpath, name in self.xml_paths()
         ]
 
-        StacksCorpus.queue_ingest(
+        corpus = StacksCorpus.replace(
             slug='bpo',
             name='British Periodicals Online',
-            args=args,
-            job=ingest,
         )
+
+        corpus.queue(ingest, args)
+
+        # StacksCorpus.queue_ingest(
+            # slug='bpo',
+            # name='British Periodicals Online',
+            # args=args,
+            # job=ingest,
+        # )

@@ -43,6 +43,38 @@ class Corpus(Base):
 
         return val
 
+    @classmethod
+    def replace(cls, **kwargs):
+
+        """
+        Delete an existing corpus with the passed slug, create a new one.
+        """
+
+        slug = kwargs.get('slug')
+
+        # Delete the existing corpus.
+        cls.query.filter_by(slug=slug).delete()
+
+        # Create a new corpus.
+        return cls.create(**kwargs)
+
+    def queue(self, job, args):
+
+        """
+        Queue text ingest jobs.
+
+        Args:
+            job (func)
+            args (iter)
+        """
+
+        for arg in args:
+
+            if type(arg) == dict:
+                rq.enqueue(job, self.id, **arg)
+
+            else:
+                rq.enqueue(job, self.id, arg)
 
     @classmethod
     def queue_ingest(cls, slug, name, args, job):
