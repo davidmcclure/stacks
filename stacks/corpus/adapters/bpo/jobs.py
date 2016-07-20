@@ -2,12 +2,14 @@
 
 import os
 
-from stacks.corpus.models import Text, Corpus
 from stacks.common.singletons import session
+from stacks.common.utils import with_commit
+from stacks.corpus.models import Text, Corpus
 
 from .article import Article
 
 
+@with_commit
 def ingest(corpus_id, zipfile_path, xml_name):
 
     """
@@ -16,7 +18,7 @@ def ingest(corpus_id, zipfile_path, xml_name):
 
     article = Article(zipfile_path, xml_name)
 
-    row = Text(
+    Text.create(
         corpus_id=corpus_id,
         identifier=article.identifier(),
         title=article.title(),
@@ -26,13 +28,3 @@ def ingest(corpus_id, zipfile_path, xml_name):
         year=article.year(),
         plain_text=article.plain_text(),
     )
-
-    session.add(row)
-
-    # TODO: context manager?
-
-    try:
-        session.commit()
-
-    except:
-        session.rollback()
