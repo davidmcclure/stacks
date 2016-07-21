@@ -4,13 +4,9 @@
 
 /env
 /build
-/static
 /dist
 /.cache
 /.env
-<<<<<<< HEAD
 
-/stacks/settings/production.py
-/stacks/settings/test.py
-=======
->>>>>>> feature/sa
+node_modules
+static
