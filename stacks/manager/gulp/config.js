@@ -6,7 +6,7 @@ import loadPlugins from 'gulp-load-plugins';
 
 export const $ = loadPlugins();
 
-export const min = yargs.argv.min;
+export const prod = yargs.argv.prod;
 
 export const paths = {
   css: './assets/stylesheets',

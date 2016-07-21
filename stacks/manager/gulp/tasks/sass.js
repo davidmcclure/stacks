@@ -2,7 +2,7 @@
 
 import gulp from 'gulp';
 
-import { $, min } from '../config';
+import { $, prod } from '../config';
 
 
 gulp.task('sass', () => {
@@ -12,8 +12,8 @@ gulp.task('sass', () => {
     .pipe($.sourcemaps.init())
     .pipe($.sass().on('error', $.sass.logError))
 
-    .pipe($.if(!min, $.sourcemaps.write()))
-    .pipe($.if(min, $.cleanCss()))
+    .pipe($.if(!prod, $.sourcemaps.write()))
+    .pipe($.if(prod, $.cleanCss()))
 
     .pipe($.rename('export.css'))
     .pipe(gulp.dest('./static'))
