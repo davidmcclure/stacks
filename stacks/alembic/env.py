@@ -9,7 +9,11 @@ from stacks.common.singletons import config as stacks_config
 from stacks.common.models import Base
 
 # Register models:
-from stacks.corpus.models import Corpus, Text
+from stacks.corpus.models import (
+    Corpus,
+    Text,
+    Export,
+)
 
 
 # this is the Alembic Config object, which provides
