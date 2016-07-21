@@ -16,6 +16,7 @@ from stacks.common.models import Base
 
 class Text(Base):
 
+
     __tablename__ = 'text'
 
     __table_args__ = (
