@@ -11,6 +11,7 @@ gulp.task('sass', () => {
     .pipe($.sourcemaps.init())
     .pipe($.sass().on('error', $.sass.logError))
     .pipe($.sourcemaps.write())
-    .pipe(gulp.dest('./static/export.css'))
+    .pipe($.rename('export.css'))
+    .pipe(gulp.dest('./static'))
 
 });
