@@ -15,7 +15,7 @@ class Base:
     def create(cls, **kwargs):
 
         """
-        Make an instance, add to the session.
+        Create and commit a new instance.
 
         Returns: cls
         """
