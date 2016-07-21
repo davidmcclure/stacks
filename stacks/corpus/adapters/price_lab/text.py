@@ -36,7 +36,7 @@ class Text:
             fname = os.path.basename(path)
 
             # Find path that starts with the title.
-            if fname.startswith(self.metadata['TITLE']):
+            if fname.startswith(self.title()):
                 return path
 
     def source_text(self):
