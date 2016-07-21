@@ -4,7 +4,6 @@ import csv
 import os
 
 from stacks.corpus.models import Corpus as StacksCorpus
-from stacks.common.singletons import session
 
 from .jobs import ingest
 
@@ -68,7 +67,5 @@ class Corpus:
             slug='price-lab',
             name='Price Lab Corpus',
         )
-
-        session.commit()
 
         corpus.queue_ingest(ingest, args)

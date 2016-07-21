@@ -3,7 +3,7 @@
 from sqlalchemy import Column, Integer
 from sqlalchemy.ext.declarative import declarative_base
 
-from stacks.common.utils import flush
+from stacks.common.utils import commit
 from stacks.common.singletons import session
 
 
@@ -22,7 +22,7 @@ class Base:
 
         row = cls(**kwargs)
 
-        with flush():
+        with commit():
             session.add(row)
 
         return row
