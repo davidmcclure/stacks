@@ -8,6 +8,9 @@ from logging.config import fileConfig
 from stacks.common.singletons import config as stacks_config
 from stacks.common.models import Base
 
+# Register models:
+from stacks.corpus.models import Corpus, Text
+
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
