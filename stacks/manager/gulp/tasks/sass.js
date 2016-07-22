@@ -8,6 +8,10 @@ import { $, paths, prod } from '../config';
 
 gulp.task('sass', () => {
 
+  const opts = {
+    includePaths: 'node_modules',
+  };
+
   return merge([
     'export',
   ].map(app => {
@@ -15,7 +19,7 @@ gulp.task('sass', () => {
     return gulp.src(`${paths.css}/${app}/index.scss`)
 
       .pipe($.sourcemaps.init())
-      .pipe($.sass().on('error', $.sass.logError))
+      .pipe($.sass(opts).on('error', $.sass.logError))
 
       .pipe($.if(prod, $.cleanCss()))
       .pipe($.if(!prod, $.sourcemaps.write()))
