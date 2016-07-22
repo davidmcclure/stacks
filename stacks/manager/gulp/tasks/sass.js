@@ -21,7 +21,8 @@ gulp.task('sass', () => {
       .pipe($.if(!prod, $.sourcemaps.write()))
 
       .pipe($.rename(`${app}.css`))
-      .pipe(gulp.dest(paths.out));
+      .pipe(gulp.dest(paths.out))
+      .pipe($.livereload());
 
   }));
 
