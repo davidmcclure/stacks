@@ -1,21 +1,28 @@
 
 
 import gulp from 'gulp';
+import merge from 'merge-stream';
 
-import { $, prod } from '../config';
+import { $, paths, prod } from '../config';
 
 
 gulp.task('sass', () => {
 
-  return gulp.src('./assets/stylesheets/export/index.scss')
+  return merge([
+    'export',
+  ].map(app => {
 
-    .pipe($.sourcemaps.init())
-    .pipe($.sass().on('error', $.sass.logError))
+    return gulp.src(`${paths.css}/${app}/index.scss`)
 
-    .pipe($.if(!prod, $.sourcemaps.write()))
-    .pipe($.if(prod, $.cleanCss()))
+      .pipe($.sourcemaps.init())
+      .pipe($.sass().on('error', $.sass.logError))
 
-    .pipe($.rename('export.css'))
-    .pipe(gulp.dest('./static'))
+      .pipe($.if(prod, $.cleanCss()))
+      .pipe($.if(!prod, $.sourcemaps.write()))
+
+      .pipe($.rename(`${app}.css`))
+      .pipe(gulp.dest(paths.out));
+
+  }));
 
 });
