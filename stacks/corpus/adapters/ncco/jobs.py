@@ -1,12 +1,10 @@
 
 
-from stacks.common.utils import with_commit
 from stacks.corpus.models import Text as StacksText
 
 from .text import Text
 
 
-@with_commit
 def ingest(corpus_id, path):
 
     """
