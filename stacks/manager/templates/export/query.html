@@ -16,7 +16,11 @@
         <h1>Corpus Builder</h1>
       </header>
 
-      <form id="query-form" action="{{ url_for('query') }}">
+      <form
+        id="query-form"
+        action="{{ url_for('query') }}"
+        method="post"
+      >
 
         <fieldset class="form-group">
 
