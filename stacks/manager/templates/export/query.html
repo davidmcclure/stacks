@@ -24,31 +24,36 @@
 
         <fieldset class="form-group">
 
-          <label>Corpora</label>
+          {{ form.corpora.label }}
 
           <select multiple
-            name="corpora"
+            name="{{ form.corpora.name }}"
             size="{{ corpora|length }}"
             class="form-control"
           >
-            {% for corpus in corpora %}
 
-            <option value="{{ corpus.id }}">
-              {{ corpus.name }}
-            </option>
-
+            {% for id, name in form.corpora.choices %}
+            <option value="{{ id }}">{{ name }} </option>
             {% endfor %}
+
           </select>
+
+          {% for error in form.corpora.errors %}
+          <div class="alert alert-danger">
+            {{ error }}
+          </div>
+          {% endfor %}
 
         </fieldset>
 
         <fieldset class="form-group">
 
-          <label>Start Year</label>
+          {{ form.min_year.label }}
+
           <p class="text-muted">Exclude texts published before this year.</p>
 
           <input
-            name="min_year"
+            name="{{ form.min_year.name }}"
             type="number"
             class="form-control"
           />
@@ -57,11 +62,12 @@
 
         <fieldset class="form-group">
 
-          <label>End Year</label>
+          {{ form.max_year.label }}
+
           <p class="text-muted">Exclude texts published after this year.</p>
 
           <input
-            name="max_year"
+            name="{{ form.max_year.name }}"
             type="number"
             class="form-control"
           />
@@ -70,13 +76,13 @@
 
         <fieldset class="form-group">
 
-          <label>Sample Size</label>
+          {{ form.sample_size.label }}
 
           <p class="text-muted">Randomly sample N texts. If left blank, all
           texts that match the filters will be included.</p>
 
           <input
-            name="sample_size"
+            name="{{ form.sample_size.name }}"
             type="number"
             class="form-control"
           />
