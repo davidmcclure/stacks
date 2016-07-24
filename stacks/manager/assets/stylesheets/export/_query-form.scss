@@ -1,0 +1,26 @@
+
+
+#query-form {
+
+  margin: 3em 0;
+
+  label {
+    font-size: 1.4em;
+    font-weight: 500;
+  }
+
+  input[type="number"] {
+    height: auto;
+    width: 6em;
+    font-size: 1.6em;
+  }
+
+  p.text-muted {
+    font-size: 0.8em;
+  }
+
+  button[type="submit"] {
+    margin-top: 1em;
+  }
+
+}
