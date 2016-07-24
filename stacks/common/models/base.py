@@ -44,8 +44,8 @@ class Base:
         Returns: self
         """
 
-        session.add(self)
-        session.commit()
+        with commit():
+            session.add(self)
 
         return self
 
