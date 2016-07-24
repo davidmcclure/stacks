@@ -13,3 +13,5 @@ class Export(Base):
     min_year = Column(Integer)
 
     max_year = Column(Integer)
+
+    sample_size = Column(Integer)
