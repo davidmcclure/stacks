@@ -16,6 +16,47 @@
         <h1>Corpus Builder</h1>
       </header>
 
+      <form id="query-form">
+
+        <fieldset class="form-group">
+          <label>Corpora</label>
+          <select multiple class="form-control">
+            <option>British Periodicals Online</option>
+            <option>Literary Lab 20th Century Corpus</option>
+            <option>Literary Lab Suspense Corpus</option>
+          </select>
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label>Start Year</label>
+          <p class="text-muted">Exclude texts published before this year.</p>
+          <input type="number" class="form-control" />
+        </fieldset>
+
+        <fieldset class="form-group">
+          <label>End Year</label>
+          <p class="text-muted">Exclude texts published after this year.</p>
+          <input type="number" class="form-control" />
+        </fieldset>
+
+        <fieldset class="form-group">
+
+          <label>Corpus Size</label>
+
+          <p class="text-muted">Randomly sample N texts that match the filters.
+          If left blank, all texts will be included.</p>
+
+          <input type="number" class="form-control" />
+
+        </fieldset>
+
+        <button
+          type="submit"
+          class="btn btn-primary btn-lg"
+        >Generate</button>
+
+      </form>
+
     </div>
   </div>
 </div>
