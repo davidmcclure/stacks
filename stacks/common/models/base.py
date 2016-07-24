@@ -22,8 +22,8 @@ class Base:
 
         row = cls(**kwargs)
 
-        with commit():
-            session.add(row)
+        session.add(row)
+        session.commit()
 
         return row
 
