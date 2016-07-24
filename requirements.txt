@@ -15,3 +15,4 @@ flask
 gunicorn
 cached-property
 scandir
+Flask-WTF
