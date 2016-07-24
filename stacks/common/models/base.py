@@ -44,6 +44,8 @@ class Base:
         Returns: self
         """
 
+        # TODO: Just flush here, not commit?
+
         with commit():
             session.add(self)
 

@@ -19,12 +19,22 @@
       <form id="query-form">
 
         <fieldset class="form-group">
+
           <label>Corpora</label>
-          <select multiple class="form-control">
-            <option>British Periodicals Online</option>
-            <option>Literary Lab 20th Century Corpus</option>
-            <option>Literary Lab Suspense Corpus</option>
+
+          <select multiple
+            size="{{ corpora|length }}"
+            class="form-control"
+          >
+            {% for corpus in corpora %}
+
+            <option value="{{ corpus.slug }}">
+              {{ corpus.name }}
+            </option>
+
+            {% endfor %}
           </select>
+
         </fieldset>
 
         <fieldset class="form-group">
