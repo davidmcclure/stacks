@@ -21,9 +21,7 @@ class Base:
         """
 
         row = cls(**kwargs)
-
-        session.add(row)
-        session.commit()
+        row.save()
 
         return row
 
@@ -37,6 +35,19 @@ class Base:
         """
 
         return cls.query.filter_by(**kwargs).one()
+
+    def save(self):
+
+        """
+        Commit the instance.
+
+        Returns: self
+        """
+
+        session.add(self)
+        session.commit()
+
+        return self
 
 
 Base = declarative_base(cls=Base)
