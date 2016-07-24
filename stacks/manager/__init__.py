@@ -2,7 +2,7 @@
 
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for
 
 from stacks.corpus.models import Corpus
 
@@ -15,7 +15,7 @@ app = Flask(__name__)
 app.secret_key = 'dev'
 
 
-@app.route('/export')
+@app.route('/export', methods=['GET', 'POST'])
 def query():
 
     """
@@ -25,7 +25,7 @@ def query():
     form = ExportForm()
 
     if form.validate_on_submit():
-        pass
+        return redirect(url_for('download'))
 
     else:
 
@@ -36,3 +36,13 @@ def query():
             form=form,
             corpora=corpora,
         )
+
+
+@app.route('/download')
+def download():
+
+    """
+    Provide a download link.
+    """
+
+    return render_template('export/download.html')
