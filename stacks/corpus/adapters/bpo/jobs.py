@@ -1,12 +1,10 @@
 
 
 from stacks.corpus.models import Text
-from stacks.common.utils import with_commit
 
 from .article import Article
 
 
-@with_commit
 def ingest(corpus_id, zipfile_path, xml_name):
 
     """
