@@ -5,6 +5,24 @@
 <link rel="stylesheet" href="/static/dist/export.css">
 {% endblock %}
 
+{% macro render_field(field) %}
+
+  {{ field.label }}
+
+  {% if field.description %}
+    <p class="text-muted">{{ field.description }}</p>
+  {% endif %}
+
+  {{ field(class_='form-control', **kwargs)|safe }}
+
+  {% if field.errors %}
+    {% for error in field.errors %}
+      {{ error }}
+    {% endfor %}
+  {% endif %}
+
+{% endmacro %}
+
 {% block body %}
 
 <div class="container">
@@ -16,71 +34,24 @@
         <h1>Corpus Builder</h1>
       </header>
 
-      <form
-        id="query-form"
-        action="{{ url_for('query') }}"
-        method="post"
-      >
+      <form id="query-form" method="post">
 
         <fieldset class="form-group">
-
-          {{ form.corpora.label }}
-
-          {{
-            form.corpora(
-              class_='form-control',
-              size=form.corpora.choices|length,
-            )
-          }}
-
-          <!-- TODO: errors -->
-
+          {{ render_field(form.corpora,
+              size=form.corpora.choices|length
+          ) }}
         </fieldset>
 
         <fieldset class="form-group">
-
-          {{ form.min_year.label }}
-
-          <p class="text-muted">Exclude texts published before this year.</p>
-
-          <input
-            name="{{ form.min_year.name }}"
-            value="{{ form.min_year.data }}"
-            type="number"
-            class="form-control"
-          />
-
+          {{ render_field(form.min_year, type='number') }}
         </fieldset>
 
         <fieldset class="form-group">
-
-          {{ form.max_year.label }}
-
-          <p class="text-muted">Exclude texts published after this year.</p>
-
-          <input
-            name="{{ form.max_year.name }}"
-            value="{{ form.max_year.data }}"
-            type="number"
-            class="form-control"
-          />
-
+          {{ render_field(form.max_year, type='number') }}
         </fieldset>
 
         <fieldset class="form-group">
-
-          {{ form.sample_size.label }}
-
-          <p class="text-muted">Randomly sample N texts. If left blank, all
-          texts that match the filters will be included.</p>
-
-          <input
-            name="{{ form.sample_size.name }}"
-            value="{{ form.sample_size.data }}"
-            type="number"
-            class="form-control"
-          />
-
+          {{ render_field(form.sample_size, type='number') }}
         </fieldset>
 
         <button

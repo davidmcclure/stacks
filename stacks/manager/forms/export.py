@@ -26,12 +26,19 @@ class ExportForm(Form):
 
     min_year = IntegerField(
         label='Start Year',
+        description='Exclude texts published before this year.',
     )
 
     max_year = IntegerField(
         label='End Year',
+        description='Exclude texts published after this year.',
     )
 
     sample_size = IntegerField(
+
         label='Sample Size',
+
+        description='''Randomly sample N texts. If left blank, all texts that
+        match the filters will be included.'''
+
     )
