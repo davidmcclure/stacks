@@ -26,23 +26,14 @@
 
           {{ form.corpora.label }}
 
-          <select multiple
-            name="{{ form.corpora.name }}"
-            size="{{ corpora|length }}"
-            class="form-control"
-          >
+          {{
+            form.corpora(
+              class_='form-control',
+              size=form.corpora.choices|length,
+            )
+          }}
 
-            {% for id, name in form.corpora.choices %}
-            <option value="{{ id }}">{{ name }} </option>
-            {% endfor %}
-
-          </select>
-
-          {% for error in form.corpora.errors %}
-          <div class="alert alert-danger">
-            {{ error }}
-          </div>
-          {% endfor %}
+          <!-- TODO: errors -->
 
         </fieldset>
 
@@ -54,6 +45,7 @@
 
           <input
             name="{{ form.min_year.name }}"
+            value="{{ form.min_year.data }}"
             type="number"
             class="form-control"
           />
@@ -68,6 +60,7 @@
 
           <input
             name="{{ form.max_year.name }}"
+            value="{{ form.max_year.data }}"
             type="number"
             class="form-control"
           />
@@ -83,6 +76,7 @@
 
           <input
             name="{{ form.sample_size.name }}"
+            value="{{ form.sample_size.data }}"
             type="number"
             class="form-control"
           />
