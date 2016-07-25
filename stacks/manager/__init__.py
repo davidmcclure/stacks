@@ -25,14 +25,7 @@ def query():
     form = ExportForm()
 
     if form.validate_on_submit():
-
-        # Register the export.
-        export = Export.create(**form.data)
-
-        # TODO: Queue bundle.
-
-        # Redirect to download page.
-        return redirect(url_for('download', uuid=export.uuid))
+        return redirect(url_for('download', uuid='123'))
 
     else:
 
