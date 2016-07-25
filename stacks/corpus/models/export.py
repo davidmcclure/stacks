@@ -1,5 +1,7 @@
 
 
+import uuid
+
 from sqlalchemy import Column, Integer, Boolean
 from sqlalchemy.dialects.postgresql import ARRAY, UUID
 
@@ -22,4 +24,19 @@ class Export(Base):
 
     sample_size = Column(Integer)
 
-    finished = Column(Boolean, nullable=False)
+    finished = Column(Boolean, nullable=False, default=False)
+
+
+    @classmethod
+    def create(cls, **kwargs):
+
+        """
+        Set the uuid.
+
+        Returns: cls
+        """
+
+        return super().create(
+            uuid=str(uuid.uuid4()),
+            **kwargs
+        )
