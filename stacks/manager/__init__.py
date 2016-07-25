@@ -31,8 +31,7 @@ def query():
 
         corpora = Corpus.query.all()
 
-        return render_template(
-            'export/query.html',
+        return render_template('export/query.html',
             form=form,
             corpora=corpora,
         )
