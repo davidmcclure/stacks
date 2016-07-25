@@ -48,6 +48,7 @@ class Text(Base):
     plain_text = Column(Text, nullable=False)
 
 
+    # TODO: test
     @validates(
         'title',
         'author_name_full',
@@ -65,17 +66,3 @@ class Text(Base):
         """
 
         return val.strip() if type(val) is str else val
-
-    def checksum(self):
-
-        """
-        Get a checksum for the plain text.
-
-        Returns: str
-        """
-
-        md5 = hashlib.md5()
-
-        md5.update(self.plain_text.encode('utf8'))
-
-        return md5.hexdigest()
