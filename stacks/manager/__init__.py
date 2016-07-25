@@ -4,7 +4,7 @@ import os
 
 from flask import Flask, render_template, redirect, url_for
 
-from stacks.corpus.models import Corpus
+from stacks.corpus.models import Corpus, Export
 
 from .forms import ExportForm
 
@@ -25,7 +25,14 @@ def query():
     form = ExportForm()
 
     if form.validate_on_submit():
-        return redirect(url_for('download'))
+
+        # Register the export.
+        export = Export.create(**form.data)
+
+        # TODO: Queue bundle.
+
+        # Redirect to download page.
+        return redirect(url_for('download', uuid=export.uuid))
 
     else:
 
@@ -38,8 +45,8 @@ def query():
         )
 
 
-@app.route('/download')
-def download():
+@app.route('/download/<uuid>')
+def download(uuid):
 
     """
     Provide a download link.

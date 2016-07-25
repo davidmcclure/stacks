@@ -13,6 +13,7 @@ class Export(Base):
 
     __tablename__ = 'export'
 
+    # TODO: Make this primary key?
     uuid = Column(UUID)
 
     # TODO: Use join table?
