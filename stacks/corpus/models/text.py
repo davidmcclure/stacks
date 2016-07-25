@@ -1,5 +1,7 @@
 
 
+import hashlib
+
 from sqlalchemy import (
     Column,
     Integer,
@@ -63,3 +65,17 @@ class Text(Base):
         """
 
         return val.strip() if type(val) is str else val
+
+    def checksum(self):
+
+        """
+        Get a checksum for the plain text.
+
+        Returns: str
+        """
+
+        md5 = hashlib.md5()
+
+        md5.update(self.plain_text.encode('utf8'))
+
+        return md5.hexdigest()

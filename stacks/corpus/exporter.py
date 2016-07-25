@@ -80,3 +80,26 @@ class Exporter:
         """
 
         os.makedirs(self.texts_path())
+
+    def _write_texts(self):
+
+        """
+        Write texts, populate manifest.txt.
+        """
+
+        for text in self.query:
+
+            checksum = text.checksum()
+
+            segment = checksum[:3]
+
+            # Form the file name.
+            file_name = '{0}.json'.format(checksum[3:])
+
+            # Form the segment directory path.
+            segment_dir = os.path.join(self.texts_path(), segment)
+
+            # Create the segment directory.
+            os.makedirs(segment_dir, exist_ok=True)
+
+            path = os.path.join(segment_dir, file_name)
