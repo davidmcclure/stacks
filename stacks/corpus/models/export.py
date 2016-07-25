@@ -1,6 +1,6 @@
 
 
-from sqlalchemy import Column, Integer
+from sqlalchemy import Column, Integer, Boolean
 from sqlalchemy.dialects.postgresql import ARRAY
 
 from stacks.common.models import Base
@@ -19,3 +19,5 @@ class Export(Base):
     max_year = Column(Integer)
 
     sample_size = Column(Integer)
+
+    finished = Column(Boolean, nullable=False)
