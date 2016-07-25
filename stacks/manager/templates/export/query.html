@@ -1,27 +1,11 @@
 
+{% from "macros/form.html" import render_field %}
+
 {% extends "base.html" %}
 
 {% block css %}
 <link rel="stylesheet" href="/static/dist/export.css">
 {% endblock %}
-
-{% macro render_field(field) %}
-
-  {{ field.label }}
-
-  {% if field.description %}
-    <p class="text-muted">{{ field.description }}</p>
-  {% endif %}
-
-  {{ field(class_='form-control', **kwargs)|safe }}
-
-  {% if field.errors %}
-    {% for error in field.errors %}
-      {{ error }}
-    {% endfor %}
-  {% endif %}
-
-{% endmacro %}
 
 {% block body %}
 
