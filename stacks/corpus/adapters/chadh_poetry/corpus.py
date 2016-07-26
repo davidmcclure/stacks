@@ -5,6 +5,7 @@ import scandir
 
 from stacks.corpus.utils import scan_paths
 from stacks.corpus.models import Corpus as StacksCorpus
+from stacks.common.singletons import session
 
 from .jobs import ingest
 
@@ -44,5 +45,7 @@ class Corpus:
             slug='chadwyck-healey-poetry',
             name='Chadwyck Healey Poetry',
         )
+
+        session.commit()
 
         corpus.queue_ingest(ingest, self.source_paths())

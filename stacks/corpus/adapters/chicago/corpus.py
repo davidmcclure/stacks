@@ -4,6 +4,7 @@ import csv
 import os
 
 from stacks.corpus.models import Corpus as StacksCorpus
+from stacks.common.singletons import session
 
 from .jobs import ingest
 
@@ -48,14 +49,14 @@ class Corpus:
         Queue ingest jobs for each text.
         """
 
-        args = [
-            dict(corpus_path=self.path, metadata=row)
-            for row in self.novels_metadata()
-        ]
-
         corpus = StacksCorpus.replace(
             slug='chicago',
             name='Chicago Corpus',
         )
 
-        corpus.queue_ingest(ingest, args)
+        session.commit()
+
+        corpus.queue_ingest(ingest, [
+            dict(corpus_path=self.path, metadata=row)
+            for row in self.novels_metadata()
+        ])

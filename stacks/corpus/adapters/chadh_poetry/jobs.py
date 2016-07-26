@@ -1,6 +1,7 @@
 
 
 from stacks.corpus.models import Text
+from stacks.common.singletons import session
 
 from .source import Source
 
@@ -27,3 +28,5 @@ def ingest(corpus_id, path):
             year=poem.year(),
             plain_text=poem.plain_text(),
         )
+
+    session.commit()

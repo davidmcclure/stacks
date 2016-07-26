@@ -1,6 +1,7 @@
 
 
 from stacks.corpus.models import Text
+from stacks.common.singletons import session
 
 from .novel import Novel
 
@@ -28,3 +29,5 @@ def ingest(corpus_id, corpus_path, metadata):
         year=novel.year(),
         plain_text=novel.source_text(),
     )
+
+    session.commit()
