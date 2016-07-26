@@ -15,7 +15,7 @@ app = Flask(__name__)
 app.secret_key = 'dev'
 
 
-@app.route('/export', methods=['GET', 'POST'])
+@app.route('/query', methods=['GET', 'POST'])
 def query():
 
     """
@@ -25,7 +25,12 @@ def query():
     form = ExportForm()
 
     if form.validate_on_submit():
-        return redirect(url_for('download', uuid='123'))
+
+        export = Export.create(**form.data)
+
+        # TODO: Queue bundle.
+
+        return redirect(url_for('download', id=export.id))
 
     else:
 
@@ -37,8 +42,8 @@ def query():
         )
 
 
-@app.route('/download/<uuid>')
-def download(uuid):
+@app.route('/download/<int:id>')
+def download(id):
 
     """
     Provide a download link.
