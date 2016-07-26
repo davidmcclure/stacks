@@ -1,6 +1,7 @@
 
 
 from stacks.corpus.models import Text
+from stacks.common.singletons import session
 
 from .article import Article
 
@@ -23,3 +24,5 @@ def ingest(corpus_id, zipfile_path, xml_name):
         year=article.year(),
         plain_text=article.plain_text(),
     )
+
+    session.commit()

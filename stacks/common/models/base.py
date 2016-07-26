@@ -15,13 +15,14 @@ class Base:
     def create(cls, **kwargs):
 
         """
-        Create and commit a new instance.
+        Create a new instance and add it to the session.
 
         Returns: cls
         """
 
         row = cls(**kwargs)
-        row.save()
+
+        session.add(row)
 
         return row
 
@@ -35,21 +36,6 @@ class Base:
         """
 
         return cls.query.filter_by(**kwargs).one()
-
-    def save(self):
-
-        """
-        Commit the instance.
-
-        Returns: self
-        """
-
-        # TODO: Just flush here, not commit?
-
-        with commit():
-            session.add(self)
-
-        return self
 
 
 Base = declarative_base(cls=Base)
