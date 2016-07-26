@@ -4,6 +4,7 @@ import os
 
 from stacks.corpus.utils import scan_paths
 from stacks.corpus.models import Corpus as StacksCorpus
+from stacks.common.singletons import session
 
 from stacks.corpus.adapters.litlab.jobs import ingest
 
@@ -49,5 +50,7 @@ class Corpus:
             slug='litlab-c20',
             name='Literary Lab 20th Century Corpus',
         )
+
+        session.commit()
 
         corpus.queue_ingest(ingest, self.text_paths())

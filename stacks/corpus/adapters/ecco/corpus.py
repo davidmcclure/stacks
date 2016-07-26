@@ -4,6 +4,7 @@ import os
 
 from stacks.corpus.utils import scan_paths
 from stacks.corpus.models import Corpus as StacksCorpus
+from stacks.common.singletons import session
 
 from .jobs import ingest
 
@@ -41,5 +42,7 @@ class Corpus:
             slug='ecco',
             name='Eighteenth Century Collections Online',
         )
+
+        session.commit()
 
         corpus.queue_ingest(ingest, self.text_paths())
