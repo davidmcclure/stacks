@@ -40,4 +40,5 @@ class Corpus:
             path = os.path.join(self.path, '{0}.csv'.format(slug))
 
             with open(path, 'r') as fh:
-                yield from csv.DictReader(fh)
+                for row in csv.DictReader(fh):
+                    yield (slug, row)
