@@ -9,7 +9,7 @@ from .text import Text
 def ingest(corpus_id, texts_path, metadata):
 
     """
-    Ingest a Chicago novel.
+    Ingest a Price Lab novel.
 
     Args:
         corpus_id (int)

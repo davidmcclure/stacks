@@ -3,6 +3,11 @@
 import csv
 import os
 
+from stacks.common.singletons import session
+from stacks.corpus.models import Corpus as StacksCorpus
+
+from .jobs import ingest
+
 
 class Corpus:
 
@@ -35,7 +40,14 @@ class Corpus:
         Yields: dict
         """
 
-        for slug in ['BBL']:
+        for slug in [
+            'BBL',
+            'BBS',
+            'BDN',
+            'BNYD',
+            'HDL',
+            'WWW'
+        ]:
 
             path = os.path.join(self.path, '{0}.csv'.format(slug))
 

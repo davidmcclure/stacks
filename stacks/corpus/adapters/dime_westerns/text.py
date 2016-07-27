@@ -79,4 +79,4 @@ class Text:
         Returns: str
         """
 
-        return self.slug + self.year()
+        return self.slug + str(self.year())
