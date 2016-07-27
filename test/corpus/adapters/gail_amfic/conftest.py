@@ -10,18 +10,13 @@ from stacks.corpus.adapters.gail_amfic.corpus import Corpus
 
 
 @pytest.fixture(scope='module')
-def ingest(db_module, rq_module):
+def ingest(db_module, rq_module, fixtures_path):
 
     """
     Run ingest jobs.
     """
 
-    path = os.path.join(
-        os.path.dirname(__file__),
-        'fixtures',
-    )
-
-    corpus = Corpus(path)
+    corpus = Corpus(fixtures_path('gail-amfic'))
 
     corpus.ingest()
 
