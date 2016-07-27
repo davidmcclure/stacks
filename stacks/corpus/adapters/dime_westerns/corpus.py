@@ -42,3 +42,28 @@ class Corpus:
             with open(path, 'r') as fh:
                 for row in csv.DictReader(fh):
                     yield (slug, row)
+
+    def ingest(self):
+
+        """
+        Queue ingest jobs for each text.
+        """
+
+        corpus = StacksCorpus.replace(
+            slug='dime-westerns',
+            name='Dime Westerns Corpus',
+        )
+
+        session.commit()
+
+        corpus.queue_ingest(ingest, [
+
+            dict(
+                texts_path=self.texts_path(),
+                slug=slug,
+                metadata=row,
+            )
+
+            for slug, row in self.metadata()
+
+        ])
