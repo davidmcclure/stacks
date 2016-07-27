@@ -1,6 +1,0 @@
-title=The Talisman
-year=1984
-genre=
-source=
-notes=co-authored by Peter Straub
-genre_confirmed=
