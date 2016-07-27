@@ -46,7 +46,7 @@ class Corpus:
             'BDN',
             'BNYD',
             'HDL',
-            'WWW'
+            'WWW',
         ]:
 
             path = os.path.join(self.path, '{0}.csv'.format(slug))
