@@ -48,14 +48,13 @@ class Text(Base):
     plain_text = Column(Text, nullable=False)
 
 
-    # TODO: test
     @validates(
         'title',
         'author_name_full',
         'author_name_first',
         'author_name_last',
     )
-    def strip(self, key, val):
+    def strip_whitespace(self, key, val):
 
         """
         Strip whitespace.
