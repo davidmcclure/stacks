@@ -4,6 +4,7 @@ import os
 import json
 
 from stacks.common.utils import open_makedirs
+from stacks.corpus.utils import scan_paths
 
 
 class Bundle:
@@ -40,7 +41,7 @@ class Bundle:
 
     @property
     def manifest_path(self):
-        return os.path.join(self.bundle_path, 'manifest.json')
+        return os.path.join(self.bundle_path, 'manifest.txt')
 
     def write_text(self, text):
 
@@ -54,7 +55,7 @@ class Bundle:
         checksum = text.checksum()
 
         path = os.path.join(
-            self.bundle_path,
+            self.texts_path,
             checksum[:3],
             checksum[3:]+'.json',
         )
@@ -65,7 +66,7 @@ class Bundle:
     def write_metadata(self, metadata):
 
         """
-        Write the metadata content.
+        Write the metadata.json content.
 
         Args:
             metadata (dict)
@@ -75,7 +76,19 @@ class Bundle:
             json.dump(metadata, fh, indent=2)
 
     def write_manifest(self):
-        pass
+
+        """
+        Write relative text paths to manifest.txt.
+        """
+
+        with open_makedirs(self.manifest_path, 'w') as fh:
+
+            # Scan JSON files.
+            for path in scan_paths(self.texts_path, '\.json$'):
+
+                # Write path relative to bundle root.
+                relpath = os.path.relpath(path, self.bundle_path)
+                print(relpath, file=fh)
 
     def compress(self):
         pass
