@@ -1,6 +1,9 @@
 
 
 import os
+import json
+
+from stacks.common.utils import open_makedirs
 
 
 class Bundle:
@@ -45,11 +48,16 @@ class Bundle:
         Add a text to the corpus.
         """
 
-        # construct the file path (checksum)
-        # create the directories
-        # write the text as a JSON blob
+        checksum = text.checksum()
 
-        pass
+        path = os.path.join(
+            self.bundle_path,
+            checksum[:3],
+            checksum[3:]+'.json',
+        )
+
+        with open_makedirs(path, 'w') as fh:
+            json.dump(text.asdict(), fh, indent=2)
 
     def add_metadata(self):
         pass

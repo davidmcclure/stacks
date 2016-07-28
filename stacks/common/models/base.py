@@ -3,7 +3,6 @@
 from sqlalchemy import Column, Integer
 from sqlalchemy.ext.declarative import declarative_base
 
-from stacks.common.utils import commit
 from stacks.common.singletons import session
 
 
