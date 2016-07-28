@@ -40,6 +40,15 @@ class Bundle:
         return os.path.join(self.bundle_path, 'manifest.json')
 
     def add_text(self, text):
+
+        """
+        Add a text to the corpus.
+        """
+
+        # construct the file path (checksum)
+        # create the directories
+        # write the text as a JSON blob
+
         pass
 
     def add_metadata(self):

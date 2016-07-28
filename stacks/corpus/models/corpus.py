@@ -43,7 +43,6 @@ class Corpus(Base):
 
         return val
 
-    # TODO: Rename to register(), update existing corpus.
     @classmethod
     def replace(cls, **kwargs):
 
