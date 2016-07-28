@@ -8,6 +8,7 @@ from stacks.common.utils import open_makedirs
 from stacks.corpus.utils import scan_paths
 
 
+# TODO: test
 class Bundle:
 
     def __init__(self, data_path, name):
@@ -55,7 +56,7 @@ class Bundle:
         Add a text to the corpus.
 
         Args:
-            text (corpus.Text)
+            text (corpus.models.Text)
         """
 
         checksum = text.checksum()
