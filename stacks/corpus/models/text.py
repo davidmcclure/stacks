@@ -65,3 +65,15 @@ class Text(Base):
         """
 
         return val.strip() if type(val) is str else val
+
+    def checksum(self):
+
+        """
+        SHA1 the plain text.
+        """
+
+        sha1 = hashlib.sha1()
+
+        sha1.update(self.plain_text.encode('utf8'))
+
+        return sha1.hexdigest()
