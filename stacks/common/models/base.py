@@ -37,6 +37,26 @@ class Base:
 
         return cls.query.filter_by(**kwargs).one()
 
+    def columns(self):
+
+        """
+        Get a list of column names.
+
+        Returns: list
+        """
+
+        return [c.name for c in self.__table__.columns]
+
+    def asdict(self):
+
+        """
+        Cast the instance to a dict.
+
+        Returns: dict
+        """
+
+        return dict([(c, getattr(self, c)) for c in self.columns()])
+
 
 Base = declarative_base(cls=Base)
 
