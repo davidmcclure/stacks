@@ -1,6 +1,7 @@
 
 
 import os
+import tarfile
 import json
 
 from stacks.common.utils import open_makedirs
@@ -42,6 +43,10 @@ class Bundle:
     @property
     def manifest_path(self):
         return os.path.join(self.bundle_path, 'manifest.txt')
+
+    @property
+    def tar_path(self):
+        return os.path.join(self.data_path, self.name+'.tar.gz')
 
     def write_text(self, text):
 
@@ -91,4 +96,15 @@ class Bundle:
                 print(relpath, file=fh)
 
     def compress(self):
-        pass
+
+        """
+        Make a .tar.gz.
+
+        Returns:
+            str: The archive path.
+        """
+
+        with tarfile.open(self.tar_path, 'w:gz') as tar:
+            tar.add(self.bundle_path, arcname=self.name)
+
+        return self.tar_path
