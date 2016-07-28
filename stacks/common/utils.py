@@ -1,34 +1,20 @@
 
 
+import os
+
 from contextlib import contextmanager
-from functools import wraps
-
-from sqlalchemy.exc import DatabaseError
-
-from .singletons import session
 
 
 @contextmanager
-def rollback():
+def open_makedirs(fpath, *args, **kwargs):
 
     """
-    Catch DatabaseError, rollback.
+    Create the directory for a file, open it.
     """
 
-    try: yield
+    path = os.path.dirname(fpath)
 
-    except DatabaseError:
-        session.rollback()
-        raise
+    os.makedirs(path, exist_ok=True)
 
-
-@contextmanager
-def commit():
-
-    """
-    Flush around a block.
-    """
-
-    with rollback():
-        yield
-        session.commit()
+    with open(fpath, *args, **kwargs) as fh:
+        yield fh
