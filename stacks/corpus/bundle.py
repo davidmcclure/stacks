@@ -42,10 +42,13 @@ class Bundle:
     def manifest_path(self):
         return os.path.join(self.bundle_path, 'manifest.json')
 
-    def add_text(self, text):
+    def write_text(self, text):
 
         """
         Add a text to the corpus.
+
+        Args:
+            text (corpus.Text)
         """
 
         checksum = text.checksum()
@@ -59,8 +62,17 @@ class Bundle:
         with open_makedirs(path, 'w') as fh:
             json.dump(text.asdict(), fh, indent=2)
 
-    def add_metadata(self):
-        pass
+    def write_metadata(self, metadata):
+
+        """
+        Write the metadata content.
+
+        Args:
+            metadata (dict)
+        """
+
+        with open_makedirs(self.metadata_path, 'w') as fh:
+            json.dump(metadata, fh, indent=2)
 
     def write_manifest(self):
         pass
