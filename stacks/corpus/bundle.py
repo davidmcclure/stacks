@@ -26,26 +26,27 @@ class Bundle:
 
     @property
     def bundle_path(self):
+        """ bundle/ """
         return os.path.join(self.data_path, self.name)
 
     @property
-    def compressed_bundle_path(self):
-        return self.bundle_path + '.tar.gz'
-
-    @property
     def texts_path(self):
+        """ bundle/texts """
         return os.path.join(self.bundle_path, 'texts')
 
     @property
     def metadata_path(self):
+        """ bundle/metadata.json """
         return os.path.join(self.bundle_path, 'metadata.json')
 
     @property
     def manifest_path(self):
+        """ bundle/manifest.txt """
         return os.path.join(self.bundle_path, 'manifest.txt')
 
     @property
     def tar_path(self):
+        """ bundle.tar.gz """
         return os.path.join(self.data_path, self.name+'.tar.gz')
 
     def write_text(self, text):
