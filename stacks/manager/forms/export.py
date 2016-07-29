@@ -35,14 +35,3 @@ class ExportForm(Form):
         description='Exclude texts published after this year.',
         validators=[Optional()],
     )
-
-    sample_size = IntegerField(
-
-        label='Sample Size',
-
-        description='''Randomly sample N texts. If left blank, all texts that
-        match the filters will be included.''',
-
-        validators=[Optional()],
-
-    )
