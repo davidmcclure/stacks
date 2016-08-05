@@ -7,7 +7,6 @@ anyconfig
 pytest
 pytest-env
 factory_boy
-alembic
 redis
 rq
 rq-dashboard
@@ -15,4 +14,3 @@ flask
 gunicorn
 cached-property
 scandir
-Flask-WTF
