@@ -45,5 +45,5 @@ from stacks.corpus.utils import get_text
 
 ])
 def test_get_text(tag, text):
-    tree = BeautifulSoup(tag, 'lxml')
+    tree = BeautifulSoup(tag, 'xml')
     assert get_text(tree, 'tag') == text
