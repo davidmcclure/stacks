@@ -16,3 +16,4 @@ bs4
 scandir
 lxml
 pathlib
+slugify
