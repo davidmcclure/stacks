@@ -15,3 +15,4 @@ cached-property
 bs4
 scandir
 lxml
+pathlib
