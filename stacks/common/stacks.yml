@@ -1,9 +1,8 @@
 ---
 
 database:
-  drivername: postgresql
-  host: localhost
-  database: stacks
+  drivername: sqlite
+  database: stacks.db
 
 redis:
   host: localhost
