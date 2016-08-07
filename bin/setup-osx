@@ -1,0 +1,13 @@
+#!/bin/sh
+
+pyvenv env
+
+. env/bin/activate
+
+pip install --upgrade pip
+
+# Patch in the brew libxml2 path.
+export C_INCLUDE_PATH=/usr/local/opt/libxml2/include/libxml2:$C_INCLUDE_PATH
+pip install -r requirements.txt
+
+python setup.py develop
