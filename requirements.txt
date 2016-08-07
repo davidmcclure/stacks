@@ -17,3 +17,4 @@ scandir
 lxml
 pathlib
 slugify
+invoke
