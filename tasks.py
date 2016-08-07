@@ -2,8 +2,8 @@
 
 from invoke import task
 
-from lint.singletons import config
-from lint.models import Base
+from stacks.common.singletons import config
+from stacks.common.models import Base
 
 
 @task
