@@ -14,7 +14,7 @@ from stacks.corpus.adapters.gail_amfic.text import Text
 def ext_gail_amfic():
 
     """
-    Index year -> token -> offset -> count.
+    Extract Gail American Fiction.
     """
 
     comm = MPI.COMM_WORLD
@@ -24,7 +24,8 @@ def ext_gail_amfic():
 
     segments = None
 
-    # Get JSON-encoded path segments.
+    # ** Scatter path segments.
+
     if rank == 0:
 
         corpus = Corpus.from_env()
@@ -37,6 +38,8 @@ def ext_gail_amfic():
         ]
 
     segment = comm.scatter(segments, root=0)
+
+    # ** Write JSON files.
 
     paths = json.loads(segment)
 
