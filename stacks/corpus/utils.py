@@ -3,6 +3,7 @@
 import re
 import scandir
 import os
+import hashlib
 
 
 def scan_paths(root, pattern):
@@ -47,3 +48,21 @@ def get_text(tree, selector):
 
     else:
         return None
+
+
+def checksum(value):
+
+    """
+    Checksum a string.
+
+    Args:
+        value (str)
+
+    Returns: str
+    """
+
+    md5 = hashlib.md5()
+
+    md5.update(value.encode('utf8'))
+
+    return md5.hexdigest()
