@@ -8,7 +8,7 @@ from schema import Schema, Optional
 from stacks.common.singletons import config
 from stacks.corpus.utils import checksum
 
-from stacks.corpus.adapters.gail_amfic.text import Text as GailAmficText
+from stacks.corpus.adapters.gail_amfic import Text as GailAmficText
 
 
 class ExtCorpus:
@@ -51,7 +51,7 @@ class ExtCorpus:
     def flush(self, corpus, data):
 
         """
-        Write a text to disk.
+        Flush a text to disk.
 
         Args:
             corpus (str)
