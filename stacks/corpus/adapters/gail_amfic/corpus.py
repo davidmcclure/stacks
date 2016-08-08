@@ -4,12 +4,26 @@ import os
 
 from stacks.corpus.utils import scan_paths
 from stacks.corpus.models import Corpus as StacksCorpus
-from stacks.common.singletons import session
+from stacks.common.singletons import config, session
 
 from .jobs import ingest
 
 
 class Corpus:
+
+    @classmethod
+    def from_env(cls):
+
+        """
+        Wrap the ENV-defined directory.
+
+        Returns: cls
+        """
+
+        # TODO: ENV-ify the dir name?
+        path = os.path.join(config['data']['raw'], 'gail-amfic')
+
+        return cls(path)
 
     def __init__(self, path):
 
