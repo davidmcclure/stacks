@@ -18,3 +18,5 @@ lxml
 pathlib
 slugify
 invoke
+schema
+pyhash
