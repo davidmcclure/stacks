@@ -16,6 +16,7 @@ class Corpus(Base):
 
     __table_args__ = (
         UniqueConstraint('slug'),
+        dict(sqlite_autoincrement=True),
     )
 
     name = Column(String, nullable=False)

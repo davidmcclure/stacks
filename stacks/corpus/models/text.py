@@ -23,6 +23,7 @@ class Text(Base):
 
     __table_args__ = (
         UniqueConstraint('corpus_id', 'identifier'),
+        dict(sqlite_autoincrement=True),
     )
 
     corpus_id = Column(

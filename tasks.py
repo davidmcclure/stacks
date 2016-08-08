@@ -5,6 +5,9 @@ from invoke import task
 from stacks.common.singletons import config
 from stacks.common.models import Base
 
+# Register models:
+from stacks.corpus.models import Corpus, Text
+
 
 @task
 def init_db(ctx):
