@@ -81,11 +81,12 @@ class Config:
         # http://docs.sqlalchemy.org/en/rel_1_0/dialects/sqlite.html#pysqlite-serializable
 
         @event.listens_for(engine, 'connect')
-        def connect(conn, record):
+        def on_connect(conn, record):
+            conn.execute('pragma foreign_keys=ON')
             conn.isolation_level = None
 
         @event.listens_for(engine, 'begin')
-        def begin(conn):
+        def on_begin(conn):
             conn.execute('BEGIN')
 
         return engine
