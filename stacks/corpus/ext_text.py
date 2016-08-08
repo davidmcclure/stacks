@@ -1,14 +1,23 @@
 
 
-from schema import Schema
+import hashlib
+
+from schema import Schema, Optional
 
 
 class ExtText:
 
     schema = Schema({
+
         'identifier': str,
         'title': str,
         'plain_text': str,
+
+        Optional('author_name_full'): str,
+        Optional('author_name_first'): str,
+        Optional('author_name_last'): str,
+        Optional('year'): int,
+
     })
 
     @classmethod
@@ -44,4 +53,8 @@ class ExtText:
         Returns: str
         """
 
-        pass
+        md5 = hashlib.md5()
+
+        md5.update(self.data['identifier'].encode('utf8'))
+
+        return md5.hexdigest()
