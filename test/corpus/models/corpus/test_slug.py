@@ -23,7 +23,7 @@ def test_required():
     with pytest.raises(IntegrityError) as e:
         session.commit()
 
-    assert 'slug' in str(e)
+    assert 'corpus.slug' in str(e)
 
 
 def test_unique():
@@ -38,7 +38,7 @@ def test_unique():
     with pytest.raises(IntegrityError) as e:
         session.commit()
 
-    assert 'corpus_slug_key' in str(e)
+    assert 'corpus.slug' in str(e)
 
 
 @pytest.mark.parametrize('slug', [

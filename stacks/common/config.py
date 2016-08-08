@@ -8,9 +8,6 @@ from sqlalchemy import create_engine, event
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.engine.url import URL
 
-from redis import StrictRedis
-from rq import Queue
-
 
 class Config:
 
@@ -112,25 +109,3 @@ class Config:
         """
 
         return scoped_session(self.build_sqla_sessionmaker())
-
-    def build_redis(self):
-
-        """
-        Build a Redis connection.
-
-        Returns: StrictRedis
-        """
-
-        return StrictRedis(**self['redis'])
-
-    def build_rq(self):
-
-        """
-        Build an RQ instance.
-
-        Returns: Queue
-        """
-
-        redis = self.build_redis()
-
-        return Queue(connection=redis)

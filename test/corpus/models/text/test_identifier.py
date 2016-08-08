@@ -23,4 +23,4 @@ def test_required():
     with pytest.raises(IntegrityError) as e:
         session.commit()
 
-    assert 'identifier' in str(e)
+    assert 'text.identifier' in str(e)

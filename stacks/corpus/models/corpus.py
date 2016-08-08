@@ -5,7 +5,7 @@ import re
 from sqlalchemy import Column, String, UniqueConstraint
 from sqlalchemy.orm import validates
 
-from stacks.common.singletons import session, rq
+from stacks.common.singletons import session
 from stacks.common.models import Base
 
 
@@ -59,21 +59,3 @@ class Corpus(Base):
 
         # Create a new corpus.
         return cls.create(**kwargs)
-
-    def queue_ingest(self, job, args):
-
-        """
-        Queue text ingest jobs.
-
-        Args:
-            job (func)
-            args (iter)
-        """
-
-        for arg in args:
-
-            if type(arg) == dict:
-                rq.enqueue(job, self.id, **arg)
-
-            else:
-                rq.enqueue(job, self.id, arg)

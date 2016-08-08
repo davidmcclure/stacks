@@ -26,4 +26,5 @@ def test_unique():
     with pytest.raises(IntegrityError) as e:
         session.commit()
 
-    assert 'text_corpus_id_identifier_key' in str(e)
+    assert 'text.corpus_id' in str(e)
+    assert 'text.identifier' in str(e)

@@ -23,4 +23,4 @@ def test_required():
     with pytest.raises(IntegrityError) as e:
         session.commit()
 
-    assert 'name' in str(e)
+    assert 'corpus.name' in str(e)

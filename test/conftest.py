@@ -4,7 +4,7 @@ import pytest
 
 from sqlalchemy import event
 
-from stacks.common.singletons import config, session, rq as _rq
+from stacks.common.singletons import config, session
 from stacks.common.models import Base
 
 
@@ -38,18 +38,3 @@ def db():
 @pytest.yield_fixture(scope='module')
 def db_module():
     yield from db()
-
-
-@pytest.fixture
-def rq():
-
-    """
-    Clear the RQ queue.
-    """
-
-    _rq.connection.flushdb()
-
-
-@pytest.fixture(scope='module')
-def rq_module():
-    rq()

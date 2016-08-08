@@ -23,4 +23,4 @@ def test_required():
     with pytest.raises(IntegrityError) as e:
         session.commit()
 
-    assert 'plain_text' in str(e)
+    assert 'text.plain_text' in str(e)
