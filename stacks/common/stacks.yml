@@ -4,7 +4,6 @@ database:
   drivername: sqlite
   database: stacks.db
 
-redis:
-  host: localhost
-  port: 6379
-  db: 0
+data:
+  raw: XXX
+  ext: XXX
