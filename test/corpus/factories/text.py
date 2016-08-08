@@ -5,8 +5,6 @@ import factory
 from stacks.common.singletons import session
 from stacks.corpus.models import Text
 
-from test.corpus.factories import CorpusFactory
-
 
 class TextFactory(factory.alchemy.SQLAlchemyModelFactory):
 
@@ -14,7 +12,7 @@ class TextFactory(factory.alchemy.SQLAlchemyModelFactory):
         sqlalchemy_session = session
         model = Text
 
-    corpus = factory.SubFactory(CorpusFactory)
+    corpus = 'corpus'
 
     identifier = factory.Sequence(
         lambda n: n
@@ -31,5 +29,3 @@ class TextFactory(factory.alchemy.SQLAlchemyModelFactory):
     author_name_last = 'Wharton'
 
     year = 1900
-
-    plain_text = 'To keep a kind of republic of the spirit...'

@@ -2,7 +2,7 @@
 
 import pytest
 
-from stacks.corpus.models import Corpus, Text
+from stacks.corpus.models import Text
 
 from test.utils import read_yaml
 

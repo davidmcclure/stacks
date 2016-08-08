@@ -22,17 +22,11 @@ class Text(Base):
     __tablename__ = 'text'
 
     __table_args__ = (
-        UniqueConstraint('corpus_id', 'identifier'),
+        UniqueConstraint('corpus', 'identifier'),
         dict(sqlite_autoincrement=True),
     )
 
-    corpus_id = Column(
-        Integer,
-        ForeignKey('corpus.id', ondelete='CASCADE'),
-        nullable=False,
-    )
-
-    corpus = relationship('Corpus')
+    corpus = Column(String, nullable=False)
 
     identifier = Column(String, nullable=False)
 
@@ -45,8 +39,6 @@ class Text(Base):
     author_name_last = Column(String)
 
     year = Column(Integer)
-
-    plain_text = Column(Text, nullable=False)
 
 
     @validates(

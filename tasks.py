@@ -6,7 +6,7 @@ from stacks.common.singletons import config
 from stacks.common.models import Base
 
 # Register models:
-from stacks.corpus.models import Corpus, Text
+from stacks.corpus.models import Text
 
 
 @task
