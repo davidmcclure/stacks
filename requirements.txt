@@ -19,3 +19,5 @@ pathlib
 slugify
 invoke
 schema
+numpy
+mpi4py

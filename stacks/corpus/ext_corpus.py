@@ -8,6 +8,8 @@ from schema import Schema, Optional
 from stacks.common.singletons import config
 from stacks.corpus.utils import checksum
 
+from stacks.corpus.adapters.gail_amfic.text import Text as GailAmficText
+
 
 class ExtCorpus:
 
@@ -74,3 +76,27 @@ class ExtCorpus:
 
         with open(path, 'w') as fh:
             json.dump(data, fh, indent=2)
+
+    def flush_gail_amfic(self, path):
+
+        """
+        Flush a Gail American Fiction text.
+
+        Args:
+            path (str)
+        """
+
+        text = GailAmficText(path)
+
+        self.flush('gail-amfic', dict(
+
+            identifier=text.identifier(),
+            title=text.title(),
+            plain_text=text.plain_text(),
+
+            author_name_full=text.author_name_full(),
+            author_name_first=text.author_name_first(),
+            author_name_last=text.author_name_last(),
+            year=text.year(),
+
+        ))

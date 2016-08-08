@@ -7,8 +7,8 @@ import json
 from mpi4py import MPI
 
 from stacks.corpus.ext_corpus import ExtCorpus
-from stacks.corpus.adaptes.gail_amfic.corpus import Corpus
-from stacks.corpus.adaptes.gail_amfic.text import Text
+from stacks.corpus.adapters.gail_amfic.corpus import Corpus
+from stacks.corpus.adapters.gail_amfic.text import Text
 
 
 def ext_gail_amfic():
@@ -43,12 +43,7 @@ def ext_gail_amfic():
     ext = ExtCorpus.from_env()
 
     for path in paths:
-
-        text = Text(path)
-
-        ext_text = ExtText.validate(text.as_ext_text())
-
-        ext.flush(ext_text)
+        ext.flush_gail_amfic(path)
 
 
 if __name__ == '__main__':
