@@ -2,11 +2,11 @@
 
 from invoke import task
 
-from stacks.common.singletons import config
-from stacks.common.models import Base
+from stacks.singletons import config
+from stacks.models import Base
 
 # Register models:
-from stacks.corpus.models import Text
+from stacks.models import Text
 
 
 @task

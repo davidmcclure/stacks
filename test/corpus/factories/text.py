@@ -2,8 +2,8 @@
 
 import factory
 
-from stacks.common.singletons import session
-from stacks.corpus.models import Text
+from stacks.singletons import session
+from stacks.models import Text
 
 
 class TextFactory(factory.alchemy.SQLAlchemyModelFactory):

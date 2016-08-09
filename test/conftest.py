@@ -4,8 +4,8 @@ import pytest
 
 from sqlalchemy import event
 
-from stacks.common.singletons import config, session
-from stacks.common.models import Base
+from stacks.singletons import config, session
+from stacks.models import Base
 
 
 @pytest.fixture(scope='session', autouse=True)

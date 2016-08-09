@@ -4,7 +4,7 @@ import pytest
 
 from bs4 import BeautifulSoup
 
-from stacks.corpus.utils import get_text
+from stacks.utils import get_text
 
 
 @pytest.mark.parametrize('tag,text', [

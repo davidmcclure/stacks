@@ -6,9 +6,9 @@ import json
 
 from mpi4py import MPI
 
-from stacks.corpus.ext_corpus import ExtCorpus
-from stacks.corpus.adapters.gail_amfic.corpus import Corpus
-from stacks.corpus.adapters.gail_amfic.text import Text
+from stacks.ext_corpus import ExtCorpus
+from stacks.adapters.gail_amfic.corpus import Corpus
+from stacks.adapters.gail_amfic.text import Text
 
 
 def ext_gail_amfic():
