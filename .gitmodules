@@ -1,0 +1,3 @@
+[submodule "test/fixtures/raw"]
+	path = test/fixtures/raw
+	url = git@github.com:davidmcclure/stacks-fixtures.git
