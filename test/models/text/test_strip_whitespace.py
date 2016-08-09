@@ -2,7 +2,7 @@
 
 import pytest
 
-from test.corpus.factories import TextFactory
+from test.factories import TextFactory
 
 
 @pytest.mark.parametrize('field', [

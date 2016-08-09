@@ -6,21 +6,23 @@ from sqlalchemy.exc import IntegrityError
 
 from stacks.singletons import session
 
-from test.corpus.factories import TextFactory
+from test.factories import TextFactory
 
 
 pytestmark = pytest.mark.usefixtures('db')
 
 
-def test_required():
+def test_unique():
 
     """
-    Block null values.
+    Block duplicate corpus+identifier pairs.
     """
 
-    TextFactory(identifier=None)
+    t1 = TextFactory(corpus='corpus', identifier='1')
+    t2 = TextFactory(corpus='corpus', identifier='1')
 
     with pytest.raises(IntegrityError) as e:
         session.commit()
 
+    assert 'text.corpus' in str(e)
     assert 'text.identifier' in str(e)
