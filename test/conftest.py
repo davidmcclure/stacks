@@ -60,3 +60,21 @@ def raw_fixtures(config):
     path = os.path.join(os.path.dirname(__file__), 'fixtures/raw')
 
     config['data']['raw'] = path
+
+
+@pytest.yield_fixture(scope='module')
+def mpi(raw_fixtures, config):
+
+    """
+    Write the current configuration into the /tmp/.lint.yml file.
+    """
+
+    config.write_tmp()
+
+    yield
+
+    config.clear_tmp()
+
+    session.remove()
+
+    init_testing_db()

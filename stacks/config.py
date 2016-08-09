@@ -11,6 +11,8 @@ from sqlalchemy.engine.url import URL
 
 class Config:
 
+    TMP_YAML = '/tmp/stacks.yml'
+
     @classmethod
     def from_env(cls):
 
@@ -27,6 +29,9 @@ class Config:
         # Patch in the testing config.
         if os.environ.get('STACKS_ENV') == 'test':
             paths.append('/etc/stacks/stacks.test.yml')
+
+        # MPI overrides.
+        paths.append(cls.TMP_YAML)
 
         return cls(paths)
 
@@ -110,3 +115,20 @@ class Config:
         """
 
         return scoped_session(self.build_sqla_sessionmaker())
+
+    def write_tmp(self):
+
+        """
+        Write the config into the /tmp file.
+        """
+
+        with open(self.TMP_YAML, 'w') as fh:
+            fh.write(yaml.dump(self.config))
+
+    def clear_tmp(self):
+
+        """
+        Clear the /tmp file.
+        """
+
+        os.remove(self.TMP_YAML)
