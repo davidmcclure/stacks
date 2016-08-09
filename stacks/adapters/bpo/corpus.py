@@ -5,10 +5,6 @@ import os
 from zipfile import ZipFile
 
 from stacks.utils import scan_paths
-from stacks.models import Corpus as StacksCorpus
-from stacks.singletons import session
-
-from .jobs import ingest
 
 
 class Corpus:
@@ -49,21 +45,3 @@ class Corpus:
                 # Walk zipped XML files.
                 for name in archive.namelist():
                     yield (zpath, name)
-
-    def ingest(self):
-
-        """
-        Queue ingest jobs for each zip + xml.
-        """
-
-        corpus = StacksCorpus.replace(
-            slug='bpo',
-            name='British Periodicals Online',
-        )
-
-        session.commit()
-
-        corpus.queue_ingest(ingest, [
-            dict(zipfile_path=zpath, xml_name=name)
-            for zpath, name in self.xml_paths()
-        ])

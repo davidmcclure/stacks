@@ -3,10 +3,6 @@
 import os
 
 from stacks.utils import scan_paths
-from stacks.models import Corpus as StacksCorpus
-from stacks.singletons import session
-
-from stacks.adapters.litlab.jobs import ingest
 
 
 class Corpus:
@@ -48,18 +44,3 @@ class Corpus:
                 # Texts
                 for text_dir in next(os.walk(author_path))[1]:
                     yield os.path.join(author_path, text_dir)
-
-    def ingest(self):
-
-        """
-        Queue ingest jobs for each text.
-        """
-
-        corpus = StacksCorpus.replace(
-            slug='litlab-suspense',
-            name='Literary Lab Suspense Corpus',
-        )
-
-        session.commit()
-
-        corpus.queue_ingest(ingest, self.text_paths())

@@ -3,10 +3,6 @@
 import os
 
 from stacks.utils import scan_paths
-from stacks.models import Corpus as StacksCorpus
-from stacks.singletons import session
-
-from stacks.adapters.litlab.jobs import ingest
 
 
 class Corpus:
@@ -39,18 +35,3 @@ class Corpus:
 
                 # Yield each text path.
                 yield os.path.join(author_path, text_dir)
-
-    def ingest(self):
-
-        """
-        Queue ingest jobs for each text.
-        """
-
-        corpus = StacksCorpus.replace(
-            slug='litlab-c20',
-            name='Literary Lab 20th Century Corpus',
-        )
-
-        session.commit()
-
-        corpus.queue_ingest(ingest, self.text_paths())

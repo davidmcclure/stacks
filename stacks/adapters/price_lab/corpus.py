@@ -3,11 +3,6 @@
 import csv
 import os
 
-from stacks.singletons import session
-from stacks.models import Corpus as StacksCorpus
-
-from .jobs import ingest
-
 
 class Corpus:
 
@@ -52,21 +47,3 @@ class Corpus:
 
         with open(self.metadata_path(), 'r') as fh:
             yield from csv.DictReader(fh)
-
-    def ingest(self):
-
-        """
-        Queue ingest jobs for each text.
-        """
-
-        corpus = StacksCorpus.replace(
-            slug='price-lab',
-            name='Price Lab Corpus',
-        )
-
-        session.commit()
-
-        corpus.queue_ingest(ingest, [
-            dict(texts_path=self.texts_path(), metadata=row)
-            for row in self.metadata()
-        ])

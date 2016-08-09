@@ -3,10 +3,6 @@
 import os
 
 from stacks.utils import scan_paths
-from stacks.models import Corpus as StacksCorpus
-from stacks.singletons import session
-
-from .jobs import ingest
 
 
 class Corpus:
@@ -31,18 +27,3 @@ class Corpus:
         """
 
         return scan_paths(self.path, '\.xml$')
-
-    def ingest(self):
-
-        """
-        Queue ingest jobs for each text.
-        """
-
-        corpus = StacksCorpus.replace(
-            slug='ncco',
-            name='Nineteenth Century Collections Online',
-        )
-
-        session.commit()
-
-        corpus.queue_ingest(ingest, self.text_paths())

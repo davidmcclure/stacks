@@ -4,10 +4,6 @@ import os
 import scandir
 
 from stacks.utils import scan_paths
-from stacks.models import Corpus as StacksCorpus
-from stacks.singletons import session
-
-from .jobs import ingest
 
 
 class Corpus:
@@ -32,20 +28,3 @@ class Corpus:
         """
 
         return scan_paths(self.path, '\.new$')
-
-    def ingest(self):
-
-        """
-        Queue ingest jobs for each text.
-        """
-
-        # TODO: Ingest the segments as separate corpora?
-
-        corpus = StacksCorpus.replace(
-            slug='chadwyck-healey-drama',
-            name='Chadwyck Healey Drama',
-        )
-
-        session.commit()
-
-        corpus.queue_ingest(ingest, self.source_paths())

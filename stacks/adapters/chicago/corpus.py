@@ -3,11 +3,6 @@
 import csv
 import os
 
-from stacks.models import Corpus as StacksCorpus
-from stacks.singletons import session
-
-from .jobs import ingest
-
 
 class Corpus:
 
@@ -42,21 +37,3 @@ class Corpus:
 
         with open(self.novels_metadata_path(), 'r') as fh:
             yield from csv.DictReader(fh)
-
-    def ingest(self):
-
-        """
-        Queue ingest jobs for each text.
-        """
-
-        corpus = StacksCorpus.replace(
-            slug='chicago',
-            name='Chicago Corpus',
-        )
-
-        session.commit()
-
-        corpus.queue_ingest(ingest, [
-            dict(corpus_path=self.path, metadata=row)
-            for row in self.novels_metadata()
-        ])
