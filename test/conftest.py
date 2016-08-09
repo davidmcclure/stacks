@@ -2,6 +2,8 @@
 
 import pytest
 import os
+import tempfile
+import shutil
 
 from sqlalchemy import event
 
@@ -50,6 +52,20 @@ def config():
     _config.config = old
 
 
+@pytest.yield_fixture(scope='module')
+def temp_dir():
+
+    """
+    Create and clean up a temp directory.
+    """
+
+    path = tempfile.mkdtemp()
+
+    yield path
+
+    shutil.rmtree(path)
+
+
 @pytest.fixture(scope='module')
 def raw_fixtures(config):
 
@@ -62,8 +78,18 @@ def raw_fixtures(config):
     config['data']['raw'] = path
 
 
+@pytest.fixture(scope='module')
+def ext_dir(config, temp_dir):
+
+    """
+    Patch in a temporary `ext` directory.
+    """
+
+    config['data']['ext'] = temp_dir
+
+
 @pytest.yield_fixture(scope='module')
-def mpi(raw_fixtures, config):
+def mpi(raw_fixtures, ext_dir, config):
 
     """
     Write the current configuration into the /tmp/.lint.yml file.
@@ -74,7 +100,5 @@ def mpi(raw_fixtures, config):
     yield
 
     config.clear_tmp()
-
-    session.remove()
 
     init_testing_db()
