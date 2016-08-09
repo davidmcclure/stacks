@@ -6,5 +6,5 @@ from subprocess import call
 
 
 @pytest.fixture(scope='module')
-def extract():
+def extract(raw_fixtures):
     call(['mpirun', 'bin/ext-gail-amfic.py'])

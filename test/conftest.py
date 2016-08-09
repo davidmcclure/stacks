@@ -1,10 +1,11 @@
 
 
 import pytest
+import os
 
 from sqlalchemy import event
 
-from stacks.singletons import config, session
+from stacks.singletons import session, config as _config
 from stacks.models import Base
 
 
@@ -15,13 +16,13 @@ def init_testing_db():
     Drop and recreate the tables.
     """
 
-    engine = config.build_sqla_engine()
+    engine = _config.build_sqla_engine()
 
     Base.metadata.drop_all(engine)
     Base.metadata.create_all(engine)
 
 
-@pytest.yield_fixture()
+@pytest.yield_fixture(scope='module')
 def db():
 
     """
@@ -36,5 +37,26 @@ def db():
 
 
 @pytest.yield_fixture(scope='module')
-def db_module():
-    yield from db()
+def config():
+
+    """
+    Clear changes to the config dict.
+    """
+
+    old = _config.config.copy()
+
+    yield _config
+
+    _config.config = old
+
+
+@pytest.fixture(scope='module')
+def raw_fixtures(config):
+
+    """
+    Patch in the `raw` fixtures.
+    """
+
+    path = os.path.join(os.path.dirname(__file__), 'fixtures/raw')
+
+    config['data']['raw'] = path
