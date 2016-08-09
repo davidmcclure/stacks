@@ -19,5 +19,6 @@ pathlib
 slugify
 invoke
 schema
+voluptuous
 numpy
 mpi4py
