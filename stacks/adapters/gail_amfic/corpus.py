@@ -17,7 +17,6 @@ class Corpus:
         Returns: cls
         """
 
-        # TODO: ENV-ify the dir name?
         path = os.path.join(config['data']['raw'], 'gail-amfic')
 
         return cls(path)

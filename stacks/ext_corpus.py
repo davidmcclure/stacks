@@ -11,6 +11,7 @@ from stacks.text_schema import schema
 from stacks.utils import checksum
 
 from stacks.adapters.gail_amfic import Text as GailAmficText
+from stacks.adapters.ecco import Text as ECCOText
 
 
 class ExtCorpus:
@@ -120,6 +121,33 @@ class ExtCorpus:
                     'full': text.author_name_full(),
                     'first': text.author_name_first(),
                     'last': text.author_name_last(),
+                }
+            },
+
+            'year': text.year(),
+
+        })
+
+    def flush_ecco(self, path):
+
+        """
+        Flush an ECCO text.
+
+        Args:
+            path (str)
+        """
+
+        text = ECCOText(path)
+
+        self.flush('ecco', {
+
+            'identifier': text.identifier(),
+            'title': text.title(),
+            'plain_text': text.plain_text(),
+
+            'author': {
+                'name': {
+                    'full': text.author_marc_name(),
                 }
             },
 
