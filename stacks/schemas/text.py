@@ -7,6 +7,7 @@ from stacks.adapters.bpo import Article as BPOArticle
 from stacks.adapters.gail_amfic import Text as GailAmficText
 from stacks.adapters.ecco import Text as ECCOText
 from stacks.adapters.chadh_drama import Source as CHADHDramaSource
+from stacks.adapters.chadh_fiction import Source as CHADHFictionSource
 
 
 class Text(Model):
@@ -134,5 +135,32 @@ class Text(Model):
                 author_name_full = play.author_name_full(),
 
                 year = play.year(),
+
+            ))
+
+    @classmethod
+    def from_chadh_fiction(cls, path):
+
+        """
+        Chadwyck Healey Fiction
+
+        Args:
+            path (str)
+        """
+
+        source = CHADHFictionSource(path)
+
+        for text in source.texts():
+
+            yield cls(dict(
+
+                corpus = 'chadh-fiction',
+                identifier = text.identifier(),
+                title = text.title(),
+                plain_text = text.plain_text(),
+
+                author_name_full = text.author_name_full(),
+
+                year = text.year(),
 
             ))
