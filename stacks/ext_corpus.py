@@ -4,10 +4,8 @@ import os
 import json
 import bz2
 
-from schema import Schema, Optional
-
 from stacks.singletons import config
-from stacks.text_schema import schema
+from stacks.schemas import Text
 from stacks.utils import checksum
 
 from stacks.adapters.gail_amfic import Text as GailAmficText
@@ -61,26 +59,26 @@ class ExtCorpus:
         # Join on the file name.
         return os.path.join(segment, suffix+'.json.bz2')
 
-    def flush(self, corpus, data):
+    def flush(self, corpus, text):
 
         """
         Flush a text to disk.
 
         Args:
-            corpus (str)
+            text (stacks.schemas.Text)
             data (dict)
         """
 
-        data = schema(data)
+        text.validate()
 
         # Form the text path.
-        path = self.ext_path(corpus, data['identifier'])
+        path = self.ext_path(corpus, text.identifier)
 
         # Ensure the directory exists.
         os.makedirs(os.path.dirname(path), exist_ok=True)
 
         with bz2.open(path, 'wt') as fh:
-            json.dump(data, fh)
+            json.dump(text.to_primitive(), fh)
 
     def read(self, corpus, identifier):
 
@@ -110,23 +108,19 @@ class ExtCorpus:
 
         text = GailAmficText(path)
 
-        self.flush('gail-amfic', {
+        self.flush('gail-amfic', Text(dict(
 
-            'identifier': text.identifier(),
-            'title': text.title(),
-            'plain_text': text.plain_text(),
+            identifier = text.identifier(),
+            title = text.title(),
+            plain_text = text.plain_text(),
 
-            'author': {
-                'name': {
-                    'full': text.author_name_full(),
-                    'first': text.author_name_first(),
-                    'last': text.author_name_last(),
-                }
-            },
+            author_name_full = text.author_name_full(),
+            author_name_first = text.author_name_first(),
+            author_name_last = text.author_name_last(),
 
-            'year': text.year(),
+            year = text.year(),
 
-        })
+        )))
 
     def flush_ecco(self, path):
 
@@ -139,22 +133,14 @@ class ExtCorpus:
 
         text = ECCOText(path)
 
-        # TODO: Avoid listing empty keys?
+        self.flush('ecco', Text(dict(
 
-        self.flush('ecco', {
+            identifier = text.identifier(),
+            title = text.title(),
+            plain_text = text.plain_text(),
 
-            'identifier': text.identifier(),
-            'title': text.title(),
-            'plain_text': text.plain_text(),
+            author_name_full = text.author_marc_name(),
 
-            'author': {
-                'name': {
-                    'full': text.author_marc_name(),
-                    'first': None,
-                    'last': None,
-                }
-            },
+            year = text.year(),
 
-            'year': text.year(),
-
-        })
+        )))
