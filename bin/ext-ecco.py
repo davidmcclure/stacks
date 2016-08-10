@@ -45,7 +45,12 @@ def ext_ecco():
     ext = ExtCorpus.from_env()
 
     for path in paths:
-        ext.flush_ecco(path)
+
+        try:
+            ext.flush_ecco(path)
+
+        except Exception as e:
+            print(e)
 
 
 if __name__ == '__main__':
