@@ -2,6 +2,8 @@
 
 import pytest
 
+from stacks.ext_corpus import ExtCorpus
+
 from test.utils import read_yaml
 
 
@@ -13,5 +15,4 @@ cases = read_yaml(__file__, 'texts.yml')
 
 @pytest.mark.parametrize('identifier,fields', cases.items())
 def test_extract(identifier, fields):
-    print(identifier)
     assert True

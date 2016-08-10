@@ -6,25 +6,13 @@ import json
 from schema import Schema, Optional
 
 from stacks.singletons import config
+from stacks.text_schema import schema
 from stacks.utils import checksum
 
 from stacks.adapters.gail_amfic import Text as GailAmficText
 
 
 class ExtCorpus:
-
-    schema = Schema({
-
-        'identifier': str,
-        'title': str,
-        'plain_text': str,
-
-        Optional('author_name_full'): str,
-        Optional('author_name_first'): str,
-        Optional('author_name_last'): str,
-        Optional('year'): int,
-
-    })
 
     @classmethod
     def from_env(cls):
@@ -58,7 +46,7 @@ class ExtCorpus:
             data (dict)
         """
 
-        data = self.schema.validate(data)
+        data = schema(data)
 
         name = checksum(data['identifier'])
 
@@ -88,15 +76,20 @@ class ExtCorpus:
 
         text = GailAmficText(path)
 
-        self.flush('gail-amfic', dict(
+        self.flush('gail-amfic', {
 
-            identifier=text.identifier(),
-            title=text.title(),
-            plain_text=text.plain_text(),
+            'identifier': text.identifier(),
+            'title': text.title(),
+            'plain_text': text.plain_text(),
 
-            author_name_full=text.author_name_full(),
-            author_name_first=text.author_name_first(),
-            author_name_last=text.author_name_last(),
-            year=text.year(),
+            'author': {
+                'name': {
+                    'full': text.author_name_full(),
+                    'first': text.author_name_first(),
+                    'last': text.author_name_last(),
+                }
+            },
 
-        ))
+            'year': text.year(),
+
+        })
