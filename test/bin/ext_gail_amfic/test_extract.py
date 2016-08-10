@@ -21,9 +21,6 @@ def test_extract(identifier, fields, ext_corpus):
     if 'title' in fields:
         assert text['title'] == fields['title']
 
-    if 'text' in fields:
-        assert fields['text'] in text['plain_text']
-
     if 'author_name_full' in fields:
         assert text['author']['name']['full'] == fields['author_name_full']
 
@@ -35,3 +32,6 @@ def test_extract(identifier, fields, ext_corpus):
 
     if 'year' in fields:
         assert text['year'] == fields['year']
+
+    if 'text' in fields:
+        assert fields['text'] in text['plain_text']
