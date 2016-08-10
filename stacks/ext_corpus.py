@@ -36,6 +36,29 @@ class ExtCorpus:
 
         self.path = os.path.abspath(path)
 
+    def ext_path(self, corpus, identifier):
+
+        """
+        Form the archive path for a text.
+
+        Args:
+            corpus (str)
+            identifier (str)
+
+        Returns: str
+        """
+
+        name = checksum(identifier)
+
+        prefix = name[:3]
+        suffix = name[3:]
+
+        # Form the segment path.
+        segment = os.path.join(self.path, corpus, prefix)
+
+        # Join on the file name.
+        return os.path.join(segment, suffix+'.json')
+
     def flush(self, corpus, data):
 
         """
@@ -48,22 +71,31 @@ class ExtCorpus:
 
         data = schema(data)
 
-        name = checksum(data['identifier'])
-
-        prefix = name[:3]
-        suffix = name[3:]
-
-        # Form the segment path.
-        segment = os.path.join(self.path, corpus, prefix)
+        # Form the text path.
+        path = self.ext_path(corpus, data['identifier'])
 
         # Ensure the directory exists.
-        os.makedirs(segment, exist_ok=True)
-
-        # Form the text path.
-        path = os.path.join(segment, suffix+'.json')
+        os.makedirs(os.path.dirname(path), exist_ok=True)
 
         with open(path, 'w') as fh:
             json.dump(data, fh, indent=2)
+
+    def read(self, corpus, identifier):
+
+        """
+        Read JSON from the corpus.
+
+        Args:
+            corpus (str)
+            identifier (str)
+
+        Returns: dict
+        """
+
+        path = self.ext_path(corpus, identifier)
+
+        with open(path, 'r') as fh:
+            return json.load(fh)
 
     def flush_gail_amfic(self, path):
 
