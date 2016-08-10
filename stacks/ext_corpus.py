@@ -59,20 +59,19 @@ class ExtCorpus:
         # Join on the file name.
         return os.path.join(segment, suffix+'.json.bz2')
 
-    def flush(self, corpus, text):
+    def flush(self, text):
 
         """
         Flush a text to disk.
 
         Args:
             text (stacks.schemas.Text)
-            data (dict)
         """
 
         text.validate()
 
         # Form the text path.
-        path = self.ext_path(corpus, text.identifier)
+        path = self.ext_path(text.corpus, text.identifier)
 
         # Ensure the directory exists.
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -108,8 +107,9 @@ class ExtCorpus:
 
         text = GailAmficText(path)
 
-        self.flush('gail-amfic', Text(dict(
+        self.flush(Text(dict(
 
+            corpus = 'gail-amfic',
             identifier = text.identifier(),
             title = text.title(),
             plain_text = text.plain_text(),
@@ -133,8 +133,9 @@ class ExtCorpus:
 
         text = ECCOText(path)
 
-        self.flush('ecco', Text(dict(
+        self.flush(Text(dict(
 
+            corpus = 'ecco',
             identifier = text.identifier(),
             title = text.title(),
             plain_text = text.plain_text(),

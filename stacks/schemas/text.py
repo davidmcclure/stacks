@@ -6,6 +6,9 @@ from schematics.types import StringType, IntType
 
 class Text(Model):
 
+
+    corpus = StringType(required=True)
+
     identifier = StringType(required=True)
 
     title = StringType(required=True)
