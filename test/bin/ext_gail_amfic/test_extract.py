@@ -14,11 +14,9 @@ cases = read_yaml(__file__, 'texts.yml')
 
 
 @pytest.mark.parametrize('identifier,fields', cases.items())
-def test_extract(identifier, fields):
+def test_extract(identifier, fields, ext_corpus):
 
-    ext = ExtCorpus.from_env()
-
-    text = ext.read('gail-amfic', identifier)
+    text = ext_corpus.read('gail-amfic', identifier)
 
     if 'title' in fields:
         assert text['title'] == fields['title']

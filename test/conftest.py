@@ -9,6 +9,7 @@ from sqlalchemy import event
 
 from stacks.singletons import session, config as _config
 from stacks.models import Base
+from stacks.ext_corpus import ExtCorpus
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -89,10 +90,20 @@ def ext_dir(config, temp_dir):
 
 
 @pytest.yield_fixture(scope='module')
+def ext_corpus(ext_dir):
+
+    """
+    Wrap ExtCorpus instance around the patched `ext` dir.
+    """
+
+    yield ExtCorpus.from_env()
+
+
+@pytest.yield_fixture(scope='module')
 def mpi(raw_fixtures, ext_dir, config):
 
     """
-    Write the current configuration into the /tmp/.lint.yml file.
+    Write the config into /tmp/stacks.yml.
     """
 
     config.write_tmp()
