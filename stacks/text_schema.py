@@ -1,6 +1,6 @@
 
 
-from voluptuous import Schema, Optional, Invalid
+from voluptuous import Schema, Optional, Any
 
 
 schema = Schema({
@@ -9,14 +9,14 @@ schema = Schema({
     'title': str,
     'plain_text': str,
 
-    Optional('author'): {
-        Optional('name'): {
-            Optional('full'): str,
-            Optional('first'): str,
-            Optional('last'): str,
+    'author': {
+        'name': {
+            'full': Any(str, None),
+            'first': Any(str, None),
+            'last': Any(str, None),
         }
     },
 
-    Optional('year'): int,
+    'year': Any(int, None),
 
 }, required=True)

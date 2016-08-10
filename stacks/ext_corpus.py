@@ -139,6 +139,8 @@ class ExtCorpus:
 
         text = ECCOText(path)
 
+        # TODO: Avoid listing empty keys?
+
         self.flush('ecco', {
 
             'identifier': text.identifier(),
@@ -148,6 +150,8 @@ class ExtCorpus:
             'author': {
                 'name': {
                     'full': text.author_marc_name(),
+                    'first': None,
+                    'last': None,
                 }
             },
 
