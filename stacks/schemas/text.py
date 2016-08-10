@@ -9,6 +9,7 @@ from stacks.adapters.ecco import Text as ECCOText
 from stacks.adapters.chadh_drama import Source as CHADHDramaSource
 from stacks.adapters.chadh_fiction import Source as CHADHFictionSource
 from stacks.adapters.chadh_poetry import Source as CHADHPoetrySource
+from stacks.adapters.chicago import Novel as ChicagoNovel
 
 
 class Text(Model):
@@ -192,3 +193,31 @@ class Text(Model):
                 year = poem.year(),
 
             ))
+
+    @classmethod
+    def from_chicago(cls, corpus_path, metadata):
+
+        """
+        Chicago
+
+        Args:
+            corpus_path (str)
+            metadata (dict)
+        """
+
+        novel = ChicagoNovel(corpus_path, metadata)
+
+        return cls(dict(
+
+            corpus = 'chicago',
+            identifier = novel.identifier(),
+            title = novel.title(),
+            plain_text = novel.source_text(),
+
+            author_name_full = novel.author_name_full(),
+            author_name_first = novel.author_name_first(),
+            author_name_last = novel.author_name_last(),
+
+            year = novel.year(),
+
+        ))
