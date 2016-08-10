@@ -8,6 +8,9 @@ from stacks.singletons import config
 from stacks.utils import scan_paths
 
 
+# TODO: Pre-unzip the archives, for performance.
+
+
 class Corpus:
 
     @classmethod
