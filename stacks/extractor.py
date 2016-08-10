@@ -63,4 +63,14 @@ class Extractor:
         # ** Write JSON files.
 
         for arg in json.loads(segment):
-            self.flush(arg)
+
+            try:
+
+                if type(arg) == dict:
+                    self.flush(**arg)
+
+                else:
+                    self.flush(arg)
+
+            except Exception as e:
+                print(arg, e)
