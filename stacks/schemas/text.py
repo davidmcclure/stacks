@@ -8,6 +8,7 @@ from stacks.adapters.gail_amfic import Text as GailAmficText
 from stacks.adapters.ecco import Text as ECCOText
 from stacks.adapters.chadh_drama import Source as CHADHDramaSource
 from stacks.adapters.chadh_fiction import Source as CHADHFictionSource
+from stacks.adapters.chadh_poetry import Source as CHADHPoetrySource
 
 
 class Text(Model):
@@ -162,5 +163,32 @@ class Text(Model):
                 author_name_full = text.author_name_full(),
 
                 year = text.year(),
+
+            ))
+
+    @classmethod
+    def from_chadh_poetry(cls, path):
+
+        """
+        Chadwyck Healey Poetry
+
+        Args:
+            path (str)
+        """
+
+        source = CHADHPoetrySource(path)
+
+        for poem in source.poems():
+
+            yield cls(dict(
+
+                corpus = 'chadh-poetry',
+                identifier = poem.identifier(),
+                title = poem.title(),
+                plain_text = poem.plain_text(),
+
+                author_name_full = poem.author_name_full(),
+
+                year = poem.year(),
 
             ))
