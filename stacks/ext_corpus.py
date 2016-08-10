@@ -2,6 +2,7 @@
 
 import os
 import json
+import bz2
 
 from schema import Schema, Optional
 
@@ -57,7 +58,7 @@ class ExtCorpus:
         segment = os.path.join(self.path, corpus, prefix)
 
         # Join on the file name.
-        return os.path.join(segment, suffix+'.json')
+        return os.path.join(segment, suffix+'.json.bz2')
 
     def flush(self, corpus, data):
 
@@ -77,8 +78,8 @@ class ExtCorpus:
         # Ensure the directory exists.
         os.makedirs(os.path.dirname(path), exist_ok=True)
 
-        with open(path, 'w') as fh:
-            json.dump(data, fh, indent=2)
+        with bz2.open(path, 'wt') as fh:
+            json.dump(data, fh)
 
     def read(self, corpus, identifier):
 
@@ -94,7 +95,7 @@ class ExtCorpus:
 
         path = self.ext_path(corpus, identifier)
 
-        with open(path, 'r') as fh:
+        with bz2.open(path, 'rt') as fh:
             return json.load(fh)
 
     def flush_gail_amfic(self, path):
