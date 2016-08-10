@@ -1,54 +1,38 @@
 #!/usr/bin/env python
 
 
-import numpy as np
-import json
-
-from mpi4py import MPI
-
-from stacks.ext_corpus import ExtCorpus
+from stacks.extractor import Extractor
 from stacks.adapters.gail_amfic import Corpus
 from stacks.schemas import Text
 
 
-def ext_gail_amfic():
+class GailAmficExtractor(Extractor):
 
-    """
-    Extract Gail American Fiction.
-    """
+    def args(self):
 
-    comm = MPI.COMM_WORLD
+        """
+        Provide a list of ECCO paths.
 
-    size = comm.Get_size()
-    rank = comm.Get_rank()
-
-    segments = None
-
-    # ** Scatter path segments.
-
-    if rank == 0:
+        Returns: list
+        """
 
         corpus = Corpus.from_env()
 
-        paths = list(corpus.text_paths())
+        return list(corpus.text_paths())
 
-        segments = [
-            json.dumps(list(s))
-            for s in np.array_split(paths, size)
-        ]
+    def flush(self, path):
 
-    segment = comm.scatter(segments, root=0)
+        """
+        Flush a text.
 
-    # ** Write JSON files.
+        Args:
+            path (str)
+        """
 
-    paths = json.loads(segment)
-
-    ext = ExtCorpus.from_env()
-
-    for path in paths:
         text = Text.from_gail_amfic(path)
-        ext.flush(text)
+
+        self.corpus.flush(text)
 
 
 if __name__ == '__main__':
-    ext_gail_amfic()
+    GailAmficExtractor()()
