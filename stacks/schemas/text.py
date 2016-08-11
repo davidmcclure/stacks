@@ -10,6 +10,7 @@ from stacks.adapters.chadh_drama import Source as CHADHDramaSource
 from stacks.adapters.chadh_fiction import Source as CHADHFictionSource
 from stacks.adapters.chadh_poetry import Source as CHADHPoetrySource
 from stacks.adapters.chicago import Novel as ChicagoNovel
+from stacks.adapters.dime_westerns import Text as DimeWesternsText
 
 
 class Text(Model):
@@ -219,5 +220,32 @@ class Text(Model):
             author_name_last = novel.author_name_last(),
 
             year = novel.year(),
+
+        ))
+
+    @classmethod
+    def from_dime_westerns(cls, texts_path, slug, metadata):
+
+        """
+        Dime Westerns
+
+        Args:
+            texts_path (str)
+            slug (str)
+            metadata (dict)
+        """
+
+        text = DimeWesternsText(texts_path, slug, metadata)
+
+        return cls(dict(
+
+            corpus = 'dime-westerns',
+            identifier = text.identifier(),
+            title = text.title(),
+            plain_text = text.source_text(),
+
+            author_name_full = text.author_name_full(),
+
+            year = text.year(),
 
         ))
