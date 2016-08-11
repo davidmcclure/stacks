@@ -303,3 +303,30 @@ class Text(Model):
             year = text.year(),
 
         ))
+
+    @classmethod
+    def from_litlab_suspense(cls, path):
+
+        """
+        Literary Lab Suspense
+
+        Args:
+            path (str)
+        """
+
+        text = LitLabText(path)
+
+        return cls(dict(
+
+            corpus = 'litlab-suspense',
+            identifier = text.identifier(),
+            title = text.title(),
+            plain_text = text.source_text(),
+
+            author_name_full = text.author.folder_name(),
+            author_name_first = text.author.name_first(),
+            author_name_last = text.author.name_last(),
+
+            year = text.year(),
+
+        ))
