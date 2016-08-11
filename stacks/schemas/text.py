@@ -16,6 +16,7 @@ from stacks.adapters.dime_westerns import Text as DimeWesternsText
 from stacks.adapters.eebo import Text as EEBOText
 from stacks.adapters.litlab import Text as LitLabText
 from stacks.adapters.ncco import Text as NCCOText
+from stacks.adapters.price_lab import Text as PriceLabText
 
 from stacks.singletons import version
 from .types import MetadataType
@@ -361,6 +362,34 @@ class Text(Model):
             plain_text = text.plain_text(),
 
             author_name_full = text.author_name_full(),
+
+            year = text.year(),
+
+        ))
+
+    @classmethod
+    def from_price_lab(cls, *args, **kwargs):
+
+        """
+        Price Lab
+
+        Args:
+            texts_path (str)
+            metadata (dict)
+        """
+
+        text = PriceLabText(*args, **kwargs)
+
+        return cls(dict(
+
+            corpus = 'price-lab',
+            identifier = text.identifier(),
+            title = text.title(),
+            plain_text = text.source_text(),
+
+            author_name_full = text.author_name_full(),
+            author_name_first = text.author_name_first(),
+            author_name_last = text.author_name_last(),
 
             year = text.year(),
 

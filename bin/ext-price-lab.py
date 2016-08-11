@@ -2,16 +2,16 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.chicago import Corpus
+from stacks.adapters.price_lab import Corpus
 from stacks.schemas import Text
 
 
-class ChicagoExtractor(Extractor):
+class PriceLabExtractor(Extractor):
 
     def args(self):
 
         """
-        Provide a list of source paths.
+        Provide a list of source args.
 
         Returns: list
         """
@@ -19,20 +19,20 @@ class ChicagoExtractor(Extractor):
         corpus = Corpus.from_env()
 
         return [
-            dict(corpus_path=corpus.path, metadata=row)
-            for row in corpus.novels_metadata()
+            dict(texts_path=corpus.path, metadata=row)
+            for row in corpus.metadata()
         ]
 
     def flush(self, *args, **kwargs):
 
         """
-        Flush texts.
+        Flush text.
         """
 
-        text = Text.from_chicago(*args, **kwargs)
+        text = Text.from_price_lab(*args, **kwargs)
 
         self.corpus.flush(text)
 
 
 if __name__ == '__main__':
-    ChicagoExtractor()()
+    PriceLabExtractor()()

@@ -27,9 +27,6 @@ class BPOExtractor(Extractor):
 
         """
         Flush a text.
-
-        Args:
-            path (str)
         """
 
         text = Text.from_bpo(*args, **kwargs)

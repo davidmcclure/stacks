@@ -34,11 +34,6 @@ class DimeWesternsExtractor(Extractor):
 
         """
         Flush texts.
-
-        Args:
-            texts_path (str)
-            slug (str)
-            metadata (dict)
         """
 
         text = Text.from_dime_westerns(*args, **kwargs)
