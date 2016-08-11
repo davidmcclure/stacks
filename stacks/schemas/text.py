@@ -11,6 +11,7 @@ from stacks.adapters.chadh_fiction import Source as CHADHFictionSource
 from stacks.adapters.chadh_poetry import Source as CHADHPoetrySource
 from stacks.adapters.chicago import Novel as ChicagoNovel
 from stacks.adapters.dime_westerns import Text as DimeWesternsText
+from stacks.adapters.eebo import Text as EEBOText
 
 
 class Text(Model):
@@ -245,6 +246,31 @@ class Text(Model):
             plain_text = text.source_text(),
 
             author_name_full = text.author_name_full(),
+
+            year = text.year(),
+
+        ))
+
+    @classmethod
+    def from_eebo(cls, path):
+
+        """
+        EEBO
+
+        Args:
+            path (str)
+        """
+
+        text = EEBOText(path)
+
+        return cls(dict(
+
+            corpus = 'eebo',
+            identifier = text.identifier(),
+            title = text.title(),
+            plain_text = text.plain_text(),
+
+            author_name_full = text.author(),
 
             year = text.year(),
 
