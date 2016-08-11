@@ -3,6 +3,8 @@
 from schematics.models import Model
 from schematics.types import StringType, IntType
 
+from stacks.types import MetadataType
+
 from stacks.adapters.bpo import Article as BPOArticle
 from stacks.adapters.gail_amfic import Text as GailAmficText
 from stacks.adapters.ecco import Text as ECCOText
@@ -13,19 +15,6 @@ from stacks.adapters.chicago import Novel as ChicagoNovel
 from stacks.adapters.dime_westerns import Text as DimeWesternsText
 from stacks.adapters.eebo import Text as EEBOText
 from stacks.adapters.litlab import Text as LitLabText
-
-
-class MetadataType(StringType):
-
-    def to_native(self, *args, **kwargs):
-
-        """
-        Strip incoming values.
-        """
-
-        val = super().to_native(*args, **kwargs)
-
-        return val.strip()
 
 
 class Text(Model):
