@@ -10,6 +10,7 @@ from sqlalchemy import (
     String,
     UniqueConstraint,
     Text,
+    DateTime,
 )
 
 from stacks.models import Base
@@ -26,6 +27,10 @@ class Text(Base):
         UniqueConstraint('corpus', 'identifier'),
         dict(sqlite_autoincrement=True),
     )
+
+    version = Column(String, nullable=False)
+
+    created_at = Column(DateTime, nullable=False)
 
     corpus = Column(String, nullable=False)
 

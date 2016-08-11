@@ -2,7 +2,9 @@
 
 import factory
 
-from stacks.singletons import session
+from datetime import datetime as dt
+
+from stacks.singletons import session, version
 from stacks.models import Text
 
 
@@ -11,6 +13,10 @@ class TextFactory(factory.alchemy.SQLAlchemyModelFactory):
     class Meta:
         sqlalchemy_session = session
         model = Text
+
+    version = version
+
+    created_at = dt.now()
 
     corpus = 'corpus'
 

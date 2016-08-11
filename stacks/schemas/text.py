@@ -25,9 +25,9 @@ from .types import MetadataType
 class Text(Model):
 
 
-    version = StringType(default=version)
+    version = StringType(default=version, required=True)
 
-    created_at = DateTimeType(default=dt.now)
+    created_at = DateTimeType(default=dt.now, required=True)
 
     corpus = StringType(required=True)
 
@@ -60,7 +60,8 @@ class Text(Model):
 
         return cls(dict(
 
-            # TODO: ENV-ify corpus name?
+            # TODO: ENV-ify corpus names?
+
             corpus = 'gail-amfic',
             identifier = text.identifier(),
             title = text.title(),
