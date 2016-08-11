@@ -3,6 +3,7 @@
 import re
 import scandir
 import os
+import subprocess
 import hashlib
 
 
@@ -66,3 +67,16 @@ def checksum(value):
     md5.update(value.encode('utf8'))
 
     return md5.hexdigest()
+
+
+def git_rev():
+
+    """
+    Get the hash of the git HEAD.
+
+    Returns: str
+    """
+
+    head = subprocess.check_output(['git', 'rev-parse', 'HEAD'])
+
+    return head.strip().decode()

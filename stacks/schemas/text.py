@@ -16,11 +16,14 @@ from stacks.adapters.dime_westerns import Text as DimeWesternsText
 from stacks.adapters.eebo import Text as EEBOText
 from stacks.adapters.litlab import Text as LitLabText
 
+from stacks.singletons import version
 from .types import MetadataType
 
 
 class Text(Model):
 
+
+    version = StringType(default=version)
 
     created_at = DateTimeType(default=dt.now)
 
