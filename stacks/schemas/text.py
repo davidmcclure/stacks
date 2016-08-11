@@ -12,6 +12,7 @@ from stacks.adapters.chadh_poetry import Source as CHADHPoetrySource
 from stacks.adapters.chicago import Novel as ChicagoNovel
 from stacks.adapters.dime_westerns import Text as DimeWesternsText
 from stacks.adapters.eebo import Text as EEBOText
+from stacks.adapters.litlab import Text as LitLabText
 
 
 class Text(Model):
@@ -271,6 +272,33 @@ class Text(Model):
             plain_text = text.plain_text(),
 
             author_name_full = text.author(),
+
+            year = text.year(),
+
+        ))
+
+    @classmethod
+    def from_litlab_c20(cls, path):
+
+        """
+        Literary Lab 20th Century
+
+        Args:
+            path (str)
+        """
+
+        text = LitLabText(path)
+
+        return cls(dict(
+
+            corpus = 'litlab-c20',
+            identifier = text.identifier(),
+            title = text.title(),
+            plain_text = text.source_text(),
+
+            author_name_full = text.author.folder_name(),
+            author_name_first = text.author.name_first(),
+            author_name_last = text.author.name_last(),
 
             year = text.year(),
 
