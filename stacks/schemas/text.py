@@ -15,6 +15,19 @@ from stacks.adapters.eebo import Text as EEBOText
 from stacks.adapters.litlab import Text as LitLabText
 
 
+class MetadataType(StringType):
+
+    def to_native(self, *args, **kwargs):
+
+        """
+        Strip incoming values.
+        """
+
+        val = super().to_native(*args, **kwargs)
+
+        return val.strip()
+
+
 class Text(Model):
 
 
@@ -26,11 +39,11 @@ class Text(Model):
 
     plain_text = StringType(required=True)
 
-    author_name_full = StringType()
+    author_name_full = MetadataType()
 
-    author_name_first = StringType()
+    author_name_first = MetadataType()
 
-    author_name_last = StringType()
+    author_name_last = MetadataType()
 
     year = IntType()
 
