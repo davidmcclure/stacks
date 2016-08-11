@@ -23,7 +23,7 @@ class ChicagoExtractor(Extractor):
             for row in corpus.novels_metadata()
         ]
 
-    def flush(self, corpus_path, metadata):
+    def flush(self, *args, **kwargs):
 
         """
         Flush texts.
@@ -33,7 +33,7 @@ class ChicagoExtractor(Extractor):
             metadata (dict)
         """
 
-        text = Text.from_chicago(corpus_path, metadata)
+        text = Text.from_chicago(*args, **kwargs)
 
         self.corpus.flush(text)
 

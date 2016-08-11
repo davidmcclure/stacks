@@ -87,7 +87,7 @@ class Text(Model):
         ))
 
     @classmethod
-    def from_bpo(cls, zipfile_path, xml_name):
+    def from_bpo(cls, *args, **kwargs):
 
         """
         BPO
@@ -97,7 +97,7 @@ class Text(Model):
             xml_name (str)
         """
 
-        article = BPOArticle(zipfile_path, xml_name)
+        article = BPOArticle(*args, **kwargs)
 
         return cls(dict(
 
@@ -196,7 +196,7 @@ class Text(Model):
             ))
 
     @classmethod
-    def from_chicago(cls, corpus_path, metadata):
+    def from_chicago(cls, *args, **kwargs):
 
         """
         Chicago
@@ -206,7 +206,7 @@ class Text(Model):
             metadata (dict)
         """
 
-        novel = ChicagoNovel(corpus_path, metadata)
+        novel = ChicagoNovel(*args, **kwargs)
 
         return cls(dict(
 
@@ -224,7 +224,7 @@ class Text(Model):
         ))
 
     @classmethod
-    def from_dime_westerns(cls, texts_path, slug, metadata):
+    def from_dime_westerns(cls, *args, **kwargs):
 
         """
         Dime Westerns
@@ -235,7 +235,7 @@ class Text(Model):
             metadata (dict)
         """
 
-        text = DimeWesternsText(texts_path, slug, metadata)
+        text = DimeWesternsText(*args, **kwargs)
 
         return cls(dict(
 

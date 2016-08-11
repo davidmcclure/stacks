@@ -30,7 +30,7 @@ class DimeWesternsExtractor(Extractor):
 
         ]
 
-    def flush(self, texts_path, slug, metadata):
+    def flush(self, *args, **kwargs):
 
         """
         Flush texts.
@@ -41,7 +41,7 @@ class DimeWesternsExtractor(Extractor):
             metadata (dict)
         """
 
-        text = Text.from_dime_westerns(texts_path, slug, metadata)
+        text = Text.from_dime_westerns(*args, **kwargs)
 
         self.corpus.flush(text)
 

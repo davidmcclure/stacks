@@ -23,7 +23,7 @@ class BPOExtractor(Extractor):
             for zpath, name in corpus.xml_paths()
         ]
 
-    def flush(self, zipfile_path, xml_name):
+    def flush(self, *args, **kwargs):
 
         """
         Flush a text.
@@ -32,7 +32,7 @@ class BPOExtractor(Extractor):
             path (str)
         """
 
-        text = Text.from_bpo(zipfile_path, xml_name)
+        text = Text.from_bpo(*args, **kwargs)
 
         self.corpus.flush(text)
 
