@@ -15,6 +15,7 @@ from stacks.adapters.chicago import Novel as ChicagoNovel
 from stacks.adapters.dime_westerns import Text as DimeWesternsText
 from stacks.adapters.eebo import Text as EEBOText
 from stacks.adapters.litlab import Text as LitLabText
+from stacks.adapters.ncco import Text as NCCOText
 
 from stacks.singletons import version
 from .types import MetadataType
@@ -335,6 +336,31 @@ class Text(Model):
             author_name_full = text.author.folder_name(),
             author_name_first = text.author.name_first(),
             author_name_last = text.author.name_last(),
+
+            year = text.year(),
+
+        ))
+
+    @classmethod
+    def from_ncco(cls, path):
+
+        """
+        NCCO
+
+        Args:
+            path (str)
+        """
+
+        text = NCCOText(path)
+
+        return cls(dict(
+
+            corpus = 'ncco',
+            identifier = text.identifier(),
+            title = text.title(),
+            plain_text = text.plain_text(),
+
+            author_name_full = text.author_name_full(),
 
             year = text.year(),
 

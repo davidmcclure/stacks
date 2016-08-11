@@ -2,10 +2,24 @@
 
 import os
 
+from stacks.singletons import config
 from stacks.utils import scan_paths
 
 
 class Corpus:
+
+    @classmethod
+    def from_env(cls):
+
+        """
+        Wrap the ENV-defined directory.
+
+        Returns: cls
+        """
+
+        path = os.path.join(config['data']['raw'], 'ncco')
+
+        return cls(path)
 
     def __init__(self, path):
 
