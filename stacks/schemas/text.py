@@ -1,7 +1,9 @@
 
 
+from datetime import datetime as dt
+
 from schematics.models import Model
-from schematics.types import StringType, IntType
+from schematics.types import StringType, IntType, DateTimeType
 
 from stacks.types import MetadataType
 
@@ -19,6 +21,8 @@ from stacks.adapters.litlab import Text as LitLabText
 
 class Text(Model):
 
+
+    created_at = DateTimeType(default=dt.now)
 
     corpus = StringType(required=True)
 
