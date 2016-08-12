@@ -46,15 +46,16 @@ class Base:
 
         return [c.name for c in self.__table__.columns]
 
-    def asdict(self):
+    def __iter__(self):
 
         """
-        Cast the instance to a dict.
+        Generate column / value tuples.
 
-        Returns: dict
+        Yields: (key, val)
         """
 
-        return dict([(c, getattr(self, c)) for c in self.columns()])
+        for key in self.columns():
+            yield (key, getattr(self, key))
 
 
 Base = declarative_base(cls=Base)

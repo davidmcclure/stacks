@@ -70,7 +70,7 @@ def test_ingest(json_corpus):
 
         # Get keys, minus the id.
         keys = [
-            k for k in row.asdict().keys()
+            k for k in dict(row).keys()
             if k != 'id'
         ]
 
