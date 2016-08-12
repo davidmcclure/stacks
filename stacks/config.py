@@ -60,6 +60,23 @@ class Config:
 
         return self.config.get(key)
 
+    def write_tmp(self):
+
+        """
+        Write the config into the /tmp file.
+        """
+
+        with open(self.TMP_YAML, 'w') as fh:
+            fh.write(yaml.dump(self.config))
+
+    def clear_tmp(self):
+
+        """
+        Clear the /tmp file.
+        """
+
+        os.remove(self.TMP_YAML)
+
     def build_sqla_url(self):
 
         """
@@ -115,20 +132,3 @@ class Config:
         """
 
         return scoped_session(self.build_sqla_sessionmaker())
-
-    def write_tmp(self):
-
-        """
-        Write the config into the /tmp file.
-        """
-
-        with open(self.TMP_YAML, 'w') as fh:
-            fh.write(yaml.dump(self.config))
-
-    def clear_tmp(self):
-
-        """
-        Clear the /tmp file.
-        """
-
-        os.remove(self.TMP_YAML)
