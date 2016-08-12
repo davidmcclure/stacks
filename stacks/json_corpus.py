@@ -75,8 +75,8 @@ class JSONCorpus:
         # Ensure the directory exists.
         os.makedirs(os.path.dirname(path), exist_ok=True)
 
-        with bz2.open(path, 'wt') as fh:
-            json.dump(text.to_primitive(), fh)
+        # Write the JSON.
+        text.flush_bz2_json(path)
 
     def read(self, corpus, identifier):
 
@@ -92,5 +92,4 @@ class JSONCorpus:
 
         path = self.ext_path(corpus, identifier)
 
-        with bz2.open(path, 'rt') as fh:
-            return JSONText(json.load(fh))
+        return JSONText.from_bz2_json(path)
