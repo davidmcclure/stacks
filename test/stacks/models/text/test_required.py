@@ -12,15 +12,22 @@ from test.factories import TextFactory
 pytestmark = pytest.mark.usefixtures('db')
 
 
-def test_required():
+@pytest.mark.parametrize('field', [
+    'version',
+    'created_at',
+    'corpus',
+    'identifier',
+    'title',
+])
+def test_required(field):
 
     """
     Block null values.
     """
 
-    TextFactory(corpus=None)
+    TextFactory(**{field: None})
 
     with pytest.raises(IntegrityError) as e:
         session.commit()
 
-    assert 'text.corpus' in str(e)
+    assert 'text.{0}'.format(field) in str(e)

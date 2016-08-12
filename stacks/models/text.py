@@ -45,21 +45,3 @@ class Text(Base):
     author_name_last = Column(String)
 
     year = Column(Integer)
-
-
-    @classmethod
-    def ingest(cls, path):
-
-        """
-        Ingest texts from `ext`.
-
-        Args:
-            path (str)
-        """
-
-        # TODO|dev
-
-        ext = ExtCorpus()
-
-        for text in ext.texts():
-            pass
