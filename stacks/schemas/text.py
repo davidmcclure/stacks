@@ -51,81 +51,59 @@ class Text(Model):
 
         """
         Gail American Fiction
-
-        Args:
-            path (str)
         """
 
         text = GailAmficText(path)
 
+        # TODO: ENV-ify corpus names?
+
         return cls(dict(
-
-            # TODO: ENV-ify corpus names?
-
             corpus = 'gail-amfic',
             identifier = text.identifier(),
             title = text.title(),
             plain_text = text.plain_text(),
-
             author_name_full = text.author_name_full(),
             author_name_first = text.author_name_first(),
             author_name_last = text.author_name_last(),
-
             year = text.year(),
-
         ))
 
     @classmethod
     def from_ecco(cls, path):
 
         """
-        ECCO
-
-        Args:
-            path (str)
+        Eighteenth Century Collections Online
         """
 
         text = ECCOText(path)
 
         return cls(dict(
-
             corpus = 'ecco',
             identifier = text.identifier(),
             title = text.title(),
             plain_text = text.plain_text(),
-
             author_name_full = text.author_marc_name(),
-
             year = text.year(),
-
         ))
 
     @classmethod
     def from_bpo(cls, *args, **kwargs):
 
         """
-        BPO
-
-        Args:
-            zipfile_path (str)
-            xml_name (str)
+        British Periodicals Online
         """
 
         article = BPOArticle(*args, **kwargs)
 
         return cls(dict(
-
             corpus = 'bpo',
             identifier = article.identifier(),
             title = article.title(),
             plain_text = article.plain_text(),
-
             author_name_full = article.author_name_full(),
             author_name_first = article.author_name_first(),
             author_name_last = article.author_name_last(),
-
             year = article.year(),
-
         ))
 
     @classmethod
@@ -133,9 +111,6 @@ class Text(Model):
 
         """
         Chadwyck Healey Drama
-
-        Args:
-            path (str)
         """
 
         source = CHADHDramaSource(path)
@@ -143,16 +118,12 @@ class Text(Model):
         for play in source.plays():
 
             yield cls(dict(
-
                 corpus = 'chadh-drama',
                 identifier = play.identifier(),
                 title = play.title(),
                 plain_text = play.plain_text(),
-
                 author_name_full = play.author_name_full(),
-
                 year = play.year(),
-
             ))
 
     @classmethod
@@ -160,9 +131,6 @@ class Text(Model):
 
         """
         Chadwyck Healey Fiction
-
-        Args:
-            path (str)
         """
 
         source = CHADHFictionSource(path)
@@ -170,16 +138,12 @@ class Text(Model):
         for text in source.texts():
 
             yield cls(dict(
-
                 corpus = 'chadh-fiction',
                 identifier = text.identifier(),
                 title = text.title(),
                 plain_text = text.plain_text(),
-
                 author_name_full = text.author_name_full(),
-
                 year = text.year(),
-
             ))
 
     @classmethod
@@ -187,9 +151,6 @@ class Text(Model):
 
         """
         Chadwyck Healey Poetry
-
-        Args:
-            path (str)
         """
 
         source = CHADHPoetrySource(path)
@@ -197,16 +158,12 @@ class Text(Model):
         for poem in source.poems():
 
             yield cls(dict(
-
                 corpus = 'chadh-poetry',
                 identifier = poem.identifier(),
                 title = poem.title(),
                 plain_text = poem.plain_text(),
-
                 author_name_full = poem.author_name_full(),
-
                 year = poem.year(),
-
             ))
 
     @classmethod
@@ -214,27 +171,19 @@ class Text(Model):
 
         """
         Chicago
-
-        Args:
-            corpus_path (str)
-            metadata (dict)
         """
 
         novel = ChicagoNovel(*args, **kwargs)
 
         return cls(dict(
-
             corpus = 'chicago',
             identifier = novel.identifier(),
             title = novel.title(),
             plain_text = novel.source_text(),
-
             author_name_full = novel.author_name_full(),
             author_name_first = novel.author_name_first(),
             author_name_last = novel.author_name_last(),
-
             year = novel.year(),
-
         ))
 
     @classmethod
@@ -242,51 +191,35 @@ class Text(Model):
 
         """
         Dime Westerns
-
-        Args:
-            texts_path (str)
-            slug (str)
-            metadata (dict)
         """
 
         text = DimeWesternsText(*args, **kwargs)
 
         return cls(dict(
-
             corpus = 'dime-westerns',
             identifier = text.identifier(),
             title = text.title(),
             plain_text = text.source_text(),
-
             author_name_full = text.author_name_full(),
-
             year = text.year(),
-
         ))
 
     @classmethod
     def from_eebo(cls, path):
 
         """
-        EEBO
-
-        Args:
-            path (str)
+        Early English Books Online
         """
 
         text = EEBOText(path)
 
         return cls(dict(
-
             corpus = 'eebo',
             identifier = text.identifier(),
             title = text.title(),
             plain_text = text.plain_text(),
-
             author_name_full = text.author(),
-
             year = text.year(),
-
         ))
 
     @classmethod
@@ -294,26 +227,19 @@ class Text(Model):
 
         """
         Literary Lab 20th Century
-
-        Args:
-            path (str)
         """
 
         text = LitLabText(path)
 
         return cls(dict(
-
             corpus = 'litlab-c20',
             identifier = text.identifier(),
             title = text.title(),
             plain_text = text.source_text(),
-
             author_name_full = text.author.folder_name(),
             author_name_first = text.author.name_first(),
             author_name_last = text.author.name_last(),
-
             year = text.year(),
-
         ))
 
     @classmethod
@@ -321,51 +247,37 @@ class Text(Model):
 
         """
         Literary Lab Suspense
-
-        Args:
-            path (str)
         """
 
         text = LitLabText(path)
 
         return cls(dict(
-
             corpus = 'litlab-suspense',
             identifier = text.identifier(),
             title = text.title(),
             plain_text = text.source_text(),
-
             author_name_full = text.author.folder_name(),
             author_name_first = text.author.name_first(),
             author_name_last = text.author.name_last(),
-
             year = text.year(),
-
         ))
 
     @classmethod
     def from_ncco(cls, path):
 
         """
-        NCCO
-
-        Args:
-            path (str)
+        Nineteenth Century Collections Online
         """
 
         text = NCCOText(path)
 
         return cls(dict(
-
             corpus = 'ncco',
             identifier = text.identifier(),
             title = text.title(),
             plain_text = text.plain_text(),
-
             author_name_full = text.author_name_full(),
-
             year = text.year(),
-
         ))
 
     @classmethod
@@ -373,25 +285,17 @@ class Text(Model):
 
         """
         Price Lab
-
-        Args:
-            texts_path (str)
-            metadata (dict)
         """
 
         text = PriceLabText(*args, **kwargs)
 
         return cls(dict(
-
             corpus = 'price-lab',
             identifier = text.identifier(),
             title = text.title(),
             plain_text = text.source_text(),
-
             author_name_full = text.author_name_full(),
             author_name_first = text.author_name_first(),
             author_name_last = text.author_name_last(),
-
             year = text.year(),
-
         ))
