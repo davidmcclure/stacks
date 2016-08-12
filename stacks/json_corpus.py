@@ -33,7 +33,7 @@ class JSONCorpus:
 
         self.path = os.path.abspath(path)
 
-    def ext_path(self, corpus, identifier):
+    def make_ext_path(self, corpus, identifier):
 
         """
         Form the archive path for a text.
@@ -70,7 +70,7 @@ class JSONCorpus:
         text.validate()
 
         # Form the text path.
-        path = self.ext_path(text.corpus, text.identifier)
+        path = self.make_ext_path(text.corpus, text.identifier)
 
         # Ensure the directory exists.
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -90,7 +90,7 @@ class JSONCorpus:
         Returns: dict
         """
 
-        path = self.ext_path(corpus, identifier)
+        path = self.make_ext_path(corpus, identifier)
 
         return JSONText.from_bz2_json(path)
 
