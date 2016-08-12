@@ -13,9 +13,9 @@ from sqlalchemy import (
     DateTime,
 )
 
-from stacks.models import Base
 from stacks.singletons import session
-from stacks.utils import scan_paths
+from stacks.models import Base
+from stacks.json_corpus import JSONCorpus
 
 
 class Text(Base):
@@ -45,3 +45,21 @@ class Text(Base):
     author_name_last = Column(String)
 
     year = Column(Integer)
+
+
+    @classmethod
+    def ingest(cls):
+
+        """
+        Ingest extracted JSON files.
+
+        Args:
+            ext_path (str)
+        """
+
+        corpus = JSONCorpus.from_env()
+
+        for text in corpus.texts():
+            cls.create(**text.as_manifest())
+
+        session.commit()

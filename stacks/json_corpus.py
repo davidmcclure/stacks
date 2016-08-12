@@ -5,8 +5,8 @@ import json
 import bz2
 
 from stacks.singletons import config
+from stacks.utils import checksum, scan_paths
 from stacks.json_text import JSONText
-from stacks.utils import checksum
 
 
 class JSONCorpus:
@@ -93,3 +93,14 @@ class JSONCorpus:
         path = self.ext_path(corpus, identifier)
 
         return JSONText.from_bz2_json(path)
+
+    def texts(self):
+
+        """
+        Scan all JSON files and generate text instances.
+
+        Yields: JSONText
+        """
+
+        for path in scan_paths(self.path, '\.json.bz2$'):
+            yield JSONText.from_bz2_json(path)
