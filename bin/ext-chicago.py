@@ -30,7 +30,7 @@ class ChicagoExtractor(Extractor):
 
         novel = Novel(*args, **kwargs)
 
-        self.corpus.flush(novel.as_ext())
+        self.corpus.insert_text(novel.as_ext())
 
 
 if __name__ == '__main__':

@@ -31,7 +31,7 @@ class CHADHFictionExtractor(Extractor):
         source = Source(path)
 
         for text in source.texts():
-            self.corpus.flush(text.as_ext())
+            self.corpus.insert_text(text.as_ext())
 
 
 if __name__ == '__main__':

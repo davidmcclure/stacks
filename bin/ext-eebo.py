@@ -30,7 +30,7 @@ class EEBOExtractor(Extractor):
 
         text = Text(path)
 
-        self.corpus.flush(text.as_ext())
+        self.corpus.insert_text(text.as_ext())
 
 
 if __name__ == '__main__':

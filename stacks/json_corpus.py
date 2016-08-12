@@ -56,7 +56,7 @@ class JSONCorpus:
         # Join on the file name.
         return os.path.join(segment, suffix+'.json.bz2')
 
-    def flush(self, data):
+    def insert_text(self, data):
 
         """
         Flush a text to disk.
@@ -78,7 +78,7 @@ class JSONCorpus:
         # Write the JSON.
         text.flush_bz2_json(path)
 
-    def read(self, corpus, identifier):
+    def get_text(self, corpus, identifier):
 
         """
         Read JSON from the corpus.

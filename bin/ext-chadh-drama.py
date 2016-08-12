@@ -31,7 +31,7 @@ class CHADHDramaExtractor(Extractor):
         source = Source(path)
 
         for play in source.plays():
-            self.corpus.flush(play.as_ext())
+            self.corpus.insert_text(play.as_ext())
 
 
 if __name__ == '__main__':
