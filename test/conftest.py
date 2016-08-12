@@ -25,7 +25,7 @@ def init_testing_db():
     Base.metadata.create_all(engine)
 
 
-@pytest.yield_fixture(scope='module')
+@pytest.yield_fixture
 def db():
 
     """
