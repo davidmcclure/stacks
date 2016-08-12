@@ -6,10 +6,22 @@ from schematics.models import Model
 from schematics.types import StringType, IntType, DateTimeType
 
 from stacks.singletons import version
-from .types import MetadataType
 
 
-class Text(Model):
+class MetadataType(StringType):
+
+    def to_native(self, *args, **kwargs):
+
+        """
+        Strip incoming values.
+        """
+
+        val = super().to_native(*args, **kwargs)
+
+        return val.strip()
+
+
+class JSONText(Model):
 
     version = StringType(default=version, required=True)
 

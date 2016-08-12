@@ -2,7 +2,7 @@
 
 import pytest
 
-from stacks.ext_corpus import ExtCorpus
+from stacks.json_corpus import JSONCorpus
 
 from test.utils import read_yaml
 
@@ -14,9 +14,9 @@ cases = read_yaml(__file__, 'texts.yml')
 
 
 @pytest.mark.parametrize('identifier,fields', cases.items())
-def test_extract(identifier, fields, ext_corpus):
+def test_extract(identifier, fields, json_corpus):
 
-    text = ext_corpus.read('gail-amfic', identifier)
+    text = json_corpus.read('gail-amfic', identifier)
 
     if 'title' in fields:
         assert text.title == fields['title']

@@ -5,11 +5,11 @@ import json
 import bz2
 
 from stacks.singletons import config
-from stacks.schemas import Text
+from stacks.json_text import JSONText
 from stacks.utils import checksum
 
 
-class ExtCorpus:
+class JSONCorpus:
 
     @classmethod
     def from_env(cls):
@@ -65,7 +65,7 @@ class ExtCorpus:
             data (dict)
         """
 
-        text = Text(data)
+        text = JSONText(data)
 
         text.validate()
 
@@ -93,4 +93,4 @@ class ExtCorpus:
         path = self.ext_path(corpus, identifier)
 
         with bz2.open(path, 'rt') as fh:
-            return Text(json.load(fh))
+            return JSONText(json.load(fh))
