@@ -8,9 +8,6 @@ from stacks.singletons import config
 from stacks.schemas import Text
 from stacks.utils import checksum
 
-from stacks.adapters.gail_amfic import Text as GailAmficText
-from stacks.adapters.ecco import Text as ECCOText
-
 
 class ExtCorpus:
 
@@ -94,4 +91,4 @@ class ExtCorpus:
         path = self.ext_path(corpus, identifier)
 
         with bz2.open(path, 'rt') as fh:
-            return json.load(fh)
+            return Text(json.load(fh))
