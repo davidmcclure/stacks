@@ -63,3 +63,18 @@ class Text:
         """
 
         return get_text(self.xml, 'TEXT')
+
+    def as_ext(self):
+
+        """
+        Returns: dict
+        """
+
+        return dict(
+            corpus = 'eebo',
+            identifier = self.identifier(),
+            title = self.title(),
+            plain_text = self.plain_text(),
+            author_name_full = self.author(),
+            year = self.year(),
+        )

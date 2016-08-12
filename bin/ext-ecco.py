@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.ecco import Corpus
-from stacks.schemas import Text
+from stacks.adapters.ecco import Corpus, Text
 
 
 class ECCOExtractor(Extractor):
@@ -29,9 +28,9 @@ class ECCOExtractor(Extractor):
             path (str)
         """
 
-        text = Text.from_ecco(path)
+        text = Text(path)
 
-        self.corpus.flush(text)
+        self.corpus.flush(text.as_ext())
 
 
 if __name__ == '__main__':

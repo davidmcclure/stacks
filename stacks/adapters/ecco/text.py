@@ -66,3 +66,18 @@ class Text:
         strings = [w.string for w in words]
 
         return ' '.join(strings)
+
+    def as_ext(self):
+
+        """
+        Returns: dict
+        """
+
+        return dict(
+            corpus = 'ecco',
+            identifier = self.identifier(),
+            title = self.title(),
+            plain_text = self.plain_text(),
+            author_name_full = self.author_marc_name(),
+            year = self.year(),
+        )

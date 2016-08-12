@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.chicago import Corpus
-from stacks.schemas import Text
+from stacks.adapters.chicago import Corpus, Novel
 
 
 class ChicagoExtractor(Extractor):
@@ -29,9 +28,9 @@ class ChicagoExtractor(Extractor):
         Flush texts.
         """
 
-        text = Text.from_chicago(*args, **kwargs)
+        novel = Novel(*args, **kwargs)
 
-        self.corpus.flush(text)
+        self.corpus.flush(novel.as_ext())
 
 
 if __name__ == '__main__':

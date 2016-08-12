@@ -79,3 +79,20 @@ class Article:
         """
 
         return get_text(self.xml, 'FullText')
+
+    def as_ext(self):
+
+        """
+        Returns: dict
+        """
+
+        return dict(
+            corpus = 'bpo',
+            identifier = self.identifier(),
+            title = self.title(),
+            plain_text = self.plain_text(),
+            author_name_full = self.author_name_full(),
+            author_name_first = self.author_name_first(),
+            author_name_last = self.author_name_last(),
+            year = self.year(),
+        )

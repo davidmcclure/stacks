@@ -80,3 +80,18 @@ class Text:
         """
 
         return self.slug + str(self.year())
+
+    def as_ext(self):
+
+        """
+        Returns: dict
+        """
+
+        return dict(
+            corpus = 'dime-westerns',
+            identifier = self.identifier(),
+            title = self.title(),
+            plain_text = self.source_text(),
+            author_name_full = self.author_name_full(),
+            year = self.year(),
+        )

@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.chadh_poetry import Corpus
-from stacks.schemas import Text
+from stacks.adapters.chadh_poetry import Corpus, Source
 
 
 class CHADHPoetryExtractor(Extractor):
@@ -29,8 +28,10 @@ class CHADHPoetryExtractor(Extractor):
             path (str)
         """
 
-        for text in Text.from_chadh_poetry(path):
-            self.corpus.flush(text)
+        source = Source(path)
+
+        for poem in source.poems():
+            self.corpus.flush(poem.as_ext())
 
 
 if __name__ == '__main__':

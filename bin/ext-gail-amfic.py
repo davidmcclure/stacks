@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.gail_amfic import Corpus
-from stacks.schemas import Text
+from stacks.adapters.gail_amfic import Corpus, Text
 
 
 class GailAmficExtractor(Extractor):
@@ -29,9 +28,9 @@ class GailAmficExtractor(Extractor):
             path (str)
         """
 
-        text = Text.from_gail_amfic(path)
+        text = Text(path)
 
-        self.corpus.flush(text)
+        self.corpus.flush(text.as_ext())
 
 
 if __name__ == '__main__':

@@ -86,3 +86,18 @@ class Text:
         ]
 
         return ' '.join(strings)
+
+    def as_ext(self):
+
+        """
+        Returns: dict
+        """
+
+        return dict(
+            corpus = 'ncco',
+            identifier = self.identifier(),
+            title = self.title(),
+            plain_text = self.plain_text(),
+            author_name_full = self.author_name_full(),
+            year = self.year(),
+        )

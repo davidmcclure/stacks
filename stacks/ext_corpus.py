@@ -56,14 +56,16 @@ class ExtCorpus:
         # Join on the file name.
         return os.path.join(segment, suffix+'.json.bz2')
 
-    def flush(self, text):
+    def flush(self, data):
 
         """
         Flush a text to disk.
 
         Args:
-            text (stacks.schemas.Text)
+            data (dict)
         """
+
+        text = Text(data)
 
         text.validate()
 

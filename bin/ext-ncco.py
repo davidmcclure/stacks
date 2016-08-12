@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.ncco import Corpus
-from stacks.schemas import Text
+from stacks.adapters.ncco import Corpus, Text
 
 
 class NCCOExtractor(Extractor):
@@ -29,9 +28,9 @@ class NCCOExtractor(Extractor):
             path (str)
         """
 
-        text = Text.from_ncco(path)
+        text = Text(path)
 
-        self.corpus.flush(text)
+        self.corpus.flush(text.as_ext())
 
 
 if __name__ == '__main__':

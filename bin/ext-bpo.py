@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.bpo import Corpus
-from stacks.schemas import Text
+from stacks.adapters.bpo import Corpus, Article
 
 
 class BPOExtractor(Extractor):
@@ -29,9 +28,9 @@ class BPOExtractor(Extractor):
         Flush a text.
         """
 
-        text = Text.from_bpo(*args, **kwargs)
+        article = Article(*args, **kwargs)
 
-        self.corpus.flush(text)
+        self.corpus.flush(article.as_ext())
 
 
 if __name__ == '__main__':

@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.chadh_drama import Corpus
-from stacks.schemas import Text
+from stacks.adapters.chadh_drama import Corpus, Source
 
 
 class CHADHDramaExtractor(Extractor):
@@ -29,8 +28,10 @@ class CHADHDramaExtractor(Extractor):
             path (str)
         """
 
-        for text in Text.from_chadh_drama(path):
-            self.corpus.flush(text)
+        source = Source(path)
+
+        for play in source.plays():
+            self.corpus.flush(play.as_ext())
 
 
 if __name__ == '__main__':

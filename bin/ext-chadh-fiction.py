@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.chadh_fiction import Corpus
-from stacks.schemas import Text
+from stacks.adapters.chadh_fiction import Corpus, Source
 
 
 class CHADHFictionExtractor(Extractor):
@@ -29,8 +28,10 @@ class CHADHFictionExtractor(Extractor):
             path (str)
         """
 
-        for text in Text.from_chadh_fiction(path):
-            self.corpus.flush(text)
+        source = Source(path)
+
+        for text in source.texts():
+            self.corpus.flush(text.as_ext())
 
 
 if __name__ == '__main__':

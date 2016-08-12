@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.litlab_suspense import Corpus
-from stacks.schemas import Text
+from stacks.adapters.litlab_suspense import Corpus, Text
 
 
 class LitLabSuspenseExtractor(Extractor):
@@ -29,9 +28,9 @@ class LitLabSuspenseExtractor(Extractor):
             path (str)
         """
 
-        text = Text.from_litlab_suspense(path)
+        text = Text(path)
 
-        self.corpus.flush(text)
+        self.corpus.flush(text.as_ext())
 
 
 if __name__ == '__main__':

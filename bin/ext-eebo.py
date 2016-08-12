@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.eebo import Corpus
-from stacks.schemas import Text
+from stacks.adapters.eebo import Corpus, Text
 
 
 class EEBOExtractor(Extractor):
@@ -29,9 +28,9 @@ class EEBOExtractor(Extractor):
             path (str)
         """
 
-        text = Text.from_eebo(path)
+        text = Text(path)
 
-        self.corpus.flush(text)
+        self.corpus.flush(text.as_ext())
 
 
 if __name__ == '__main__':

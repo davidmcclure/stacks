@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.dime_westerns import Corpus
-from stacks.schemas import Text
+from stacks.adapters.dime_westerns import Corpus, Text
 
 
 class DimeWesternsExtractor(Extractor):
@@ -36,9 +35,9 @@ class DimeWesternsExtractor(Extractor):
         Flush texts.
         """
 
-        text = Text.from_dime_westerns(*args, **kwargs)
+        text = Text(*args, **kwargs)
 
-        self.corpus.flush(text)
+        self.corpus.flush(text.as_ext())
 
 
 if __name__ == '__main__':

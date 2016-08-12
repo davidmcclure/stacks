@@ -2,8 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.price_lab import Corpus
-from stacks.schemas import Text
+from stacks.adapters.price_lab import Corpus, Text
 
 
 class PriceLabExtractor(Extractor):
@@ -29,9 +28,9 @@ class PriceLabExtractor(Extractor):
         Flush text.
         """
 
-        text = Text.from_price_lab(*args, **kwargs)
+        text = Text(*args, **kwargs)
 
-        self.corpus.flush(text)
+        self.corpus.flush(text.as_ext())
 
 
 if __name__ == '__main__':
