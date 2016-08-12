@@ -2,23 +2,11 @@
 
 from datetime import datetime as dt
 
-from schematics.models import Model
 from schematics.types import StringType, IntType, DateTimeType
+from schematics.models import Model
 
+from stacks.schema_types import MetadataType
 from stacks.singletons import version
-
-
-class MetadataType(StringType):
-
-    def to_native(self, *args, **kwargs):
-
-        """
-        Strip incoming values.
-        """
-
-        val = super().to_native(*args, **kwargs)
-
-        return val.strip()
 
 
 class JSONText(Model):
