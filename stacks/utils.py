@@ -77,6 +77,8 @@ def git_rev():
     Returns: str
     """
 
-    head = subprocess.check_output(['git', 'rev-parse', 'HEAD'])
+    head = subprocess.check_output([
+        'git', 'rev-parse', '--short', 'HEAD',
+    ])
 
     return head.strip().decode()
