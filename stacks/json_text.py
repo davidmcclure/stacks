@@ -63,7 +63,7 @@ class JSONText(Model):
         with bz2.open(path, 'wt') as fh:
             json.dump(self.to_primitive(), fh)
 
-    def as_manifest(self):
+    def to_manifest(self):
 
         """
         Map the JSON payload into a database row.

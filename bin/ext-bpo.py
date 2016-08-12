@@ -30,7 +30,7 @@ class BPOExtractor(Extractor):
 
         article = Article(*args, **kwargs)
 
-        self.corpus.insert_text(article.as_ext())
+        self.corpus.insert_text(article.to_json_text())
 
 
 if __name__ == '__main__':

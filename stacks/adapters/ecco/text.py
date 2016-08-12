@@ -5,6 +5,7 @@ import os
 from bs4 import BeautifulSoup
 
 from stacks.utils import get_text
+from stacks.json_text import JSONText
 
 
 class Text:
@@ -67,17 +68,17 @@ class Text:
 
         return ' '.join(strings)
 
-    def as_ext(self):
+    def to_json_text(self):
 
         """
         Returns: dict
         """
 
-        return dict(
+        return JSONText(dict(
             corpus = 'ecco',
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.plain_text(),
             author_name_full = self.author_marc_name(),
             year = self.year(),
-        )
+        ))

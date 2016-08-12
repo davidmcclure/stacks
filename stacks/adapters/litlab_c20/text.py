@@ -1,17 +1,18 @@
 
 
 from stacks.adapters.litlab import Text as BaseText
+from stacks.json_text import JSONText
 
 
 class Text(BaseText):
 
-    def as_ext(self):
+    def to_json_text(self):
 
         """
         Returns: dict
         """
 
-        return dict(
+        return JSONText(dict(
             corpus = 'litlab-c20',
             identifier = self.identifier(),
             title = self.title(),
@@ -20,4 +21,4 @@ class Text(BaseText):
             author_name_first = self.author.name_first(),
             author_name_last = self.author.name_last(),
             year = self.year(),
-        )
+        ))

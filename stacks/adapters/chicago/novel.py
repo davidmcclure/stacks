@@ -2,6 +2,8 @@
 
 import os
 
+from stacks.json_text import JSONText
+
 
 class Novel:
 
@@ -97,13 +99,13 @@ class Novel:
 
         return int(self.metadata['PUBL_DATE'])
 
-    def as_ext(self):
+    def to_json_text(self):
 
         """
         Returns: dict
         """
 
-        return dict(
+        return JSONText(dict(
             corpus = 'chicago',
             identifier = self.identifier(),
             title = self.title(),
@@ -112,4 +114,4 @@ class Novel:
             author_name_first = self.author_name_first(),
             author_name_last = self.author_name_last(),
             year = self.year(),
-        )
+        ))

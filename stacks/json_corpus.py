@@ -56,16 +56,14 @@ class JSONCorpus:
         # Join on the file name.
         return os.path.join(segment, suffix+'.json.bz2')
 
-    def insert_text(self, data):
+    def insert_text(self, text):
 
         """
         Flush a text to disk.
 
         Args:
-            data (dict)
+            text (JSONText)
         """
-
-        text = JSONText(data)
 
         text.validate()
 

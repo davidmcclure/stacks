@@ -6,6 +6,7 @@ from zipfile import ZipFile
 from bs4 import BeautifulSoup
 
 from stacks.utils import get_text
+from stacks.json_text import JSONText
 
 
 class Article:
@@ -80,13 +81,13 @@ class Article:
 
         return get_text(self.xml, 'FullText')
 
-    def as_ext(self):
+    def to_json_text(self):
 
         """
         Returns: dict
         """
 
-        return dict(
+        return JSONText(dict(
             corpus = 'bpo',
             identifier = self.identifier(),
             title = self.title(),
@@ -95,4 +96,4 @@ class Article:
             author_name_first = self.author_name_first(),
             author_name_last = self.author_name_last(),
             year = self.year(),
-        )
+        ))

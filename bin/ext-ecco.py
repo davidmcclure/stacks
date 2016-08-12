@@ -30,7 +30,7 @@ class ECCOExtractor(Extractor):
 
         text = Text(path)
 
-        self.corpus.insert_text(text.as_ext())
+        self.corpus.insert_text(text.to_json_text())
 
 
 if __name__ == '__main__':

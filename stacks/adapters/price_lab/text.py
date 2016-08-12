@@ -5,6 +5,7 @@ import os
 from slugify import slugify
 
 from stacks.utils import scan_paths
+from stacks.json_text import JSONText
 
 
 class Text:
@@ -110,13 +111,13 @@ class Text:
             self.title(),
         ]))
 
-    def as_ext(self):
+    def to_json_text(self):
 
         """
         Returns: dict
         """
 
-        return dict(
+        return JSONText(dict(
             corpus = 'price-lab',
             identifier = self.identifier(),
             title = self.title(),
@@ -125,4 +126,4 @@ class Text:
             author_name_first = self.author_name_first(),
             author_name_last = self.author_name_last(),
             year = self.year(),
-        )
+        ))

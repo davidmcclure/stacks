@@ -2,6 +2,8 @@
 
 import os
 
+from stacks.json_text import JSONText
+
 
 class Text:
 
@@ -81,17 +83,17 @@ class Text:
 
         return self.slug + str(self.year())
 
-    def as_ext(self):
+    def to_json_text(self):
 
         """
         Returns: dict
         """
 
-        return dict(
+        return JSONText(dict(
             corpus = 'dime-westerns',
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.source_text(),
             author_name_full = self.author_name_full(),
             year = self.year(),
-        )
+        ))

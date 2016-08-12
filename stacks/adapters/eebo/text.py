@@ -6,6 +6,7 @@ import gzip
 from bs4 import BeautifulSoup
 
 from stacks.utils import get_text
+from stacks.json_text import JSONText
 
 
 class Text:
@@ -64,17 +65,17 @@ class Text:
 
         return get_text(self.xml, 'TEXT')
 
-    def as_ext(self):
+    def to_json_text(self):
 
         """
         Returns: dict
         """
 
-        return dict(
+        return JSONText(dict(
             corpus = 'eebo',
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.plain_text(),
             author_name_full = self.author(),
             year = self.year(),
-        )
+        ))

@@ -30,7 +30,7 @@ class PriceLabExtractor(Extractor):
 
         text = Text(*args, **kwargs)
 
-        self.corpus.insert_text(text.as_ext())
+        self.corpus.insert_text(text.to_json_text())
 
 
 if __name__ == '__main__':
