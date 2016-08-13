@@ -57,7 +57,7 @@ class Text:
 
         return self.metadata['Title']
 
-    def author_name_full(self):
+    def author_full(self):
 
         """
         Returns: str
@@ -94,6 +94,6 @@ class Text:
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.source_text(),
-            author_name_full = self.author_name_full(),
+            author_full = self.author_full(),
             year = self.year(),
         ))

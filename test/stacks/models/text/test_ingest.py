@@ -24,9 +24,9 @@ def test_ingest(json_corpus):
         identifier='identifier1',
         title='title1',
         plain_text='text1',
-        author_name_full='last1, first1',
-        author_name_first='first1',
-        author_name_last='last1',
+        author_full='last1, first1',
+        author_first='first1',
+        author_last='last1',
         year=1901,
     ))
 
@@ -35,9 +35,9 @@ def test_ingest(json_corpus):
         identifier='identifier2',
         title='title2',
         plain_text='text2',
-        author_name_full='last2, first2',
-        author_name_first='first2',
-        author_name_last='last2',
+        author_full='last2, first2',
+        author_first='first2',
+        author_last='last2',
         year=1902,
     ))
 
@@ -46,9 +46,9 @@ def test_ingest(json_corpus):
         identifier='identifier3',
         title='title3',
         plain_text='text3',
-        author_name_full='last3, first3',
-        author_name_first='first3',
-        author_name_last='last3',
+        author_full='last3, first3',
+        author_first='first3',
+        author_last='last3',
         year=1903,
     ))
 

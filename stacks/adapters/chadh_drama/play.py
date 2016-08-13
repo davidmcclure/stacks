@@ -37,7 +37,7 @@ class Play:
 
         return get_text(self.xml, 'newatts atttitle')
 
-    def author_name_full(self):
+    def author_full(self):
 
         """
         Returns: str
@@ -74,6 +74,6 @@ class Play:
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.plain_text(),
-            author_name_full = self.author_name_full(),
+            author_full = self.author_full(),
             year = self.year(),
         ))

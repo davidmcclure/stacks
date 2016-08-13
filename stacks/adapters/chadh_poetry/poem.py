@@ -37,7 +37,7 @@ class Poem:
 
         return get_text(self.xml, 'newatts mainhead')
 
-    def author_name_full(self):
+    def author_full(self):
 
         """
         Returns: str
@@ -74,6 +74,6 @@ class Poem:
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.plain_text(),
-            author_name_full = self.author_name_full(),
+            author_full = self.author_full(),
             year = self.year(),
         ))

@@ -19,8 +19,8 @@ def test_extract(identifier, fields, json_corpus):
     if 'title' in fields:
         assert text.title == fields['title']
 
-    if 'author_name_full' in fields:
-        assert text.author_name_full == fields['author_name_full']
+    if 'author_full' in fields:
+        assert text.author_full == fields['author_full']
 
     if 'year' in fields:
         assert text.year == fields['year']

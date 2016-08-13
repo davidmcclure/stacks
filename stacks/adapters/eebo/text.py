@@ -76,6 +76,6 @@ class Text:
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.plain_text(),
-            author_name_full = self.author(),
+            author_full = self.author(),
             year = self.year(),
         ))

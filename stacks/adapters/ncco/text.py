@@ -40,7 +40,7 @@ class Text:
 
         return get_text(self.xml, 'titleGroup fullTitle')
 
-    def author_name_full(self):
+    def author_full(self):
 
         """
         Returns: str
@@ -48,7 +48,7 @@ class Text:
 
         return get_text(self.xml, 'author composed')
 
-    def author_name_first(self):
+    def author_first(self):
 
         """
         Returns: str
@@ -56,7 +56,7 @@ class Text:
 
         return get_text(self.xml, 'author first')
 
-    def author_name_last(self):
+    def author_last(self):
 
         """
         Returns: str
@@ -99,6 +99,6 @@ class Text:
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.plain_text(),
-            author_name_full = self.author_name_full(),
+            author_full = self.author_full(),
             year = self.year(),
         ))

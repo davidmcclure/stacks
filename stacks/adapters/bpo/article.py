@@ -41,7 +41,7 @@ class Article:
 
         return get_text(self.xml, 'RecordTitle')
 
-    def author_name_full(self):
+    def author_full(self):
 
         """
         Returns: str
@@ -49,7 +49,7 @@ class Article:
 
         return get_text(self.xml, 'Contributor OriginalForm')
 
-    def author_name_first(self):
+    def author_first(self):
 
         """
         Returns: str
@@ -57,7 +57,7 @@ class Article:
 
         return get_text(self.xml, 'Contributor FirstName')
 
-    def author_name_last(self):
+    def author_last(self):
 
         """
         Returns: str
@@ -92,8 +92,8 @@ class Article:
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.plain_text(),
-            author_name_full = self.author_name_full(),
-            author_name_first = self.author_name_first(),
-            author_name_last = self.author_name_last(),
+            author_full = self.author_full(),
+            author_first = self.author_first(),
+            author_last = self.author_last(),
             year = self.year(),
         ))

@@ -27,11 +27,11 @@ class JSONText(Model):
 
     plain_text = StringType(required=True)
 
-    author_name_full = MetadataType()
+    author_full = MetadataType()
 
-    author_name_first = MetadataType()
+    author_first = MetadataType()
 
-    author_name_last = MetadataType()
+    author_last = MetadataType()
 
     year = IntType()
 

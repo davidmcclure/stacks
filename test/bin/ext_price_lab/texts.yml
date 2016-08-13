@@ -2,24 +2,24 @@
 
 'naipaul-miguel-street':
   title: Miguel Street
-  author_name_full: Naipaul, V. S.
-  author_name_first: V. S.
-  author_name_last: Naipaul
+  author_full: Naipaul, V. S.
+  author_first: V. S.
+  author_last: Naipaul
   year: 1959
   text: 'Beyond Belief: Islamic Excursions Among the Converted Peoples'
 
 'faulkner-the-mansion':
   title: The Mansion
-  author_name_full: Faulkner, William
-  author_name_first: William
-  author_name_last: Faulkner
+  author_full: Faulkner, William
+  author_first: William
+  author_last: Faulkner
   year: 1959
   text: It was his milk cow, the only one he owned, not being a rich man like Houston
 
 'petrakis-a-dream-of-kings':
   title: A Dream of Kings
-  author_name_full: Petrakis, Harry
-  author_name_first: Harry
-  author_name_last: Petrakis
+  author_full: Petrakis, Harry
+  author_first: Harry
+  author_last: Petrakis
   year: 1966
   text: In his tales, violence is measured by brotherhood, passionate hate by passionate love.

@@ -38,11 +38,11 @@ class Text(Base):
 
     title = Column(String, nullable=False)
 
-    author_name_full = Column(String)
+    author_full = Column(String)
 
-    author_name_first = Column(String)
+    author_first = Column(String)
 
-    author_name_last = Column(String)
+    author_last = Column(String)
 
     year = Column(Integer)
 

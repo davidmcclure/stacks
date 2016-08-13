@@ -17,8 +17,8 @@ class Text(BaseText):
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.source_text(),
-            author_name_full = self.author.folder_name(),
-            author_name_first = self.author.name_first(),
-            author_name_last = self.author.name_last(),
+            author_full = self.author.folder_name(),
+            author_first = self.author.name_first(),
+            author_last = self.author.name_last(),
             year = self.year(),
         ))

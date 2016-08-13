@@ -64,7 +64,7 @@ class Novel:
 
         return self.metadata['TITLE']
 
-    def author_name_first(self):
+    def author_first(self):
 
         """
         Returns: str
@@ -72,7 +72,7 @@ class Novel:
 
         return self.metadata['AUTH_FIRST']
 
-    def author_name_last(self):
+    def author_last(self):
 
         """
         Returns: str
@@ -80,15 +80,15 @@ class Novel:
 
         return self.metadata['AUTH_LAST']
 
-    def author_name_full(self):
+    def author_full(self):
 
         """
         Returns: str
         """
 
         return '{0}, {1}'.format(
-            self.author_name_last(),
-            self.author_name_first(),
+            self.author_last(),
+            self.author_first(),
         )
 
     def year(self):
@@ -110,8 +110,8 @@ class Novel:
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.source_text(),
-            author_name_full = self.author_name_full(),
-            author_name_first = self.author_name_first(),
-            author_name_last = self.author_name_last(),
+            author_full = self.author_full(),
+            author_first = self.author_first(),
+            author_last = self.author_last(),
             year = self.year(),
         ))
