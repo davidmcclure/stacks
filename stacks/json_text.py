@@ -7,6 +7,7 @@ from datetime import datetime as dt
 
 from schematics.types import StringType, IntType, DateTimeType
 from schematics.models import Model
+from schematics.transforms import blacklist
 
 from stacks.schema_types import MetadataType
 from stacks.singletons import version
@@ -36,6 +37,10 @@ class JSONText(Model):
     year = IntType()
 
 
+    class Options:
+        roles = dict(manifest=blacklist('plain_text'))
+
+
     @classmethod
     def from_bz2_json(cls, path):
 
@@ -62,18 +67,3 @@ class JSONText(Model):
 
         with bz2.open(path, 'wt') as fh:
             json.dump(self.to_primitive(), fh)
-
-    def to_manifest(self):
-
-        """
-        Map the JSON payload into a database row.
-
-        Returns: dict
-        """
-
-        row = self.to_native()
-
-        # Omit plain text.
-        row.pop('plain_text')
-
-        return row

@@ -60,6 +60,6 @@ class Text(Base):
         corpus = JSONCorpus.from_env()
 
         for text in corpus.texts():
-            cls.create(**text.to_manifest())
+            cls.create(**text.to_native('manifest'))
 
         session.commit()
