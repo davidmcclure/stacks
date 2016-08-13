@@ -63,3 +63,15 @@ class Text(Base):
             cls.create(**text.to_native('manifest'))
 
         session.commit()
+
+    def path(self):
+
+        """
+        Form the path to /ext JSON.
+
+        Returns: str
+        """
+
+        corpus = JSONCorpus.from_env()
+
+        return corpus.make_text_path(self.corpus, self.identifier)
