@@ -6,7 +6,7 @@ import bz2
 
 from stacks.singletons import config
 from stacks.utils import checksum, scan_paths
-from stacks.json_text import JSONText
+from stacks.schemas.json_text import JSONText
 
 
 class JSONCorpus:
@@ -68,7 +68,10 @@ class JSONCorpus:
         text.validate()
 
         # Form the text path.
-        path = self.make_ext_path(text.corpus, text.identifier)
+        path = self.make_ext_path(
+            text.metadata.corpus,
+            text.metadata.identifier,
+        )
 
         # Ensure the directory exists.
         os.makedirs(os.path.dirname(path), exist_ok=True)

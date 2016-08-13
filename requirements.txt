@@ -22,3 +22,4 @@ schema
 numpy
 schematics
 mpi4py
+colander
