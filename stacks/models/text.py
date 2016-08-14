@@ -14,8 +14,8 @@ from sqlalchemy import (
 )
 
 from stacks import session
+from stacks.ext.corpus import Corpus
 from stacks.models import Base
-from stacks.json_corpus import JSONCorpus
 
 
 class Text(Base):
@@ -55,21 +55,22 @@ class Text(Base):
             ext_path (str)
         """
 
-        corpus = JSONCorpus.from_env()
+        corpus = Corpus.from_env()
 
         for text in corpus.texts():
-            cls.create(**text.to_native('manifest'))
+            cls.create(**text.to_native('metadata'))
 
         session.commit()
 
     def path(self):
 
         """
-        Form the path to /ext JSON.
+        Form the path to original JSON file.
 
         Returns: str
         """
 
-        corpus = JSONCorpus.from_env()
+        # TODO: Singleton?
+        corpus = Corpus.from_env()
 
-        return corpus.make_text_path(self.corpus, self.identifier)
+        return corpus.text_path(self.corpus, self.identifier)

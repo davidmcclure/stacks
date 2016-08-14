@@ -2,11 +2,23 @@
 
 import os
 
+from stacks import config
 from stacks.utils import checksum, scan_paths
 from .text import Text
 
 
 class Corpus:
+
+    @classmethod
+    def from_env(cls):
+
+        """
+        Wrap the ENV-defined root.
+
+        Returns: cls
+        """
+
+        return cls(config['data']['ext'])
 
     def __init__(self, path):
 
@@ -85,4 +97,4 @@ class Corpus:
         """
 
         for path in scan_paths(self.path, '\.json.bz2$'):
-            yield JSONText.from_bz2_json(path)
+            yield Text.from_bz2_json(path)

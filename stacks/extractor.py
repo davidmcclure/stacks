@@ -5,7 +5,7 @@ import json
 
 from mpi4py import MPI
 
-from stacks.json_corpus import JSONCorpus
+from stacks.ext.corpus import Corpus
 
 
 class Extractor:
@@ -16,7 +16,7 @@ class Extractor:
         Initialize the `ext` wrapper.
         """
 
-        self.corpus = JSONCorpus.from_env()
+        self.corpus = Corpus.from_env()
 
     def args(self):
 
