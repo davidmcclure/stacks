@@ -68,11 +68,8 @@ def test_ingest(ext_corpus):
             identifier=text.identifier,
         )
 
-        # Get keys, minus the id.
-        keys = [
-            k for k in dict(row).keys()
-            if k != 'id'
-        ]
+        # Get shared keys.
+        keys = text.to_native('metadata').keys()
 
         # Row should mirror JSON.
         for key in keys:

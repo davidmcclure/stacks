@@ -88,6 +88,16 @@ class Corpus:
 
         return Text.from_bz2_json(path)
 
+    def paths(self):
+
+        """
+        Scan JSON file paths.
+
+        Yields: str
+        """
+
+        yield from scan_paths(self.path, '\.json.bz2$')
+
     def texts(self):
 
         """
@@ -96,5 +106,5 @@ class Corpus:
         Yields: Text
         """
 
-        for path in scan_paths(self.path, '\.json.bz2$'):
+        for path in self.paths():
             yield Text.from_bz2_json(path)

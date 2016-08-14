@@ -15,6 +15,10 @@ class TextFactory(factory.alchemy.SQLAlchemyModelFactory):
         sqlalchemy_session = session
         model = Text
 
+    path = factory.Sequence(
+        lambda n: '/ext/path{0}'.format(n)
+    )
+
     version = git_rev()
 
     created_at = dt.now()
