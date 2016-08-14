@@ -11,7 +11,7 @@ from stacks.metadata.models import Text
 pytestmark = pytest.mark.usefixtures('db')
 
 
-def test_ingest(json_corpus):
+def test_ingest(ext_corpus):
 
     """
     Text.ingest() should load texts from the ENV-defined corpus.
@@ -52,9 +52,9 @@ def test_ingest(json_corpus):
         year=1903,
     ))
 
-    json_corpus.insert_text(t1)
-    json_corpus.insert_text(t2)
-    json_corpus.insert_text(t3)
+    ext_corpus.insert_text(t1)
+    ext_corpus.insert_text(t2)
+    ext_corpus.insert_text(t3)
 
     Text.ingest()
 

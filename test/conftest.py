@@ -90,7 +90,7 @@ def ext_dir(config, temp_dir):
 
 
 @pytest.yield_fixture(scope='module')
-def json_corpus(ext_dir):
+def ext_corpus(ext_dir):
 
     """
     Wrap a Corpus instance around the patched `ext` dir.
