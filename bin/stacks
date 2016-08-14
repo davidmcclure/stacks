@@ -4,9 +4,13 @@
 import click
 import os
 
+from sqlalchemy.sql import func, text
+from tabulate import tabulate
 from blessings import Terminal
 
+from stacks import session
 from stacks.ext.corpus import Corpus as ExtCorpus
+from stacks.metadata.models import Text
 
 
 term = Terminal()
@@ -36,6 +40,33 @@ def get_path(corpus, identifier):
 
     else:
         print(term.red(path))
+
+
+@cli.command()
+@click.argument('facet', type=click.Choice(['corpus', 'year']))
+@click.option('--n', type=int, default=30)
+def count_by(facet, n):
+
+    """
+    Count texts, faceting on a given field.
+    """
+
+    col = getattr(Text, facet)
+
+    query = (
+        session
+        .query(col, func.count(Text.id).label('count'))
+        .group_by(col)
+        .order_by(text('count DESC'))
+        .limit(n)
+    )
+
+    table = tabulate(
+        query.all(),
+        headers=[facet, 'count'],
+    )
+
+    print(table)
 
 
 if __name__ == '__main__':
