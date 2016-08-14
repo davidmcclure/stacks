@@ -2,7 +2,7 @@
 
 import os
 
-from stacks.json_text import JSONText
+from stacks.ext.text import Text as ExtText
 
 
 class Novel:
@@ -105,7 +105,7 @@ class Novel:
         Returns: dict
         """
 
-        return JSONText(dict(
+        return ExtText(dict(
             corpus = 'chicago',
             identifier = self.identifier(),
             title = self.title(),

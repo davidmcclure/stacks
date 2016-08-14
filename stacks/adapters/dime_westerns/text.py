@@ -2,7 +2,7 @@
 
 import os
 
-from stacks.json_text import JSONText
+from stacks.ext.text import Text as ExtText
 
 
 class Text:
@@ -89,7 +89,7 @@ class Text:
         Returns: dict
         """
 
-        return JSONText(dict(
+        return ExtText(dict(
             corpus = 'dime-westerns',
             identifier = self.identifier(),
             title = self.title(),

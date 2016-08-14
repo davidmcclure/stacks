@@ -1,7 +1,7 @@
 
 
 from stacks.adapters.litlab import Text as BaseText
-from stacks.json_text import JSONText
+from stacks.ext.text import Text as ExtText
 
 
 class Text(BaseText):
@@ -12,7 +12,7 @@ class Text(BaseText):
         Returns: dict
         """
 
-        return JSONText(dict(
+        return ExtText(dict(
             corpus = 'litlab-suspense',
             identifier = self.identifier(),
             title = self.title(),

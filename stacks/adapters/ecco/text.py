@@ -4,8 +4,8 @@ import os
 
 from bs4 import BeautifulSoup
 
+from stacks.ext.text import Text as ExtText
 from stacks.utils import get_text
-from stacks.json_text import JSONText
 
 
 class Text:
@@ -74,7 +74,7 @@ class Text:
         Returns: dict
         """
 
-        return JSONText(dict(
+        return ExtText(dict(
             corpus = 'ecco',
             identifier = self.identifier(),
             title = self.title(),

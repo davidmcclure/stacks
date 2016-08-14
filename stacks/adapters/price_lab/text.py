@@ -4,8 +4,8 @@ import os
 
 from slugify import slugify
 
+from stacks.ext.text import Text as ExtText
 from stacks.utils import scan_paths
-from stacks.json_text import JSONText
 
 
 class Text:
@@ -117,7 +117,7 @@ class Text:
         Returns: dict
         """
 
-        return JSONText(dict(
+        return ExtText(dict(
             corpus = 'price-lab',
             identifier = self.identifier(),
             title = self.title(),

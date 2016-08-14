@@ -5,8 +5,8 @@ import os
 from zipfile import ZipFile
 from bs4 import BeautifulSoup
 
+from stacks.ext.text import Text as ExtText
 from stacks.utils import get_text
-from stacks.json_text import JSONText
 
 
 class Article:
@@ -87,7 +87,7 @@ class Article:
         Returns: dict
         """
 
-        return JSONText(dict(
+        return ExtText(dict(
             corpus = 'bpo',
             identifier = self.identifier(),
             title = self.title(),
