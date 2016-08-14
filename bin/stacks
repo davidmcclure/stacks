@@ -79,19 +79,5 @@ def count_by(facet, n):
     print(table)
 
 
-@cli.command()
-@click.argument('out_path', type=click.Path())
-@click.option('--corpus', '-c', multiple=True)
-@click.option('--year1', '-y1', type=int)
-@click.option('--year2', '-y2', type=int)
-def bundle(out_path, corpus, year1, year2):
-
-    """
-    Generate an export bundle.
-    """
-
-    print(corpus, year1, year2)
-
-
 if __name__ == '__main__':
     cli()
