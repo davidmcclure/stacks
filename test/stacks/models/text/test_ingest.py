@@ -68,9 +68,18 @@ def test_ingest(ext_corpus):
             identifier=text.identifier,
         )
 
-        # Get shared keys.
+        # Metadata fields:
+
         keys = text.to_native('metadata').keys()
 
-        # Row should mirror JSON.
         for key in keys:
             assert getattr(row, key) == getattr(text, key)
+
+        # Absolute JSON path:
+
+        path = ext_corpus.text_path(
+            text.corpus,
+            text.identifier,
+        )
+
+        assert row.path == path
