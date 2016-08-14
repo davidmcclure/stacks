@@ -15,17 +15,31 @@ from .schema_types import MetadataType
 
 class Text(Model):
 
-    version = StringType(default=git_rev(), required=True)
+    version = StringType(
+        default=git_rev(),
+        required=True,
+    )
 
-    created_at = DateTimeType(default=dt.now, required=True)
+    created_at = DateTimeType(
+        default=dt.now,
+        required=True,
+    )
 
-    corpus = StringType(required=True)
+    corpus = StringType(
+        required=True,
+    )
 
-    identifier = StringType(required=True)
+    identifier = StringType(
+        required=True,
+    )
 
-    title = StringType(required=True)
+    title = StringType(
+        required=True,
+    )
 
-    plain_text = StringType(required=True)
+    plain_text = StringType(
+        required=True,
+    )
 
     author_full = MetadataType()
 

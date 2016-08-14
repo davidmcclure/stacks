@@ -31,17 +31,37 @@ class Text(Base):
         dict(sqlite_autoincrement=True),
     )
 
-    path = Column(String, nullable=False, unique=True)
+    path = Column(
+        String,
+        nullable=False,
+        unique=True,
+    )
 
-    version = Column(String, nullable=False)
+    version = Column(
+        String,
+        nullable=False,
+    )
 
-    created_at = Column(DateTime, nullable=False)
+    created_at = Column(
+        DateTime,
+        nullable=False,
+    )
 
-    corpus = Column(String, nullable=False)
+    corpus = Column(
+        String,
+        nullable=False,
+        index=True,
+    )
 
-    identifier = Column(String, nullable=False)
+    identifier = Column(
+        String,
+        nullable=False,
+    )
 
-    title = Column(String, nullable=False)
+    title = Column(
+        String,
+        nullable=False,
+    )
 
     author_full = Column(String)
 
@@ -49,7 +69,10 @@ class Text(Base):
 
     author_last = Column(String)
 
-    year = Column(Integer)
+    year = Column(
+        Integer,
+        index=True,
+    )
 
     @classmethod
     def ingest(cls):
@@ -67,7 +90,7 @@ class Text(Base):
 
             ext_text = ExtText.from_bz2_json(path)
 
-            # Mass assign shared fields.
+            # Assign shared fields.
             text = cls.create(**ext_text.to_native('metadata'))
 
             # Set the absolute file path.
