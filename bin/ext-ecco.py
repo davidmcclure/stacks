@@ -3,7 +3,6 @@
 
 from stacks.extractor import Extractor
 from stacks.adapters.ecco import Corpus, Text
-from stacks.ext import corpus
 
 
 class ECCOExtractor(Extractor):
@@ -31,7 +30,7 @@ class ECCOExtractor(Extractor):
 
         text = Text(path)
 
-        corpus.insert_text(text.to_json_text())
+        self.corpus.insert_text(text.to_json_text())
 
 
 if __name__ == '__main__':

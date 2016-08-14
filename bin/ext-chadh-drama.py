@@ -3,7 +3,6 @@
 
 from stacks.extractor import Extractor
 from stacks.adapters.chadh_drama import Corpus, Source
-from stacks.ext import corpus
 
 
 class CHADHDramaExtractor(Extractor):
@@ -32,7 +31,7 @@ class CHADHDramaExtractor(Extractor):
         source = Source(path)
 
         for play in source.plays():
-            corpus.insert_text(play.to_json_text())
+            self.corpus.insert_text(play.to_json_text())
 
 
 if __name__ == '__main__':

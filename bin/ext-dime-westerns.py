@@ -3,7 +3,6 @@
 
 from stacks.extractor import Extractor
 from stacks.adapters.dime_westerns import Corpus, Text
-from stacks.ext import corpus
 
 
 class DimeWesternsExtractor(Extractor):
@@ -38,7 +37,7 @@ class DimeWesternsExtractor(Extractor):
 
         text = Text(*args, **kwargs)
 
-        corpus.insert_text(text.to_json_text())
+        self.corpus.insert_text(text.to_json_text())
 
 
 if __name__ == '__main__':
