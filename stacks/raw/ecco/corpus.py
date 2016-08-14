@@ -40,4 +40,4 @@ class Corpus:
         Yields: str
         """
 
-        return scan_paths(self.path, '[0-9]{10}\.xml$')
+        return scan_paths(self.path, '^[0-9]{10}\.xml$')
