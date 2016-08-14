@@ -13,7 +13,7 @@ from sqlalchemy import (
     DateTime,
 )
 
-from stacks.singletons import session
+from stacks import session
 from stacks.models import Base
 from stacks.json_corpus import JSONCorpus
 

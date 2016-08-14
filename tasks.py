@@ -2,7 +2,7 @@
 
 from invoke import task
 
-from stacks.singletons import config
+from stacks import config
 from stacks.models import Base
 
 

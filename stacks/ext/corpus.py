@@ -2,6 +2,9 @@
 
 import os
 
+from stacks.utils import checksum, scan_paths
+from .text import Text
+
 
 class Corpus:
 
@@ -16,6 +19,29 @@ class Corpus:
 
         self.path = os.path.abspath(path)
 
+    def text_path(self, corpus, identifier):
+
+        """
+        Form the JSON path for a text.
+
+        Args:
+            corpus (str)
+            identifier (str)
+
+        Returns: str
+        """
+
+        name = checksum(identifier)
+
+        prefix = name[:3]
+        suffix = name[3:]
+
+        # Form the segment path.
+        segment = os.path.join(self.path, corpus, prefix)
+
+        # Join on the file name.
+        return os.path.join(segment, suffix+'.json.bz2')
+
     def insert_text(self, text):
 
         """
@@ -25,7 +51,16 @@ class Corpus:
             text (Text)
         """
 
-        pass
+        text.validate()
+
+        # Form the text path.
+        path = self.text_path(text.corpus, text.identifier)
+
+        # Ensure the directory exists.
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+
+        # Write the JSON.
+        text.flush_bz2_json(path)
 
     def get_text(self, corpus, identifier):
 
@@ -37,24 +72,17 @@ class Corpus:
             identifier (str)
         """
 
-        pass
+        path = self.text_path(corpus, identifier)
 
-    def clear_corpus(self, corpus):
+        return Text.from_bz2_json(path)
 
-        """
-        Delete a corpus directory and manifest.
-
-        Args:
-            corpus (str)
-        """
-
-        pass
-
-    def write_manifests(self):
+    def texts(self):
 
         """
-        For each corpus, write a manifest file with relative links to each of
-        the compressed JSON files.
+        Scan JSON files and generate text instances.
+
+        Yields: Text
         """
 
-        pass
+        for path in scan_paths(self.path, '\.json.bz2$'):
+            yield JSONText.from_bz2_json(path)

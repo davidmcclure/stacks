@@ -3,7 +3,7 @@
 import csv
 import os
 
-from stacks.singletons import config
+from stacks import config
 
 
 class Corpus:

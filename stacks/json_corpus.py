@@ -4,7 +4,7 @@ import os
 import json
 import bz2
 
-from stacks.singletons import config
+from stacks import config
 from stacks.utils import checksum, scan_paths
 from stacks.json_text import JSONText
 

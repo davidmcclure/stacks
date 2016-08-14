@@ -5,7 +5,7 @@ import factory
 from datetime import datetime as dt
 
 from stacks.utils import git_rev
-from stacks.singletons import session
+from stacks import session
 from stacks.models import Text
 
 

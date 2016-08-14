@@ -3,7 +3,7 @@
 import os
 import scandir
 
-from stacks.singletons import config
+from stacks import config
 from stacks.utils import scan_paths
 
 

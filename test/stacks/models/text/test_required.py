@@ -4,7 +4,7 @@ import pytest
 
 from sqlalchemy.exc import IntegrityError
 
-from stacks.singletons import session
+from stacks import session
 
 from test.factories import TextFactory
 

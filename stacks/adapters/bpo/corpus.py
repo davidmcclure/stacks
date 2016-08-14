@@ -4,7 +4,7 @@ import os
 
 from zipfile import ZipFile
 
-from stacks.singletons import config
+from stacks import config
 from stacks.utils import scan_paths
 
 

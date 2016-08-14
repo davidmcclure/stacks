@@ -7,7 +7,7 @@ import shutil
 
 from sqlalchemy import event
 
-from stacks.singletons import session, config as _config
+from stacks import session, config as _config
 from stacks.models import Base
 from stacks.json_corpus import JSONCorpus
 
