@@ -20,7 +20,6 @@ from stacks.json_corpus import JSONCorpus
 
 class Text(Base):
 
-
     __tablename__ = 'text'
 
     __table_args__ = (
@@ -45,7 +44,6 @@ class Text(Base):
     author_last = Column(String)
 
     year = Column(Integer)
-
 
     @classmethod
     def ingest(cls):

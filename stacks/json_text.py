@@ -10,13 +10,12 @@ from schematics.models import Model
 from schematics.transforms import blacklist
 
 from stacks.schema_types import MetadataType
-from stacks.singletons import version
+from stacks.utils import git_rev
 
 
 class JSONText(Model):
 
-
-    version = StringType(default=version, required=True)
+    version = StringType(default=git_rev(), required=True)
 
     created_at = DateTimeType(default=dt.now, required=True)
 
@@ -36,10 +35,8 @@ class JSONText(Model):
 
     year = IntType()
 
-
     class Options:
         roles = dict(manifest=blacklist('plain_text'))
-
 
     @classmethod
     def from_bz2_json(cls, path):
