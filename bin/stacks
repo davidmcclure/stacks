@@ -43,6 +43,16 @@ def get_path(corpus, identifier):
 
 
 @cli.command()
+def count():
+
+    """
+    Count all texts.
+    """
+
+    print(Text.query.count())
+
+
+@cli.command()
 @click.argument('facet', type=click.Choice(['corpus', 'year']))
 @click.option('--n', type=int, default=30)
 def count_by(facet, n):
