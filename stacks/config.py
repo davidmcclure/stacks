@@ -20,15 +20,17 @@ class Config:
         Get a config instance with the default files.
         """
 
+        root = os.environ.get('STACKS_CONFIG', '/etc/stacks')
+
         # Default paths.
         paths = [
             os.path.join(os.path.dirname(__file__), 'stacks.yml'),
-            '/etc/stacks/stacks.yml',
+            os.path.join(root, 'stacks.yml')
         ]
 
         # Patch in the testing config.
         if os.environ.get('STACKS_ENV') == 'test':
-            paths.append('/etc/stacks/stacks.test.yml')
+            paths.append(os.path.join(root, 'stacks.test.yml'))
 
         # MPI overrides.
         paths.append(cls.TMP_YAML)
