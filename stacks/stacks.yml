@@ -2,7 +2,7 @@
 
 database:
   drivername: sqlite
-  database: stacks.db
+  database: metadata.db
 
 data:
   raw: XXX
