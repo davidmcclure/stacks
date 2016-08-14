@@ -4,8 +4,8 @@ import pytest
 
 from datetime import datetime as dt
 
-from stacks.ext.text import Text as ExtText
 from stacks.metadata.models import Text
+from stacks.ext import Text as ExtText
 
 
 pytestmark = pytest.mark.usefixtures('db')

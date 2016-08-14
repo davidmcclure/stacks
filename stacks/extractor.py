@@ -5,7 +5,7 @@ import json
 
 from mpi4py import MPI
 
-from stacks.ext.corpus import Corpus
+from stacks.ext import Corpus
 
 
 class Extractor:

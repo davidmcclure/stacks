@@ -4,7 +4,7 @@ import os
 
 from slugify import slugify
 
-from stacks.ext.text import Text as ExtText
+from stacks.ext import Text as ExtText
 from stacks.utils import scan_paths
 
 

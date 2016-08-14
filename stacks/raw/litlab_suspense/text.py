@@ -1,7 +1,7 @@
 
 
 from stacks.raw.litlab import Text as BaseText
-from stacks.ext.text import Text as ExtText
+from stacks.ext import Text as ExtText
 
 
 class Text(BaseText):

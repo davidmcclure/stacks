@@ -9,7 +9,7 @@ from tabulate import tabulate
 from blessings import Terminal
 
 from stacks import session
-from stacks.ext.corpus import Corpus as ExtCorpus
+from stacks.ext import Corpus as ExtCorpus
 from stacks.metadata.models import Text
 
 

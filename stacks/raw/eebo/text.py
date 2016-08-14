@@ -5,7 +5,7 @@ import gzip
 
 from bs4 import BeautifulSoup
 
-from stacks.ext.text import Text as ExtText
+from stacks.ext import Text as ExtText
 from stacks.utils import get_text
 
 
