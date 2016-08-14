@@ -3,6 +3,7 @@
 
 from stacks.extractor import Extractor
 from stacks.adapters.bpo import Corpus, Article
+from stacks.ext import corpus
 
 
 class BPOExtractor(Extractor):
@@ -30,7 +31,7 @@ class BPOExtractor(Extractor):
 
         article = Article(*args, **kwargs)
 
-        self.corpus.insert_text(article.to_json_text())
+        corpus.insert_text(article.to_json_text())
 
 
 if __name__ == '__main__':

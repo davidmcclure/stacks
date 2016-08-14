@@ -3,6 +3,7 @@
 
 from stacks.extractor import Extractor
 from stacks.adapters.ncco import Corpus, Text
+from stacks.ext import corpus
 
 
 class NCCOExtractor(Extractor):
@@ -30,7 +31,7 @@ class NCCOExtractor(Extractor):
 
         text = Text(path)
 
-        self.corpus.insert_text(text.to_json_text())
+        corpus.insert_text(text.to_json_text())
 
 
 if __name__ == '__main__':

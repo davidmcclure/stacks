@@ -3,6 +3,7 @@
 
 from stacks.extractor import Extractor
 from stacks.adapters.litlab_c20 import Corpus, Text
+from stacks.ext import corpus
 
 
 class LitLabC20Extractor(Extractor):
@@ -30,7 +31,7 @@ class LitLabC20Extractor(Extractor):
 
         text = Text(path)
 
-        self.corpus.insert_text(text.to_json_text())
+        corpus.insert_text(text.to_json_text())
 
 
 if __name__ == '__main__':

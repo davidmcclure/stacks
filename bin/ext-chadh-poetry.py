@@ -3,6 +3,7 @@
 
 from stacks.extractor import Extractor
 from stacks.adapters.chadh_poetry import Corpus, Source
+from stacks.ext import corpus
 
 
 class CHADHPoetryExtractor(Extractor):
@@ -31,7 +32,7 @@ class CHADHPoetryExtractor(Extractor):
         source = Source(path)
 
         for poem in source.poems():
-            self.corpus.insert_text(poem.to_json_text())
+            corpus.insert_text(poem.to_json_text())
 
 
 if __name__ == '__main__':

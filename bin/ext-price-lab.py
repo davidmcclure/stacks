@@ -3,6 +3,7 @@
 
 from stacks.extractor import Extractor
 from stacks.adapters.price_lab import Corpus, Text
+from stacks.ext import corpus
 
 
 class PriceLabExtractor(Extractor):
@@ -30,7 +31,7 @@ class PriceLabExtractor(Extractor):
 
         text = Text(*args, **kwargs)
 
-        self.corpus.insert_text(text.to_json_text())
+        corpus.insert_text(text.to_json_text())
 
 
 if __name__ == '__main__':

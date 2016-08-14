@@ -3,6 +3,7 @@
 
 from stacks.extractor import Extractor
 from stacks.adapters.chadh_fiction import Corpus, Source
+from stacks.ext import corpus
 
 
 class CHADHFictionExtractor(Extractor):
@@ -31,7 +32,7 @@ class CHADHFictionExtractor(Extractor):
         source = Source(path)
 
         for text in source.texts():
-            self.corpus.insert_text(text.to_json_text())
+            corpus.insert_text(text.to_json_text())
 
 
 if __name__ == '__main__':
