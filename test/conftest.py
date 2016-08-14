@@ -9,7 +9,7 @@ from sqlalchemy import event
 
 from stacks import session, config as _config
 from stacks.models import Base
-from stacks.json_corpus import JSONCorpus
+from stacks.ext.corpus import Corpus
 
 
 @pytest.fixture(scope='session', autouse=True)
@@ -93,10 +93,10 @@ def ext_dir(config, temp_dir):
 def json_corpus(ext_dir):
 
     """
-    Wrap a JSONCorpus instance around the patched `ext` dir.
+    Wrap a Corpus instance around the patched `ext` dir.
     """
 
-    yield JSONCorpus.from_env()
+    yield Corpus.from_env()
 
 
 @pytest.yield_fixture(scope='module')

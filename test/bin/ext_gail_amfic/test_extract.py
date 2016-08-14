@@ -2,8 +2,6 @@
 
 import pytest
 
-from stacks.json_corpus import JSONCorpus
-
 from test.utils import read_yaml
 
 

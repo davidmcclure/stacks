@@ -4,7 +4,7 @@ import pytest
 
 from datetime import datetime as dt
 
-from stacks.json_text import JSONText
+from stacks.ext.text import Text as ExtText
 from stacks.models import Text
 
 
@@ -19,7 +19,7 @@ def test_ingest(json_corpus):
 
     now = dt.now()
 
-    t1 = JSONText(dict(
+    t1 = ExtText(dict(
         corpus='corpus1',
         identifier='identifier1',
         title='title1',
@@ -30,7 +30,7 @@ def test_ingest(json_corpus):
         year=1901,
     ))
 
-    t2 = JSONText(dict(
+    t2 = ExtText(dict(
         corpus='corpus2',
         identifier='identifier2',
         title='title2',
@@ -41,7 +41,7 @@ def test_ingest(json_corpus):
         year=1902,
     ))
 
-    t3 = JSONText(dict(
+    t3 = ExtText(dict(
         corpus='corpus3',
         identifier='identifier3',
         title='title3',
