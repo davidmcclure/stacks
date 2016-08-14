@@ -1,6 +1,6 @@
 
 
-from stacks.adapters.litlab import Text as BaseText
+from stacks.raw.litlab import Text as BaseText
 from stacks.ext.text import Text as ExtText
 
 

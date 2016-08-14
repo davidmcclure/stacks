@@ -55,6 +55,8 @@ class Text(Base):
             ext_path (str)
         """
 
+        # TODO: Clear database, show progress.
+
         corpus = Corpus.from_env()
 
         for text in corpus.texts():

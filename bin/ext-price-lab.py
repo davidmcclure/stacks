@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.price_lab import Corpus, Text
+from stacks.raw.price_lab import Corpus, Text
 
 
 class PriceLabExtractor(Extractor):

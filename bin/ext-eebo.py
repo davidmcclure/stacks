@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.eebo import Corpus, Text
+from stacks.raw.eebo import Corpus, Text
 
 
 class EEBOExtractor(Extractor):

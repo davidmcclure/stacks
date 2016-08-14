@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.gail_amfic import Corpus, Text
+from stacks.raw.gail_amfic import Corpus, Text
 
 
 class GailAmficExtractor(Extractor):

@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.adapters.ecco import Corpus, Text
+from stacks.raw.ecco import Corpus, Text
 
 
 class ECCOExtractor(Extractor):

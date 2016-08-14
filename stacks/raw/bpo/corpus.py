@@ -19,6 +19,7 @@ class Corpus:
         Returns: cls
         """
 
+        # TODO: DRY / ENV-ify the corpus slugs?
         path = os.path.join(config['data']['raw'], 'bpo')
 
         return cls(path)
