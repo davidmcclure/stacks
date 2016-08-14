@@ -58,7 +58,7 @@ class Config:
             The option value.
         """
 
-        return self.config.get(key)
+        return self.config[key]
 
     def write_tmp(self):
 
