@@ -15,7 +15,7 @@ from sqlalchemy import (
 
 from stacks import session
 from stacks.ext.corpus import Corpus
-from stacks.models import Base
+from stacks.metadata.models import Base
 
 
 class Text(Base):
@@ -55,8 +55,6 @@ class Text(Base):
             ext_path (str)
         """
 
-        # TODO: Clear database, show progress.
-
         corpus = Corpus.from_env()
 
         for text in corpus.texts():
@@ -72,7 +70,7 @@ class Text(Base):
         Returns: str
         """
 
-        # TODO: Singleton?
+        # TODO: Decouple this? Singleton?
         corpus = Corpus.from_env()
 
         return corpus.text_path(self.corpus, self.identifier)

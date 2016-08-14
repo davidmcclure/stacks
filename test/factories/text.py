@@ -6,7 +6,7 @@ from datetime import datetime as dt
 
 from stacks.utils import git_rev
 from stacks import session
-from stacks.models import Text
+from stacks.metadata.models import Text
 
 
 class TextFactory(factory.alchemy.SQLAlchemyModelFactory):

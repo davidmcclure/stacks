@@ -3,7 +3,7 @@
 from invoke import task
 
 from stacks import config
-from stacks.models import Base
+from stacks.metadata.models import Base
 
 
 @task
