@@ -99,7 +99,7 @@ class Novel:
 
         return int(self.metadata['PUBL_DATE'])
 
-    def to_json_text(self):
+    def to_ext_text(self):
 
         """
         Returns: dict

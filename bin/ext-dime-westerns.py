@@ -37,7 +37,7 @@ class DimeWesternsExtractor(Extractor):
 
         text = Text(*args, **kwargs)
 
-        self.corpus.insert_text(text.to_json_text())
+        self.corpus.insert_text(text.to_ext_text())
 
 
 if __name__ == '__main__':

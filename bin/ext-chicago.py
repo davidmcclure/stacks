@@ -30,7 +30,7 @@ class ChicagoExtractor(Extractor):
 
         novel = Novel(*args, **kwargs)
 
-        self.corpus.insert_text(novel.to_json_text())
+        self.corpus.insert_text(novel.to_ext_text())
 
 
 if __name__ == '__main__':

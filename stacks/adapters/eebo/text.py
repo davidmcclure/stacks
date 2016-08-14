@@ -65,7 +65,7 @@ class Text:
 
         return get_text(self.xml, 'TEXT')
 
-    def to_json_text(self):
+    def to_ext_text(self):
 
         """
         Returns: dict

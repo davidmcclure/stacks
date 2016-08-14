@@ -63,7 +63,7 @@ class Play:
 
         return ' '.join(self.xml.strings)
 
-    def to_json_text(self):
+    def to_ext_text(self):
 
         """
         Returns: dict

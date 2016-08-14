@@ -6,7 +6,7 @@ from stacks.json_text import JSONText
 
 class Text(BaseText):
 
-    def to_json_text(self):
+    def to_ext_text(self):
 
         """
         Returns: dict

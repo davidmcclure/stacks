@@ -31,7 +31,7 @@ class CHADHPoetryExtractor(Extractor):
         source = Source(path)
 
         for poem in source.poems():
-            self.corpus.insert_text(poem.to_json_text())
+            self.corpus.insert_text(poem.to_ext_text())
 
 
 if __name__ == '__main__':

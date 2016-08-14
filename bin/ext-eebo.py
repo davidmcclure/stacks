@@ -30,7 +30,7 @@ class EEBOExtractor(Extractor):
 
         text = Text(path)
 
-        self.corpus.insert_text(text.to_json_text())
+        self.corpus.insert_text(text.to_ext_text())
 
 
 if __name__ == '__main__':
