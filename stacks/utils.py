@@ -6,6 +6,8 @@ import os
 import subprocess
 import hashlib
 
+from git import Repo
+
 
 def scan_paths(root, pattern):
 
@@ -69,16 +71,19 @@ def checksum(value):
     return md5.hexdigest()
 
 
-def git_rev():
+def git_rev(length=7):
 
     """
     Get the hash of the git HEAD.
 
+    Args:
+        length (int)
+
     Returns: str
     """
 
-    head = subprocess.check_output([
-        'git', 'rev-parse', '--short', 'HEAD',
-    ])
+    path = os.path.abspath(os.path.dirname(__file__))
 
-    return head.strip().decode()
+    repo = Repo(path, search_parent_directories=True)
+
+    return repo.head.commit.hexsha[:length]

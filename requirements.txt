@@ -24,3 +24,4 @@ schematics
 mpi4py
 blessings
 tabulate
+gitpython
