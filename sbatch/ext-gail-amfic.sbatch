@@ -36,4 +36,4 @@ module load python/3.3.2
 export PYTHONPATH=/scratch/PI/malgeehe/code/stacks
 
 mpirun -x PYTHONPATH $PYTHONPATH/env/bin/python \
-    $PYTHONPATH/bin/ext-chicago.py
+    $PYTHONPATH/bin/ext-gail-amfic.py
