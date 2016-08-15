@@ -9,16 +9,10 @@ from schematics.models import Model
 from schematics.types import StringType, IntType, DateTimeType
 from schematics.transforms import blacklist
 
-from stacks.utils import git_rev
 from .schema_types import MetadataType
 
 
 class Text(Model):
-
-    version = StringType(
-        default=git_rev(),
-        required=True,
-    )
 
     created_at = DateTimeType(
         default=dt.now,
