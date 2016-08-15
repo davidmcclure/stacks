@@ -62,7 +62,11 @@ class Extractor:
 
         # ** Write JSON files.
 
-        for arg in json.loads(segment):
+        args = json.loads(segment)
+
+        print(len(args))
+
+        for i, arg in enumerate(args):
 
             try:
 
@@ -74,3 +78,6 @@ class Extractor:
 
             except Exception as e:
                 print(arg, e)
+
+            if i%1000 == 0:
+                print(rank, i)
