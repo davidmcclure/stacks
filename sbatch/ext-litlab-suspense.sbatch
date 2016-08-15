@@ -3,13 +3,13 @@
 #all commands that start with SBATCH contain commands that are just used by SLURM for scheduling
 #################
 #set a job name
-#SBATCH --job-name=ext-litlab-c20
+#SBATCH --job-name=ext-litlab-suspense
 #################
 #a file for job output, you can check job progress
-#SBATCH --output=ext-litlab-c20.out
+#SBATCH --output=ext-litlab-suspense.out
 #################
 # a file for errors from the job
-#SBATCH --error=ext-litlab-c20.err
+#SBATCH --error=ext-litlab-suspense.err
 #################
 #time you think you need; default is one hour
 #in minutes in this case, hh:mm:ss
@@ -36,4 +36,4 @@ module load python/3.3.2
 export PYTHONPATH=/scratch/PI/malgeehe/code/stacks
 
 mpirun -x PYTHONPATH $PYTHONPATH/env/bin/python \
-    $PYTHONPATH/bin/ext-litlab-c20.py
+    $PYTHONPATH/bin/ext-litlab-suspense.py

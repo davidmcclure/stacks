@@ -3,17 +3,17 @@
 #all commands that start with SBATCH contain commands that are just used by SLURM for scheduling
 #################
 #set a job name
-#SBATCH --job-name=ext-litlab-c20
+#SBATCH --job-name=ext-chicago
 #################
 #a file for job output, you can check job progress
-#SBATCH --output=ext-litlab-c20.out
+#SBATCH --output=ext-chicago.out
 #################
 # a file for errors from the job
-#SBATCH --error=ext-litlab-c20.err
+#SBATCH --error=ext-chicago.err
 #################
 #time you think you need; default is one hour
 #in minutes in this case, hh:mm:ss
-#SBATCH --time=00:10:00
+#SBATCH --time=01:00:00
 #################
 #quality of service; think of it as job priority
 #SBATCH --qos=normal
@@ -22,12 +22,12 @@
 #SBATCH --nodes=1
 #################
 #memory per node; default is 4000 MB per CPU
-#SBATCH --mem=4000
+#SBATCH --mem=64000
 #you could use --mem-per-cpu; they mean what we are calling cores
 #################
 #tasks to run per node; a "task" is usually mapped to a MPI processes.
 # for local parallelism (OpenMP or threads), use "--ntasks-per-node=1 --cpus-per-task=16" instead
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks-per-node=16
 #################
 
 module load openmpi/1.10.2/gcc
@@ -36,4 +36,4 @@ module load python/3.3.2
 export PYTHONPATH=/scratch/PI/malgeehe/code/stacks
 
 mpirun -x PYTHONPATH $PYTHONPATH/env/bin/python \
-    $PYTHONPATH/bin/ext-litlab-c20.py
+    $PYTHONPATH/bin/ext-chicago.py

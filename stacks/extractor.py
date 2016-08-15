@@ -79,5 +79,5 @@ class Extractor:
             except Exception as e:
                 print(arg, e)
 
-            if i%1000 == 0:
+            if i%100 == 0:
                 print(rank, i)
