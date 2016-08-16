@@ -33,7 +33,7 @@
 module load openmpi/1.10.2/gcc
 module load python/3.3.2
 
-export PYTHONPATH=/scratch/PI/malgeehe/code/stacks
+export PYTHONPATH=/share/PI/malgeehe/code/stacks
 
 mpirun -x PYTHONPATH $PYTHONPATH/env/bin/python \
     $PYTHONPATH/bin/ext-gail-amfic.py
