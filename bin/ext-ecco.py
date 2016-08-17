@@ -34,4 +34,5 @@ class ECCOExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    ECCOExtractor()()
+    ext = ECCOExtractor()
+    ext.run()

@@ -41,4 +41,5 @@ class DimeWesternsExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    DimeWesternsExtractor()()
+    ext = DimeWesternsExtractor()
+    ext.run()

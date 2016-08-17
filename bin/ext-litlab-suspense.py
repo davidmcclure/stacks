@@ -34,4 +34,5 @@ class LitLabSuspenseExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    LitLabSuspenseExtractor()()
+    ext = LitLabSuspenseExtractor()
+    ext.run()

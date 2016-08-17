@@ -34,4 +34,5 @@ class PriceLabExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    PriceLabExtractor()()
+    ext = PriceLabExtractor()
+    ext.run()

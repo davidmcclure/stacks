@@ -34,4 +34,5 @@ class EEBOExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    EEBOExtractor()()
+    ext = EEBOExtractor()
+    ext.run()
