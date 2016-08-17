@@ -34,5 +34,4 @@ class LitLabC20Extractor(Extractor):
 
 
 if __name__ == '__main__':
-    ext = LitLabC20Extractor()
-    ext.run()
+    LitLabC20Extractor()()

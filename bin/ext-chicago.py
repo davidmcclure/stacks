@@ -34,5 +34,4 @@ class ChicagoExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    ext = ChicagoExtractor()
-    ext.run()
+    ChicagoExtractor()()

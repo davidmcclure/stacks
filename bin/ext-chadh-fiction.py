@@ -35,5 +35,4 @@ class CHADHFictionExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    ext = CHADHFictionExtractor()
-    ext.run()
+    CHADHFictionExtractor()()

@@ -34,5 +34,4 @@ class NCCOExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    ext = NCCOExtractor()
-    ext.run()
+    NCCOExtractor()()

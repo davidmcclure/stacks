@@ -35,5 +35,4 @@ class CHADHPoetryExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    ext = CHADHPoetryExtractor()
-    ext.run()
+    CHADHPoetryExtractor()()

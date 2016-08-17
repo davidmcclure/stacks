@@ -36,7 +36,7 @@ class Extractor:
 
         raise NotImplementedError
 
-    def run(self):
+    def __call__(self):
 
         """
         Scatter args, flush results.

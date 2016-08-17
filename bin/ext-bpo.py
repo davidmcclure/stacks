@@ -34,5 +34,4 @@ class BPOExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    ext = BPOExtractor()
-    ext.run()
+    BPOExtractor()()

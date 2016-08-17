@@ -35,5 +35,4 @@ class CHADHDramaExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    ext = CHADHDramaExtractor()
-    ext.run()
+    CHADHDramaExtractor()()
