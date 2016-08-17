@@ -4,7 +4,6 @@ import factory
 
 from datetime import datetime as dt
 
-from stacks.utils import git_rev
 from stacks import session
 from stacks.metadata.models import Text
 
@@ -18,8 +17,6 @@ class TextFactory(factory.alchemy.SQLAlchemyModelFactory):
     path = factory.Sequence(
         lambda n: '/ext/path{0}'.format(n)
     )
-
-    version = git_rev()
 
     created_at = dt.now()
 

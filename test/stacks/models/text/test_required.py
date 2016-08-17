@@ -13,7 +13,6 @@ pytestmark = pytest.mark.usefixtures('db')
 
 
 @pytest.mark.parametrize('field', [
-    'version',
     'created_at',
     'corpus',
     'identifier',
