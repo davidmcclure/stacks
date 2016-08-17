@@ -1,7 +1,6 @@
 
 
 import re
-import scandir
 import os
 import subprocess
 import hashlib
@@ -23,7 +22,7 @@ def scan_paths(root, pattern):
 
     pattern = re.compile(pattern)
 
-    for root, dirs, files in scandir.walk(root):
+    for root, dirs, files in os.walk(root):
         for name in files:
 
             # Match the extension.
