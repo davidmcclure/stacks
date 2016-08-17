@@ -34,4 +34,5 @@ class GailAmficExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    GailAmficExtractor()()
+    extractor = GailAmficExtractor()
+    extractor()
