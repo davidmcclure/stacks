@@ -62,34 +62,34 @@ def ext_gail_amfic():
             print(rank, i)
 
 
-# class GailAmficExtractor(Extractor):
+class GailAmficExtractor(Extractor):
 
-    # def args(self):
+    def args(self):
 
-        # """
-        # Provide a list of ECCO paths.
+        """
+        Provide a list of ECCO paths.
 
-        # Returns: list
-        # """
+        Returns: list
+        """
 
-        # corpus = Corpus.from_env()
+        corpus = Corpus.from_env()
 
-        # return list(corpus.text_paths())
+        return list(corpus.text_paths())
 
-    # def flush(self, path):
+    def flush(self, path):
 
-        # """
-        # Flush a text.
+        """
+        Flush a text.
 
-        # Args:
-            # path (str)
-        # """
+        Args:
+            path (str)
+        """
 
-        # text = Text(path)
+        text = Text(path)
 
-        # self.corpus.insert_text(text.to_ext_text())
+        self.corpus.insert_text(text.to_ext_text())
 
 
 if __name__ == '__main__':
-    # GailAmficExtractor()()
-    ext_gail_amfic()
+    ext = GailAmficExtractor()
+    ext.run()
