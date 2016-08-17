@@ -64,7 +64,7 @@ class Extractor:
 
         args = json.loads(segment)
 
-        print(len(args))
+        print(rank, len(args))
 
         for i, arg in enumerate(args):
 
