@@ -19,8 +19,9 @@ python-slugify
 invoke
 schema
 numpy
-schematics
 mpi4py
 blessings
 tabulate
 gitpython
+
+-e git+https://github.com/davidmcclure/schematics.git@bug/mpi#egg=schematics
