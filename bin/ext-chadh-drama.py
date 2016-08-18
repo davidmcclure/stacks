@@ -30,6 +30,8 @@ class CHADHDramaExtractor(Extractor):
 
         source = Source(path)
 
+        # TODO: Wrap each insert in a try/except?
+
         for play in source.plays():
             self.corpus.insert_text(play.to_ext_text())
 
