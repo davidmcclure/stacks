@@ -3,8 +3,6 @@
 import numpy as np
 import json
 
-from mpi4py import MPI
-
 from stacks.ext import Corpus
 
 
@@ -41,6 +39,8 @@ class Extractor:
         """
         Scatter args, flush results.
         """
+
+        from mpi4py import MPI
 
         comm = MPI.COMM_WORLD
 
