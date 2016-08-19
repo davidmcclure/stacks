@@ -100,4 +100,18 @@ This is the same as the JSON schema used in the text files, except that it exclu
 
 ## Querying `metadata.db`
 
-And, of course, the great thing about SQLite is that the database is just a flat file, like everything else, and it's easy to run queries against it any programming language.
+And, of course, the great thing about SQLite is that the database is just a flat file - sort of like fancy manifest, in a sense - and it's easy to run queries against it from any programming language we'd ever want to use. For example, in Python, we can directly use the `Text` table class in the Stacks code:
+
+```python
+from stacks import session
+from stacks.metadata.models import Text
+
+query = (
+    session.query(Text.path)
+    .filter(Text.year >= 1880)
+    .filter(Text.year <= 1920)
+    .filter(Text.corpus.in_(('gail-amfic', 'litlab-c20')))
+)
+
+paths = query.all()
+```
