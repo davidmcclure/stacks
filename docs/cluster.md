@@ -39,4 +39,33 @@ The `dist`, `raw`, and `ext` directories each store copies of the corpora, forma
 
   Since the first three digits of the checksums will be distributed (more or less) evenly from `000` -> `fff`, this basically just guarantees that the files are always split into 4096 evenly-sized segments, which keeps the filesystem nice and balanced. And, since the paths are derived from the original identifiers, there's no risk that multiple extraction runs might accidentally write duplicate versions of the same text into the repository.
 
-# SQLite metadata database
+# JSON format
+
+During the extraction jobs, the adapters map the texts into a common JSON format. Right now, this looks like:
+
+```json
+{
+
+  // The slug for the source corpus.
+  'corpus': 'litlab-c20',
+
+  // The originial identifier for the text.
+  'identifier': 'hemingway-ernest-for-whom-the-bell-tolls',
+
+  // The git commit hash of the Stacks code that wrote the file.
+  'version': '428f6b1',
+
+  // The date the file was written.
+  'created_at': '2016-08-19T14:38:18.681740',
+
+  'title': 'For Whom the Bell Tolls',
+  'author_first': 'Ernest',
+  'author_full': 'Hemingway, Ernest',
+  'author_last': 'Hemingway',
+  'year': 1940,
+
+  // Extracted plain text.
+  'plain_text': 'He lay flat on the brown, pine-needled floor of the forest...'
+
+}
+```
