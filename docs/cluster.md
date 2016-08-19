@@ -11,6 +11,7 @@ And, the data sits on the scratch disk:
 
 The data directory looks like this:
 
+```
 ├── metadata.db
 ├── dist
 │   ├── bpo.tar.gz
@@ -24,6 +25,7 @@ The data directory looks like this:
     ├── bpo
     ├── chicago
     └── ...
+```
 
 The `dist`, `raw`, and `ext` directories each store copies of the corpora, formatted in different ways:
 
