@@ -43,19 +43,19 @@ The `dist`, `raw`, and `ext` directories each store copies of the corpora, forma
 
 During the extraction jobs, the adapters map the texts into a common JSON format. Right now, this looks like:
 
-```json
+```python
 {
 
-  // The slug for the source corpus.
+  # The slug for the source corpus.
   'corpus': 'litlab-c20',
 
-  // The originial identifier for the text.
+  # The originial identifier for the text.
   'identifier': 'hemingway-ernest-for-whom-the-bell-tolls',
 
-  // The git commit hash of the Stacks code that wrote the file.
+  # The git commit hash of the Stacks code that wrote the file.
   'version': '428f6b1',
 
-  // The date the file was written.
+  # The date the file was written.
   'created_at': '2016-08-19T14:38:18.681740',
 
   'title': 'For Whom the Bell Tolls',
@@ -64,7 +64,7 @@ During the extraction jobs, the adapters map the texts into a common JSON format
   'author_last': 'Hemingway',
   'year': 1940,
 
-  // Extracted plain text.
+  # Extracted plain text.
   'plain_text': 'He lay flat on the brown, pine-needled floor of the forest...'
 
 }
