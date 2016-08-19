@@ -41,7 +41,7 @@ The `dist`, `raw`, and `ext` directories each store copies of the corpora, forma
 
 # JSON format
 
-During the extraction jobs, the adapters map the texts into a common JSON format. Right now, this looks like:
+During the extraction jobs, the adapters map the texts into a common JSON format. For now this is very minimal, but it will grow as we figure out what kind of metadata is most useful. Here's _For Whom the Bell Tolls_:
 
 ```python
 {
@@ -59,8 +59,8 @@ During the extraction jobs, the adapters map the texts into a common JSON format
   'created_at': '2016-08-19T14:38:18.681740',
 
   'title': 'For Whom the Bell Tolls',
-  'author_first': 'Ernest',
   'author_full': 'Hemingway, Ernest',
+  'author_first': 'Ernest',
   'author_last': 'Hemingway',
   'year': 1940,
 
