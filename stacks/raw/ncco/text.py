@@ -70,7 +70,9 @@ class Text:
         Returns: int
         """
 
-        return int(get_text(self.xml, 'pubDate year'))
+        start = get_text(self.xml, 'pubDateStart')
+
+        return int(start[:4])
 
     def plain_text(self):
 
