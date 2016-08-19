@@ -23,7 +23,7 @@ def scan_paths(root, pattern):
 
     pattern = re.compile(pattern)
 
-    for root, dirs, files in scandir.walk(root):
+    for root, dirs, files in scandir.walk(root, followlinks=True):
         for name in files:
 
             # Match the extension.
