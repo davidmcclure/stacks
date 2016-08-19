@@ -2,6 +2,7 @@
 
 import os
 import gzip
+import re
 
 from bs4 import BeautifulSoup
 
@@ -55,7 +56,10 @@ class Text:
         Returns: int
         """
 
-        return int(get_text(self.xml, 'SOURCEDESC DATE')[:4])
+        date = get_text(self.xml, 'SOURCEDESC DATE')
+
+        # Take the first year string.
+        return int(re.findall('[0-9]{4}', date)[0])
 
     def plain_text(self):
 
