@@ -74,7 +74,7 @@ During the extraction jobs, the adapters map the texts into a common JSON format
 
 The big advantage to storing the texts as flat JSON files is that we can read and write them in parallel from MPI programs, which gives us access to the whole HPC computing environment. But, how do we "query" the extracted texts to get subsets of files for particular projects or jobs? The texts are broken out in the `ext` directory according to their source corpus, but what if we want to query across corpora? Stuff like - give me all texts in Gail and the Lit Lab corpora, between 1880 and 1920.
 
-To make this possible, Stacks indexes the metadata and file paths for extracted texts in a SQLite database, the `metadata.db` file that sits next to the `raw` and `ext` directories. This makes it possible for jobs on the cluster to just run queries against the SQLite database, get back a list of paths for files that match the query, and then work on just that subset of the corpus. In the future, this will also make it easy to plugin an "export" or "bundle" feature, which saves off a subset of the corpus into a tarball that can be taken elsewhere.
+To make this possible, Stacks indexes the metadata and file paths for extracted texts in a [SQLite](https://www.sqlite.org/) database, the `metadata.db` file that sits next to the `raw` and `ext` directories. This makes it possible for jobs on the cluster to just query the SQLite database for lists of files that match a set of criteria. In the future, this will also make it easy to plug in an "export" or "bundle" feature, which saves off a subset of the corpus into a tarball that can be taken elsewhere.
 
 The SQLite schema looks like this:
 
