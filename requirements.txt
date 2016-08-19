@@ -17,10 +17,10 @@ lxml
 pathlib
 python-slugify
 invoke
-schema
 schematics
 numpy
 mpi4py
 blessings
 tabulate
 gitpython
+scandir
