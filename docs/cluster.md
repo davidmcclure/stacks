@@ -1,5 +1,5 @@
 
-# Directory layout
+## Directory layout
 
 The stacks data on Sherlock sits in two places. First, the source code is deployed to the lab's shared home directory:
 
@@ -39,7 +39,7 @@ The `dist`, `raw`, and `ext` directories each store copies of the corpora, forma
 
   Since the first three digits of the checksums will be distributed (more or less) evenly from `000` -> `fff`, this basically just guarantees that the files are always split into 4096 evenly-sized segments, which keeps the filesystem nice and balanced. And, since the paths are derived from the original identifiers, there's no risk that multiple extraction runs might accidentally write duplicate versions of the same text into the repository.
 
-# JSON format
+## JSON format
 
 During the extraction jobs, the adapters map the texts into a common JSON format. For now this is very minimal, but it will grow as we figure out what kind of metadata is most useful. Here's _For Whom the Bell Tolls_:
 
@@ -52,10 +52,10 @@ During the extraction jobs, the adapters map the texts into a common JSON format
   # The originial identifier for the text.
   'identifier': 'hemingway-ernest-for-whom-the-bell-tolls',
 
-  # The git commit hash of the Stacks code that wrote the file.
+  # The git commit hash of the Stacks code that generated the file.
   'version': '428f6b1',
 
-  # The date the file was written.
+  # The date the file was created.
   'created_at': '2016-08-19T14:38:18.681740',
 
   'title': 'For Whom the Bell Tolls',
@@ -69,3 +69,35 @@ During the extraction jobs, the adapters map the texts into a common JSON format
 
 }
 ```
+
+## SQLite metadata database
+
+The big advantage to storing the texts as flat JSON files is that we can read and write them in parallel from MPI programs, which gives us access to the whole HPC computing environment. But, how do we "query" the extracted texts to get subsets of files for particular projects or jobs? The texts are broken out in the `ext` directory according to their source corpus, but what if we want to query across corpora? Stuff like - give me all texts in Gail and the Lit Lab corpora, between 1880 and 1920.
+
+To make this possible, Stacks indexes the metadata and file paths for extracted texts in a SQLite database, the `metadata.db` file that sits next to the `raw` and `ext` directories. This makes it possible for jobs on the cluster to just run queries against the SQLite database, get back a list of paths for files that match the query, and then work on just that subset of the corpus. In the future, this will also make it easy to plugin an "export" or "bundle" feature, which saves off a subset of the corpus into a tarball that can be taken elsewhere.
+
+The SQLite schema looks like this:
+
+```
+CREATE TABLE text (
+	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	path VARCHAR NOT NULL,
+	version VARCHAR NOT NULL,
+	created_at DATETIME NOT NULL,
+	corpus VARCHAR NOT NULL,
+	identifier VARCHAR NOT NULL,
+	title VARCHAR NOT NULL,
+	author_full VARCHAR,
+	author_first VARCHAR,
+	author_last VARCHAR,
+	year INTEGER,
+	UNIQUE (corpus, identifier),
+	UNIQUE (path)
+);
+```
+
+This is the same as the JSON schema used in the text files, except that it excludes the plain text and adds a `path` field, which contains the absolute path to the file on the scratch disk.
+
+## Querying `metadata.db`
+
+And, of course, the great thing about SQLite is that the database is just a flat file, like everything else, and it's easy to run queries against it any programming language.
