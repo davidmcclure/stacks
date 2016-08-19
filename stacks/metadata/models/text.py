@@ -37,6 +37,11 @@ class Text(Base):
         unique=True,
     )
 
+    version = Column(
+        String,
+        nullable=False,
+    )
+
     created_at = Column(
         DateTime,
         nullable=False,
