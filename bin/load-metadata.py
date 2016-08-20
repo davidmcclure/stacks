@@ -79,4 +79,5 @@ def load_metadata(n=1000):
 
 
 if __name__ == '__main__':
+    reset_db()
     load_metadata()
