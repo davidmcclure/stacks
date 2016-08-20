@@ -4,8 +4,8 @@
 The Stacks deployment on Sherlock sits in two places. First, the source code and configuration files are deployed in the lab's shared home directory.
 
 - Source code: `/share/PI/malgeehe/code/stacks`
-- Configuration: `/share/PI/malgeehe/config/stacks`
 - SLURM job submissions: `/share/PI/malgeehe/sbatch/stacks`
+- Configuration files: `/share/PI/malgeehe/config/stacks`
 
 And, the data sits on the scratch disk:
 
