@@ -87,7 +87,9 @@ class Text(Base):
 
         corpus = ExtCorpus.from_env()
 
-        for group in grouper(corpus.paths(), n):
+        groups = grouper(corpus.paths(), n)
+
+        for i, group in enumerate(groups):
 
             mappings = []
             for path in group:
@@ -103,5 +105,7 @@ class Text(Base):
 
             # Bulk-insert the page.
             session.bulk_insert_mappings(cls, mappings)
+
+            print((i+1)*n)
 
         session.commit()
