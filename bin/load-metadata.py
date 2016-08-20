@@ -14,7 +14,7 @@ from stacks.ext import (
 )
 
 
-def load_metadata():
+def load_metadata(n=1000):
 
     """
     Clear the metadata database and gather text rows.
@@ -42,12 +42,16 @@ def load_metadata():
             for s in np.array_split(paths, size)
         ]
 
-    segment = comm.scatter(segments, root=0)
-
     # ** Build text rows.
 
+    segment = comm.scatter(segments, root=0)
+
+    # Parse the segment.
+    paths = json.loads(segment)
+    print(rank, len(paths))
+
     page = []
-    for path in json.loads(segment):
+    for path in paths:
 
         text = ExtText.from_bz2_json(path)
 
@@ -65,8 +69,11 @@ def load_metadata():
 
     if rank == 0:
 
-        for group in grouper(rows, 1000):
+        groups = grouper(rows, n);
+
+        for i, group in enumerate(groups):
             session.bulk_insert_mappings(Text, group)
+            print((i+1)*n)
 
         session.commit()
 

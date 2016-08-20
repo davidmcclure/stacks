@@ -39,6 +39,9 @@ def db():
     session.remove()
 
 
+# TODO: Procide at both module and function scope?
+
+
 @pytest.yield_fixture(scope='module')
 def config():
 
