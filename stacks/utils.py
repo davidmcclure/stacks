@@ -6,7 +6,28 @@ import os
 import subprocess
 import hashlib
 
+from itertools import islice, chain
 from git import Repo
+
+
+def grouper(iterable, size):
+
+    """
+    Yield "groups" from an iterable.
+
+    Args:
+        iterable (iter): The iterable.
+        size (int): The number of elements in each group.
+
+    Yields:
+        The next group.
+    """
+
+    source = iter(iterable)
+
+    while True:
+        group = islice(source, size)
+        yield chain([next(group)], group)
 
 
 def scan_paths(root, pattern):

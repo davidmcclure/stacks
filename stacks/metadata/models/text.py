@@ -15,6 +15,7 @@ from sqlalchemy import (
 
 from stacks import session
 from stacks.metadata.models import Base
+from stacks.utils import grouper
 
 from stacks.ext import (
     Text as ExtText,
@@ -75,7 +76,7 @@ class Text(Base):
     )
 
     @classmethod
-    def ingest(cls):
+    def ingest(cls, n=1000):
 
         """
         Ingest extracted JSON files.
@@ -86,14 +87,21 @@ class Text(Base):
 
         corpus = ExtCorpus.from_env()
 
-        for path in corpus.paths():
+        for group in grouper(corpus.paths(), n):
 
-            ext_text = ExtText.from_bz2_json(path)
+            mappings = []
+            for path in group:
 
-            # Assign shared fields.
-            text = cls.create(**ext_text.to_native('metadata'))
+                # Hydrate the JSON file.
+                ext_text = ExtText.from_bz2_json(path)
 
-            # Set the absolute file path.
-            text.path = path
+                # Assign shared fields + path.
+                mapping = ext_text.to_native('metadata')
+                mapping['path'] = path
+
+                mappings.append(mapping)
+
+            # Bulk-insert the page.
+            session.bulk_insert_mappings(cls, mappings)
 
         session.commit()
