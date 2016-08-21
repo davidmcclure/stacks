@@ -51,7 +51,7 @@ def load_metadata(n=1000):
     print(rank, len(paths))
 
     page = []
-    for path in paths:
+    for i, path in enumerate(paths):
 
         text = ExtText.from_bz2_json(path)
 
@@ -60,20 +60,26 @@ def load_metadata(n=1000):
 
         page.append(row)
 
+        if i%100 == 0:
+            print(rank, i)
+
     # ** Flush to disk.
 
     pages = comm.gather(page, root=0)
 
-    # Flatten out the row list.
-    rows = [r for page in pages for r in page]
-
     if rank == 0:
 
-        groups = grouper(rows, n);
+        # Loop through ranks.
+        i = 0
+        for page in pages:
 
-        for i, group in enumerate(groups):
-            session.bulk_insert_mappings(Text, group)
-            print((i+1)*n)
+            groups = grouper(page, n);
+
+            # Bulk-insert rows in groups.
+            for group in groups:
+                session.bulk_insert_mappings(Text, group)
+                i += n
+                print(i)
 
         session.commit()
 
