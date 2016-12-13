@@ -4,6 +4,8 @@
 import numpy as np
 import json
 
+from datetime import datetime as dt
+
 from stacks import config, session
 from stacks.metadata.models import Text, reset_db
 from stacks.utils import grouper
@@ -35,7 +37,13 @@ def load_metadata(n=1000):
 
         corpus = ExtCorpus.from_env()
 
+        # Log dir walk duration.
+
+        print(dt.now().isoformat())
+
         paths = list(corpus.paths())
+
+        print(dt.now().isoformat())
 
         segments = [
             json.dumps(list(s))
