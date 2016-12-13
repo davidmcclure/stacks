@@ -48,6 +48,7 @@ def load_metadata(n=1000):
 
     # Parse the segment.
     paths = json.loads(segment)
+
     print(rank, len(paths))
 
     page = []
