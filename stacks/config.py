@@ -9,7 +9,9 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.engine.url import URL
 
 
-class Config:
+class Config(dict):
+
+    # TODO: schema
 
     TMP_YAML = '/tmp/stacks.yml'
 
@@ -40,18 +42,9 @@ class Config:
         Args:
             paths (list): YAML paths, from most to least specific.
         """
-        self.config = anyconfig.load(paths, ignore_missing=True)
+        config = anyconfig.load(paths, ignore_missing=True)
 
-    def __getitem__(self, key):
-        """Get a configuration value.
-
-        Args:
-            key (str): The configuration key.
-
-        Returns:
-            The option value.
-        """
-        return self.config[key]
+        return super().__init__(config)
 
     def write_tmp(self):
         """Write the config into the /tmp file.
