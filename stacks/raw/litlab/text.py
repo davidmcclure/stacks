@@ -13,88 +13,64 @@ from .utils import parse_metadata
 class Text:
 
     def __init__(self, path):
-
-        """
-        Canonicalize the text path.
+        """Canonicalize the text path.
 
         Args:
             path (str)
         """
-
         self.path = os.path.abspath(path)
 
     def author_path(self):
-
-        """
-        Get the path of the parent author.
+        """Get the path of the parent author.
 
         Returns: str
         """
-
         return os.path.dirname(self.path)
 
     def metadata_path(self):
-
-        """
-        Get the path of the text's metadata file.
+        """Get the path of the text's metadata file.
 
         Returns: str
         """
-
         return os.path.join(self.path, 'metadata.txt')
 
     def text_path(self):
-
-        """
-        Get the path of the text file.
+        """Get the path of the text file.
 
         Returns: str
         """
-
         return os.path.join(self.path, 'text.txt')
 
     def folder_name(self):
-
-        """
-        Get the name of the text directory.
+        """Get the name of the text directory.
 
         Returns: str
         """
-
         text_dir = Path(self.path)
 
         return text_dir.parts[-1]
 
     @property
     def author(self):
-
-        """
-        Get the parent author instance.
+        """Get the parent author instance.
 
         Returns: Author
         """
-
         return Author(self.author_path())
 
     @cached_property
     def metadata(self):
-
-        """
-        Parse the metadata file.
+        """Parse the metadata file.
 
         Returns: dict
         """
-
         return parse_metadata(self.metadata_path())
 
     def source_text(self):
-
-        """
-        Read the text file.
+        """Read the text file.
 
         Returns: str
         """
-
         with open(
             self.text_path(),
             mode='r',
@@ -105,23 +81,17 @@ class Text:
             return fh.read()
 
     def title(self):
-
-        """
-        Get a canonicalized text title.
+        """Get a canonicalized text title.
 
         Returns: str
         """
-
         return self.metadata['title']
 
     def year(self):
-
-        """
-        Get the publication year.
+        """Get the publication year.
 
         Returns: int
         """
-
         # Split year ranges into arrays.
         years = self.metadata['year'].split('-')
 
@@ -129,13 +99,10 @@ class Text:
         return round(float(years[0]))
 
     def identifier(self):
-
-        """
-        Make a slug from the author + title.
+        """Make a slug from the author + title.
 
         Returns: str
         """
-
         return slugify(' '.join([
             self.author.folder_name(),
             self.folder_name(),

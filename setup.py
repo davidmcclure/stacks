@@ -4,7 +4,6 @@ from setuptools import setup, find_packages
 
 
 setup(
-
     name='stacks',
     version='0.1.0',
     description='A corpus manager for the Stanford Literary Lab',
@@ -14,5 +13,4 @@ setup(
     author_email='dclure@stanford.edu',
     packages=find_packages(),
     scripts=['bin/stacks'],
-
 )

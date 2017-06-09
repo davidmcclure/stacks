@@ -14,11 +14,8 @@ from stacks.ext import Corpus
 
 @pytest.fixture(scope='session', autouse=True)
 def init_testing_db():
-
+    """Drop and recreate the tables.
     """
-    Drop and recreate the tables.
-    """
-
     engine = _config.build_sqla_engine()
 
     Base.metadata.drop_all(engine)
@@ -27,11 +24,8 @@ def init_testing_db():
 
 @pytest.yield_fixture
 def db():
-
+    """Reset the testing database.
     """
-    Reset the testing database.
-    """
-
     session.begin_nested()
 
     yield
@@ -39,16 +33,13 @@ def db():
     session.remove()
 
 
-# TODO: Procide at both module and function scope?
+# TODO: Provide at both module and function scope?
 
 
 @pytest.yield_fixture(scope='module')
 def config():
-
+    """Clear changes to the config dict.
     """
-    Clear changes to the config dict.
-    """
-
     old = _config.config.copy()
 
     yield _config
@@ -58,11 +49,8 @@ def config():
 
 @pytest.yield_fixture(scope='module')
 def temp_dir():
-
+    """Create and clean up a temp directory.
     """
-    Create and clean up a temp directory.
-    """
-
     path = tempfile.mkdtemp()
 
     yield path
@@ -72,11 +60,8 @@ def temp_dir():
 
 @pytest.fixture(scope='module')
 def raw_fixtures(config):
-
+    """Patch in the `raw` fixtures.
     """
-    Patch in the `raw` fixtures.
-    """
-
     path = os.path.join(os.path.dirname(__file__), 'fixtures/raw')
 
     config['data']['raw'] = path
@@ -84,31 +69,22 @@ def raw_fixtures(config):
 
 @pytest.fixture(scope='module')
 def ext_dir(config, temp_dir):
-
+    """Patch in a temporary `ext` directory.
     """
-    Patch in a temporary `ext` directory.
-    """
-
     config['data']['ext'] = temp_dir
 
 
 @pytest.yield_fixture(scope='module')
 def ext_corpus(ext_dir):
-
+    """Wrap a Corpus instance around the patched `ext` dir.
     """
-    Wrap a Corpus instance around the patched `ext` dir.
-    """
-
     yield Corpus.from_env()
 
 
 @pytest.yield_fixture(scope='module')
 def mpi(raw_fixtures, ext_dir, config):
-
+    """Write the config into /tmp/stacks.yml.
     """
-    Write the config into /tmp/stacks.yml.
-    """
-
     config.write_tmp()
 
     yield

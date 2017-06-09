@@ -11,57 +11,39 @@ from stacks.utils import get_text
 class Text:
 
     def __init__(self, path):
-
-        """
-        Parse the XML.
+        """Parse the XML.
 
         Args:
             path (str)
         """
-
         self.path = os.path.abspath(path)
 
         with open(self.path, 'rb') as fh:
             self.xml = BeautifulSoup(fh, 'xml')
 
     def identifier(self):
-
+        """Returns: str
         """
-        Returns: str
-        """
-
         return get_text(self.xml, 'documentID')
 
     def title(self):
-
+        """Returns: str
         """
-        Returns: str
-        """
-
         return get_text(self.xml, 'fullTitle')
 
     def author_marc_name(self):
-
+        """Returns: str
         """
-        Returns: str
-        """
-
         return get_text(self.xml, 'author marcName')
 
     def year(self):
-
+        """Returns: int
         """
-        Returns: int
-        """
-
         return int(get_text(self.xml, 'pubDate')[:4])
 
     def plain_text(self):
-
+        """Returns: str
         """
-        Returns: str
-        """
-
         words = self.xml.select('wd')
 
         strings = [w.string for w in words]
@@ -69,11 +51,8 @@ class Text:
         return ' '.join(strings)
 
     def to_ext_text(self):
-
+        """Returns: dict
         """
-        Returns: dict
-        """
-
         return ExtText(dict(
             corpus = 'ecco',
             identifier = self.identifier(),

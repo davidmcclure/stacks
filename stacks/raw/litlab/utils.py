@@ -4,16 +4,13 @@ import re
 
 
 def parse_metadata(path):
-
-    """
-    Parse a metadata file.
+    """Parse a metadata file.
 
     Args:
         path (str)
 
     Returns: dict
     """
-
     # name_first=David
     pattern = re.compile('^(?P<key>.*)=(?P<val>.*)$')
 

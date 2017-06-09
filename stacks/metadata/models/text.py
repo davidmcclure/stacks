@@ -77,14 +77,11 @@ class Text(Base):
 
     @classmethod
     def ingest(cls, n=1000):
-
-        """
-        Ingest extracted JSON files.
+        """Ingest extracted JSON files.
 
         Args:
             ext_path (str)
         """
-
         corpus = ExtCorpus.from_env()
 
         groups = grouper(corpus.paths(), n)

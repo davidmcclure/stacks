@@ -7,11 +7,8 @@ from stacks.ext import Text as ExtText
 class Text(BaseText):
 
     def to_ext_text(self):
-
+        """Returns: dict
         """
-        Returns: dict
-        """
-
         return ExtText(dict(
             corpus = 'litlab-c20',
             identifier = self.identifier(),

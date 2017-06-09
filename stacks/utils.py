@@ -11,9 +11,7 @@ from git import Repo
 
 
 def grouper(iterable, size):
-
-    """
-    Yield "groups" from an iterable.
+    """Yield "groups" from an iterable.
 
     Args:
         iterable (iter): The iterable.
@@ -22,7 +20,6 @@ def grouper(iterable, size):
     Yields:
         The next group.
     """
-
     source = iter(iterable)
 
     while True:
@@ -31,9 +28,7 @@ def grouper(iterable, size):
 
 
 def scan_paths(root, pattern):
-
-    """
-    Walk a directory and gather up all file paths with a given extension.
+    """Walk a directory and gather up all file paths with a given extension.
 
     Args:
         root (str): The top-level directory.
@@ -41,7 +36,6 @@ def scan_paths(root, pattern):
 
     Yields: str
     """
-
     pattern = re.compile(pattern)
 
     for root, dirs, files in scandir.walk(root, followlinks=True):
@@ -53,10 +47,8 @@ def scan_paths(root, pattern):
 
 
 def get_text(tree, selector):
-
-    """
-    Extract text from an element. Return None if the element is missing or the
-    value is empty.
+    """Extract text from an element. Return None if the element is missing or
+    the value is empty.
 
     Args:
         tree (BeautifulSoup): A bs4 tree.
@@ -64,7 +56,6 @@ def get_text(tree, selector):
 
     Returns: str|None
     """
-
     tag = tree.select_one(selector)
 
     if tag:
@@ -75,16 +66,13 @@ def get_text(tree, selector):
 
 
 def checksum(value):
-
-    """
-    Checksum a string.
+    """Checksum a string.
 
     Args:
         value (str)
 
     Returns: str
     """
-
     md5 = hashlib.md5()
 
     md5.update(value.encode('utf8'))
@@ -93,16 +81,13 @@ def checksum(value):
 
 
 def git_rev(length=7):
-
-    """
-    Get the hash of the git HEAD.
+    """Get the hash of the git HEAD.
 
     Args:
         length (int)
 
     Returns: str
     """
-
     path = os.path.abspath(os.path.dirname(__file__))
 
     repo = Repo(path, search_parent_directories=True)

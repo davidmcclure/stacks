@@ -9,36 +9,27 @@ class Corpus:
 
     @classmethod
     def from_env(cls):
-
-        """
-        Wrap the ENV-defined directory.
+        """Wrap the ENV-defined directory.
 
         Returns: cls
         """
-
         path = os.path.join(config['data']['raw'], 'litlab-c20')
 
         return cls(path)
 
     def __init__(self, path):
-
-        """
-        Canonicalize the corpus path.
+        """Canonicalize the corpus path.
 
         Args:
             path (str)
         """
-
         self.path = os.path.abspath(path)
 
     def text_paths(self):
-
-        """
-        Generate a path for each text directory.
+        """Generate a path for each text directory.
 
         Yields: str
         """
-
         for author_dir in next(os.walk(self.path))[1]:
 
             # Get the full author path.

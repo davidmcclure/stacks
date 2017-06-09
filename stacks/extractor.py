@@ -9,37 +9,25 @@ from stacks.ext import Corpus
 class Extractor:
 
     def __init__(self):
-
+        """Initialize the `ext` wrapper.
         """
-        Initialize the `ext` wrapper.
-        """
-
         self.corpus = Corpus.from_env()
 
     def args(self):
-
-        """
-        Provide a list of arguments for each text source.
+        """Provide a list of arguments for each text source.
 
         Returns: list
         """
-
         raise NotImplementedError
 
     def flush(self):
-
+        """Flush a text.
         """
-        Flush a text.
-        """
-
         raise NotImplementedError
 
     def __call__(self):
-
+        """Scatter args, flush results.
         """
-        Scatter args, flush results.
-        """
-
         from mpi4py import MPI
 
         comm = MPI.COMM_WORLD

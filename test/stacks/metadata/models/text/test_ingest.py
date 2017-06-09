@@ -12,11 +12,8 @@ pytestmark = pytest.mark.usefixtures('db')
 
 
 def test_ingest(ext_corpus):
-
+    """Text.ingest() should load texts from the ENV-defined corpus.
     """
-    Text.ingest() should load texts from the ENV-defined corpus.
-    """
-
     now = dt.now()
 
     t1 = ExtText(dict(

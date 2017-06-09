@@ -20,11 +20,8 @@ pytestmark = pytest.mark.usefixtures('db')
     'title',
 ])
 def test_required(field):
-
+    """Block null values.
     """
-    Block null values.
-    """
-
     TextFactory(**{field: None})
 
     with pytest.raises(IntegrityError) as e:
