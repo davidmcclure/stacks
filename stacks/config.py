@@ -13,7 +13,7 @@ class Config(dict):
 
     # TODO: schema
 
-    TMP_YAML = '/tmp/stacks.yml'
+    LOCK_YAML = '/tmp/stacks.yml'
 
     @classmethod
     def from_env(cls):
@@ -32,7 +32,7 @@ class Config(dict):
             paths.append(os.path.join(root, 'stacks.test.yml'))
 
         # MPI overrides.
-        paths.append(cls.TMP_YAML)
+        paths.append(cls.LOCK_YAML)
 
         return cls(paths)
 
@@ -46,16 +46,16 @@ class Config(dict):
 
         return super().__init__(config)
 
-    def write_tmp(self):
+    def lock(self):
         """Write the config into the /tmp file.
         """
-        with open(self.TMP_YAML, 'w') as fh:
-            fh.write(yaml.dump(self.config))
+        with open(self.LOCK_YAML, 'w') as fh:
+            fh.write(yaml.dump(dict(self)))
 
-    def clear_tmp(self):
+    def unlock(self):
         """Clear the /tmp file.
         """
-        os.remove(self.TMP_YAML)
+        os.remove(self.LOCK_YAML)
 
     def build_sqla_url(self):
         """Build a SQLAlchemy connection string.

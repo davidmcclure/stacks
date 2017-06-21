@@ -40,11 +40,14 @@ def db():
 def config():
     """Clear changes to the config dict.
     """
-    old = _config.config.copy()
+    # Copy settings.
+    old = _config.copy()
 
     yield _config
 
-    _config.config = old
+    # Restore settings.
+    _config.clear()
+    _config.update(old)
 
 
 @pytest.yield_fixture(scope='module')
@@ -85,10 +88,10 @@ def ext_corpus(ext_dir):
 def mpi(raw_fixtures, ext_dir, config):
     """Write the config into /tmp/stacks.yml.
     """
-    config.write_tmp()
+    config.lock()
 
     yield
 
-    config.clear_tmp()
+    config.unlock()
 
     init_testing_db()
