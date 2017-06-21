@@ -24,3 +24,5 @@ blessings
 tabulate
 gitpython
 scandir
+
+-e git+https://github.com/davidmcclure/simpleconfig#egg=simpleconfig

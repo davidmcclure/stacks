@@ -4,58 +4,37 @@ import os
 import anyconfig
 import yaml
 
+from simpleconfig import SimpleConfig
+from voluptuous import Schema, Required
+
 from sqlalchemy import create_engine, event
 from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.engine.url import URL
 
 
-class Config(dict):
+class Config(SimpleConfig):
 
-    # TODO: schema
+    slug = 'stacks'
 
-    LOCK_YAML = '/tmp/stacks.yml'
+    # TODO: How to inject Sherlock dir?
+    config_dirs = [
+        os.path.dirname(__file__),
+        '/etc/stacks',
+    ]
 
-    @classmethod
-    def from_env(cls):
-        """Get a config instance with the default files.
-        """
-        root = os.environ.get('STACKS_CONFIG', '/etc/stacks')
+    schema = Schema({
 
-        # Default paths.
-        paths = [
-            os.path.join(os.path.dirname(__file__), 'stacks.yml'),
-            os.path.join(root, 'stacks.yml')
-        ]
+        'database': {
+            Required('drivername'): str,
+            Required('database'): str,
+        },
 
-        # Patch in the testing config.
-        if os.environ.get('STACKS_ENV') == 'test':
-            paths.append(os.path.join(root, 'stacks.test.yml'))
+        'data': {
+            Required('raw'): str,
+            Required('ext'): str,
+        },
 
-        # MPI overrides.
-        paths.append(cls.LOCK_YAML)
-
-        return cls(paths)
-
-    def __init__(self, paths):
-        """Initialize the configuration object.
-
-        Args:
-            paths (list): YAML paths, from most to least specific.
-        """
-        config = anyconfig.load(paths, ignore_missing=True)
-
-        return super().__init__(config)
-
-    def lock(self):
-        """Write the config into the /tmp file.
-        """
-        with open(self.LOCK_YAML, 'w') as fh:
-            fh.write(yaml.dump(dict(self)))
-
-    def unlock(self):
-        """Clear the /tmp file.
-        """
-        os.remove(self.LOCK_YAML)
+    })
 
     def build_sqla_url(self):
         """Build a SQLAlchemy connection string.
