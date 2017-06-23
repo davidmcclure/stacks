@@ -4,7 +4,7 @@ import os
 import anyconfig
 import yaml
 
-from simpleconfig import SimpleConfig
+from powerconfig import PowerConfig
 from voluptuous import Schema, Required
 
 from sqlalchemy import create_engine, event
@@ -12,11 +12,10 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.engine.url import URL
 
 
-class Config(SimpleConfig):
+class Config(PowerConfig):
 
-    slug = 'stacks'
+    name = 'stacks'
 
-    # TODO: How to inject Sherlock dir?
     config_dirs = [
         os.path.dirname(__file__),
         '/etc/stacks',
