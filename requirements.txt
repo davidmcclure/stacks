@@ -25,4 +25,4 @@ tabulate
 gitpython
 scandir
 
--e git+https://github.com/davidmcclure/powerconfig#egg=powerconfig
+-e git+https://github.com/davidmcclure/cleanconfig#egg=cleanconfig

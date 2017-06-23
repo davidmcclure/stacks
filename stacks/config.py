@@ -4,7 +4,7 @@ import os
 import anyconfig
 import yaml
 
-from powerconfig import PowerConfig
+from cleanconfig import CleanConfig
 from voluptuous import Schema, Required
 
 from sqlalchemy import create_engine, event
@@ -12,7 +12,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 from sqlalchemy.engine.url import URL
 
 
-class Config(PowerConfig):
+class Config(CleanConfig):
 
     name = 'stacks'
 
