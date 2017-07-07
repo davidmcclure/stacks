@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 
 from stacks.ext import Text as ExtText
 from stacks.utils import get_text
+from stacks.metadata.models import ECCOText
 
 
 class XMLSource:
@@ -163,6 +164,37 @@ class Text(XMLSource):
         strings = [w.string for w in words]
 
         return ' '.join(strings)
+
+    def ecco_text_row(self):
+        """Build an ecco_text row instance.
+        """
+        return ECCOText(
+            document_id=self.document_id(),
+            estc_id=self.estc_id(),
+            unit=self.unit(),
+            reel=self.reel(),
+            mcode=self.mcode(),
+            pub_date=self.pub_date(),
+            release_date=self.release_date(),
+            source_bib_citation=self.source_bib_citation(),
+            source_library=self.source_library(),
+            language=self.language(),
+            module=self.module(),
+            document_type=self.document_type(),
+            notes=self.notes(),
+            author_marc_name=self.author_marc_name(),
+            author_death_date=self.author_death_date(),
+            author_marc_date=self.author_marc_date(),
+            full_title=self.full_title(),
+            display_title=self.display_title(),
+            imprint_full=self.imprint_full(),
+            imprint_city=self.imprint_city(),
+            imprint_publisher=self.imprint_publisher(),
+            imprint_year=self.imprint_year(),
+            collation=self.collation(),
+            publication_place=self.publication_place(),
+            total_pages=self.total_pages(),
+        )
 
     def to_ext_text(self):
         """Returns: dict

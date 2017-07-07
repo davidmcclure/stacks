@@ -73,6 +73,10 @@ class ECCOSubjectHead(Base):
 
     __tablename__ = 'ecco_subject_head'
 
+    id = Column(Integer, primary_key=True)
+
+    document_id = Column(String)
+
     type = Column(String)
 
     sub_field = Column(String)

@@ -8,8 +8,6 @@ from stacks import session
 
 class Base:
 
-    id = Column(Integer, primary_key=True)
-
     @classmethod
     def create(cls, **kwargs):
         """Create a new instance and add it to the session.

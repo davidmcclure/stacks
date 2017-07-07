@@ -32,6 +32,8 @@ class Text(Base):
         dict(sqlite_autoincrement=True),
     )
 
+    id = Column(Integer, primary_key=True)
+
     path = Column(
         String,
         nullable=False,
