@@ -28,12 +28,12 @@ class XMLSource:
 
 class Text(XMLSource):
 
-    def identifier(self):
+    def document_id(self):
         """Returns: str
         """
         return get_text(self.xml, 'documentID')
 
-    def title(self):
+    def full_title(self):
         """Returns: str
         """
         return get_text(self.xml, 'fullTitle')
@@ -43,7 +43,7 @@ class Text(XMLSource):
         """
         return get_text(self.xml, 'author marcName')
 
-    def year(self):
+    def pub_date(self):
         """Returns: int
         """
         return int(get_text(self.xml, 'pubDate')[:4])
@@ -62,9 +62,9 @@ class Text(XMLSource):
         """
         return ExtText(dict(
             corpus = 'ecco',
-            identifier = self.identifier(),
-            title = self.title(),
+            identifier = self.document_id(),
+            title = self.full_title(),
             plain_text = self.plain_text(),
             author_full = self.author_marc_name(),
-            year = self.year(),
+            year = self.pub_date(),
         ))
