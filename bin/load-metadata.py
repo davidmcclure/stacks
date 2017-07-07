@@ -17,11 +17,8 @@ from stacks.ext import (
 
 
 def load_metadata(n=1000):
-
+    """Clear the metadata database and gather text rows.
     """
-    Clear the metadata database and gather text rows.
-    """
-
     from mpi4py import MPI
 
     comm = MPI.COMM_WORLD

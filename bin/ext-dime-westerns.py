@@ -8,13 +8,10 @@ from stacks.raw.dime_westerns import Corpus, Text
 class DimeWesternsExtractor(Extractor):
 
     def args(self):
-
-        """
-        Provide a list of source paths.
+        """Provide a list of source paths.
 
         Returns: list
         """
-
         corpus = Corpus.from_env()
 
         return [
@@ -30,11 +27,8 @@ class DimeWesternsExtractor(Extractor):
         ]
 
     def flush(self, *args, **kwargs):
-
+        """Flush texts.
         """
-        Flush texts.
-        """
-
         text = Text(*args, **kwargs)
 
         self.corpus.insert_text(text.to_ext_text())

@@ -8,26 +8,20 @@ from stacks.raw.chadh_poetry import Corpus, Source
 class CHADHPoetryExtractor(Extractor):
 
     def args(self):
-
-        """
-        Provide a list of source paths.
+        """Provide a list of source paths.
 
         Returns: list
         """
-
         corpus = Corpus.from_env()
 
         return list(corpus.source_paths())
 
     def flush(self, path):
-
-        """
-        Flush texts.
+        """Flush texts.
 
         Args:
             path (str)
         """
-
         source = Source(path)
 
         for poem in source.poems():

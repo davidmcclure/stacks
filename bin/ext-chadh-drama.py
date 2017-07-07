@@ -8,26 +8,20 @@ from stacks.raw.chadh_drama import Corpus, Source
 class CHADHDramaExtractor(Extractor):
 
     def args(self):
-
-        """
-        Provide a list of source paths.
+        """Provide a list of source paths.
 
         Returns: list
         """
-
         corpus = Corpus.from_env()
 
         return list(corpus.source_paths())
 
     def flush(self, path):
-
-        """
-        Flush texts.
+        """Flush texts.
 
         Args:
             path (str)
         """
-
         source = Source(path)
 
         # TODO: Wrap each insert in a try/except?

@@ -8,13 +8,10 @@ from stacks.raw.chicago import Corpus, Novel
 class ChicagoExtractor(Extractor):
 
     def args(self):
-
-        """
-        Provide a list of source paths.
+        """Provide a list of source paths.
 
         Returns: list
         """
-
         corpus = Corpus.from_env()
 
         return [
@@ -23,11 +20,8 @@ class ChicagoExtractor(Extractor):
         ]
 
     def flush(self, *args, **kwargs):
-
+        """Flush texts.
         """
-        Flush texts.
-        """
-
         novel = Novel(*args, **kwargs)
 
         self.corpus.insert_text(novel.to_ext_text())

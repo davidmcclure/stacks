@@ -8,13 +8,10 @@ from stacks.raw.price_lab import Corpus, Text
 class PriceLabExtractor(Extractor):
 
     def args(self):
-
-        """
-        Provide a list of source args.
+        """Provide a list of source args.
 
         Returns: list
         """
-
         corpus = Corpus.from_env()
 
         return [
@@ -23,11 +20,8 @@ class PriceLabExtractor(Extractor):
         ]
 
     def flush(self, *args, **kwargs):
-
+        """Flush text.
         """
-        Flush text.
-        """
-
         text = Text(*args, **kwargs)
 
         self.corpus.insert_text(text.to_ext_text())
