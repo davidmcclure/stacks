@@ -8,18 +8,25 @@ from stacks.ext import Text as ExtText
 from stacks.utils import get_text
 
 
-class Text:
+class XMLSource:
 
-    def __init__(self, path):
-        """Parse the XML.
+    @classmethod
+    def from_file(cls, path):
+        """Hydrate from a file path.
 
         Args:
             path (str)
-        """
-        self.path = os.path.abspath(path)
 
-        with open(self.path, 'rb') as fh:
-            self.xml = BeautifulSoup(fh, 'xml')
+        Returns: cls
+        """
+        with open(path, 'rb') as fh:
+            return cls(BeautifulSoup(fh, 'xml'))
+
+    def __init__(self, xml):
+        self.xml = xml
+
+
+class Text(XMLSource):
 
     def identifier(self):
         """Returns: str
