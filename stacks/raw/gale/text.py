@@ -68,7 +68,7 @@ class Text:
         """Returns: dict
         """
         return ExtText(dict(
-            corpus = 'gail-amfic',
+            corpus = 'gale',
             identifier = self.identifier(),
             title = self.title(),
             plain_text = self.plain_text(),

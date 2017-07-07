@@ -2,10 +2,10 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.gail_amfic import Corpus, Text
+from stacks.raw.gale import Corpus, Text
 
 
-class GailAmficExtractor(Extractor):
+class GaleExtractor(Extractor):
 
     def args(self):
         """Provide a list of ECCO paths.
@@ -28,4 +28,4 @@ class GailAmficExtractor(Extractor):
 
 
 if __name__ == '__main__':
-    GailAmficExtractor()()
+    GaleExtractor()()
