@@ -24,5 +24,7 @@ blessings
 tabulate
 gitpython
 scandir
+attrs
+cityhash
 
 -e git+https://github.com/davidmcclure/cleanconfig#egg=cleanconfig

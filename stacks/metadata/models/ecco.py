@@ -1,5 +1,12 @@
 
 
+import os
+import bz2
+
+from cityhash import CityHash32
+
+from sqlalchemy.inspection import inspect
+
 from sqlalchemy import (
     Column,
     Integer,
@@ -14,7 +21,45 @@ from sqlalchemy import (
 from stacks.metadata.models import Base
 
 
-class ECCOText(Base):
+# TODO: Make generic.
+class Text:
+
+    corpus = Column(String, nullable=False)
+
+    text_hash = Column(String, nullable=False)
+
+    def __init__(self, *args, **kwargs):
+        """Set the corpus name, hash PK.
+        """
+        # Get PK column name.
+        pk_col = inspect(ECCOText).primary_key[0].name
+        pk_val = getattr(self, pk_col)
+
+        # Mirror table name, hash the PK.
+        self.corpus = self.__tablename__
+        self.text_hash = str(CityHash32(str(pk_val)))
+
+        self._text = kwargs.pop('text')
+
+        super().__init__(*args, **kwargs)
+
+    def flush_text(self, root):
+        """Dump the text content.
+        """
+        prefix = self.text_hash[:3]
+        suffix = self.text_hash[3:]
+
+        # Create the text directory.
+        path = os.path.join(root, self.corpus, prefix, suffix, 'text.bz2')
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+
+        with bz2.open(path, 'wt') as fh:
+            print(self._text, file=fh)
+
+        # TODO: Tokens.
+
+
+class ECCOText(Text, Base):
 
     __tablename__ = 'ecco_text'
 
@@ -28,9 +73,9 @@ class ECCOText(Base):
 
     mcode = Column(String)
 
-    pub_date = Column(Date)
+    pub_date = Column(Integer)
 
-    release_date = Column(Date)
+    release_date = Column(Integer)
 
     source_bib_citation = Column(String)
 

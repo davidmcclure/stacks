@@ -6,9 +6,10 @@ from bs4 import BeautifulSoup
 
 from stacks.ext import Text as ExtText
 from stacks.utils import get_text
-from stacks.metadata.models import ECCOText
+from stacks.metadata.models import ECCOText, ECCOSubjectHead
 
 
+# TODO: Make generic.
 class XMLSource:
 
     @classmethod
@@ -29,6 +30,7 @@ class XMLSource:
 
 class Text(XMLSource):
 
+    # TODO: cached property
     def document_id(self):
         """Returns: str
         """
@@ -165,8 +167,10 @@ class Text(XMLSource):
 
         return ' '.join(strings)
 
-    def ecco_text_row(self):
-        """Build an ecco_text row instance.
+    def text_row(self):
+        """Build a text row instance.
+
+        Returns: ECCOText
         """
         return ECCOText(
             document_id=self.document_id(),
@@ -194,7 +198,28 @@ class Text(XMLSource):
             collation=self.collation(),
             publication_place=self.publication_place(),
             total_pages=self.total_pages(),
+            text=self.plain_text(),
         )
+
+    def subject_head_rows(self):
+        """Build a list of subject heading rows.
+
+        Returns: list of ECCOSubjectHead
+        """
+        for head in self.xml.select('locSubjectHead'):
+            for subject in head.select('locSubject'):
+
+                yield ECCOSubjectHead(
+                    document_id=self.document_id(),
+                    type=head.attrs['type'],
+                    sub_field=subject.attrs['subField'],
+                    value=subject.text,
+                )
+
+    def rows(self):
+        """Assemble list of all database rows.
+        """
+        return [self.text_row()] + list(self.subject_head_rows())
 
     def to_ext_text(self):
         """Returns: dict
