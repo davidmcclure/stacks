@@ -3,7 +3,7 @@
 import numpy as np
 import json
 
-from stacks.ext import Corpus
+from stacks.corpus import Corpus
 
 
 class Extractor:
@@ -11,7 +11,8 @@ class Extractor:
     def __init__(self):
         """Initialize the `ext` wrapper.
         """
-        self.corpus = Corpus.from_env()
+        # TODO: ENV-ify
+        self.corpus = Corpus('corpus')
 
     def args(self):
         """Provide a list of arguments for each text source.

@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.ecco import Corpus, Text
+from stacks.raw import ecco
 
 
 class ECCOExtractor(Extractor):
@@ -12,7 +12,7 @@ class ECCOExtractor(Extractor):
 
         Returns: list
         """
-        corpus = Corpus.from_env()
+        corpus = ecco.Corpus.from_env()
 
         return list(corpus.text_paths())
 
@@ -22,11 +22,11 @@ class ECCOExtractor(Extractor):
         Args:
             path (str)
         """
-        text = Text.from_file(path)
+        text = ecco.Text.from_file(path)
 
         rows = text.rows()
 
-        self.corpus.index('ecco', rows)
+        self.corpus.index_rows('ecco', rows)
 
 
 if __name__ == '__main__':
