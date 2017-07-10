@@ -55,10 +55,30 @@
     total_pages: 32
   #text: on the Doses. and EfieOs of Medi- cines;
 
-#'0002200200':
-  #title: Abstract of the republics of antiquity.
-  #author_full: Warrington, W.
-  #year: 1800
+'0002200200':
+  fields:
+    estc_id: T086870
+    unit: 1
+    reel: 22
+    mcode: 0LRH
+    pub_date: 1800-01-01
+    release_date: 2003-06-01
+    source_bib_citation: ESTC Short Title Catalogue
+    source_library: British Library
+    language: English
+    module: History and Geography
+    document_type: Primary Document
+    notes: Anonymous. By W. Warrington.
+    author_marc_name: Warrington, W.
+    full_title: Abstract of the republics of antiquity.
+    display_title: Abstract of the republics of antiquity.
+    imprint_full: "Egham : printed by C. Boult, 1800."
+    imprint_city: Egham
+    # TODO: imprint publisher
+    # TODO: imprint year
+    collation: 38p. ; 4°
+    publication_place: Egham
+    total_pages: 34
   #text: TOL rectify unstable, or visionary ideas on the subject of politicks
 
 #'0002300100':

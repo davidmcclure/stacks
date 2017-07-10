@@ -37,6 +37,19 @@ def parse_date(text):
     return dt.strptime(text, '%Y%m%d').date()
 
 
+def try_or_log(f):
+    """Wrap a class method call in a try block. If an error is raised, return
+    None and log the exception.
+    """
+    def wrapper(*args, **kwargs):
+        try:
+            return f(*args, **kwargs)
+        except Exception as e:
+            print(e)
+            return None
+    return wrapper
+
+
 class Text(XMLSource):
 
     @cached_property
@@ -50,11 +63,13 @@ class Text(XMLSource):
         """
         return get_text(self.xml, 'ESTCID')
 
+    @try_or_log
     def unit(self):
         """Returns: int
         """
         return int(get_text(self.xml, 'unit'))
 
+    @try_or_log
     def reel(self):
         """Returns: int
         """
@@ -110,6 +125,7 @@ class Text(XMLSource):
         """
         return get_text(self.xml, 'author marcName')
 
+    @try_or_log
     def author_death_date(self):
         """Returns: int
         """
@@ -130,6 +146,7 @@ class Text(XMLSource):
         """
         return get_text(self.xml, 'displayTitle')
 
+    @try_or_log
     def imprint_full(self):
         """Returns: str
         """
@@ -160,6 +177,7 @@ class Text(XMLSource):
         """
         return get_text(self.xml, 'publicationPlace')
 
+    @try_or_log
     def total_pages(self):
         """Returns: int
         """
