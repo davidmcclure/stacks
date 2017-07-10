@@ -1,6 +1,7 @@
 
 
 import os
+import attr
 
 from cached_property import cached_property
 from bs4 import BeautifulSoup
@@ -10,8 +11,10 @@ from stacks.metadata.models import ECCOText, ECCOSubjectHead
 from stacks.utils import get_text
 
 
-# TODO: Make generic.
+@attr.s
 class XMLSource:
+
+    xml = attr.ib()
 
     @classmethod
     def from_file(cls, path):
@@ -24,9 +27,6 @@ class XMLSource:
         """
         with open(path, 'rb') as fh:
             return cls(BeautifulSoup(fh, 'xml'))
-
-    def __init__(self, xml):
-        self.xml = xml
 
 
 class Text(XMLSource):
