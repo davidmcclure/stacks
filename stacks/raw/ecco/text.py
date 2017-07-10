@@ -220,15 +220,3 @@ class Text(XMLSource):
         """Assemble list of all database rows.
         """
         return [self.text_row()] + list(self.subject_head_rows())
-
-    def to_ext_text(self):
-        """Returns: dict
-        """
-        return ExtText(dict(
-            corpus = 'ecco',
-            identifier = self.document_id(),
-            title = self.full_title(),
-            plain_text = self.plain_text(),
-            author_full = self.author_marc_name(),
-            year = self.pub_date(),
-        ))
