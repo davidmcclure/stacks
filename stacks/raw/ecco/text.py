@@ -2,6 +2,7 @@
 
 import os
 
+from cached_property import cached_property
 from bs4 import BeautifulSoup
 
 from stacks.ext import Text as ExtText
@@ -30,7 +31,7 @@ class XMLSource:
 
 class Text(XMLSource):
 
-    # TODO: cached property
+    @cached_property
     def document_id(self):
         """Returns: str
         """
@@ -173,7 +174,7 @@ class Text(XMLSource):
         Returns: ECCOText
         """
         return ECCOText(
-            document_id=self.document_id(),
+            document_id=self.document_id,
             estc_id=self.estc_id(),
             unit=self.unit(),
             reel=self.reel(),
@@ -210,7 +211,7 @@ class Text(XMLSource):
             for subject in head.select('locSubject'):
 
                 yield ECCOSubjectHead(
-                    document_id=self.document_id(),
+                    document_id=self.document_id,
                     type=head.attrs['type'],
                     sub_field=subject.attrs['subField'],
                     value=subject.text,

@@ -26,7 +26,7 @@ class ECCOExtractor(Extractor):
 
         rows = text.rows()
 
-        self.corpus.index_rows('ecco', text.document_id(), rows)
+        self.corpus.index_rows('ecco', text.document_id, rows)
 
 
 if __name__ == '__main__':
