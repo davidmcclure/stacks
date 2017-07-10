@@ -5,8 +5,8 @@ import os
 from bs4 import BeautifulSoup
 
 from stacks.ext import Text as ExtText
-from stacks.utils import get_text
 from stacks.metadata.models import ECCOText, ECCOSubjectHead
+from stacks.utils import get_text
 
 
 # TODO: Make generic.

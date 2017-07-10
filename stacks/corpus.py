@@ -6,6 +6,7 @@ import pickle
 import bz2
 import uuid
 
+from cityhash import CityHash32
 from boltons.iterutils import chunked_iter
 
 from stacks import session, config
@@ -25,26 +26,32 @@ class Corpus:
         """
         return cls(config['data']['ext'])
 
-    def index_rows(self, corpus, rows):
+    def index_rows(self, corpus, source, rows):
         """Dump db rows + (annotated) text.
 
         Args:
             corpus (str): A slug for the corpus.
+            source (str): An identifier for the source entity.
             rows (list of model instances)
         """
         for row in rows:
             if getattr(row, '_text', None):
                 self.write_text(row)
 
-        self.pickle_rows(corpus, rows)
+        self.pickle_rows(corpus, source, rows)
 
-    def pickle_rows(self, corpus, rows):
+    def pickle_rows(self, corpus, source, rows):
         """Pickle row instances.
+
+        Args:
+            corpus (str): A slug for the corpus.
+            source (str): An identifier for the source entity.
+            rows (list of model instances)
         """
-        # TODO: Hash the row group, somehow?
-        row_uuid = str(uuid.uuid4())
-        prefix = row_uuid[:3]
-        suffix = row_uuid[3:]
+        # Form the hash directories.
+        source_hash = str(CityHash32(source))
+        prefix = source_hash[:3]
+        suffix = source_hash[3:]
 
         # Form the row path.
         row_name = '{}.p'.format(suffix)
