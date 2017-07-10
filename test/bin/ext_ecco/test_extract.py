@@ -3,7 +3,7 @@
 import pytest
 
 from subprocess import call
-from stacks.metadata.models import ECCOText
+from stacks.metadata.models import ECCOText, ECCOSubjectHead
 
 from test.utils import read_yaml
 
@@ -22,8 +22,19 @@ def test_test(doc_id, spec):
 
     text = ECCOText.query.get(doc_id)
 
+    # Fields
     for key, val in spec['fields'].items():
         assert getattr(text, key) == val
+
+    # Subjects
+    for subject in spec['subjects']:
+        for sub_field, value in subject['sub_fields'].items():
+
+            assert ECCOSubjectHead.query.filter_by(
+                type=subject['type'],
+                sub_field=sub_field,
+                value=value,
+            )
 
 
 # @pytest.mark.parametrize('identifier,fields', cases.items())

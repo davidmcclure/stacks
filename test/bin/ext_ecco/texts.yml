@@ -1,6 +1,7 @@
 ---
 
 '0031300100':
+
   fields:
     estc_id: T021625
     unit: 9
@@ -24,9 +25,44 @@
     collation: 64p. ; 12°
     publication_place: London
     total_pages: 63
-  #text: beautifully Engraven on Copper Plates and Coloured from the Life,
+
+  subjects:
+
+    - type: topicalTerm
+      sub_fields:
+        a: Books
+        z: Prices
+
+    - type: topicalTerm
+      sub_fields:
+        a: Catalogs, Booksellers
+        z: Great Britain
+
+    - type: topicalTerm
+      sub_fields:
+        a: Catalogs, Booksellers
+        a: Natural history
+        z: England
+        v: Bibliography
+
+    - type: geographicalLocation
+      sub_fields:
+        a: Catalogs, Booksellers
+        a: England
+        x: Antiquities
+        v: Bibliography
+        v: Early
+
+    - type: geographicalLocation
+      sub_fields:
+        a: Catalogs, Booksellers
+        a: England
+        x: Description and travel
+        v: Bibliography
+        v: Early
 
 '0031300200':
+
   fields:
     estc_id: T013049
     unit: 9
@@ -53,9 +89,16 @@
     collation: 32p. ; 8°
     publication_place: London
     total_pages: 32
-  #text: on the Doses. and EfieOs of Medi- cines;
+
+  subjects:
+
+    - type: topicalTerm
+      sub_fields:
+        a: Catalogs, Booksellers
+        v: Early works to 1800
 
 '0002200200':
+
   fields:
     estc_id: T086870
     unit: 1
@@ -79,9 +122,28 @@
     collation: 38p. ; 4°
     publication_place: Egham
     total_pages: 34
-  #text: TOL rectify unstable, or visionary ideas on the subject of politicks
+
+  subjects:
+
+    - type: corporateName
+      sub_fields:
+        a: Great Britian
+        t: Constitution
+
+    - type: topicalTerm
+      sub_fields:
+        a: Republics
+
+    - type: topicalTerm
+      sub_fields:
+        a: Cities and towns, Ancient
+
+    - type: topicalTerm
+      sub_fields:
+        a: Cities and towns, Medieval
 
 '0002300100':
+
   fields:
     estc_id: T062661
     unit: 1
@@ -104,4 +166,27 @@
     collation: "16p.,plate : map ; 8°"
     publication_place: London
     total_pages: 16
-  #text: this Day received by the Right Honorable Henry Dundas,
+
+  subjects:
+
+    - type: personalName
+      sub_fields:
+        a: Shakespeare, William,
+        d: 1564-1616
+        x: Forgeries
+
+    - type: personalName
+      sub_fields:
+        a: Ireland, W. H.
+        d: (William Henry),
+        x: 1777-1835
+
+    - type: topicalTerm
+      sub_fields:
+        a: African Americans
+        x: Religion
+
+    - type: topicalTerm
+      sub_fields:
+        a: Literary forgeries and mystifications
+        v: Early works to 1800
