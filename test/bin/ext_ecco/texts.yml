@@ -26,10 +26,33 @@
     total_pages: 63
   #text: beautifully Engraven on Copper Plates and Coloured from the Life,
 
-#'0031300200':
-  #title: A catalogue of books printed for, and sold by Charles Dilly, in London. All the Articles in the following Catalogue are sold at the Prices marked bound; unless otherwise expressed.
-  #author_full: Dilly, Charles
-  #year: 1787
+'0031300200':
+  fields:
+    estc_id: T013049
+    unit: 9
+    reel: 313
+    mcode: 0LRN
+    pub_date: 1787-01-01
+    release_date: 2003-12-01
+    source_bib_citation: ESTC Short Title Catalogue
+    source_library: British Library
+    language: English
+    module: General Reference
+    document_type: Primary Document
+    notes: P.[31], dated 'May, 1787', advertises Boswell's Life of Samuel Johnson.
+    author_marc_name: Dilly, Charles
+    # TODO: birth date
+    author_death_date: 1807
+    author_marc_date: 1739-1807
+    full_title: A catalogue of books printed for, and sold by Charles Dilly, in London. All the Articles in the following Catalogue are sold at the Prices marked bound; unless otherwise expressed.
+    display_title: A catalogue of books printed for, and sold by Charles Dilly, in London. All the Articles in the following Catalogue are sold at the Prices marked ...
+    imprint_full: "[London], s.n, 1787."
+    imprint_city: "[London]"
+    # TODO: imprint publisher
+    # TODO: imprint year
+    collation: 32p. ; 8°
+    publication_place: London
+    total_pages: 32
   #text: on the Doses. and EfieOs of Medi- cines;
 
 #'0002200200':
