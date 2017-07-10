@@ -96,7 +96,7 @@ class Text(XMLSource):
     def notes(self):
         """Returns: str
         """
-        return get_text(self.xml, 'nodes')
+        return get_text(self.xml, 'notes')
 
     def author_marc_name(self):
         """Returns: str
@@ -175,8 +175,8 @@ class Text(XMLSource):
         return ECCOText(
             document_id=self.document_id(),
             estc_id=self.estc_id(),
-            # unit=self.unit(),
-            # reel=self.reel(),
+            unit=self.unit(),
+            reel=self.reel(),
             mcode=self.mcode(),
             pub_date=self.pub_date(),
             release_date=self.release_date(),
@@ -187,7 +187,7 @@ class Text(XMLSource):
             document_type=self.document_type(),
             notes=self.notes(),
             author_marc_name=self.author_marc_name(),
-            # author_death_date=self.author_death_date(),
+            author_death_date=self.author_death_date(),
             author_marc_date=self.author_marc_date(),
             full_title=self.full_title(),
             display_title=self.display_title(),
@@ -197,7 +197,7 @@ class Text(XMLSource):
             imprint_year=self.imprint_year(),
             collation=self.collation(),
             publication_place=self.publication_place(),
-            # total_pages=self.total_pages(),
+            total_pages=self.total_pages(),
             text=self.plain_text(),
         )
 

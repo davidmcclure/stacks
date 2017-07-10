@@ -41,7 +41,7 @@ class Corpus:
     def pickle_rows(self, corpus, rows):
         """Pickle row instances.
         """
-        # Get random id.
+        # TODO: Hash the row group, somehow?
         row_uuid = str(uuid.uuid4())
         prefix = row_uuid[:3]
         suffix = row_uuid[3:]

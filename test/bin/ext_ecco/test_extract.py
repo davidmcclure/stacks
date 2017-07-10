@@ -2,19 +2,28 @@
 
 import pytest
 
+from subprocess import call
 from stacks.metadata.models import ECCOText
 
 from test.utils import read_yaml
 
 
-pytestmark = pytest.mark.usefixtures('extract')
+@pytest.fixture(scope='module', autouse=True)
+def extract(mpi):
+    call(['mpirun', 'bin/ext-ecco.py'])
+    call(['mpirun', 'bin/load-metadata.py'])
 
 
 cases = read_yaml(__file__, 'texts.yml')
 
 
-def test_test(ext_corpus):
-    assert ECCOText.query.count() == 4
+@pytest.mark.parametrize('doc_id,fields', cases.items())
+def test_test(doc_id, fields):
+
+    text = ECCOText.query.get(doc_id)
+
+    for key, val in fields['fields'].items():
+        assert getattr(text, key) == val
 
 
 # @pytest.mark.parametrize('identifier,fields', cases.items())
