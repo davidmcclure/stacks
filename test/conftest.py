@@ -94,4 +94,6 @@ def mpi(raw_fixtures, ext_dir, config):
 
     config.unlock()
 
+    session.remove()
+
     init_testing_db()

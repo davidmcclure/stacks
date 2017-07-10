@@ -8,7 +8,7 @@ import uuid
 
 from boltons.iterutils import chunked_iter
 
-from stacks import session
+from stacks import session, config
 from stacks.utils import scan_paths
 
 
@@ -16,6 +16,14 @@ from stacks.utils import scan_paths
 class Corpus:
 
     path = attr.ib()
+
+    @classmethod
+    def from_env(cls):
+        """Wrap the ENV-defined root.
+
+        Returns: cls
+        """
+        return cls(config['data']['ext'])
 
     def index_rows(self, corpus, rows):
         """Dump db rows + (annotated) text.

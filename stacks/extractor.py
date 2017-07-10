@@ -9,10 +9,9 @@ from stacks.corpus import Corpus
 class Extractor:
 
     def __init__(self):
-        """Initialize the `ext` wrapper.
+        """Initialize the corpus adapter.
         """
-        # TODO: ENV-ify
-        self.corpus = Corpus('corpus')
+        self.corpus = Corpus.from_env()
 
     def args(self):
         """Provide a list of arguments for each text source.
