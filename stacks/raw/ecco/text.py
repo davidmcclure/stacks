@@ -2,6 +2,7 @@
 
 import os
 import attr
+import re
 
 from datetime import datetime as dt
 
@@ -162,10 +163,12 @@ class Text(XMLSource):
         """
         return get_text(self.xml, 'imprintPublisher')
 
+    @try_or_log
     def imprint_year(self):
         """Returns: str
         """
-        return get_text(self.xml, 'imprintYear')
+        text = get_text(self.xml, 'imprintYear')
+        return int(re.match('[0-9]{4}', text).group(0))
 
     def collation(self):
         """Returns: str

@@ -48,8 +48,8 @@
     display_title: A catalogue of books printed for, and sold by Charles Dilly, in London. All the Articles in the following Catalogue are sold at the Prices marked ...
     imprint_full: "[London], s.n, 1787."
     imprint_city: "[London]"
-    # TODO: imprint publisher
-    # TODO: imprint year
+    imprint_publisher: s.n
+    imprint_year: 1787
     collation: 32p. ; 8°
     publication_place: London
     total_pages: 32
@@ -74,8 +74,8 @@
     display_title: Abstract of the republics of antiquity.
     imprint_full: "Egham : printed by C. Boult, 1800."
     imprint_city: Egham
-    # TODO: imprint publisher
-    # TODO: imprint year
+    imprint_publisher: printed by C. Boult
+    imprint_year: 1800
     collation: 38p. ; 4°
     publication_place: Egham
     total_pages: 34
@@ -99,8 +99,8 @@
     display_title: An authentic account of the capture of the Dutch Fleet, consisting of Nine Sail of Men of War, Frigates, &c. at Saldanha Bay, Near the Cape of ...
     imprint_full: "London : published by John Fairburn, 146, Minories, 1796."
     imprint_city: London
-    # TODO: imprint publisher
-    # TODO: imprint year
+    imprint_publisher: published by John Fairburn, 146, Minories
+    imprint_year: 1796
     collation: "16p.,plate : map ; 8°"
     publication_place: London
     total_pages: 16

@@ -90,7 +90,7 @@ class ECCOText(Text, Base):
 
     imprint_publisher = Column(String)
 
-    imprint_year = Column(String)
+    imprint_year = Column(Integer)
 
     collation = Column(String)
 
