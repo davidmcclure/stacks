@@ -3,6 +3,8 @@
 import os
 import attr
 
+from datetime import datetime as dt
+
 from cached_property import cached_property
 from bs4 import BeautifulSoup
 
@@ -27,6 +29,12 @@ class XMLSource:
         """
         with open(path, 'rb') as fh:
             return cls(BeautifulSoup(fh, 'xml'))
+
+
+def parse_date(text):
+    """Parse an ECCO date string.
+    """
+    return dt.strptime(text, '%Y%m%d').date()
 
 
 class Text(XMLSource):
@@ -57,17 +65,15 @@ class Text(XMLSource):
         """
         return get_text(self.xml, 'mcode')
 
-    # TODO: Parse date.
     def pub_date(self):
-        """Returns: int
+        """Returns: date
         """
-        return int(get_text(self.xml, 'pubDate')[:4])
+        return parse_date(get_text(self.xml, 'pubDate'))
 
-    # TODO: Parse date.
     def release_date(self):
-        """Returns: int
+        """Returns: date
         """
-        return int(get_text(self.xml, 'releaseDate')[:4])
+        return parse_date(get_text(self.xml, 'releaseDate'))
 
     def source_bib_citation(self):
         """Returns: str

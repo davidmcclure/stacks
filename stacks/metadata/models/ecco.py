@@ -58,9 +58,9 @@ class ECCOText(Text, Base):
 
     mcode = Column(String)
 
-    pub_date = Column(Integer)
+    pub_date = Column(Date)
 
-    release_date = Column(Integer)
+    release_date = Column(Date)
 
     source_bib_citation = Column(String)
 

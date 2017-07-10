@@ -17,12 +17,12 @@ def extract(mpi):
 cases = read_yaml(__file__, 'texts.yml')
 
 
-@pytest.mark.parametrize('doc_id,fields', cases.items())
-def test_test(doc_id, fields):
+@pytest.mark.parametrize('doc_id,spec', cases.items())
+def test_test(doc_id, spec):
 
     text = ECCOText.query.get(doc_id)
 
-    for key, val in fields['fields'].items():
+    for key, val in spec['fields'].items():
         assert getattr(text, key) == val
 
 
