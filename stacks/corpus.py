@@ -28,9 +28,14 @@ class Corpus:
     def pickle_rows(self, corpus, rows):
         """Pickle row instances.
         """
+        # Get random id.
+        row_uuid = str(uuid.uuid4())
+        prefix = row_uuid[:3]
+        suffix = row_uuid[3:]
+
         # Form the row path.
-        row_name = '{}.p'.format(str(uuid.uuid4()))
-        row_path = os.path.join(self.path, 'rows', corpus, row_name)
+        row_name = '{}.p'.format(suffix)
+        row_path = os.path.join(self.path, 'rows', corpus, prefix, row_name)
 
         # Create the directory.
         os.makedirs(os.path.dirname(row_path), exist_ok=True)
@@ -55,3 +60,5 @@ class Corpus:
 
         with bz2.open(text_path, 'wt') as fh:
             print(row._text, file=fh)
+
+        # TODO: annotations
