@@ -26,5 +26,6 @@ gitpython
 scandir
 attrs
 cityhash
+boltons
 
 -e git+https://github.com/davidmcclure/cleanconfig#egg=cleanconfig

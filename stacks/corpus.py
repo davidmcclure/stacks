@@ -6,6 +6,11 @@ import pickle
 import bz2
 import uuid
 
+from boltons.iterutils import chunked_iter
+
+from stacks import session
+from stacks.utils import scan_paths
+
 
 @attr.s
 class Corpus:
@@ -62,3 +67,19 @@ class Corpus:
             print(row._text, file=fh)
 
         # TODO: annotations
+
+    def db_rows(self):
+        """Generate database rows.
+        """
+        for path in scan_paths(self.path, '\.p'):
+            with open(path, 'rb') as fh:
+                yield from pickle.load(fh)
+
+    def load_db(self, chunk_size=1000):
+        """Write db rows.
+        """
+        for chunk in chunked_iter(self.db_rows(), chunk_size):
+            session.bulk_save_objects(chunk)
+            session.flush()
+
+        session.commit()
