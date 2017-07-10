@@ -41,7 +41,7 @@
     document_type: Primary Document
     notes: P.[31], dated 'May, 1787', advertises Boswell's Life of Samuel Johnson.
     author_marc_name: Dilly, Charles
-    # TODO: birth date
+    author_birth_date: 1739
     author_death_date: 1807
     author_marc_date: 1739-1807
     full_title: A catalogue of books printed for, and sold by Charles Dilly, in London. All the Articles in the following Catalogue are sold at the Prices marked bound; unless otherwise expressed.

@@ -127,6 +127,12 @@ class Text(XMLSource):
         return get_text(self.xml, 'author marcName')
 
     @try_or_log
+    def author_birth_date(self):
+        """Returns: int
+        """
+        return int(get_text(self.xml, 'author birthDate'))
+
+    @try_or_log
     def author_death_date(self):
         """Returns: int
         """
@@ -215,6 +221,7 @@ class Text(XMLSource):
             document_type=self.document_type(),
             notes=self.notes(),
             author_marc_name=self.author_marc_name(),
+            author_birth_date=self.author_birth_date(),
             author_death_date=self.author_death_date(),
             author_marc_date=self.author_marc_date(),
             full_title=self.full_title(),

@@ -76,6 +76,8 @@ class ECCOText(Text, Base):
 
     author_marc_name = Column(String)
 
+    author_birth_date = Column(Integer)
+
     author_death_date = Column(Integer)
 
     author_marc_date = Column(String)
