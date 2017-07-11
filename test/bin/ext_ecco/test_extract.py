@@ -41,6 +41,4 @@ def test_test(doc_id, spec, ext_corpus):
     text = ext_corpus.load_text(row)
     assert spec['text'] in text
 
-    # Tokens
-    tokens = ext_corpus.load_tokens(row)
-    assert tokens == tokenize(text)
+    # TODO: tokens?
