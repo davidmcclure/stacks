@@ -4,6 +4,7 @@ from stacks import config
 
 from .base import Base
 from .ecco import ECCOText, ECCOSubjectHead
+from .gale import GaleText
 
 
 def reset_db():
