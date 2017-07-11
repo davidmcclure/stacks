@@ -3,34 +3,27 @@
 import os
 
 from bs4 import BeautifulSoup
+from cached_property import cached_property
 
 from stacks.utils import get_text
+from stacks.sources import XMLSource
+from stacks.models import GaleText
 
 
-class Text:
+class Text(XMLSource):
 
-    def __init__(self, path):
-        """Parse the XML.
-
-        Args:
-            path (str)
-        """
-        self.path = os.path.abspath(path)
-
-        with open(self.path, 'rb') as fh:
-            self.xml = BeautifulSoup(fh, 'xml')
-
-    def identifier(self):
+    @cached_property
+    def psmid(self):
         """Returns: str
         """
         return get_text(self.xml, 'PSMID')
 
-    def title(self):
+    def full_title(self):
         """Returns: str
         """
         return get_text(self.xml, 'titleGroup fullTitle')
 
-    def author_full(self):
+    def author_composed(self):
         """Returns: str
         """
         return get_text(self.xml, 'author composed')
@@ -45,10 +38,10 @@ class Text:
         """
         return get_text(self.xml, 'author last')
 
-    def year(self):
+    def pub_date_start(self):
         """ Returns: int
         """
-        return int(get_text(self.xml, 'pubDate pubDateStart')[:4])
+        return parse_date(get_text(self.xml, 'pubDate pubDateStart'))
 
     def plain_text(self):
         """Returns: str
@@ -62,3 +55,18 @@ class Text:
         ]
 
         return ' '.join(strings)
+
+    def row(self):
+        """Assemble a database row.
+
+        Returns: GaleText
+        """
+        return GaleText(
+            psmid=self.psmid(),
+            pub_date_start=self.pub_date_start(),
+            author_composed=self.author_composed(),
+            author_first=self.author_first(),
+            author_last=self.author_last(),
+            full_title=self.full_title(),
+            text=self.plain_text(),
+        )

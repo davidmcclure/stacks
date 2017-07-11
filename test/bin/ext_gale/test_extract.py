@@ -2,34 +2,23 @@
 
 import pytest
 
+from subprocess import call
+from stacks.models import GaleText
+
 from test.utils import read_yaml
 
 
-pytestmark = pytest.mark.usefixtures('extract')
+@pytest.fixture(scope='module', autouse=True)
+def extract(mpi):
+    call(['mpirun', 'bin/ext-gale.py'])
+    call(['mpirun', 'bin/load-metadata.py'])
 
 
 cases = read_yaml(__file__, 'texts.yml')
 
 
-@pytest.mark.parametrize('identifier,fields', cases.items())
-def test_extract(identifier, fields, ext_corpus):
+@pytest.mark.parametrize('psmid,spec', cases.items())
+def test_test(psmid, spec, ext_corpus):
 
-    text = ext_corpus.get_text('gale', identifier)
-
-    if 'title' in fields:
-        assert text.title == fields['title']
-
-    if 'author_full' in fields:
-        assert text.author_full == fields['author_full']
-
-    if 'author_first' in fields:
-        assert text.author_first == fields['author_first']
-
-    if 'author_last' in fields:
-        assert text.author_last == fields['author_last']
-
-    if 'year' in fields:
-        assert text.year == fields['year']
-
-    if 'text' in fields:
-        assert fields['text'] in text.plain_text
+    row = GaleText.query.get(psmid)
+    print(row)

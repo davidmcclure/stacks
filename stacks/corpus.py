@@ -74,7 +74,7 @@ class Corpus:
         """
         return os.path.join(self.path, 'texts', row.tokens_path())
 
-    def index_rows(self, corpus, source, rows):
+    def index_rows(self, corpus, source, *rows):
         """Dump db rows + (annotated) text.
 
         Args:
