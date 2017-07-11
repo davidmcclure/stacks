@@ -30,7 +30,9 @@ class Corpus:
         return cls(config['data']['ext'])
 
     def _row_path(self, corpus, source):
-        """Form the path for a row set.
+        """Form the pickle path for a row group.
+
+        <root>/rows/<corpus>/012/3456789.p
 
         Args:
             corpus (str)
@@ -49,7 +51,9 @@ class Corpus:
         return os.path.join(self.path, 'rows', corpus, prefix, row_name)
 
     def _text_path(self, row):
-        """Form the text path for a row.
+        """Form the path for bzipped plaintext content.
+
+        <root>/texts/012/3456789/text.txt.bz2
 
         Args:
             row (Text)
@@ -59,7 +63,9 @@ class Corpus:
         return os.path.join(self.path, 'texts', row.text_path())
 
     def _tokens_path(self, row):
-        """Form the tokens path for a row.
+        """Form the path for bzipped tokens.
+
+        <root>/texts/012/3456789/tokens.json.bz2
 
         Args:
             row (Text)
@@ -72,8 +78,8 @@ class Corpus:
         """Dump db rows + (annotated) text.
 
         Args:
-            corpus (str): A slug for the corpus.
-            source (str): An identifier for the source entity.
+            corpus (str):
+            source (str):
             rows (list of model instances)
         """
         # Pickle database rows.
@@ -89,8 +95,8 @@ class Corpus:
         """Pickle row instances.
 
         Args:
-            corpus (str): A slug for the corpus.
-            source (str): An identifier for the source entity.
+            corpus (str):
+            source (str):
             rows (list of model instances)
         """
         path = self._row_path(corpus, source)
