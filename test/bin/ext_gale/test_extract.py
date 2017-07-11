@@ -25,3 +25,7 @@ def test_test(psmid, spec, ext_corpus):
     # Fields
     for key, val in spec['fields'].items():
         assert getattr(row, key) == val
+
+    # Text
+    text = ext_corpus.load_text(row)
+    assert spec['text'] in text
