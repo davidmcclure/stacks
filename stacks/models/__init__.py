@@ -3,7 +3,6 @@
 from stacks import config
 
 from .base import Base
-from .text import Text
 from .ecco import ECCOText, ECCOSubjectHead
 
 
