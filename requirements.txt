@@ -27,5 +27,7 @@ scandir
 attrs
 cityhash
 boltons
+nltk
+ujson
 
 -e git+https://github.com/davidmcclure/cleanconfig#egg=cleanconfig

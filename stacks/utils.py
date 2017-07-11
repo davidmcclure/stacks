@@ -9,6 +9,9 @@ import hashlib
 from itertools import islice, chain
 from git import Repo
 
+from nltk.tokenize import WordPunctTokenizer
+from nltk import pos_tag
+
 
 def grouper(iterable, size):
     """Yield "groups" from an iterable.
@@ -93,3 +96,37 @@ def git_rev(length=7):
     repo = Repo(path, search_parent_directories=True)
 
     return repo.head.commit.hexsha[:length]
+
+
+def tokenize(text):
+    """Tokenize a raw text.
+
+    Args:
+        text (str)
+
+    Returns: list of dict
+    """
+    tokenizer = WordPunctTokenizer()
+
+    # Get token character spans.
+    spans = list(tokenizer.span_tokenize(text))
+
+    # Materialize the token stream.
+    tokens = [text[c1:c2] for c1, c2 in spans]
+
+    # Tag parts-of-speech.
+    tags = pos_tag(tokens)
+
+    return [
+
+        dict(
+            token=token.lower(),
+            char1=c1,
+            char2=c2,
+            pos=pos,
+        )
+
+        for (c1, c2), token, (_, pos) in
+        zip(spans, tokens, tags)
+
+    ]

@@ -65,11 +65,11 @@ class Corpus:
         """
         for row in rows:
             if getattr(row, '_text', None):
-                self.write_text(row)
+                self._write_text(row)
 
-        self.pickle_rows(corpus, source, rows)
+        self._pickle_rows(corpus, source, rows)
 
-    def pickle_rows(self, corpus, source, rows):
+    def _pickle_rows(self, corpus, source, rows):
         """Pickle row instances.
 
         Args:
@@ -85,7 +85,7 @@ class Corpus:
         with open(row_path, 'wb') as fh:
             pickle.dump(rows, fh)
 
-    def write_text(self, row):
+    def _write_text(self, row):
         """Write plain text + annotations.
 
         Args:
