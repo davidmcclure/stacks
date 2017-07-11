@@ -19,9 +19,6 @@ from stacks.utils import get_text
     ('<tag></tag>', None),
     ('<tag>  </tag>', None),
 
-    # Missing -> None.
-    ('', None),
-
     # Join adjacent texts with a space.
     (
         '''

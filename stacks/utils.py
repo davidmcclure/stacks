@@ -4,29 +4,13 @@ import re
 import scandir
 import os
 import hashlib
+import logging
 
 from itertools import islice, chain
 from git import Repo
 
 from nltk.tokenize import WordPunctTokenizer
 from nltk import pos_tag
-
-
-def grouper(iterable, size):
-    """Yield "groups" from an iterable.
-
-    Args:
-        iterable (iter): The iterable.
-        size (int): The number of elements in each group.
-
-    Yields:
-        The next group.
-    """
-    source = iter(iterable)
-
-    while True:
-        group = islice(source, size)
-        yield chain([next(group)], group)
 
 
 def scan_paths(root, pattern):
@@ -60,41 +44,7 @@ def get_text(tree, selector):
     """
     tag = tree.select_one(selector)
 
-    if tag:
-        return ' '.join(tag.stripped_strings) or None
-
-    else:
-        return None
-
-
-def checksum(value):
-    """Checksum a string.
-
-    Args:
-        value (str)
-
-    Returns: str
-    """
-    md5 = hashlib.md5()
-
-    md5.update(value.encode('utf8'))
-
-    return md5.hexdigest()
-
-
-def git_rev(length=7):
-    """Get the hash of the git HEAD.
-
-    Args:
-        length (int)
-
-    Returns: str
-    """
-    path = os.path.abspath(os.path.dirname(__file__))
-
-    repo = Repo(path, search_parent_directories=True)
-
-    return repo.head.commit.hexsha[:length]
+    return ' '.join(tag.stripped_strings) or None
 
 
 def tokenize(text):
@@ -103,7 +53,7 @@ def tokenize(text):
     Args:
         text (str)
 
-    Returns: list of dict
+    Returns: list of {token, char1, char2, pos}
     """
     tokenizer = WordPunctTokenizer()
 
@@ -139,6 +89,6 @@ def try_or_log(f):
         try:
             return f(*args, **kwargs)
         except Exception as e:
-            print(e)
+            logging.exception('message')
             return None
     return wrapper

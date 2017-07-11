@@ -19,6 +19,7 @@ class Text(XMLSource):
         """
         return get_text(self.xml, 'documentID')
 
+    @try_or_log
     def estc_id(self):
         """Returns: str
         """
@@ -36,51 +37,61 @@ class Text(XMLSource):
         """
         return int(get_text(self.xml, 'reel'))
 
+    @try_or_log
     def mcode(self):
         """Returns: str
         """
         return get_text(self.xml, 'mcode')
 
+    @try_or_log
     def pub_date(self):
         """Returns: date
         """
         return parse_date(get_text(self.xml, 'pubDate'))
 
+    @try_or_log
     def release_date(self):
         """Returns: date
         """
         return parse_date(get_text(self.xml, 'releaseDate'))
 
+    @try_or_log
     def source_bib_citation(self):
         """Returns: str
         """
         return get_text(self.xml, 'sourceBibCitation')
 
+    @try_or_log
     def source_library(self):
         """Returns: str
         """
         return get_text(self.xml, 'sourceLibrary')
 
+    @try_or_log
     def language(self):
         """Returns: str
         """
         return get_text(self.xml, 'language')
 
+    @try_or_log
     def module(self):
         """Returns: str
         """
         return get_text(self.xml, 'module')
 
+    @try_or_log
     def document_type(self):
         """Returns: str
         """
         return get_text(self.xml, 'documentType')
 
+    @try_or_log
     def notes(self):
         """Returns: str
         """
         return get_text(self.xml, 'notes')
 
+    @try_or_log
     def author_marc_name(self):
         """Returns: str
         """
@@ -98,16 +109,19 @@ class Text(XMLSource):
         """
         return int(get_text(self.xml, 'author deathDate'))
 
+    @try_or_log
     def author_marc_date(self):
         """Returns: str
         """
         return get_text(self.xml, 'author marcDate')
 
+    @try_or_log
     def full_title(self):
         """Returns: str
         """
         return get_text(self.xml, 'fullTitle')
 
+    @try_or_log
     def display_title(self):
         """Returns: str
         """
@@ -119,11 +133,13 @@ class Text(XMLSource):
         """
         return get_text(self.xml, 'imprintFull')
 
+    @try_or_log
     def imprint_city(self):
         """Returns: str
         """
         return get_text(self.xml, 'imprintCity')
 
+    @try_or_log
     def imprint_publisher(self):
         """Returns: str
         """
@@ -136,11 +152,13 @@ class Text(XMLSource):
         text = get_text(self.xml, 'imprintYear')
         return int(re.match('[0-9]{4}', text).group(0))
 
+    @try_or_log
     def collation(self):
         """Returns: str
         """
         return get_text(self.xml, 'collation')
 
+    @try_or_log
     def publication_place(self):
         """Returns: str
         """
@@ -152,6 +170,7 @@ class Text(XMLSource):
         """
         return int(get_text(self.xml, 'totalPages'))
 
+    @try_or_log
     def plain_text(self):
         """Returns: str
         """
