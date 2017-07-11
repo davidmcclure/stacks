@@ -156,7 +156,20 @@ class Corpus:
 
         Returns: str
         """
-        text_path = self._text_path(row)
+        path = self._text_path(row)
 
-        with bz2.open(text_path) as fh:
-            return str(fh.read())
+        with bz2.open(path) as fh:
+            return fh.read().decode()
+
+    def load_tokens(self, row):
+        """Given a metadata row, hydrate tokens.
+
+        Args:
+            row (Text)
+
+        Returns: list
+        """
+        path = self._tokens_path(row)
+
+        with bz2.open(path) as fh:
+            return ujson.load(fh)

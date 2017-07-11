@@ -4,6 +4,7 @@ import pytest
 
 from subprocess import call
 from stacks.metadata.models import ECCOText, ECCOSubjectHead
+from stacks.utils import tokenize
 
 from test.utils import read_yaml
 
@@ -20,11 +21,11 @@ cases = read_yaml(__file__, 'texts.yml')
 @pytest.mark.parametrize('doc_id,spec', cases.items())
 def test_test(doc_id, spec, ext_corpus):
 
-    text = ECCOText.query.get(doc_id)
+    row = ECCOText.query.get(doc_id)
 
     # Fields
     for key, val in spec['fields'].items():
-        assert getattr(text, key) == val
+        assert getattr(row, key) == val
 
     # Subjects
     for subject in spec['subjects']:
@@ -37,5 +38,8 @@ def test_test(doc_id, spec, ext_corpus):
             )
 
     # Text
-    plain_text = ext_corpus.load_text(text)
-    assert spec['text'] in plain_text
+    text = ext_corpus.load_text(row)
+    tokens = ext_corpus.load_tokens(row)
+
+    assert spec['text'] in text
+    assert tokens == tokenize(text)
