@@ -29,5 +29,6 @@ cityhash
 boltons
 nltk
 ujson
+flake8
 
 -e git+https://github.com/davidmcclure/cleanconfig#egg=cleanconfig

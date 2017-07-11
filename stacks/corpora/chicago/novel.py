@@ -2,8 +2,6 @@
 
 import os
 
-from stacks.ext import Text as ExtText
-
 
 class Novel:
 
@@ -71,17 +69,3 @@ class Novel:
         """Returns: int
         """
         return int(self.metadata['PUBL_DATE'])
-
-    def to_ext_text(self):
-        """Returns: dict
-        """
-        return ExtText(dict(
-            corpus = 'chicago',
-            identifier = self.identifier(),
-            title = self.title(),
-            plain_text = self.source_text(),
-            author_full = self.author_full(),
-            author_first = self.author_first(),
-            author_last = self.author_last(),
-            year = self.year(),
-        ))

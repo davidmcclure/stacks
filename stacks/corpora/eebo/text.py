@@ -6,7 +6,6 @@ import re
 
 from bs4 import BeautifulSoup
 
-from stacks.ext import Text as ExtText
 from stacks.utils import get_text
 
 
@@ -50,15 +49,3 @@ class Text:
         """Returns: str
         """
         return get_text(self.xml, 'TEXT')
-
-    def to_ext_text(self):
-        """Returns: dict
-        """
-        return ExtText(dict(
-            corpus = 'eebo',
-            identifier = self.identifier(),
-            title = self.title(),
-            plain_text = self.plain_text(),
-            author_full = self.author(),
-            year = self.year(),
-        ))

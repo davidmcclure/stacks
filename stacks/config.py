@@ -1,8 +1,6 @@
 
 
 import os
-import anyconfig
-import yaml
 
 from cleanconfig import CleanConfig
 from voluptuous import Schema, Required

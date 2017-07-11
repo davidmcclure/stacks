@@ -1,25 +1,16 @@
 
 
-import os
-import attr
 import re
 
 from datetime import datetime as dt
 
 from cached_property import cached_property
-from bs4 import BeautifulSoup
 
 from stacks.utils import get_text, try_or_log
 from stacks.sources import XMLSource
 from stacks.models import ECCOText, ECCOSubjectHead
 
-# from .utils import parse_date
-
-
-def parse_date(text):
-    """Parse an ECCO date string.
-    """
-    return dt.strptime(text, '%Y%m%d').date()
+from .utils import parse_date
 
 
 class Text(XMLSource):

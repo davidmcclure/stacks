@@ -5,7 +5,6 @@ import os
 import pickle
 import bz2
 import ujson
-import uuid
 
 from cityhash import CityHash32
 from boltons.iterutils import chunked_iter

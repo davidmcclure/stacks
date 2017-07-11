@@ -5,8 +5,6 @@ import os
 import tempfile
 import shutil
 
-from sqlalchemy import event
-
 from stacks import session, config as _config
 from stacks.models import Base
 from stacks.corpus import Corpus

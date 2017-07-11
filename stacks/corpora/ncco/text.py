@@ -4,7 +4,6 @@ import os
 
 from bs4 import BeautifulSoup
 
-from stacks.ext import Text as ExtText
 from stacks.utils import get_text
 
 
@@ -68,15 +67,3 @@ class Text:
         ]
 
         return ' '.join(strings)
-
-    def to_ext_text(self):
-        """Returns: dict
-        """
-        return ExtText(dict(
-            corpus = 'ncco',
-            identifier = self.identifier(),
-            title = self.title(),
-            plain_text = self.plain_text(),
-            author_full = self.author_full(),
-            year = self.year(),
-        ))

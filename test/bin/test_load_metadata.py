@@ -2,7 +2,6 @@
 
 import pytest
 
-from datetime import datetime as dt
 from subprocess import call
 
 from stacks.models import Text
@@ -15,8 +14,6 @@ pytestmark = pytest.mark.usefixtures('db', 'mpi')
 def test_load_metadata(ext_corpus):
     """Text.ingest() should load texts from the ENV-defined corpus.
     """
-    now = dt.now()
-
     t1 = ExtText(dict(
         corpus='corpus1',
         identifier='identifier1',

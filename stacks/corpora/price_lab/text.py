@@ -1,10 +1,8 @@
 
-
 import os
 
 from slugify import slugify
 
-from stacks.ext import Text as ExtText
 from stacks.utils import scan_paths
 
 
@@ -83,17 +81,3 @@ class Text:
             self.author_last(),
             self.title(),
         ]))
-
-    def to_ext_text(self):
-        """Returns: dict
-        """
-        return ExtText(dict(
-            corpus = 'price-lab',
-            identifier = self.identifier(),
-            title = self.title(),
-            plain_text = self.source_text(),
-            author_full = self.author_full(),
-            author_first = self.author_first(),
-            author_last = self.author_last(),
-            year = self.year(),
-        ))

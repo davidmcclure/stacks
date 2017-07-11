@@ -1,6 +1,5 @@
 
 
-from sqlalchemy import Column, Integer
 from sqlalchemy.ext.declarative import declarative_base
 
 from stacks import session

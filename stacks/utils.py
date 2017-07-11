@@ -3,7 +3,6 @@
 import re
 import scandir
 import os
-import subprocess
 import hashlib
 
 from itertools import islice, chain

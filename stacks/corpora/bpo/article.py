@@ -1,11 +1,8 @@
 
 
-import os
-
 from zipfile import ZipFile
 from bs4 import BeautifulSoup
 
-from stacks.ext import Text as ExtText
 from stacks.utils import get_text
 
 
@@ -56,17 +53,3 @@ class Article:
         """Returns: str
         """
         return get_text(self.xml, 'FullText')
-
-    def to_ext_text(self):
-        """Returns: dict
-        """
-        return ExtText(dict(
-            corpus = 'bpo',
-            identifier = self.identifier(),
-            title = self.title(),
-            plain_text = self.plain_text(),
-            author_full = self.author_full(),
-            author_first = self.author_first(),
-            author_last = self.author_last(),
-            year = self.year(),
-        ))

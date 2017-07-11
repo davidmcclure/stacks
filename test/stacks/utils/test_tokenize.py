@@ -1,7 +1,5 @@
 
 
-import pytest
-
 from stacks.utils import tokenize
 
 

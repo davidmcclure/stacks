@@ -2,8 +2,6 @@
 
 import os
 
-from stacks.ext import Text as ExtText
-
 
 class Text:
 
@@ -26,7 +24,7 @@ class Text:
         """
         fname = '{0}.txt'.format(self.identifier())
 
-        return os.path.join(self.texts_path, fname);
+        return os.path.join(self.texts_path, fname)
 
     def source_text(self):
         """Returns: str
@@ -61,15 +59,3 @@ class Text:
         Returns: str
         """
         return self.slug + str(self.year())
-
-    def to_ext_text(self):
-        """Returns: dict
-        """
-        return ExtText(dict(
-            corpus = 'dime-westerns',
-            identifier = self.identifier(),
-            title = self.title(),
-            plain_text = self.source_text(),
-            author_full = self.author_full(),
-            year = self.year(),
-        ))
