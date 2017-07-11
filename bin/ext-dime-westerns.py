@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.dime_westerns import Corpus, Text
+from stacks.corpora.dime_westerns import Corpus, Text
 
 
 class DimeWesternsExtractor(Extractor):

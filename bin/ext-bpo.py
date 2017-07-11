@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.bpo import Corpus, Article
+from stacks.corpora.bpo import Corpus, Article
 
 
 class BPOExtractor(Extractor):

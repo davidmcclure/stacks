@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.chicago import Corpus, Novel
+from stacks.corpora.chicago import Corpus, Novel
 
 
 class ChicagoExtractor(Extractor):

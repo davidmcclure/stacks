@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.chadh_drama import Corpus, Source
+from stacks.corpora.chadh_drama import Corpus, Source
 
 
 class CHADHDramaExtractor(Extractor):

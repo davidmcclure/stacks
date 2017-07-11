@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.litlab_suspense import Corpus, Text
+from stacks.corpora.litlab_suspense import Corpus, Text
 
 
 class LitLabSuspenseExtractor(Extractor):

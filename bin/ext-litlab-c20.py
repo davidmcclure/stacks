@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.litlab_c20 import Corpus, Text
+from stacks.corpora.litlab_c20 import Corpus, Text
 
 
 class LitLabC20Extractor(Extractor):

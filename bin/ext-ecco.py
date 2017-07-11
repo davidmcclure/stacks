@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw import ecco
+from stacks.corpora import ecco
 
 
 class ECCOExtractor(Extractor):

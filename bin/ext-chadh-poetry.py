@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.chadh_poetry import Corpus, Source
+from stacks.corpora.chadh_poetry import Corpus, Source
 
 
 class CHADHPoetryExtractor(Extractor):

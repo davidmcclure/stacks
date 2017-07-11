@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.ncco import Corpus, Text
+from stacks.corpora.ncco import Corpus, Text
 
 
 class NCCOExtractor(Extractor):

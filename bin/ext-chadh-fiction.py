@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.chadh_fiction import Corpus, Source
+from stacks.corpora.chadh_fiction import Corpus, Source
 
 
 class CHADHFictionExtractor(Extractor):

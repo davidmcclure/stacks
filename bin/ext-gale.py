@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.raw.gale import Corpus, Text
+from stacks.corpora.gale import Corpus, Text
 
 
 class GaleExtractor(Extractor):
