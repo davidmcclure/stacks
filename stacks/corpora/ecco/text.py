@@ -9,45 +9,15 @@ from datetime import datetime as dt
 from cached_property import cached_property
 from bs4 import BeautifulSoup
 
+from stacks.utils import get_text, try_or_log
+from stacks.sources import XMLSource
 from stacks.models import ECCOText, ECCOSubjectHead
-from stacks.utils import get_text
-
-
-@attr.s
-class XMLSource:
-
-    xml = attr.ib()
-
-    @classmethod
-    def from_file(cls, path):
-        """Hydrate from a file path.
-
-        Args:
-            path (str)
-
-        Returns: cls
-        """
-        with open(path, 'rb') as fh:
-            return cls(BeautifulSoup(fh, 'xml'))
 
 
 def parse_date(text):
     """Parse an ECCO date string.
     """
     return dt.strptime(text, '%Y%m%d').date()
-
-
-def try_or_log(f):
-    """Wrap a class method call in a try block. If an error is raised, return
-    None and log the exception.
-    """
-    def wrapper(*args, **kwargs):
-        try:
-            return f(*args, **kwargs)
-        except Exception as e:
-            print(e)
-            return None
-    return wrapper
 
 
 class Text(XMLSource):

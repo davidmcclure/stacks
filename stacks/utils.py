@@ -130,3 +130,16 @@ def tokenize(text):
         zip(spans, tokens, tags)
 
     ]
+
+
+def try_or_log(f):
+    """Wrap a class method call in a try block. If an error is raised, return
+    None and log the exception.
+    """
+    def wrapper(*args, **kwargs):
+        try:
+            return f(*args, **kwargs)
+        except Exception as e:
+            print(e)
+            return None
+    return wrapper
