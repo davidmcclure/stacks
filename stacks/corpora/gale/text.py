@@ -41,7 +41,7 @@ class Text(XMLSource):
     def pub_date_start(self):
         """ Returns: int
         """
-        return parse_date(get_text(self.xml, 'pubDate pubDateStart'))
+        return int(get_text(self.xml, 'pubDate pubDateStart')[:4])
 
     def plain_text(self):
         """Returns: str
@@ -62,7 +62,7 @@ class Text(XMLSource):
         Returns: GaleText
         """
         return GaleText(
-            psmid=self.psmid(),
+            psmid=self.psmid,
             pub_date_start=self.pub_date_start(),
             author_composed=self.author_composed(),
             author_first=self.author_first(),

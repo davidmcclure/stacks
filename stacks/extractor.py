@@ -1,7 +1,8 @@
 
 
 import numpy as np
-import json
+import ujson
+import logging
 
 from stacks.corpus import Corpus
 
@@ -42,7 +43,7 @@ class Extractor:
         if rank == 0:
 
             segments = [
-                json.dumps(list(s))
+                ujson.dumps(list(s))
                 for s in np.array_split(self.args(), size)
             ]
 
@@ -50,7 +51,7 @@ class Extractor:
 
         # ** Write JSON files.
 
-        args = json.loads(segment)
+        args = ujson.loads(segment)
 
         print(rank, len(args))
 
@@ -65,7 +66,7 @@ class Extractor:
                     self.flush(arg)
 
             except Exception as e:
-                print(arg, e)
+                logging.exception('message')
 
             if i % 100 == 0:
                 print(rank, i)

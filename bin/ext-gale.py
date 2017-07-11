@@ -8,7 +8,7 @@ from stacks.corpora.gale import Corpus, Text
 class GaleExtractor(Extractor):
 
     def args(self):
-        """Provide a list of ECCO paths.
+        """Provide a list of Gale paths.
 
         Returns: list
         """
@@ -22,9 +22,9 @@ class GaleExtractor(Extractor):
         Args:
             path (str)
         """
-        text = Text(path)
+        text = Text.from_file(path)
 
-        self.corpus.insert_text(text.to_ext_text())
+        self.corpus.index_rows('gale', text.psmid, text.row())
 
 
 if __name__ == '__main__':

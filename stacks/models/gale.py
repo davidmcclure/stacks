@@ -30,7 +30,7 @@ class GaleText(Text, Base):
 
     pub_date_composed = Column(String)
 
-    pub_date_start = Column(Date)
+    pub_date_start = Column(Integer)
 
     release_date = Column(Date)
 
