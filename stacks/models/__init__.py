@@ -1,4 +1,5 @@
 
+# flake8: noqa
 
 from stacks import config
 

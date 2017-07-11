@@ -2,8 +2,6 @@
 
 import re
 
-from datetime import datetime as dt
-
 from cached_property import cached_property
 
 from stacks.utils import get_text, try_or_log
