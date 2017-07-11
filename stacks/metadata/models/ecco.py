@@ -43,6 +43,17 @@ class Text:
 
         super().__init__(*args, **kwargs)
 
+    def text_path(self):
+        """Form the relative plain text bz2 path.
+
+        Returns: str
+        """
+        prefix = self.text_hash[:3]
+        suffix = self.text_hash[3:]
+
+        # Form the file path.
+        return os.path.join(self.corpus, prefix, suffix, 'text.bz2')
+
 
 class ECCOText(Text, Base):
 

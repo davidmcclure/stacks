@@ -26,6 +26,35 @@ class Corpus:
         """
         return cls(config['data']['ext'])
 
+    def _row_path(self, corpus, source):
+        """Form the path for a row set.
+
+        Args:
+            corpus (str)
+            source (str)
+
+        Returns: str
+        """
+        # Form the hash directories.
+        source_hash = str(CityHash32(source))
+        prefix = source_hash[:3]
+        suffix = source_hash[3:]
+
+        # Form the row path.
+        row_name = '{}.p'.format(suffix)
+
+        return os.path.join(self.path, 'rows', corpus, prefix, row_name)
+
+    def _text_path(self, row):
+        """Form the text path for a row.
+
+        Args:
+            row (Text)
+
+        Returns: str
+        """
+        return os.path.join(self.path, 'texts', row.text_path())
+
     def index_rows(self, corpus, source, rows):
         """Dump db rows + (annotated) text.
 
@@ -48,14 +77,7 @@ class Corpus:
             source (str): An identifier for the source entity.
             rows (list of model instances)
         """
-        # Form the hash directories.
-        source_hash = str(CityHash32(source))
-        prefix = source_hash[:3]
-        suffix = source_hash[3:]
-
-        # Form the row path.
-        row_name = '{}.p'.format(suffix)
-        row_path = os.path.join(self.path, 'rows', corpus, prefix, row_name)
+        row_path = self._row_path(corpus, source)
 
         # Create the directory.
         os.makedirs(os.path.dirname(row_path), exist_ok=True)
@@ -65,15 +87,11 @@ class Corpus:
 
     def write_text(self, row):
         """Write plain text + annotations.
-        """
-        prefix = row.text_hash[:3]
-        suffix = row.text_hash[3:]
 
-        # Form the file path.
-        text_path = os.path.join(
-            self.path, 'texts', row.corpus,
-            prefix, suffix, 'text.bz2',
-        )
+        Args:
+            row (Text)
+        """
+        text_path = self._text_path(row)
 
         # Create the text directory.
         os.makedirs(os.path.dirname(text_path), exist_ok=True)
@@ -85,6 +103,8 @@ class Corpus:
 
     def db_rows(self):
         """Generate database rows.
+
+        Yields: Text
         """
         for path in scan_paths(self.path, '\.p'):
             with open(path, 'rb') as fh:
@@ -92,6 +112,9 @@ class Corpus:
 
     def load_db(self, chunk_size=1000):
         """Write db rows.
+
+        Args:
+            chunk_size (int): Insert page size.
         """
         for chunk in chunked_iter(self.db_rows(), chunk_size):
             session.bulk_save_objects(chunk)
@@ -107,14 +130,7 @@ class Corpus:
 
         Returns: str
         """
-        prefix = row.text_hash[:3]
-        suffix = row.text_hash[3:]
-
-        # Form the file path.
-        text_path = os.path.join(
-            self.path, 'texts', row.corpus,
-            prefix, suffix, 'text.bz2',
-        )
+        text_path = self._text_path(row)
 
         with bz2.open(text_path) as fh:
             return str(fh.read())
