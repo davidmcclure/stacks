@@ -1,6 +1,6 @@
 
 
-from sqlalchemy import Column, Integer, String, Date
+from sqlalchemy import Column, Integer, String, Date, Float
 
 from stacks.models import Base
 from .text import Text
@@ -16,7 +16,7 @@ class GaleText(Text, Base):
 
     asset_id_e_toc = Column(String)
 
-    div_collection_id = Column(String)
+    dvi_collection_id = Column(String)
 
     bibliographic_id = Column(String)
 
@@ -24,7 +24,7 @@ class GaleText(Text, Base):
 
     mcode = Column(String)
 
-    ocr = Column(String)
+    ocr = Column(Float)
 
     pub_date_irregular = Column(String)
 

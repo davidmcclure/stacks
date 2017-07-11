@@ -1,33 +1,63 @@
 ---
 
 AMFCF0002-C00000-B0000400:
-  title: "Illustrated Lives and Adventures of the Desperadoes of the New World: Containing an Account of the Different Modes of Lynching, the Cane Hill Murders, the Victims, the Execution, the Justicifation, Etc., Etc: As Well as the Lives of the Principal Duellist"
-  author_full: Arrington, Alfred W.
-  author_first: Alfred
-  author_last: Arrington
-  year: 1849
+
+  fields:
+    asset_id: WUQLKP724100933
+    asset_id_e_toc: LDWXMF531190421
+    dvi_collection_id: AMFCC0001
+    bibliographic_id: ocm05238011
+    reel: A-4
+    mcode: 2YPR
+    ocr: 56.66
+    pub_date_irregular: '[1849]'
+    pub_date_composed: '[1849]'
+    pub_date_start: 1849
+    release_date: 2016-03-31
+    source_library_name: Primary Source Media
+    source_library_location: Meriden, CT, United States
+    language: English
+    document_type: Monograph
+    notes: Wright Bibliography Vol. I, 51
+    author_composed: Arrington, Alfred W.
+    author_first: Alfred
+    author_middle: W.
+    author_last: Arrington
+    author_birth_date: 1810
+    author_death_date: 1867
+    full_title: 'Illustrated Lives and Adventures of the Desperadoes of the New World: Containing an Account of the Different Modes of Lynching, the Cane Hill Murders, the Victims, the Execution, the Justicifation, Etc., Etc: As Well as the Lives of the Principal Duellist'
+    display_title: 'Illustrated Lives and Adventures of the Desperadoes of the New World: Containing an Account of the Different Modes of Lynching, the Cane Hill …'
+    imprint_full: 'Philadelphia: Peterson, [1849]'
+    imprint_publisher: Peterson
+    collation: '1 online resource 117 pages: illustrations'
+    publication_place_city: Philadelphia
+    publication_place_state: Pennsylvania
+    publication_place_country: United States
+    publication_place_composed: Philadelphia
+    total_pages: 112
+
   text: The scenes presented in the following pages are not painted fion. memory alone.
 
-AMFCF0002-C00000-B0000600:
-  title: "Agnes, or, the Possessed: A Revelation of Mesmerism: By T. S. Arthur"
-  author_full: Arthur, T. S. (Timothy Shay)
-  author_first: Timothy
-  author_last: Arthur
-  year: 1848
-  text: Entend according to Act of Congrese, in the year 1848,
+#AMFCF0002-C00000-B0000600:
+  #title: "Agnes, or, the Possessed: A Revelation of Mesmerism: By T. S. Arthur"
+  #author_full: Arthur, T. S. (Timothy Shay)
+  #author_first: Timothy
+  #author_last: Arthur
+  #year: 1848
+  #text: Entend according to Act of Congrese, in the year 1848,
 
-AMFCF0003-C00000-B0000100:
-  title: "Brilla: By Anna M. Doling"
-  author_full: Doling, Anna Mooney
-  author_first: Anna
-  author_last: Doling
-  year: 1913
-  text: Down yondah on the rivrah, between the hills, is the county seat of Bawkahsville,
+#AMFCF0003-C00000-B0000100:
+  #title: "Brilla: By Anna M. Doling"
+  #author_full: Doling, Anna Mooney
+  #author_first: Anna
+  #author_last: Doling
+  #year: 1913
+  #text: Down yondah on the rivrah, between the hills, is the county seat of Bawkahsville,
 
-AMFCF0003-C00000-B0000200:
-  title: "Virginia's Inheritance: By Cooke Don-Carlos"
-  author_full: Don-Carlos, Cooke
-  author_first: Cooke
-  author_last: Don-Carlos
-  year: 1915
-  text: Ella didn’t have nobody to go to, not knowing a soul in Sedgebury,
+#AMFCF0003-C00000-B0000200:
+  #title: "Virginia's Inheritance: By Cooke Don-Carlos"
+  #author_full: Don-Carlos, Cooke
+  #author_first: Cooke
+  #author_last: Don-Carlos
+  #year: 1915
+  #text: Ella didn’t have nobody to go to, not knowing a soul in Sedgebury,

@@ -33,10 +33,10 @@ class Text(XMLSource):
         return get_text(self.xml, 'assetIDeTOC')
 
     @try_or_log
-    def div_collection_id(self):
+    def dvi_collection_id(self):
         """Returns: str
         """
-        return get_text(self.xml, 'divCollectionID')
+        return get_text(self.xml, 'dviCollectionID')
 
     @try_or_log
     def bibliographic_id(self):
@@ -235,7 +235,7 @@ class Text(XMLSource):
             psmid=self.psmid,
             asset_id=self.asset_id(),
             asset_id_e_toc=self.asset_id_e_toc(),
-            div_collection_id=self.div_collection_id(),
+            dvi_collection_id=self.dvi_collection_id(),
             bibliographic_id=self.bibliographic_id(),
             reel=self.reel(),
             mcode=self.mcode(),

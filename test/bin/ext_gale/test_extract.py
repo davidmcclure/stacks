@@ -21,4 +21,7 @@ cases = read_yaml(__file__, 'texts.yml')
 def test_test(psmid, spec, ext_corpus):
 
     row = GaleText.query.get(psmid)
-    print(row)
+
+    # Fields
+    for key, val in spec['fields'].items():
+        assert getattr(row, key) == val
