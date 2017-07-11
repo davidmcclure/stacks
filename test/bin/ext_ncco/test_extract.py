@@ -11,6 +11,7 @@ pytestmark = pytest.mark.usefixtures('extract')
 cases = read_yaml(__file__, 'texts.yml')
 
 
+@pytest.mark.skip
 @pytest.mark.parametrize('identifier,fields', cases.items())
 def test_extract(identifier, fields, ext_corpus):
 
