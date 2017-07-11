@@ -117,4 +117,4 @@ class Corpus:
         )
 
         with bz2.open(text_path) as fh:
-            return fh.read()
+            return str(fh.read())

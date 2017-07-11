@@ -18,7 +18,7 @@ cases = read_yaml(__file__, 'texts.yml')
 
 
 @pytest.mark.parametrize('doc_id,spec', cases.items())
-def test_test(doc_id, spec):
+def test_test(doc_id, spec, ext_corpus):
 
     text = ECCOText.query.get(doc_id)
 
@@ -36,20 +36,6 @@ def test_test(doc_id, spec):
                 value=value,
             )
 
-
-# @pytest.mark.parametrize('identifier,fields', cases.items())
-# def test_extract(identifier, fields, ext_corpus):
-
-    # text = ext_corpus.get_text('ecco', identifier)
-
-    # if 'title' in fields:
-        # assert text.title == fields['title']
-
-    # if 'author_full' in fields:
-        # assert text.author_full == fields['author_full']
-
-    # if 'year' in fields:
-        # assert text.year == fields['year']
-
-    # if 'text' in fields:
-        # assert fields['text'] in text.plain_text
+    # Text
+    plain_text = ext_corpus.load_text(text)
+    assert spec['text'] in plain_text

@@ -9,7 +9,7 @@ from sqlalchemy import event
 
 from stacks import session, config as _config
 from stacks.metadata.models import Base
-from stacks.ext import Corpus
+from stacks.corpus import Corpus
 
 
 @pytest.fixture(scope='session', autouse=True)
