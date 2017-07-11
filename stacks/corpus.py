@@ -98,3 +98,23 @@ class Corpus:
             session.flush()
 
         session.commit()
+
+    def load_text(self, row):
+        """Given a metadata row, hydrate plain text.
+
+        Args:
+            row (Text)
+
+        Returns: str
+        """
+        prefix = row.text_hash[:3]
+        suffix = row.text_hash[3:]
+
+        # Form the file path.
+        text_path = os.path.join(
+            self.path, 'texts', row.corpus,
+            prefix, suffix, 'text.bz2',
+        )
+
+        with bz2.open(text_path) as fh:
+            return fh.read()
