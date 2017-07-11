@@ -43,8 +43,8 @@ class Text:
 
         super().__init__(*args, **kwargs)
 
-    def text_path(self):
-        """Form the relative plain text bz2 path.
+    def _data_path(self, file_name):
+        """Given a file name, form a relative path for a data file.
 
         Returns: str
         """
@@ -52,7 +52,21 @@ class Text:
         suffix = self.text_hash[3:]
 
         # Form the file path.
-        return os.path.join(self.corpus, prefix, suffix, 'text.bz2')
+        return os.path.join(self.corpus, prefix, suffix, file_name)
+
+    def text_path(self):
+        """Form the relative plain text bz2 path.
+
+        Returns: str
+        """
+        return self._data_path('text.txt.bz2')
+
+    def tokens_path(self):
+        """Form the relative plain text bz2 path.
+
+        Returns: str
+        """
+        return self._data_path('tokens.json.bz2')
 
 
 class ECCOText(Text, Base):
