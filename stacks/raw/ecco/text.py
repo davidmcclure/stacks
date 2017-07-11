@@ -10,7 +10,7 @@ from cached_property import cached_property
 from bs4 import BeautifulSoup
 
 from stacks.ext import Text as ExtText
-from stacks.metadata.models import ECCOText, ECCOSubjectHead
+from stacks.models import ECCOText, ECCOSubjectHead
 from stacks.utils import get_text
 
 

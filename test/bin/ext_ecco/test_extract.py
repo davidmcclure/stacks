@@ -3,7 +3,7 @@
 import pytest
 
 from subprocess import call
-from stacks.metadata.models import ECCOText, ECCOSubjectHead
+from stacks.models import ECCOText, ECCOSubjectHead
 from stacks.utils import tokenize
 
 from test.utils import read_yaml

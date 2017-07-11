@@ -106,7 +106,7 @@ And, of course, the great thing about SQLite is that the database is just a flat
 
 ```python
 from stacks import session
-from stacks.metadata.models import Text
+from stacks.models import Text
 
 query = (
     session.query(Text.path)

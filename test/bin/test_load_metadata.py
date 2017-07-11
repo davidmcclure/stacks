@@ -5,7 +5,7 @@ import pytest
 from datetime import datetime as dt
 from subprocess import call
 
-from stacks.metadata.models import Text
+from stacks.models import Text
 from stacks.ext import Text as ExtText
 
 

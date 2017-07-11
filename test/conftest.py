@@ -8,7 +8,7 @@ import shutil
 from sqlalchemy import event
 
 from stacks import session, config as _config
-from stacks.metadata.models import Base
+from stacks.models import Base
 from stacks.corpus import Corpus
 
 

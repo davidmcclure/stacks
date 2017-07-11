@@ -18,7 +18,7 @@ from sqlalchemy import (
     Date,
 )
 
-from stacks.metadata.models import Base
+from stacks.models import Base
 
 
 # TODO: Make generic.

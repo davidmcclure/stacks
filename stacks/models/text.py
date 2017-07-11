@@ -14,7 +14,7 @@ from sqlalchemy import (
 )
 
 from stacks import session
-from stacks.metadata.models import Base
+from stacks.models import Base
 from stacks.utils import grouper
 
 from stacks.ext import (
