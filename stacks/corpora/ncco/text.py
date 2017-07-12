@@ -61,24 +61,6 @@ class Text(XMLSource):
         return float(get_text(self.xml, 'ocr'))
 
     @try_or_log
-    def pub_date_year(self):
-        """Returns: str
-        """
-        return parse_year(get_text(self.xml, 'pubDate year'))
-
-    @try_or_log
-    def pub_date_irregular(self):
-        """Returns: str
-        """
-        return get_text(self.xml, 'pubDate irregular')
-
-    @try_or_log
-    def pub_date_composed(self):
-        """Returns: str
-        """
-        return get_text(self.xml, 'pubDate composed')
-
-    @try_or_log
     def pub_date_start(self):
         """ Returns: int
         """
@@ -256,9 +238,6 @@ class Text(XMLSource):
             reel=self.reel(),
             mcode=self.mcode(),
             ocr=self.ocr(),
-            pub_date_year=self.pub_date_year(),
-            pub_date_irregular=self.pub_date_irregular(),
-            pub_date_composed=self.pub_date_composed(),
             pub_date_start=self.pub_date_start(),
             pub_date_end=self.pub_date_end(),
             release_date=self.release_date(),

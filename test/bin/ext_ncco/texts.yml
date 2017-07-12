@@ -1,7 +1,28 @@
 ---
 
-#NCCOF0063-C00000-B0000101:
-  #text: The first of the following tales, The Baboo, was written by a civil servant of the Bengal establishment,
+NCCOF0063-C00000-B0000101:
+
+  fields:
+    asset_id: MREAZV383127371
+    asset_id_e_toc: KQMMNM275537526
+    dvi_collection_id: NCCOC0062
+    bibliographic_id: NCCO001086
+    mcode: 4UVC
+    ocr: 43.88
+    pub_date_start: 1834
+    release_date: 2012-06-11
+    language: English
+    document_type: Fictional work
+    full_title: The Baboo and other tales descriptive of society in India
+    display_title: The Baboo and other tales descriptive of society in India
+    # TODO: volumeGroup?
+    imprint_full: 'London: Smith, Elder and Co., 1834'
+    imprint_publisher: Smith, Elder and Co.
+    # TODO: imprintManufacturePlace, imprintManufacturer
+    collation: '1 online resource (2 v.).'
+    total_pages: 343
+
+  text: The first of the following tales, The Baboo, was written by a civil servant of the Bengal establishment,
 
 #NCCOF0063-C00000-B0000102:
   #title: The Baboo and other tales descriptive of society in India
@@ -42,8 +63,6 @@ NCCOF0092-C00000-B0005704:
     mcode: 5WKV
     ocr: 56.98
     #pub_date_year:
-    pub_date_irregular: January 22nd 1943—1944
-    pub_date_composed: January 22nd 1943—1944
     # TODO: Take full date? Often just year provided.
     pub_date_start: 1943
     pub_date_end: 1944

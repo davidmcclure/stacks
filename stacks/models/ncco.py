@@ -26,12 +26,6 @@ class NCCOText(Text, Base):
 
     ocr = Column(Float)
 
-    pub_date_year = Column(Integer)
-
-    pub_date_irregular = Column(String)
-
-    pub_date_composed = Column(String)
-
     pub_date_start = Column(Integer)
 
     pub_date_end = Column(Integer)
