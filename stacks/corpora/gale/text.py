@@ -5,11 +5,9 @@ import os
 from bs4 import BeautifulSoup
 from cached_property import cached_property
 
-from stacks.utils import get_text, try_or_log, parse_year
+from stacks.utils import get_text, try_or_log, parse_year, parse_8d_date
 from stacks.models import GaleText
 from stacks.sources import XMLSource
-
-from .utils import parse_date
 
 
 class Text(XMLSource):
@@ -84,7 +82,7 @@ class Text(XMLSource):
     def release_date(self):
         """ Returns: str
         """
-        return parse_date(get_text(self.xml, 'releaseDate'))
+        return parse_8d_date(get_text(self.xml, 'releaseDate'))
 
     @try_or_log
     def source_library_name(self):

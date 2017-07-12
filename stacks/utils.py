@@ -6,6 +6,8 @@ import os
 import hashlib
 import logging
 
+from datetime import datetime as dt
+
 from itertools import islice, chain
 from git import Repo
 
@@ -94,9 +96,15 @@ def try_or_log(f):
     return wrapper
 
 
-def parse_year(string):
+def parse_year(text):
     """Extract a 4-digit year integer from a string.
 
     Returns: int
     """
-    return int(re.search('[0-9]{4}', string).group(0))
+    return int(re.search('[0-9]{4}', text).group(0))
+
+
+def parse_8d_date(text):
+    """Parse a date string.
+    """
+    return dt.strptime(text, '%Y%m%d').date()
