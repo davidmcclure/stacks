@@ -4,11 +4,9 @@ import re
 
 from cached_property import cached_property
 
-from stacks.utils import get_text, try_or_log
+from stacks.utils import get_text, try_or_log, parse_8d_date
 from stacks.sources import XMLSource
 from stacks.models import ECCOText, ECCOSubjectHead
-
-from .utils import parse_date
 
 
 class Text(XMLSource):
@@ -47,13 +45,13 @@ class Text(XMLSource):
     def pub_date(self):
         """Returns: date
         """
-        return parse_date(get_text(self.xml, 'pubDate'))
+        return parse_8d_date(get_text(self.xml, 'pubDate'))
 
     @try_or_log
     def release_date(self):
         """Returns: date
         """
-        return parse_date(get_text(self.xml, 'releaseDate'))
+        return parse_8d_date(get_text(self.xml, 'releaseDate'))
 
     @try_or_log
     def source_bib_citation(self):
