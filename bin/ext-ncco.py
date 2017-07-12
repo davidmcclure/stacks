@@ -24,7 +24,7 @@ class NCCOExtractor(Extractor):
         """
         text = Text.from_file(path)
 
-        self.corpus.index_rows('ncco', text.psmid, text.row())
+        self.corpus.index_rows('ncco', text.psmid, *text.rows())
 
 
 if __name__ == '__main__':

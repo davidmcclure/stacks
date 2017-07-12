@@ -3,7 +3,7 @@
 import pytest
 
 from subprocess import call
-from stacks.models import NCCOText
+from stacks.models import NCCOText, NCCOSubjectHead
 
 from test.utils import read_yaml
 
@@ -25,6 +25,14 @@ def test_extract(psmid, spec, ext_corpus):
     # Fields
     for key, val in spec['fields'].items():
         assert getattr(row, key) == val
+
+    # Subjects
+    for subject in spec.get('subjects', []):
+        for sub_field, value in subject['sub_fields'].items():
+
+            assert NCCOSubjectHead.query.filter_by(
+                type=subject['type'], sub_field=sub_field, value=value,
+            )
 
     # Text
     text = ext_corpus.load_text(row)

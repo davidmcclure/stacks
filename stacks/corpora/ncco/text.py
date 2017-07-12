@@ -5,8 +5,8 @@ import os
 from bs4 import BeautifulSoup
 from cached_property import cached_property
 
+from stacks.models import NCCOText, NCCOSubjectHead
 from stacks.utils import get_text, try_or_log, parse_year, parse_8d_date
-from stacks.models import NCCOText
 from stacks.sources import XMLSource
 
 
@@ -248,7 +248,7 @@ class Text(XMLSource):
 
         return ' '.join(strings)
 
-    def row(self):
+    def text_row(self):
         """Assemble a database row.
 
         Returns: GaleText
@@ -293,3 +293,23 @@ class Text(XMLSource):
             total_pages=self.total_pages(),
             text=self.plain_text(),
         )
+
+    def subject_head_rows(self):
+        """Build a list of subject heading rows.
+
+        Returns: list of ECCOSubjectHead
+        """
+        for head in self.xml.select('locSubjectHead'):
+            for subject in head.select('locSubject'):
+
+                yield NCCOSubjectHead(
+                    psmid=self.psmid,
+                    type=head.attrs['type'],
+                    sub_field=subject.attrs['subField'],
+                    value=subject.text,
+                )
+
+    def rows(self):
+        """Assemble list of all database rows.
+        """
+        return [self.text_row()] + list(self.subject_head_rows())

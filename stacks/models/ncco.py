@@ -91,7 +91,7 @@ class NCCOSubjectHead(Base):
 
     id = Column(Integer, primary_key=True)
 
-    document_id = Column(String)
+    psmid = Column(String)
 
     type = Column(String)
 

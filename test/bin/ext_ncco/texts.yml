@@ -26,6 +26,14 @@ NCCOF0063-C00000-B0000101:
 
   text: The first of the following tales, The Baboo, was written by a civil servant of the Bengal establishment,
 
+  subjects:
+
+    - type: geographicalLocation
+      sub_fields:
+        a: India
+        x: Social life and customs
+        v: Fiction.
+
 NCCOF0063-C00000-B0000102:
 
   fields:
@@ -54,6 +62,14 @@ NCCOF0063-C00000-B0000102:
 
   text: Tliere is on aristocracy of birth In England, and a second one of ricbes,
 
+  subjects:
+
+    - type: geographicalLocation
+      sub_fields:
+        a: India
+        x: Social life and customs
+        v: Fiction
+
 NCCOF0063-C00000-B0000301:
 
   fields:
@@ -79,6 +95,13 @@ NCCOF0063-C00000-B0000301:
     total_pages: 341
 
   text: In offering the following work to the public the Author is sensible he must calculate greatly upon its indulgence.
+
+  subjects:
+
+    - type: topicalTerm
+      sub_fields:
+        a: English fiction
+        y: 19th century.
 
 NCCOF0063-C00000-B0000302:
 
@@ -106,6 +129,13 @@ NCCOF0063-C00000-B0000302:
 
   text: Then came faire May, the fairest mayd on ground,
 
+  subjects:
+
+    - type: topicalTerm
+      sub_fields:
+        a: English fiction
+        y: 19th century.
+
 NCCOF0063-C00000-B0000303:
 
   fields:
@@ -132,6 +162,13 @@ NCCOF0063-C00000-B0000303:
 
   text: I would consort with mine eternal enemy To he revenged on him.
 
+  subjects:
+
+    - type: topicalTerm
+      sub_fields:
+        a: English fiction
+        y: 19th century.
+
 NCCOF0063-C00000-B0000501:
 
   fields:
@@ -152,12 +189,21 @@ NCCOF0063-C00000-B0000501:
     author_death_date: 1874
     full_title: 'The provost of Paris: a tale of the court of Charles VI'
     display_title: 'The provost of Paris: a tale of the court of Charles VI'
+    volume: 1
+    total_volumes: 3
     imprint_full: 'Paris: A. and W. Galignani, 1833'
     imprint_publisher: A. and W. Galignani
     collation: '1 online resource (3 v.).'
     total_pages: 248
 
   text: It is with feelings of unaffected diffidence, that these volumes are submitted to the public.
+
+  subjects:
+
+    - type: topicalTerm
+      sub_fields:
+        a: English fiction
+        y: 19th century.
 
 NCCOF0092-C00000-B0005704:
 
@@ -176,22 +222,14 @@ NCCOF0092-C00000-B0005704:
     source_library_location: London, United Kingdom
     language: English
     document_type: Musical work
-    #notes:
-    #comments:
-    #author_composed:
-    #author_first:
-    #author_middle:
-    #author_last:
-    #author_birth_date:
-    #author_death_date:
     full_title: The Royal Philharmonic Society. The Hundred-And-Thirty-Second Season. Fourth Concert, Saturday, January 22nd 1943—1944
     display_title: The Royal Philharmonic Society. The Hundred-And-Thirty-Second Season. Fourth Concert, Saturday, January 22nd 1943—1944
+    volume: 4
+    total_volumes: 7
     imprint_full: 'London: Novello, Printers, January 22nd 1943—1944'
     imprint_publisher: Novello, Printers
     collation: '1 online resource (7 v.)'
     publication_place_city: London
-    #publication_place_state:
-    #publication_place_country:
     publication_place_composed: London
     total_pages: 4
 
