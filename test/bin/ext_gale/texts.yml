@@ -74,13 +74,71 @@ AMFCF0002-C00000-B0000600:
 
   text: Entend according to Act of Congrese, in the year 1848,
 
-#AMFCF0003-C00000-B0000100:
-  #title: "Brilla: By Anna M. Doling"
-  #author_full: Doling, Anna Mooney
-  #author_first: Anna
-  #author_last: Doling
-  #year: 1913
-  #text: Down yondah on the rivrah, between the hills, is the county seat of Bawkahsville,
+AMFCF0002-C00000-B0169300:
+
+  fields:
+    asset_id: OVXORT274028555
+    asset_id_e_toc: OSOCOV831637410
+    dvi_collection_id: AMFCC0001
+    bibliographic_id: ocm02171952
+    reel: T-2
+    mcode: 2YPR
+    ocr: 50.70
+    pub_date_composed: '1864'
+    pub_date_start: 1864
+    release_date: 2016-03-31
+    source_library_name: Primary Source Media
+    source_library_location: Meriden, CT, United States
+    language: English
+    document_type: Monograph
+    notes: Wright Bibliography Vol. II, 2425
+    full_title: 'Tales of the Picket-Guard, or, the Blue Devils Driven from Camp: A Collection of Stories: Told by Three Rollicking Boys on Picket-Guard'
+    display_title: 'Tales of the Picket-Guard, or, the Blue Devils Driven from Camp: A Collection of Stories: Told by Three Rollicking Boys on Picket-Guard'
+    imprint_full: 'Philadelphia: Barclay, 1864'
+    imprint_publisher: Barclay
+    collation: '1 online resource 84 pages'
+    publication_place_city: Philadelphia
+    publication_place_composed: Philadelphia
+    total_pages: 63
+
+  text: In come a skeleton, which walked slowly towards the couch
+
+AMFCF0003-C00000-B0000100:
+
+  fields:
+    asset_id: PEEYUB999441094
+    asset_id_e_toc: CUXXWP197588593
+    dvi_collection_id: AMFCC0002
+    # TODO: Other bibliographicID?
+    bibliographic_id: '33035998'
+    reel: '101, No. 1'
+    mcode: 2YQB
+    ocr: 65.10
+    # TODO: pub_date_year
+    pub_date_composed: '1913'
+    pub_date_start: 1913
+    release_date: 2016-03-31
+    source_library_name: Ohio State University
+    source_library_location: Columbus, OH, United States
+    language: English
+    document_type: Monograph
+    notes: American Fiction Vol. VI, 101, No. 1
+    # TODO: comments
+    author_composed: Doling, Anna Mooney
+    author_first: Anna
+    author_middle: Mooney
+    author_last: Doling
+    author_birth_date: 1875
+    full_title: 'Brilla: By Anna M. Doling'
+    display_title: 'Brilla: By Anna M. Doling'
+    imprint_full: 'New York: The Neale Publishing Company, 1913'
+    imprint_publisher: The Neale Publishing Company
+    collation: '1 online resource [4], 201, [3] p. (first 4 p. and last 3 p. blank); 20 cm.'
+    publication_place_city: New York
+    publication_place_composed: New York
+    total_pages: 203
+
+  text: Down yondah on the rivrah, between the hills, is the county seat of Bawkahsville,
 
 #AMFCF0003-C00000-B0000200:
   #title: "Virginia's Inheritance: By Cooke Don-Carlos"
