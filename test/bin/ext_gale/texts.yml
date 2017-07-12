@@ -10,7 +10,7 @@ AMFCF0002-C00000-B0000400:
     reel: A-4
     mcode: 2YPR
     ocr: 56.66
-    pub_date_irregular: '[1849]'
+    pub_date_irregular: 1849
     pub_date_composed: 1849
     pub_date_start: 1849
     release_date: 2016-03-31
@@ -48,7 +48,7 @@ AMFCF0002-C00000-B0000600:
     reel: A-4
     mcode: 2YPR
     ocr: 63.70
-    pub_date_irregular: '[1848]'
+    pub_date_irregular: 1848
     pub_date_composed: 1848
     pub_date_start: 1848
     release_date: 2016-03-31
@@ -84,6 +84,7 @@ AMFCF0002-C00000-B0169300:
     reel: T-2
     mcode: 2YPR
     ocr: 50.70
+    pub_date_year: 1864
     pub_date_composed: 1864
     pub_date_start: 1864
     release_date: 2016-03-31
@@ -114,7 +115,7 @@ AMFCF0003-C00000-B0000100:
     reel: '101, No. 1'
     mcode: 2YQB
     ocr: 65.10
-    # TODO: pub_date_year
+    pub_date_year: 1913
     pub_date_composed: 1913
     pub_date_start: 1913
     release_date: 2016-03-31
