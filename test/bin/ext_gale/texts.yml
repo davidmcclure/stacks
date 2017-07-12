@@ -151,6 +151,7 @@ AMFCF0003-C00000-B0000200:
     reel: '101, No. 2'
     mcode: 2YQB
     ocr: 65.99
+    pub_date_irregular: 1915
     pub_date_composed: 1915
     pub_date_start: 1915
     release_date: 2016-03-31
