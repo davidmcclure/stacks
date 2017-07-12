@@ -121,6 +121,12 @@ class Text(XMLSource):
         return get_text(self.xml, 'notes')
 
     @try_or_log
+    def comments(self):
+        """ Returns: str
+        """
+        return get_text(self.xml, 'comments')
+
+    @try_or_log
     def author_composed(self):
         """ Returns: str
         """
@@ -254,6 +260,7 @@ class Text(XMLSource):
             language=self.language(),
             document_type=self.document_type(),
             notes=self.notes(),
+            comments=self.comments(),
             author_composed=self.author_composed(),
             author_first=self.author_first(),
             author_middle=self.author_middle(),

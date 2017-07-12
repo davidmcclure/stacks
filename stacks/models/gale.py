@@ -46,6 +46,8 @@ class GaleText(Text, Base):
 
     notes = Column(String)
 
+    comments = Column(String)
+
     author_composed = Column(String)
 
     author_first = Column(String)
