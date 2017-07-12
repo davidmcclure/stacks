@@ -19,7 +19,8 @@ NCCOF0063-C00000-B0000101:
     total_volumes: 2
     imprint_full: 'London: Smith, Elder and Co., 1834'
     imprint_publisher: Smith, Elder and Co.
-    # TODO: imprintManufacturePlace, imprintManufacturer
+    imprint_manufacture_place: London
+    imprint_manufacturer: Printed by Stewart and Co.
     collation: '1 online resource (2 v.).'
     total_pages: 343
 
@@ -44,7 +45,8 @@ NCCOF0063-C00000-B0000102:
     total_volumes: 2
     imprint_full: 'London: Smith, Elder and Co., 1834'
     imprint_publisher: Smith, Elder and Co.
-    # TODO: imprintManufacturePlace, imprintManufacturer
+    imprint_manufacture_place: London
+    imprint_manufacturer: Printed by Stewart and Co.
     collation: '1 online resource (2 v.)'
     publication_place_city: London
     publication_place_composed: London
@@ -71,7 +73,8 @@ NCCOF0063-C00000-B0000301:
     total_volumes: 3
     imprint_full: 'London: Saunders and Otley, 1834'
     imprint_publisher: Saunders and Otley
-    # TODO: imprintManufacturePlace, imprintManufacturer
+    imprint_manufacture_place: London
+    imprint_manufacturer: Ibotson and Palmer, Printers
     collation: '1 online resource (3 v.).'
     total_pages: 341
 
@@ -96,7 +99,8 @@ NCCOF0063-C00000-B0000302:
     total_volumes: 3
     imprint_full: 'London: Saunders and Otley, 1834'
     imprint_publisher: Saunders and Otley
-    # TODO: imprintManufacturePlace, imprintManufacturer
+    imprint_manufacture_place: London
+    imprint_manufacturer: Ibotson and Palmer, Printers
     collation: '1 online resource (3 v.).'
     total_pages: 294
 

@@ -187,6 +187,18 @@ class Text(XMLSource):
         return get_text(self.xml, 'imprintPublisher')
 
     @try_or_log
+    def imprint_manufacture_place(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'imprintManufacturePlace')
+
+    @try_or_log
+    def imprint_manufacturer(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'imprintManufacturer')
+
+    @try_or_log
     def collation(self):
         """Returns: str
         """
@@ -271,6 +283,8 @@ class Text(XMLSource):
             total_volumes=self.total_volumes(),
             imprint_full=self.imprint_full(),
             imprint_publisher=self.imprint_publisher(),
+            imprint_manufacture_place=self.imprint_manufacture_place(),
+            imprint_manufacturer=self.imprint_manufacturer(),
             collation=self.collation(),
             publication_place_city=self.publication_place_city(),
             publication_place_state=self.publication_place_state(),

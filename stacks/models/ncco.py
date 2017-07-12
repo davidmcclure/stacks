@@ -68,6 +68,10 @@ class NCCOText(Text, Base):
 
     imprint_publisher = Column(String)
 
+    imprint_manufacture_place = Column(String)
+
+    imprint_manufacturer = Column(String)
+
     collation = Column(String)
 
     publication_place_city = Column(String)
