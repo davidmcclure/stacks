@@ -28,7 +28,7 @@ class GaleText(Text, Base):
 
     pub_date_irregular = Column(String)
 
-    pub_date_composed = Column(String)
+    pub_date_composed = Column(Integer)
 
     pub_date_start = Column(Integer)
 

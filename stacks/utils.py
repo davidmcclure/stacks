@@ -92,3 +92,11 @@ def try_or_log(f):
             logging.exception('message')
             return None
     return wrapper
+
+
+def parse_year(string):
+    """Extract a 4-digit year integer from a string.
+
+    Returns: int
+    """
+    return int(re.search('[0-9]{4}', string).group(0))

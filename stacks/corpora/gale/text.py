@@ -5,7 +5,7 @@ import os
 from bs4 import BeautifulSoup
 from cached_property import cached_property
 
-from stacks.utils import get_text, try_or_log
+from stacks.utils import get_text, try_or_log, parse_year
 from stacks.models import GaleText
 from stacks.sources import XMLSource
 
@@ -72,7 +72,7 @@ class Text(XMLSource):
     def pub_date_composed(self):
         """Returns: str
         """
-        return get_text(self.xml, 'pubDate composed')
+        return parse_year(get_text(self.xml, 'pubDate composed'))
 
     @try_or_log
     def pub_date_start(self):
