@@ -1,39 +1,74 @@
 ---
 
-NCCOF0063-C00000-B0000101:
-  title: The Baboo and other tales descriptive of society in India
-  year: 1834
-  text: The first of the following tales, The Baboo, was written by a civil servant of the Bengal establishment,
+#NCCOF0063-C00000-B0000101:
+  #text: The first of the following tales, The Baboo, was written by a civil servant of the Bengal establishment,
 
-NCCOF0063-C00000-B0000102:
-  title: The Baboo and other tales descriptive of society in India
-  year: 1834
-  text: Tliere is on aristocracy of birth In England, and a second one of ricbes,
+#NCCOF0063-C00000-B0000102:
+  #title: The Baboo and other tales descriptive of society in India
+  #year: 1834
+  #text: Tliere is on aristocracy of birth In England, and a second one of ricbes,
 
-NCCOF0063-C00000-B0000301:
-  title: "Barnadiston: a tale of the seventeenth century"
-  year: 1834
-  text: In offering the following work to the public the Author is sensible he must calculate greatly upon its indulgence.
+#NCCOF0063-C00000-B0000301:
+  #title: "Barnadiston: a tale of the seventeenth century"
+  #year: 1834
+  #text: In offering the following work to the public the Author is sensible he must calculate greatly upon its indulgence.
 
-NCCOF0063-C00000-B0000302:
-  title: "Barnadiston: a tale of the seventeenth century"
-  year: 1834
-  text: Then came faire May, the fairest mayd on ground,
+#NCCOF0063-C00000-B0000302:
+  #title: "Barnadiston: a tale of the seventeenth century"
+  #year: 1834
+  #text: Then came faire May, the fairest mayd on ground,
 
-NCCOF0063-C00000-B0000303:
-  title: "Barnadiston: a tale of the seventeenth century"
-  year: 1834
-  text: I would consort with mine eternal enemy To he revenged on him.
+#NCCOF0063-C00000-B0000303:
+  #title: "Barnadiston: a tale of the seventeenth century"
+  #year: 1834
+  #text: I would consort with mine eternal enemy To he revenged on him.
 
-NCCOF0063-C00000-B0000501:
-  title: "The provost of Paris: a tale of the court of Charles VI"
-  author_full: Browning, W. S.(William Shergold)
-  author_first: William
-  author_last: Browning
-  year: 1833
-  text: It is with feelings of unaffected diffidence, that these volumes are submitted to the public.
+#NCCOF0063-C00000-B0000501:
+  #title: "The provost of Paris: a tale of the court of Charles VI"
+  #author_full: Browning, W. S.(William Shergold)
+  #author_first: William
+  #author_last: Browning
+  #year: 1833
+  #text: It is with feelings of unaffected diffidence, that these volumes are submitted to the public.
 
 NCCOF0092-C00000-B0005704:
-  title: The Royal Philharmonic Society. The Hundred-And-Thirty-Second Season. Fourth Concert, Saturday, January 22nd 1943—1944
-  year: 1943
+
+  fields:
+    asset_id: AJJIXJ480814285
+    asset_id_e_toc: AJLOSZ017833710
+    dvi_collection_id: NCCOC0091
+    #bibliographic_id:
+    reel: '46'
+    mcode: 5WKV
+    ocr: 56.98
+    #pub_date_year:
+    pub_date_irregular: January 22nd 1943—1944
+    pub_date_composed: January 22nd 1943—1944
+    # TODO: Take full date? Often just year provided.
+    pub_date_start: 1943
+    pub_date_end: 1944
+    release_date: 2013-05-01
+    source_library_name: British Library
+    source_library_location: London, United Kingdom
+    language: English
+    document_type: Musical work
+    #notes:
+    #comments:
+    #author_composed:
+    #author_first:
+    #author_middle:
+    #author_last:
+    #author_birth_date:
+    #author_death_date:
+    full_title: The Royal Philharmonic Society. The Hundred-And-Thirty-Second Season. Fourth Concert, Saturday, January 22nd 1943—1944
+    display_title: The Royal Philharmonic Society. The Hundred-And-Thirty-Second Season. Fourth Concert, Saturday, January 22nd 1943—1944
+    imprint_full: 'London: Novello, Printers, January 22nd 1943—1944'
+    imprint_publisher: Novello, Printers
+    collation: '1 online resource (7 v.)'
+    publication_place_city: London
+    #publication_place_state:
+    #publication_place_country:
+    publication_place_composed: London
+    total_pages: 4
+
   text: THE ROYAL PHILHARMONIC SOCIETY INSTITUTED 1813 UNDER THE IMMEDIATE PATRONAGE OF HIS MAJESTY THE KING

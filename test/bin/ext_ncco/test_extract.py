@@ -2,29 +2,30 @@
 
 import pytest
 
+from subprocess import call
+from stacks.models import NCCOText
+
 from test.utils import read_yaml
 
 
-pytestmark = pytest.mark.usefixtures('extract')
+@pytest.fixture(scope='module', autouse=True)
+def extract(mpi):
+    call(['mpirun', 'bin/ext-ncco.py'])
+    call(['mpirun', 'bin/load-metadata.py'])
 
 
 cases = read_yaml(__file__, 'texts.yml')
 
 
-@pytest.mark.skip
-@pytest.mark.parametrize('identifier,fields', cases.items())
-def test_extract(identifier, fields, ext_corpus):
+@pytest.mark.parametrize('psmid,spec', cases.items())
+def test_extract(psmid, spec, ext_corpus):
 
-    text = ext_corpus.get_text('ncco', identifier)
+    row = NCCOText.query.get(psmid)
 
-    if 'title' in fields:
-        assert text.title == fields['title']
+    # Fields
+    for key, val in spec['fields'].items():
+        assert getattr(row, key) == val
 
-    if 'author_full' in fields:
-        assert text.author_full == fields['author_full']
-
-    if 'year' in fields:
-        assert text.year == fields['year']
-
-    if 'text' in fields:
-        assert fields['text'] in text.plain_text
+    # Text
+    text = ext_corpus.load_text(row)
+    assert spec['text'] in text

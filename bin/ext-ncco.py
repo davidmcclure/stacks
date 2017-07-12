@@ -22,9 +22,9 @@ class NCCOExtractor(Extractor):
         Args:
             path (str)
         """
-        text = Text(path)
+        text = Text.from_file(path)
 
-        self.corpus.insert_text(text.to_ext_text())
+        self.corpus.index_rows('ncco', text.psmid, text.row())
 
 
 if __name__ == '__main__':

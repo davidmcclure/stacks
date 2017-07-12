@@ -5,6 +5,7 @@ from stacks import config
 
 from .base import Base
 from .ecco import ECCOText, ECCOSubjectHead
+from .ncco import NCCOText, NCCOSubjectHead
 from .gale import GaleText
 
 
