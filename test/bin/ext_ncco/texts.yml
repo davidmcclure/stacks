@@ -121,10 +121,12 @@ NCCOF0063-C00000-B0000303:
     document_type: Fictional work
     full_title: 'Barnadiston: a tale of the seventeenth century'
     display_title: 'Barnadiston: a tale of the seventeenth century'
-    # TODO: volumeGroup?
+    volume: 3
+    total_volumes: 3
     imprint_full: 'London: Saunders and Otley, 1834'
     imprint_publisher: Saunders and Otley
-    # TODO: imprintManufacturePlace, imprintManufacturer
+    imprint_manufacture_place: London
+    imprint_manufacturer: Ibotson and Palmer, Printers
     collation: '1 online resource (3 v.).'
     total_pages: 284
 
