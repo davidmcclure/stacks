@@ -163,6 +163,18 @@ class Text(XMLSource):
         return get_text(self.xml, 'displayTitle')
 
     @try_or_log
+    def volume(self):
+        """Returns: int
+        """
+        return int(get_text(self.xml, 'Volume'))
+
+    @try_or_log
+    def total_volumes(self):
+        """Returns: int
+        """
+        return int(get_text(self.xml, 'totalVolumes'))
+
+    @try_or_log
     def imprint_full(self):
         """Returns: str
         """
@@ -255,6 +267,8 @@ class Text(XMLSource):
             author_death_date=self.author_death_date(),
             full_title=self.full_title(),
             display_title=self.display_title(),
+            volume=self.volume(),
+            total_volumes=self.total_volumes(),
             imprint_full=self.imprint_full(),
             imprint_publisher=self.imprint_publisher(),
             collation=self.collation(),

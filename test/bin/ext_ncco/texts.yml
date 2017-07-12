@@ -15,7 +15,8 @@ NCCOF0063-C00000-B0000101:
     document_type: Fictional work
     full_title: The Baboo and other tales descriptive of society in India
     display_title: The Baboo and other tales descriptive of society in India
-    # TODO: volumeGroup?
+    volume: 1
+    total_volumes: 2
     imprint_full: 'London: Smith, Elder and Co., 1834'
     imprint_publisher: Smith, Elder and Co.
     # TODO: imprintManufacturePlace, imprintManufacturer
@@ -39,7 +40,8 @@ NCCOF0063-C00000-B0000102:
     document_type: Fictional work
     full_title: The Baboo and other tales descriptive of society in India
     display_title: The Baboo and other tales descriptive of society in India
-    # TODO: volumeGroup?
+    volume: 2
+    total_volumes: 2
     imprint_full: 'London: Smith, Elder and Co., 1834'
     imprint_publisher: Smith, Elder and Co.
     # TODO: imprintManufacturePlace, imprintManufacturer
@@ -65,7 +67,8 @@ NCCOF0063-C00000-B0000301:
     document_type: Fictional work
     full_title: 'Barnadiston: a tale of the seventeenth century'
     display_title: 'Barnadiston: a tale of the seventeenth century'
-    # TODO: volumeGroup?
+    volume: 1
+    total_volumes: 3
     imprint_full: 'London: Saunders and Otley, 1834'
     imprint_publisher: Saunders and Otley
     # TODO: imprintManufacturePlace, imprintManufacturer
@@ -89,7 +92,8 @@ NCCOF0063-C00000-B0000302:
     document_type: Fictional work
     full_title: 'Barnadiston: a tale of the seventeenth century'
     display_title: 'Barnadiston: a tale of the seventeenth century'
-    # TODO: volumeGroup?
+    volume: 2
+    total_volumes: 3
     imprint_full: 'London: Saunders and Otley, 1834'
     imprint_publisher: Saunders and Otley
     # TODO: imprintManufacturePlace, imprintManufacturer

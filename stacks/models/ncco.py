@@ -60,6 +60,10 @@ class NCCOText(Text, Base):
 
     display_title = Column(String)
 
+    volume = Column(Integer)
+
+    total_volumes = Column(Integer)
+
     imprint_full = Column(String)
 
     imprint_publisher = Column(String)
