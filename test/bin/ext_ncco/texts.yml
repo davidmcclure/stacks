@@ -62,8 +62,6 @@ NCCOF0092-C00000-B0005704:
     reel: '46'
     mcode: 5WKV
     ocr: 56.98
-    #pub_date_year:
-    # TODO: Take full date? Often just year provided.
     pub_date_start: 1943
     pub_date_end: 1944
     release_date: 2013-05-01

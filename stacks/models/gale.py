@@ -26,12 +26,6 @@ class GaleText(Text, Base):
 
     ocr = Column(Float)
 
-    pub_date_year = Column(Integer)
-
-    pub_date_irregular = Column(Integer)
-
-    pub_date_composed = Column(Integer)
-
     pub_date_start = Column(Integer)
 
     release_date = Column(Date)
