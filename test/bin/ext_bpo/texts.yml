@@ -20,14 +20,51 @@
     end_page: 8
     pagination: 8-8
     url_doc_view: http://search.proquest.com/docview/2431927/
+    # TODO: abstract
 
 '2432362':
+
   fields:
+    date_time_stamp: 2016-01-27T12:55:54
+    action_code: change
     record_title: Arson
+    publication_id: 581
+    publication_title: The English review,  1908-1937
+    publication_qualifier: London
+    publisher: The English Review Ltd etc.
+    alpha_pub_date: Mar 1913
+    numeric_pub_date: 1913-03-01
+    source_type: Historical Periodicals
+    # TODO: Handle multiple object types?
+    object_type: Feature
+    language_code: ENG
+    issn: 2043-2275
+    start_page: 567
+    end_page: 571
+    pagination: 567-571
+    url_doc_view: http://search.proquest.com/docview/2432362/
+    # TODO: abstract
 
 '2433513':
+
   fields:
+    date_time_stamp: 2016-01-27T13:04:59
+    action_code: change
     record_title: The Inviolable Hour
+    publication_id: 581
+    publication_title: The English review,  1908-1937
+    publication_qualifier: London
+    publisher: The English Review Ltd etc.
+    alpha_pub_date: Dec 1912
+    numeric_pub_date: 1912-12-01
+    source_type: Historical Periodicals
+    object_type: Poem
+    language_code: ENG
+    issn: 2043-2275
+    start_page: 7
+    end_page: 8
+    pagination: 7-8
+    url_doc_view: http://search.proquest.com/docview/2433513/
 
 '2433681':
   fields:
