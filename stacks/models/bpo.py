@@ -55,7 +55,7 @@ class BPOContributor(Base):
 
     id = Column(Integer, primary_key=True)
 
-    record_id = Column(String)
+    record_id = Column(String, nullable=False)
 
     role = Column(String)
 
@@ -75,6 +75,8 @@ class BPOFlexTerm(Base):
     __tablename__ = 'bpo_flex_term'
 
     id = Column(Integer, primary_key=True)
+
+    record_id = Column(String, nullable=False)
 
     name = Column(String)
 

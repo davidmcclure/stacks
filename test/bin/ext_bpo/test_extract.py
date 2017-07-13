@@ -3,7 +3,7 @@
 import pytest
 
 from subprocess import call
-from stacks.models import BPOArticle
+from stacks.models import BPOArticle, BPOFlexTerm
 
 from test.utils import read_yaml
 
@@ -26,14 +26,13 @@ def test_extract(record_id, spec, ext_corpus):
     for key, val in spec['fields'].items():
         assert getattr(row, key) == val
 
-    # # Subjects
-    # for subject in spec.get('subjects', []):
-        # for sub_field, value in subject['sub_fields'].items():
+    # Flex terms
+    for term in spec['flex_terms']:
 
-            # assert NCCOSubjectHead.query.filter_by(
-                # type=subject['type'], sub_field=sub_field, value=value,
-            # )
+        query = BPOFlexTerm.query.filter_by(
+            record_id=row.record_id,
+            name=term['name'],
+            value=term['value'],
+        )
 
-    # # Text
-    # text = ext_corpus.load_text(row)
-    # assert spec['text'] in text
+        assert query.count() == 1

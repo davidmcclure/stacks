@@ -21,6 +21,12 @@
     pagination: 8-8
     url_doc_view: http://search.proquest.com/docview/2431927/
 
+  flex_terms:
+    - name: DerivedSubject
+      value: ENGLISH LITERATURE - 20th Century
+    - name: DerivedSubject
+      value: GREAT BRITAIN - Intellectual Life
+
 '2432362':
 
   fields:
@@ -44,6 +50,12 @@
     url_doc_view: http://search.proquest.com/docview/2432362/
     abstract: HE was like nothing so much as a wet hedgehog. His hair was white, and the six days' beard that shone silvery against the brick-red of his face was snow-white. His eyes were red and small, and looked like little red painted holes in his face. He was shaggy and his hair grew almost down to his eyebrows. He had no back to his head, and large transparent ears, white like paper, stuck out low down on his skull.
 
+  flex_terms:
+    - name: DerivedSubject
+      value: ENGLISH LITERATURE - 20th Century
+    - name: DerivedSubject
+      value: GREAT BRITAIN - Intellectual Life
+
 '2433513':
 
   fields:
@@ -65,6 +77,12 @@
     pagination: 7-8
     url_doc_view: http://search.proquest.com/docview/2433513/
 
+  flex_terms:
+    - name: DerivedSubject
+      value: ENGLISH LITERATURE - 20th Century
+    - name: DerivedSubject
+      value: GREAT BRITAIN - Intellectual Life
+
 '2433681':
 
   fields:
@@ -84,3 +102,9 @@
     end_page: 332
     pagination: 331-332
     url_doc_view: http://search.proquest.com/docview/2433681/
+
+  flex_terms:
+    - name: DerivedSubject
+      value: ENGLISH LITERATURE - 20th Century
+    - name: DerivedSubject
+      value: GREAT BRITAIN - Intellectual Life

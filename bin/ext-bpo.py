@@ -24,7 +24,7 @@ class BPOExtractor(Extractor):
         """
         article = Article.from_file(*args, **kwargs)
 
-        self.corpus.index_rows('bpo', article.record_id, article.article_row())
+        self.corpus.index_rows('bpo', article.record_id, *article.rows())
 
 
 if __name__ == '__main__':

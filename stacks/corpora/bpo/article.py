@@ -8,7 +8,7 @@ from zipfile import ZipFile
 from bs4 import BeautifulSoup
 
 from stacks.utils import get_text, try_or_log, parse_8d_date
-from stacks.models import BPOArticle
+from stacks.models import BPOArticle, BPOFlexTerm
 
 
 @attr.s
@@ -181,3 +181,21 @@ class Article:
             abstract=self.abstract(),
             text=self.full_text(),
         )
+
+    def flex_term_rows(self):
+        """Build a list of flex term rows.
+
+        Returns: list of BPOFlexTerm
+        """
+        for term in self.xml.select('FlexTerm'):
+
+            yield BPOFlexTerm(
+                record_id=self.record_id,
+                name=get_text(term, 'FlexTermName'),
+                value=get_text(term, 'FlexTermValue'),
+            )
+
+    def rows(self):
+        """Assemble list of all database rows.
+        """
+        return [self.article_row()] + list(self.flex_term_rows())
