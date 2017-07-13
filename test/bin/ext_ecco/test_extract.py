@@ -31,7 +31,10 @@ def test_test(doc_id, spec, ext_corpus):
         for sub_field, value in subject['sub_fields'].items():
 
             assert ECCOSubjectHead.query.filter_by(
-                type=subject['type'], sub_field=sub_field, value=value,
+                document_id=row.document_id,
+                type=subject['type'],
+                sub_field=sub_field,
+                value=value,
             )
 
     # Text
