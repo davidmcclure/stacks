@@ -20,7 +20,6 @@
     end_page: 8
     pagination: 8-8
     url_doc_view: http://search.proquest.com/docview/2431927/
-    # TODO: abstract
 
 '2432362':
 
@@ -43,7 +42,7 @@
     end_page: 571
     pagination: 567-571
     url_doc_view: http://search.proquest.com/docview/2432362/
-    # TODO: abstract
+    abstract: HE was like nothing so much as a wet hedgehog. His hair was white, and the six days' beard that shone silvery against the brick-red of his face was snow-white. His eyes were red and small, and looked like little red painted holes in his face. He was shaggy and his hair grew almost down to his eyebrows. He had no back to his head, and large transparent ears, white like paper, stuck out low down on his skull.
 
 '2433513':
 

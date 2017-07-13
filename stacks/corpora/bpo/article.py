@@ -144,7 +144,9 @@ class Article:
     def abstract(self):
         """Returns: str
         """
-        return get_text(self.xml, 'Abstract')
+        xml = get_text(self.xml, 'Abstract')
+
+        return BeautifulSoup(xml).text
 
     @try_or_log
     def full_text(self):
