@@ -14,7 +14,7 @@ class Corpus:
 
         Returns: cls
         """
-        path = os.path.join(config['data']['raw'], 'gale')
+        path = os.path.join(config['data']['raw'], 'amfic')
 
         return cls(path)
 

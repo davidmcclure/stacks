@@ -6,9 +6,9 @@ from stacks.models import Base
 from .text import Text
 
 
-class GaleText(Text, Base):
+class AmficText(Text, Base):
 
-    __tablename__ = 'gale_text'
+    __tablename__ = 'amfic_text'
 
     psmid = Column(String, primary_key=True)
 

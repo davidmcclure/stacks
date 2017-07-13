@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 from cached_property import cached_property
 
 from stacks.utils import get_text, try_or_log, parse_year, parse_8d_date
-from stacks.models import GaleText
+from stacks.models import AmficText
 from stacks.sources import XMLSource
 
 
@@ -221,9 +221,9 @@ class Text(XMLSource):
     def row(self):
         """Assemble a database row.
 
-        Returns: GaleText
+        Returns: AmficText
         """
-        return GaleText(
+        return AmficText(
             psmid=self.psmid,
             asset_id=self.asset_id(),
             asset_id_e_toc=self.asset_id_e_toc(),

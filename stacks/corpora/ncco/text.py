@@ -251,7 +251,7 @@ class Text(XMLSource):
     def text_row(self):
         """Assemble a database row.
 
-        Returns: GaleText
+        Returns: AmficText
         """
         return NCCOText(
             psmid=self.psmid,

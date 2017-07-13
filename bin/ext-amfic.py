@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.corpora.gale import Corpus, Text
+from stacks.corpora.amfic import Corpus, Text
 
 
 class GaleExtractor(Extractor):
@@ -24,7 +24,7 @@ class GaleExtractor(Extractor):
         """
         text = Text.from_file(path)
 
-        self.corpus.index_rows('gale', text.psmid, text.row())
+        self.corpus.index_rows('amfic', text.psmid, text.row())
 
 
 if __name__ == '__main__':
