@@ -24,9 +24,7 @@ class ECCOExtractor(Extractor):
         """
         text = ecco.Text.from_file(path)
 
-        rows = text.rows()
-
-        self.corpus.index_rows('ecco', text.document_id, *rows)
+        self.corpus.index_rows('ecco', text.document_id, *text.rows())
 
 
 if __name__ == '__main__':

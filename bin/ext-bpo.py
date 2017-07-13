@@ -22,9 +22,9 @@ class BPOExtractor(Extractor):
     def flush(self, *args, **kwargs):
         """Flush a text.
         """
-        article = Article(*args, **kwargs)
+        article = Article.from_file(*args, **kwargs)
 
-        self.corpus.insert_text(article.to_ext_text())
+        self.corpus.index_rows('bpo', article.record_id, article.article_row())
 
 
 if __name__ == '__main__':

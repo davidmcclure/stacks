@@ -2,35 +2,39 @@
 
 import pytest
 
+from subprocess import call
+from stacks.models import BPOArticle
+
 from test.utils import read_yaml
 
 
-pytestmark = pytest.mark.usefixtures('extract')
+@pytest.fixture(scope='module', autouse=True)
+def extract(mpi):
+    call(['mpirun', 'bin/ext-bpo.py'])
+    call(['mpirun', 'bin/load-metadata.py'])
 
 
 cases = read_yaml(__file__, 'texts.yml')
 
 
-@pytest.mark.skip
-@pytest.mark.parametrize('identifier,fields', cases.items())
-def test_extract(identifier, fields, ext_corpus):
+@pytest.mark.parametrize('record_id,spec', cases.items())
+def test_extract(record_id, spec, ext_corpus):
 
-    text = ext_corpus.get_text('bpo', identifier)
+    row = BPOArticle.query.get(record_id)
+    print(row)
 
-    if 'title' in fields:
-        assert text.title == fields['title']
+    # # Fields
+    # for key, val in spec['fields'].items():
+        # assert getattr(row, key) == val
 
-    if 'author_full' in fields:
-        assert text.author_full == fields['author_full']
+    # # Subjects
+    # for subject in spec.get('subjects', []):
+        # for sub_field, value in subject['sub_fields'].items():
 
-    if 'author_first' in fields:
-        assert text.author_first == fields['author_first']
+            # assert NCCOSubjectHead.query.filter_by(
+                # type=subject['type'], sub_field=sub_field, value=value,
+            # )
 
-    if 'author_last' in fields:
-        assert text.author_last == fields['author_last']
-
-    if 'year' in fields:
-        assert text.year == fields['year']
-
-    if 'text' in fields:
-        assert fields['text'] in text.plain_text
+    # # Text
+    # text = ext_corpus.load_text(row)
+    # assert spec['text'] in text
