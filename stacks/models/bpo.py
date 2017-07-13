@@ -28,8 +28,6 @@ class BPOArticle(Text, Base):
 
     object_type = Column(String)
 
-    # TODO: contributors
-
     language_code = Column(String)
 
     issn = Column(String)
@@ -42,6 +40,36 @@ class BPOArticle(Text, Base):
 
     url_doc_view = Column(String)
 
-    # TODO: flex terms
-
     abstract = Column(String)
+
+
+class BPOContributor(Base):
+
+    __tablename__ = 'bpo_contributor'
+
+    id = Column(Integer, primary_key=True)
+
+    record_id = Column(String)
+
+    role = Column(String)
+
+    last_name = Column(String)
+
+    middle_name = Column(String)
+
+    first_name = Column(String)
+
+    person_name = Column(String)
+
+    original_form = Column(String)
+
+
+class BPOFlexTerm(Base):
+
+    __tablename__ = 'bpo_flex_term'
+
+    id = Column(Integer, primary_key=True)
+
+    name = Column(String)
+
+    value = Column(String)
