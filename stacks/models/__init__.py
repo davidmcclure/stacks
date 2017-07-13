@@ -7,6 +7,7 @@ from .base import Base
 from .ecco import ECCOText, ECCOSubjectHead
 from .ncco import NCCOText, NCCOSubjectHead
 from .amfic import AmficText
+from .bpo import BPOArticle
 
 
 def reset_db():
