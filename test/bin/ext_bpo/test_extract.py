@@ -21,11 +21,10 @@ cases = read_yaml(__file__, 'texts.yml')
 def test_extract(record_id, spec, ext_corpus):
 
     row = BPOArticle.query.get(record_id)
-    print(row)
 
-    # # Fields
-    # for key, val in spec['fields'].items():
-        # assert getattr(row, key) == val
+    # Fields
+    for key, val in spec['fields'].items():
+        assert getattr(row, key) == val
 
     # # Subjects
     # for subject in spec.get('subjects', []):

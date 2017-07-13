@@ -1,13 +1,34 @@
 ---
 
 '2431927':
-  record_title: Advertisement
+
+  fields:
+    date_time_stamp: 2016-01-27T12:56:43
+    action_code: change
+    record_title: Advertisement
+    publication_id: 581
+    publication_title: The English review,  1908-1937
+    publication_qualifier: London
+    #publisher: The English Review Ltd etc.
+    #alpha_pub_date: Nov 1912
+    #numeric_pub_date: 1912-11-01
+    source_type: Historical Periodicals
+    object_type: Advertisement
+    language_code: ENG
+    issn: 2043-2275
+    start_page: 8
+    end_page: 8
+    pagination: 8-8
+    url_doc_view: http://search.proquest.com/docview/2431927/
 
 '2432362':
-  record_title: Arson
+  fields:
+    record_title: Arson
 
 '2433513':
-  record_title: The Inviolable Hour
+  fields:
+    record_title: The Inviolable Hour
 
 '2433681':
-  record_title: A CHRISTMAS GARLAND.
+  fields:
+    record_title: A CHRISTMAS GARLAND.
