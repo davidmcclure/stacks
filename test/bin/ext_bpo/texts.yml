@@ -67,5 +67,21 @@
     url_doc_view: http://search.proquest.com/docview/2433513/
 
 '2433681':
+
   fields:
+    date_time_stamp: 2016-01-27T13:04:46
+    action_code: change
     record_title: A CHRISTMAS GARLAND.
+    publication_id: 581
+    publication_title: The English review,  1908-1937
+    publication_qualifier: London
+    publisher: The English Review Ltd etc.
+    numeric_pub_date: 1913-01-01
+    source_type: Historical Periodicals
+    object_type: Review
+    language_code: ENG
+    issn: 2043-2275
+    start_page: 331
+    end_page: 332
+    pagination: 331-332
+    url_doc_view: http://search.proquest.com/docview/2433681/
