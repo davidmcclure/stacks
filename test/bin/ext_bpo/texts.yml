@@ -9,9 +9,9 @@
     publication_id: 581
     publication_title: The English review,  1908-1937
     publication_qualifier: London
-    #publisher: The English Review Ltd etc.
-    #alpha_pub_date: Nov 1912
-    #numeric_pub_date: 1912-11-01
+    publisher: The English Review Ltd etc.
+    alpha_pub_date: Nov 1912
+    numeric_pub_date: 1912-11-01
     source_type: Historical Periodicals
     object_type: Advertisement
     language_code: ENG

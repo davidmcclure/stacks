@@ -7,7 +7,7 @@ from cached_property import cached_property
 from zipfile import ZipFile
 from bs4 import BeautifulSoup
 
-from stacks.utils import get_text, try_or_log
+from stacks.utils import get_text, try_or_log, parse_8d_date
 from stacks.models import BPOArticle
 
 
@@ -73,6 +73,24 @@ class Article:
         """Returns: str
         """
         return get_text(self.xml, 'Publication Qualifier')
+
+    @try_or_log
+    def publisher(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'Publisher')
+
+    @try_or_log
+    def alpha_pub_date(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'AlphaPubDate')
+
+    @try_or_log
+    def numeric_pub_date(self):
+        """Returns: date
+        """
+        return parse_8d_date(get_text(self.xml, 'NumericPubDate'))
 
     @try_or_log
     def source_type(self):
@@ -147,6 +165,9 @@ class Article:
             publication_id=self.publication_id(),
             publication_title=self.publication_title(),
             publication_qualifier=self.publication_qualifier(),
+            publisher=self.publisher(),
+            alpha_pub_date=self.alpha_pub_date(),
+            numeric_pub_date=self.numeric_pub_date(),
             source_type=self.source_type(),
             object_type=self.object_type(),
             language_code=self.language_code(),

@@ -24,6 +24,12 @@ class BPOArticle(Text, Base):
 
     publication_qualifier = Column(String)
 
+    publisher = Column(String)
+
+    alpha_pub_date = Column(String)
+
+    numeric_pub_date = Column(Date)
+
     source_type = Column(String)
 
     object_type = Column(String)
