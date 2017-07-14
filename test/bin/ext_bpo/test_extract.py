@@ -71,12 +71,28 @@ def test_flex_terms(record_id, terms):
 
     row = BPOArticle.query.get(record_id)
 
-    # Flex terms
     for term in terms:
 
         query = BPOFlexTerm.query.filter_by(
             record_id=row.record_id,
             **term
+        )
+
+        assert query.count() == 1
+
+
+contribs = read_yaml(__file__, 'contributors.yml')
+
+@pytest.mark.parametrize('record_id,contribs', contribs.items())
+def test_contributors(record_id, contribs):
+
+    row = BPOArticle.query.get(record_id)
+
+    for contrib in contribs:
+
+        query = BPOContributor.query.filter_by(
+            record_id=row.record_id,
+            **contrib
         )
 
         assert query.count() == 1
