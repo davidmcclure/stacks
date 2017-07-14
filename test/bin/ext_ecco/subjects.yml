@@ -1,0 +1,83 @@
+---
+
+'0031300100':
+
+  - type: topicalTerm
+    sub_fields:
+      a: Books
+      x: Prices
+
+  - type: topicalTerm
+    sub_fields:
+      a: Catalogs, Booksellers'
+      z: Great Britain
+
+  - type: topicalTerm
+    sub_fields:
+      a: Natural history
+      z: England
+      v: Bibliography
+
+  - type: geographicalLocation
+    sub_fields:
+      a: England
+      x: Antiquities
+      v: Bibliography
+      v: Early
+
+  - type: geographicalLocation
+    sub_fields:
+      a: England
+      x: Description and travel
+      v: Bibliography
+      v: Early
+
+'0031300200':
+
+  - type: topicalTerm
+    sub_fields:
+      a: Catalogs, Booksellers'
+      v: Early works to 1800
+
+'0002200200':
+
+  - type: corporateName
+    sub_fields:
+      a: Great Britain
+      t: Constitution
+
+  - type: topicalTerm
+    sub_fields:
+      a: Republics
+
+  - type: topicalTerm
+    sub_fields:
+      a: Cities and towns, Ancient
+
+  - type: topicalTerm
+    sub_fields:
+      a: Cities and towns, Medieval
+
+'0002300100':
+
+  - type: personalName
+    sub_fields:
+      a: Shakespeare, William,
+      d: 1564-1616
+      x: Forgeries
+
+  - type: personalName
+    sub_fields:
+      a: Ireland, W. H.
+      q: (William Henry),
+      d: 1777-1835
+
+  - type: topicalTerm
+    sub_fields:
+      a: African Americans
+      x: Religion
+
+  - type: topicalTerm
+    sub_fields:
+      a: Literary forgeries and mystifications
+      v: Early works to 1800

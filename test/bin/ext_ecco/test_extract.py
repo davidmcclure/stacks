@@ -8,30 +8,34 @@ from stacks.models import ECCOText, ECCOSubjectHead
 from test.utils import read_yaml
 
 
+fields = read_yaml(__file__, 'fields.yml')
+subjects = read_yaml(__file__, 'subjects.yml')
+texts = read_yaml(__file__, 'texts.yml')
+
+
 @pytest.fixture(scope='module', autouse=True)
 def extract(mpi):
     call(['mpirun', 'bin/ext-ecco.py'])
     call(['mpirun', 'bin/load-metadata.py'])
 
 
-cases = read_yaml(__file__, 'texts.yml')
-
-
-@pytest.mark.parametrize('doc_id,spec', cases.items())
-def test_test(doc_id, spec, ext_corpus):
+@pytest.mark.parametrize('doc_id,fields', fields.items())
+def test_fields(doc_id, fields):
 
     row = ECCOText.query.get(doc_id)
 
-    # Fields
-    for key, val in spec['fields'].items():
+    for key, val in fields.items():
         assert getattr(row, key) == val
 
-    # Subjects
-    for subject in spec['subjects']:
+
+@pytest.mark.parametrize('doc_id,subjects', subjects.items())
+def test_flex_terms(doc_id, subjects):
+
+    for subject in subjects:
         for sub_field, value in subject['sub_fields'].items():
 
             query = ECCOSubjectHead.query.filter_by(
-                document_id=row.document_id,
+                document_id=doc_id,
                 type=subject['type'],
                 sub_field=sub_field,
                 value=value,
@@ -39,8 +43,10 @@ def test_test(doc_id, spec, ext_corpus):
 
             assert query.count() > 0
 
-    # Text
-    text = ext_corpus.load_text(row)
-    assert spec['text'] in text
 
-    # TODO: tokens?
+@pytest.mark.parametrize('doc_id,text', texts.items())
+def test_text(doc_id, text, ext_corpus):
+
+    row = ECCOText.query.get(doc_id)
+
+    assert text in ext_corpus.load_text(row)

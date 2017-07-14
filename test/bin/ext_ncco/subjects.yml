@@ -1,0 +1,45 @@
+---
+
+NCCOF0063-C00000-B0000101:
+
+  - type: geographicalLocation
+    sub_fields:
+      a: India
+      x: Social life and customs
+      v: Fiction.
+
+NCCOF0063-C00000-B0000102:
+
+  - type: geographicalLocation
+    sub_fields:
+      a: India
+      x: Social life and customs
+      v: Fiction
+
+NCCOF0063-C00000-B0000301:
+
+  - type: topicalTerm
+    sub_fields:
+      a: English fiction
+      y: 19th century.
+
+NCCOF0063-C00000-B0000302:
+
+  - type: topicalTerm
+    sub_fields:
+      a: English fiction
+      y: 19th century.
+
+NCCOF0063-C00000-B0000303:
+
+  - type: topicalTerm
+    sub_fields:
+      a: English fiction
+      y: 19th century.
+
+NCCOF0063-C00000-B0000501:
+
+  - type: topicalTerm
+    sub_fields:
+      a: English fiction
+      y: 19th century.
