@@ -17,26 +17,70 @@ A00001:
   source_date: 1593
   language: eng
 
-#A00002:
-  #title: The brides ornaments viz. fiue meditations, morall and diuine. 1. Knowledge, 2. zeale, 3. temperance, 4. bountie, 5. ioy.
-  #author_full: Aylett, Robert, 1583-1655?
-  #year: 1625
-  #text: This is life eternall, that they may know thee the onely true God, and Iesus Christ whom thou hast sent.
+A00002:
+  title: The brides ornaments viz. fiue meditations, morall and diuine. 1. Knowledge, 2. zeale, 3. temperance, 4. bountie, 5. ioy.
+  author: Aylett, Robert, 1583-1655?
+  file_extent: Approx. 248 KB of XML-encoded text transcribed from 67 1-bit group-IV TIFF page images.
+  file_pubplace: 'Ann Arbor, MI ; Oxford (UK) :'
+  file_publisher: Text Creation Partnership,
+  file_date: 2003-07 (EEBO-TCP Phase 1).
+  idno_stc: STC 1000.5
+  idno_eebo_citation: '99850634'
+  idno_proquest: '99850634'
+  idno_vid: '15849'
+  source_extent: '[4], 123, [1] p.'
+  source_pubplace: 'London :'
+  source_publisher: Printed by William Stansby,
+  source_date: 1625
+  language: eng
 
-#A00003:
-  #title: A sermon preached at Paules-Crosse the second day of Iune, being the last Sunday in Easter terme. 1622. By Thomas Ailesbury student in diuinitie
-  #author_full: Ailesbury, Thomas, fl. 1622-1659.
-  #year: 1623
-  #text: 'Man an earthly Sunne, amazeth man to consider what is in man: But when these three,'
+A00003:
+  title: A sermon preached at Paules-Crosse the second day of Iune, being the last Sunday in Easter terme. 1622. By Thomas Ailesbury student in diuinitie
+  author: Ailesbury, Thomas, fl. 1622-1659.
+  file_extent: Approx. 106 KB of XML-encoded text transcribed from 31 1-bit group-IV TIFF page images.
+  file_pubplace: 'Ann Arbor, MI ; Oxford (UK) :'
+  file_publisher: Text Creation Partnership,
+  file_date: 2014-11 (EEBO-TCP Phase 2).
+  idno_stc: STC 1000
+  idno_eebo_citation: '99837325'
+  idno_proquest: '99837325'
+  idno_vid: '1641'
+  source_extent: '[8], 52 p.'
+  source_pubplace: 'London :'
+  source_publisher: Printed by George Eld for Leonard Becket and Robert Wilson, and are to be sold neere the Temple Church, and at Graies Inne new Gate,
+  source_date: 1623
+  language: eng
 
-#A88470:
-  #title: By the Major. A proclamation for the bringing into the Port of London, any manner of fevvell.
-  #author_full: City of London (England). Lord Mayor.
-  #year: 1644
-  #text: And finding it a very hard and difficult matter to supply the same in these trouble∣some times,
+A88470:
+  title: By the Major. A proclamation for the bringing into the Port of London, any manner of fevvell.
+  author: City of London (England). Lord Mayor.
+  file_extent: Approx. 2 KB of XML-encoded text transcribed from 1 1-bit group-IV TIFF page image.
+  file_pubplace: 'Ann Arbor, MI ; Oxford (UK) :'
+  file_publisher: Text Creation Partnership,
+  file_date: 2008-09 (EEBO-TCP Phase 1).
+  idno_stc: Wing L2882B
+  idno_eebo_citation: '99870834'
+  idno_proquest: '99870834'
+  idno_vid: '161107'
+  source_extent: '1 sheet ([1] p.)'
+  source_pubplace: '[London] :'
+  source_publisher: Printed by Richard Cotes, printer to the honourable City of London,
+  source_date: 1644
+  language: eng
 
-#A93394:
-  #title: 'Satans temptation, and Gods preservation: or Satans policy and Gods mercy most lively and amply set forth in the discovery of the several temptations, desertions, troubles, and afflictions, that have accompanied the life of Robert Smith of Ludshelf, alias Litchfield, in the county of Southampton, gent. Wherein is discovered the method that Satan took in the several gradations thereof. With an accompt of the life of the author. Published for the benefit, comfort, and support, of any of Gods servants, that now are, or shall be, cast into such a deplorable condition.'
-  #author_full: Smith, Robert, fl. 1685.
-  #year: 1685
-  #text: Him an Hymn of Thanks-giving, then surely we ought to speak abroad of all his wonderous works.
+A93394:
+  title: 'Satans temptation, and Gods preservation: or Satans policy and Gods mercy most lively and amply set forth in the discovery of the several temptations, desertions, troubles, and afflictions, that have accompanied the life of Robert Smith of Ludshelf, alias Litchfield, in the county of Southampton, gent. Wherein is discovered the method that Satan took in the several gradations thereof. With an accompt of the life of the author. Published for the benefit, comfort, and support, of any of Gods servants, that now are, or shall be, cast into such a deplorable condition.'
+  author: Smith, Robert, fl. 1685.
+  file_extent: Approx. 62 KB of XML-encoded text transcribed from 47 1-bit group-IV TIFF page images.
+  file_pubplace: 'Ann Arbor, MI ; Oxford (UK) :'
+  file_publisher: Text Creation Partnership,
+  file_date: 2012-10 (EEBO-TCP Phase 2).
+  idno_stc: Wing S4163
+  idno_eebo_citation: '99896843'
+  idno_proquest: '99896843'
+  idno_vid: '137080'
+  source_extent: '[16], 77, [1] p.'
+  source_pubplace: 'London :'
+  source_publisher: printed by William Downing for the author,
+  source_date: 1685
+  language: eng
