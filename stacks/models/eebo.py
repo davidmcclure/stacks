@@ -1,6 +1,6 @@
 
 
-from sqlalchemy import Column, Integer, String, Date, Float
+from sqlalchemy import Column, Integer, String
 
 from stacks.models import Base
 from .text import Text

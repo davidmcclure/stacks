@@ -1,12 +1,9 @@
 
 
-import os
-
-from bs4 import BeautifulSoup
 from cached_property import cached_property
 
 from stacks.models import NCCOText, NCCOSubjectHead
-from stacks.utils import get_text, try_or_log, parse_year, parse_8d_date
+from stacks.utils import get_text, try_or_log, parse_8d_date
 from stacks.sources import XMLSource
 
 

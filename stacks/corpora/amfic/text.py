@@ -1,11 +1,8 @@
 
 
-import os
-
-from bs4 import BeautifulSoup
 from cached_property import cached_property
 
-from stacks.utils import get_text, try_or_log, parse_year, parse_8d_date
+from stacks.utils import get_text, try_or_log, parse_8d_date
 from stacks.models import AmficText
 from stacks.sources import XMLSource
 

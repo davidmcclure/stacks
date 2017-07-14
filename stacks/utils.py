@@ -3,13 +3,9 @@
 import re
 import scandir
 import os
-import hashlib
 import logging
 
 from datetime import datetime as dt
-
-from itertools import islice, chain
-from git import Repo
 
 from nltk.tokenize import WordPunctTokenizer
 from nltk import pos_tag
