@@ -2,29 +2,34 @@
 
 import pytest
 
+from subprocess import call
+from stacks.models import EEBOText
+
 from test.utils import read_yaml
 
 
-pytestmark = pytest.mark.usefixtures('extract')
+fields = read_yaml(__file__, 'fields.yml')
+# texts = read_yaml(__file__, 'texts.yml')
 
 
-cases = read_yaml(__file__, 'texts.yml')
+@pytest.fixture(scope='module', autouse=True)
+def extract(mpi):
+    call(['mpirun', 'bin/ext-eebo.py'])
+    call(['mpirun', 'bin/load-metadata.py'])
 
 
-@pytest.mark.skip
-@pytest.mark.parametrize('identifier,fields', cases.items())
-def test_extract(identifier, fields, ext_corpus):
+@pytest.mark.parametrize('idno,fields', fields.items())
+def test_fields(idno, fields):
 
-    text = ext_corpus.get_text('eebo', identifier)
+    row = EEBOText.query.get(idno)
 
-    if 'title' in fields:
-        assert text.title == fields['title']
+    for key, val in fields.items():
+        assert getattr(row, key) == val
 
-    if 'author_full' in fields:
-        assert text.author_full == fields['author_full']
 
-    if 'year' in fields:
-        assert text.year == fields['year']
+# @pytest.mark.parametrize('psmid,text', texts.items())
+# def test_text(psmid, text, ext_corpus):
 
-    if 'text' in fields:
-        assert fields['text'] in text.plain_text
+    # row = AmficText.query.get(psmid)
+
+    # assert text in ext_corpus.load_text(row)

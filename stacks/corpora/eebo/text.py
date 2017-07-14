@@ -1,14 +1,35 @@
 
 
 import re
+import attr
+import gzip
 
 from cached_property import cached_property
 
-from stacks.utils import get_text, try_or_log, parse_year
 from stacks.sources import XMLSource
+from stacks.utils import get_text, try_or_log, parse_year
+from stacks.models import EEBOText
 
 
-class Text(XMLSource):
+from bs4 import BeautifulSoup
+
+
+@attr.s
+class Text:
+
+    xml = attr.ib()
+
+    @classmethod
+    def from_file(cls, path):
+        """Hydrate from a file path.
+
+        Args:
+            path (str)
+
+        Returns: cls
+        """
+        with gzip.open(path, 'rb') as fh:
+            return cls(BeautifulSoup(fh, 'xml'))
 
     @cached_property
     def idno_dlps(self):
@@ -52,25 +73,25 @@ class Text(XMLSource):
         """
         return get_text(self.xml, 'PUBLICATIONSTMT DATE')
 
-    @cached_property
+    @try_or_log
     def idno_stc(self):
         """Returns: str
         """
         return get_text(self.xml, 'IDNO[TYPE="stc"]')
 
-    @cached_property
+    @try_or_log
     def idno_eebo_citation(self):
         """Returns: str
         """
         return get_text(self.xml, 'IDNO[TYPE="eebo citation"]')
 
-    @cached_property
+    @try_or_log
     def idno_proquest(self):
         """Returns: str
         """
         return get_text(self.xml, 'IDNO[TYPE="proquest"]')
 
-    @cached_property
+    @try_or_log
     def idno_vid(self):
         """Returns: str
         """
@@ -111,3 +132,28 @@ class Text(XMLSource):
         """Returns: str
         """
         return get_text(self.xml, 'TEXT')
+
+    def row(self):
+        """Assemble a database row.
+
+        Returns: AmficText
+        """
+        return EEBOText(
+            idno_dlps=self.idno_dlps,
+            title=self.title(),
+            author=self.author(),
+            file_extent=self.file_extent(),
+            file_pubplace=self.file_pubplace(),
+            file_publisher=self.file_publisher(),
+            file_date=self.file_date(),
+            idno_stc=self.idno_stc(),
+            idno_eebo_citation=self.idno_eebo_citation(),
+            idno_proquest=self.idno_proquest(),
+            idno_vid=self.idno_vid(),
+            source_extent=self.source_extent(),
+            source_pubplace=self.source_pubplace(),
+            source_publisher=self.source_publisher(),
+            source_date=self.source_date(),
+            language=self.language(),
+            text=self.plain_text(),
+        )

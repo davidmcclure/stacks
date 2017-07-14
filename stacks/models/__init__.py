@@ -8,6 +8,7 @@ from .ecco import ECCOText, ECCOSubjectHead
 from .ncco import NCCOText, NCCOSubjectHead
 from .amfic import AmficText
 from .bpo import BPOArticle, BPOContributor, BPOFlexTerm
+from .eebo import EEBOText
 
 
 def reset_db():
