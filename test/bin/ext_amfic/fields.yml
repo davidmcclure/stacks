@@ -1,0 +1,147 @@
+---
+
+AMFCF0002-C00000-B0000400:
+  asset_id: WUQLKP724100933
+  asset_id_e_toc: LDWXMF531190421
+  dvi_collection_id: AMFCC0001
+  bibliographic_id: ocm05238011
+  reel: A-4
+  mcode: 2YPR
+  ocr: 56.66
+  pub_date_start: 1849
+  release_date: 2016-03-31
+  source_library_name: Primary Source Media
+  source_library_location: Meriden, CT, United States
+  language: English
+  document_type: Monograph
+  notes: Wright Bibliography Vol. I, 51
+  author_composed: Arrington, Alfred W.
+  author_first: Alfred
+  author_middle: W.
+  author_last: Arrington
+  author_birth_date: 1810
+  author_death_date: 1867
+  full_title: 'Illustrated Lives and Adventures of the Desperadoes of the New World: Containing an Account of the Different Modes of Lynching, the Cane Hill Murders, the Victims, the Execution, the Justicifation, Etc., Etc: As Well as the Lives of the Principal Duellist'
+  display_title: 'Illustrated Lives and Adventures of the Desperadoes of the New World: Containing an Account of the Different Modes of Lynching, the Cane Hill …'
+  imprint_full: 'Philadelphia: Peterson, [1849]'
+  imprint_publisher: Peterson
+  collation: '1 online resource 117 pages: illustrations'
+  publication_place_city: Philadelphia
+  publication_place_state: Pennsylvania
+  publication_place_country: United States
+  publication_place_composed: Philadelphia
+  total_pages: 112
+
+AMFCF0002-C00000-B0000600:
+  asset_id: CURFOE031377500
+  asset_id_e_toc: NCZFDV705503189
+  dvi_collection_id: AMFCC0001
+  bibliographic_id: ocm05129591
+  reel: A-4
+  mcode: 2YPR
+  ocr: 63.70
+  pub_date_start: 1848
+  release_date: 2016-03-31
+  source_library_name: Primary Source Media
+  source_library_location: Meriden, CT, United States
+  language: English
+  document_type: Monograph
+  notes: Wright Bibliography Vol. I, 53
+  author_composed: Arthur, T. S. (Timothy Shay)
+  author_first: Timothy
+  author_middle: Shay
+  author_last: Arthur
+  author_birth_date: 1809
+  author_death_date: 1885
+  full_title: 'Agnes, or, the Possessed: A Revelation of Mesmerism: By T. S. Arthur'
+  display_title: 'Agnes, or, the Possessed: A Revelation of Mesmerism: By T. S. Arthur'
+  imprint_full: 'Philadelphia: Peterson, [1848]'
+  imprint_publisher: Peterson
+  collation: '1 online resource 116 Pages'
+  publication_place_city: Philadelphia
+  publication_place_composed: Philadelphia
+  total_pages: 112
+
+AMFCF0002-C00000-B0169300:
+  asset_id: OVXORT274028555
+  asset_id_e_toc: OSOCOV831637410
+  dvi_collection_id: AMFCC0001
+  bibliographic_id: ocm02171952
+  reel: T-2
+  mcode: 2YPR
+  ocr: 50.70
+  pub_date_start: 1864
+  release_date: 2016-03-31
+  source_library_name: Primary Source Media
+  source_library_location: Meriden, CT, United States
+  language: English
+  document_type: Monograph
+  notes: Wright Bibliography Vol. II, 2425
+  full_title: 'Tales of the Picket-Guard, or, the Blue Devils Driven from Camp: A Collection of Stories: Told by Three Rollicking Boys on Picket-Guard'
+  display_title: 'Tales of the Picket-Guard, or, the Blue Devils Driven from Camp: A Collection of Stories: Told by Three Rollicking Boys on Picket-Guard'
+  imprint_full: 'Philadelphia: Barclay, 1864'
+  imprint_publisher: Barclay
+  collation: '1 online resource 84 pages'
+  publication_place_city: Philadelphia
+  publication_place_composed: Philadelphia
+  total_pages: 63
+
+AMFCF0003-C00000-B0000100:
+  asset_id: PEEYUB999441094
+  asset_id_e_toc: CUXXWP197588593
+  dvi_collection_id: AMFCC0002
+  bibliographic_id: '33035998'
+  reel: '101, No. 1'
+  mcode: 2YQB
+  ocr: 65.10
+  pub_date_start: 1913
+  release_date: 2016-03-31
+  source_library_name: Ohio State University
+  source_library_location: Columbus, OH, United States
+  language: English
+  document_type: Monograph
+  notes: American Fiction Vol. VI, 101, No. 1
+  comments: "With: Virginia's Inheritance / by Cooke Don-Carlos. Boston: Davis & Bond, [c1915] -- Fairhaven: A Story of Pilgrim Land / by Justis Henry G. D. Boston: Christopher Publishing House, [c1917] -- Flames of the Blue Ridge / by Ethel and James Dorrance. New York: The Macaulay Company, [1919] -- Glory Rides the Range / by Ethel and James Dorrance. New York: The Macaulay Company, c1920. -- His Robe of Honor / by E. S. and J. F. Dorrance. New York: Moffat, Yard & Company, 1916. -- Young Low / by George A. Dorsey. New York: George H. Doran Company, c1917. -- Uncle Charlie's Story Book: Fun, Fact and Fancy. (Fiftieth Birthday Souvenir) / Lovingly Dedicated to Old Friends and New by Charles Noel Douglas. Brooklyn: Charles Noel Douglas, [c1913]"
+  author_composed: Doling, Anna Mooney
+  author_first: Anna
+  author_middle: Mooney
+  author_last: Doling
+  author_birth_date: 1875
+  full_title: 'Brilla: By Anna M. Doling'
+  display_title: 'Brilla: By Anna M. Doling'
+  imprint_full: 'New York: The Neale Publishing Company, 1913'
+  imprint_publisher: The Neale Publishing Company
+  collation: '1 online resource [4], 201, [3] p. (first 4 p. and last 3 p. blank); 20 cm.'
+  publication_place_city: New York
+  publication_place_composed: New York
+  total_pages: 203
+
+AMFCF0003-C00000-B0000200:
+  asset_id: LPTJAX924716300
+  asset_id_e_toc: AKZOHR931540594
+  dvi_collection_id: AMFCC0002
+  # TODO: Handle multiple elements?
+  bibliographic_id: '33036364'
+  reel: '101, No. 2'
+  mcode: 2YQB
+  ocr: 65.99
+  pub_date_start: 1915
+  release_date: 2016-03-31
+  source_library_name: Ohio State University
+  source_library_location: Columbus, OH, United States
+  language: English
+  document_type: Monograph
+  notes: American Fiction Vol. VI, 101, No. 2
+  comments: 'With: Brilla / by Anna M. Doling. New York: The Neale Publishing Company, 1913'
+  author_composed: Don-Carlos, Cooke
+  author_first: Cooke
+  author_last: Don-Carlos
+  author_birth_date: 1874
+  full_title: "Virginia's Inheritance: By Cooke Don-Carlos"
+  display_title: "Virginia's Inheritance: By Cooke Don-Carlos"
+  imprint_full: 'Boston: Davis & Bond, [c1915]'
+  imprint_publisher: Davis & Bond
+  collation: '1 online resource [4], 7-205, [1] p. (last p. blank); 20 cm.'
+  publication_place_city: Boston
+  publication_place_composed: Boston
+  total_pages: 209
