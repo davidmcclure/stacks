@@ -21,6 +21,8 @@
     pagination: 8-8
     url_doc_view: http://search.proquest.com/docview/2431927/
 
+  text: Vivid Personal Recollections of the French Revolution.
+
   flex_terms:
     - name: DerivedSubject
       value: ENGLISH LITERATURE - 20th Century
@@ -56,6 +58,8 @@
     pagination: 567-571
     url_doc_view: http://search.proquest.com/docview/2432362/
     abstract: HE was like nothing so much as a wet hedgehog. His hair was white, and the six days' beard that shone silvery against the brick-red of his face was snow-white. His eyes were red and small, and looked like little red painted holes in his face. He was shaggy and his hair grew almost down to his eyebrows. He had no back to his head, and large transparent ears, white like paper, stuck out low down on his skull.
+
+  text: His eyes were red and small, and looked like little red painted holes in his face.
 
   flex_terms:
     - name: DerivedSubject
@@ -96,6 +100,8 @@
     pagination: 7-8
     url_doc_view: http://search.proquest.com/docview/2433513/
 
+  text: If you should never find the lordly will To stir your beauty to a flame of flowers
+
   flex_terms:
     - name: DerivedSubject
       value: ENGLISH LITERATURE - 20th Century
@@ -133,6 +139,8 @@
     end_page: 332
     pagination: 331-332
     url_doc_view: http://search.proquest.com/docview/2433681/
+
+  text: London owes many a happy hour to Cissie Loftus.
 
   flex_terms:
     - name: DerivedSubject

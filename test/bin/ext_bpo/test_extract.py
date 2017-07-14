@@ -22,6 +22,8 @@ def test_extract(record_id, spec, ext_corpus):
 
     row = BPOArticle.query.get(record_id)
 
+    # TODO: Parametrize everything as separate tests?
+
     # Fields
     for key, val in spec['fields'].items():
         assert getattr(row, key) == val
@@ -31,8 +33,7 @@ def test_extract(record_id, spec, ext_corpus):
 
         query = BPOFlexTerm.query.filter_by(
             record_id=row.record_id,
-            name=term['name'],
-            value=term['value'],
+            **term
         )
 
         assert query.count() == 1
@@ -46,3 +47,7 @@ def test_extract(record_id, spec, ext_corpus):
         )
 
         assert query.count() == 1
+
+    # Text
+    text = ext_corpus.load_text(row)
+    assert spec['text'] in text
