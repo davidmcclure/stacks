@@ -33,23 +33,21 @@
     - type: topicalTerm
       sub_fields:
         a: Books
-        z: Prices
+        x: Prices
 
     - type: topicalTerm
       sub_fields:
-        a: Catalogs, Booksellers
+        a: Catalogs, Booksellers'
         z: Great Britain
 
     - type: topicalTerm
       sub_fields:
-        a: Catalogs, Booksellers
         a: Natural history
         z: England
         v: Bibliography
 
     - type: geographicalLocation
       sub_fields:
-        a: Catalogs, Booksellers
         a: England
         x: Antiquities
         v: Bibliography
@@ -57,7 +55,6 @@
 
     - type: geographicalLocation
       sub_fields:
-        a: Catalogs, Booksellers
         a: England
         x: Description and travel
         v: Bibliography
@@ -98,7 +95,7 @@
 
     - type: topicalTerm
       sub_fields:
-        a: Catalogs, Booksellers
+        a: Catalogs, Booksellers'
         v: Early works to 1800
 
 '0002200200':
@@ -133,7 +130,7 @@
 
     - type: corporateName
       sub_fields:
-        a: Great Britian
+        a: Great Britain
         t: Constitution
 
     - type: topicalTerm
@@ -186,8 +183,8 @@
     - type: personalName
       sub_fields:
         a: Ireland, W. H.
-        d: (William Henry),
-        x: 1777-1835
+        q: (William Henry),
+        d: 1777-1835
 
     - type: topicalTerm
       sub_fields:

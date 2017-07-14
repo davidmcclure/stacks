@@ -30,12 +30,14 @@ def test_test(doc_id, spec, ext_corpus):
     for subject in spec['subjects']:
         for sub_field, value in subject['sub_fields'].items():
 
-            assert ECCOSubjectHead.query.filter_by(
+            query = ECCOSubjectHead.query.filter_by(
                 document_id=row.document_id,
                 type=subject['type'],
                 sub_field=sub_field,
                 value=value,
             )
+
+            assert query.count() > 0
 
     # Text
     text = ext_corpus.load_text(row)

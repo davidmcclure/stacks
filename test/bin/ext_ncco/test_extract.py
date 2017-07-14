@@ -30,12 +30,14 @@ def test_extract(psmid, spec, ext_corpus):
     for subject in spec.get('subjects', []):
         for sub_field, value in subject['sub_fields'].items():
 
-            assert NCCOSubjectHead.query.filter_by(
+            query = NCCOSubjectHead.query.filter_by(
                 psmid=row.psmid,
                 type=subject['type'],
                 sub_field=sub_field,
                 value=value,
             )
+
+            assert query.count() == 1
 
     # Text
     text = ext_corpus.load_text(row)

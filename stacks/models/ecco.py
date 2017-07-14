@@ -69,7 +69,7 @@ class ECCOSubjectHead(Base):
 
     id = Column(Integer, primary_key=True)
 
-    document_id = Column(String)
+    document_id = Column(String, nullable=False)
 
     type = Column(String)
 
