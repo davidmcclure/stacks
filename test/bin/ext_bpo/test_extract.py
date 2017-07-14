@@ -3,7 +3,7 @@
 import pytest
 
 from subprocess import call
-from stacks.models import BPOArticle, BPOFlexTerm
+from stacks.models import BPOArticle, BPOFlexTerm, BPOContributor
 
 from test.utils import read_yaml
 
@@ -33,6 +33,16 @@ def test_extract(record_id, spec, ext_corpus):
             record_id=row.record_id,
             name=term['name'],
             value=term['value'],
+        )
+
+        assert query.count() == 1
+
+    # Contributors
+    for contrib in spec['contributors']:
+
+        query = BPOContributor.query.filter_by(
+            record_id=row.record_id,
+            **contrib
         )
 
         assert query.count() == 1

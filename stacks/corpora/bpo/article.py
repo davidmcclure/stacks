@@ -8,7 +8,7 @@ from zipfile import ZipFile
 from bs4 import BeautifulSoup
 
 from stacks.utils import get_text, try_or_log, parse_8d_date
-from stacks.models import BPOArticle, BPOFlexTerm
+from stacks.models import BPOArticle, BPOFlexTerm, BPOContributor
 
 
 @attr.s
@@ -195,7 +195,27 @@ class Article:
                 value=get_text(term, 'FlexTermValue'),
             )
 
+    def contributor_rows(self):
+        """Build a list of contributor rows.
+
+        Returns: list of BPOContributor
+        """
+        for contrib in self.xml.select('Contributor'):
+
+            yield BPOContributor(
+                record_id=self.record_id,
+                role=get_text(contrib, 'ContribRole'),
+                last_name=get_text(contrib, 'LastName'),
+                first_name=get_text(contrib, 'FirstName'),
+                person_name=get_text(contrib, 'PersonName'),
+                original_form=get_text(contrib, 'OriginalForm'),
+            )
+
     def rows(self):
         """Assemble list of all database rows.
         """
-        return [self.article_row()] + list(self.flex_term_rows())
+        return (
+            [self.article_row()] +
+            list(self.contributor_rows()) +
+            list(self.flex_term_rows())
+        )
