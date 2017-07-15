@@ -4,21 +4,12 @@ import os
 
 from bs4 import BeautifulSoup
 
+from stacks.sources import XMLSource
+
 from .text import Text
 
 
-class Source:
-
-    def __init__(self, path):
-        """Parse the XML.
-
-        Args:
-            path (str): The text path.
-        """
-        self.path = os.path.abspath(path)
-
-        with open(self.path, 'rb') as fh:
-            self.xml = BeautifulSoup(fh, 'lxml')
+class Source(XMLSource):
 
     def texts(self):
         """Yields: Text

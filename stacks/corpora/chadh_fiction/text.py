@@ -1,41 +1,86 @@
 
 
-from stacks.utils import get_text
+import attr
+
+from cached_property import cached_property
+
+from stacks.utils import get_text, try_or_log
+from stacks.sources import XMLSource
 
 
+@attr.s
 class Text:
 
-    def __init__(self, xml):
-        """Set the XML tree.
+    xml = attr.ib()
 
-        Args:
-            xml (BeautifulSoup)
-        """
-        self.xml = xml
-
-    def identifier(self):
+    @cached_property
+    def idref(self):
         """Returns: str
         """
-        return get_text(self.xml, 'idref')
+        return get_text(self.xml, 'attribs attidref')
 
+    @try_or_log
     def title(self):
         """Returns: str
         """
-        return get_text(self.xml, 'newatts atttitle')
+        return get_text(self.xml, 'source citn pubtitle')
 
-    def author_full(self):
+    @try_or_log
+    def author(self):
         """Returns: str
         """
-        return (
-            get_text(self.xml, 'attribs attauth') or
-            get_text(self.xml, 'a1')
-        )
+        return get_text(self.xml, 'attribs attauth')
 
-    def year(self):
+    @try_or_log
+    def author_id(self):
         """Returns: int
         """
-        return int(get_text(self.xml, 'newatts attpubn1'))
+        return int(get_text(self.xml, 'newatts attautid'))
 
+    @try_or_log
+    def author_gender(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'attribs attgend')
+
+    @try_or_log
+    def publisher(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'source citn publ')
+
+    @try_or_log
+    def period(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'attribs attperi')
+
+    # TODO: Handle multiple <attgenre>.
+    @try_or_log
+    def genre(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'newatts attgenre')
+
+    @try_or_log
+    def database(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'newatts attdbase')
+
+    @try_or_log
+    def pubdate(self):
+        """Returns: int
+        """
+        return get_text(self.xml, 'newatts attpubn1')
+
+    @try_or_log
+    def pubdate2(self):
+        """Returns: int
+        """
+        return get_text(self.xml, 'newatts attpubn2')
+
+    @try_or_log
     def plain_text(self):
         """Returns: str
         """
