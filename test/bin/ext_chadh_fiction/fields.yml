@@ -2,7 +2,6 @@
 
 # C18
 
-# TODO: which id to use?
 Z000000000:
   attidref: F0000001
   title: The Life of John Buncle, Esq; Containing Various Observations and Reflections, Made in several Parts of the World; And Many extraordinary Relations. [etc.]
@@ -36,6 +35,7 @@ Z000030612:
 
 Z000719746:
   attidref: GG0000579
+  eafidref: eaf442T
   title: Hospital Sketches and Camp and Fireside Stories.
   author: Alcott, Louisa May, 1832-1888
   author_id: 2942
@@ -47,6 +47,7 @@ Z000719746:
 
 Z000719777:
   attidref: GG0000578
+  eafidref: eaf441T
   title: Hospital Sketches.
   author: Alcott, Louisa May, 1832-1888
   author_id: 2942
@@ -58,6 +59,7 @@ Z000719777:
 
 Z000719797:
   attidref: GG0000580
+  eafidref: eaf443T
   title: Moods.
   author: Alcott, Louisa May, 1832-1888
   author_id: 2942
@@ -66,8 +68,6 @@ Z000719797:
   pub_date: 1865
   pub_date2: 1865
   pub_city: Boston
-  # TODO: eafidref
-  # TODO: city
 
 # Early English Prose
 

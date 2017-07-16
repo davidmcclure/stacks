@@ -27,6 +27,12 @@ class Text:
         return get_text(self.xml, 'newatts attidref')
 
     @try_or_log
+    def eafidref(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'newatts eafidref')
+
+    @try_or_log
     def title(self):
         """Returns: str
         """
@@ -108,6 +114,7 @@ class Text:
         return ChadhFictionText(
             id=self.idref,
             attidref=self.attidref(),
+            eafidref=self.eafidref(),
             title=self.title(),
             author=self.author(),
             author_id=self.author_id(),
