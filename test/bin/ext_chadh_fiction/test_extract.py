@@ -27,9 +27,9 @@ def test_fields(idref, fields):
         assert getattr(row, key) == val
 
 
-# @pytest.mark.parametrize('psmid,text', texts.items())
-# def test_text(psmid, text, ext_corpus):
+@pytest.mark.parametrize('idref,text', texts.items())
+def test_text(idref, text, ext_corpus):
 
-    # row = AmficText.query.get(psmid)
+    row = ChadhFictionText.query.get(idref)
 
-    # assert text in ext_corpus.load_text(row)
+    assert text in ext_corpus.load_text(row)
