@@ -33,7 +33,13 @@ class Text:
         return get_text(self.xml, 'newatts eafidref')
 
     @try_or_log
-    def title_long(self):
+    def title(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'somhead voltitle')
+
+    @try_or_log
+    def title_full(self):
         """Returns: str
         """
         return get_text(self.xml, 'source pubtitle')
@@ -115,7 +121,8 @@ class Text:
             id=self.idref,
             attidref=self.attidref(),
             eafidref=self.eafidref(),
-            title_long=self.title_long(),
+            title=self.title(),
+            title_full=self.title_full(),
             author=self.author(),
             author_id=self.author_id(),
             author_gender=self.author_gender(),

@@ -4,7 +4,8 @@
 
 Z000000000:
   attidref: F0000001
-  title_long: The Life of John Buncle, Esq; Containing Various Observations and Reflections, Made in several Parts of the World; And Many extraordinary Relations. [etc.]
+  title: John Buncle (1756-1766)
+  title_full: The Life of John Buncle, Esq; Containing Various Observations and Reflections, Made in several Parts of the World; And Many extraordinary Relations. [etc.]
   author: Amory, Thomas, 1691?-1788?
   author_id: 36
   author_gender: m
@@ -20,7 +21,8 @@ Z000000000:
 
 Z000030612:
   attidref: FF000001
-  title_long: Jack Sheppard. A Romance. By W. Harrison Ainsworth, Esq. ... With Illustrations by George Cruikshank. In Three Volumes.
+  title: Jack Sheppard. A Romance (1839-40)
+  title_full: Jack Sheppard. A Romance. By W. Harrison Ainsworth, Esq. ... With Illustrations by George Cruikshank. In Three Volumes.
   author: Ainsworth, William Harrison, 1805–1882
   author_id: 3523
   author_gender: m
@@ -36,7 +38,8 @@ Z000030612:
 Z000719746:
   attidref: GG0000579
   eafidref: eaf442T
-  title_long: Hospital Sketches and Camp and Fireside Stories.
+  title: Hospital Sketches and Camp and Fireside Stories. (1869)
+  title_full: Hospital Sketches and Camp and Fireside Stories.
   author: Alcott, Louisa May, 1832-1888
   author_id: 2942
   database: Early American Fiction
@@ -48,7 +51,8 @@ Z000719746:
 Z000719777:
   attidref: GG0000578
   eafidref: eaf441T
-  title_long: Hospital Sketches.
+  title: Hospital sketches. (1863)
+  title_full: Hospital Sketches.
   author: Alcott, Louisa May, 1832-1888
   author_id: 2942
   database: Early American Fiction
@@ -60,7 +64,8 @@ Z000719777:
 Z000719797:
   attidref: GG0000580
   eafidref: eaf443T
-  title_long: Moods.
+  title: Moods. (1865)
+  title_full: Moods.
   author: Alcott, Louisa May, 1832-1888
   author_id: 2942
   database: Early American Fiction
@@ -73,7 +78,8 @@ Z000719797:
 
 Z000024772:
   attidref: Y1000149
-  title_long: The Pleasant Conceites Of Old Hobson the merry Londoner, full of humorous discourses, and witty meriments. Whereat the quickest wittes may laugh, and the Wiser sort take pleasure
+  title: The Pleasant Conceites Of Old Hobson (1607)
+  title_full: The Pleasant Conceites Of Old Hobson the merry Londoner, full of humorous discourses, and witty meriments. Whereat the quickest wittes may laugh, and the Wiser sort take pleasure
   author: Johnson, Richard, 1573-1659?
   author_id: 1180
   author_gender: m
@@ -87,8 +93,8 @@ Z000024772:
 
 Z000024812:
   attidref: Y1000150
-  # TODO: title_short, title_long
-  title_long: 'The Most Famovs History of the seuen Champions of Christendome: Saint George of England, Saint Denis of Fraunce, Saint Iames of Spayne, Saint Anthony of Italie, Saint Andrew of Scotland, Saint Patricke of Ireland, and Saint Dauid of Wales; Shewing their Honorable battailes by Sea and Land: their Tilts, Iousts and Turnaments for Ladies: their Combats with Giants, Monsters, and Dragons: their aduentures in forraine Nations: their inchauntments in the holy Land: their Knighthoods, Prowesse and Chiualtry, in Europe, Affrica, and Asia, with their victories against the enemies of Christ'
+  title: The seuen Champions of Christendome, Part 1 (1608)
+  title_full: 'The Most Famovs History of the seuen Champions of Christendome: Saint George of England, Saint Denis of Fraunce, Saint Iames of Spayne, Saint Anthony of Italie, Saint Andrew of Scotland, Saint Patricke of Ireland, and Saint Dauid of Wales; Shewing their Honorable battailes by Sea and Land: their Tilts, Iousts and Turnaments for Ladies: their Combats with Giants, Monsters, and Dragons: their aduentures in forraine Nations: their inchauntments in the holy Land: their Knighthoods, Prowesse and Chiualtry, in Europe, Affrica, and Asia, with their victories against the enemies of Christ'
   author: Johnson, Richard, 1573-1659?
   author_id: 1180
   author_gender: m
@@ -102,8 +108,8 @@ Z000024812:
 
 Z000024840:
   attidref: Y1000151
-  # TODO: title_short, title_long
-  title_long: The second Part of the famous History of the seauen Champions of Christendome. Likevvise shevving the Princely provvesse of Saint Georges three Sonnes, the liuely Sparke of Nobilitie. VVith many other memoriall atchiuements worthy the golden spurres of Knighthood
+  title: '[The seuen Champions of Christendome], Part 2 (1597)'
+  title_full: The second Part of the famous History of the seauen Champions of Christendome. Likevvise shevving the Princely provvesse of Saint Georges three Sonnes, the liuely Sparke of Nobilitie. VVith many other memoriall atchiuements worthy the golden spurres of Knighthood
   author: Johnson, Richard, 1573-1659?
   author_id: 1180
   author_gender: m
