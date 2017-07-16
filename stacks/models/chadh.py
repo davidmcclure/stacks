@@ -26,7 +26,7 @@ class ChadhFictionText(Text, Base):
 
     author_gender = Column(String)
 
-    period = Column(String)
+    period_code = Column(String)
 
     genre = Column(String)
 

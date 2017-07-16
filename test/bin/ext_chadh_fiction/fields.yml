@@ -9,7 +9,7 @@ Z000000000:
   author: Amory, Thomas, 1691?-1788?
   author_id: 36
   author_gender: m
-  period: C18B
+  period_code: C18B
   genre: Fictional autobiography
   database: Eighteenth-Century Fiction
   publisher: Printed for J. Noon, [etc.]
@@ -26,7 +26,7 @@ Z000030612:
   author: Ainsworth, William Harrison, 1805–1882
   author_id: 3523
   author_gender: m
-  period: C19B
+  period_code: C19B
   database: Nineteenth-Century Fiction
   publisher: Richard Bentley
   pub_date: 1839
@@ -83,8 +83,7 @@ Z000024772:
   author: Johnson, Richard, 1573-1659?
   author_id: 1180
   author_gender: m
-  # TODO: period vs period_code
-  period: JAC
+  period_code: JAC
   database: Early English Prose Fiction
   publisher: Printed ... for Iohn Wright [etc.]
   pub_date: 1607
@@ -98,8 +97,7 @@ Z000024812:
   author: Johnson, Richard, 1573-1659?
   author_id: 1180
   author_gender: m
-  # TODO: period vs period_code
-  period: JAC
+  period_code: JAC
   database: Early English Prose Fiction
   publisher: Printed for Elizabeth Burbie [etc.]
   pub_date: 1608
@@ -113,8 +111,7 @@ Z000024840:
   author: Johnson, Richard, 1573-1659?
   author_id: 1180
   author_gender: m
-  # TODO: period vs period_code
-  period: JAC
+  period_code: JAC
   database: Early English Prose Fiction
   publisher: Printed for Cuthbert Burbie [etc.]
   pub_date: 1597

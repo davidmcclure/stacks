@@ -63,7 +63,7 @@ class Text:
         return get_text(self.xml, 'attribs attgend')
 
     @try_or_log
-    def period(self):
+    def period_code(self):
         """Returns: str
         """
         return get_text(self.xml, 'attribs attperi')
@@ -126,7 +126,7 @@ class Text:
             author=self.author(),
             author_id=self.author_id(),
             author_gender=self.author_gender(),
-            period=self.period(),
+            period_code=self.period_code(),
             genre=self.genre(),
             database=self.database(),
             publisher=self.publisher(),
