@@ -92,3 +92,17 @@ Y1000150:
   pub_date: 1608
   pub_date2: 1608
   pub_city: London
+
+Y1000151:
+  # TODO: title_short, title_long
+  title: The second Part of the famous History of the seauen Champions of Christendome. Likevvise shevving the Princely provvesse of Saint Georges three Sonnes, the liuely Sparke of Nobilitie. VVith many other memoriall atchiuements worthy the golden spurres of Knighthood
+  author: Johnson, Richard, 1573-1659?
+  author_id: 1180
+  author_gender: m
+  # TODO: period vs period_code
+  period: JAC
+  database: Early English Prose Fiction
+  publisher: Printed for Cuthbert Burbie [etc.]
+  pub_date: 1597
+  pub_date2: 1597
+  pub_city: London
