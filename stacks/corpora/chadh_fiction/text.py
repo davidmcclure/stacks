@@ -18,6 +18,12 @@ class Text:
     def idref(self):
         """Returns: str
         """
+        return get_text(self.xml, 'comhd0 idref')
+
+    @try_or_log
+    def attidref(self):
+        """Returns: str
+        """
         return get_text(self.xml, 'newatts attidref')
 
     @try_or_log
@@ -101,6 +107,7 @@ class Text:
         """
         return ChadhFictionText(
             id=self.idref,
+            attidref=self.attidref(),
             title=self.title(),
             author=self.author(),
             author_id=self.author_id(),

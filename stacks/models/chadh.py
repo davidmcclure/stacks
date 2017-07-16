@@ -12,6 +12,8 @@ class ChadhFictionText(Text, Base):
 
     id = Column(String, primary_key=True)
 
+    attidref = Column(String)
+
     title = Column(String)
 
     author = Column(String)

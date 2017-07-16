@@ -24,7 +24,9 @@ class CHADHFictionExtractor(Extractor):
         """
         source = Source.from_file(path)
 
-        self.corpus.index_rows('amfic', source.idref, *source.rows())
+        rows = list(source.rows())
+
+        self.corpus.index_rows('chadh-fiction', source.idref, *rows)
 
 
 if __name__ == '__main__':
