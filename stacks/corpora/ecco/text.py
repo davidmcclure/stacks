@@ -1,15 +1,31 @@
 
 
 import re
+import attr
 
+from bs4 import BeautifulSoup
 from cached_property import cached_property
 
 from stacks.utils import get_text, try_or_log, parse_8d_date
-from stacks.sources import XMLSource
 from stacks.models import ECCOText, ECCOSubjectHead
 
 
-class Text(XMLSource):
+@attr.s
+class Text:
+
+    xml = attr.ib()
+
+    @classmethod
+    def from_file(cls, path):
+        """Hydrate from a file path.
+
+        Args:
+            path (str)
+
+        Returns: cls
+        """
+        with open(path, 'rb') as fh:
+            return cls(BeautifulSoup(fh, 'xml'))
 
     @cached_property
     def document_id(self):

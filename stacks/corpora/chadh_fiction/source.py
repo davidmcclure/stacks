@@ -1,6 +1,10 @@
 
 
+import attr
+
 from cached_property import cached_property
+from html import unescape
+from bs4 import BeautifulSoup
 
 from stacks.utils import get_text
 from stacks.sources import XMLSource
@@ -8,7 +12,23 @@ from stacks.sources import XMLSource
 from .text import Text
 
 
-class Source(XMLSource):
+@attr.s
+class Source:
+
+    xml = attr.ib()
+
+    @classmethod
+    def from_file(cls, path):
+        """Hydrate from a file path.
+
+        Args:
+            path (str)
+
+        Returns: cls
+        """
+        with open(path, 'r') as fh:
+            markup = unescape(fh.read())
+            return cls(BeautifulSoup(markup, 'xml'))
 
     def texts(self):
         """Yields: Text
