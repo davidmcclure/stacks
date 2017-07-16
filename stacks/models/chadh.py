@@ -16,7 +16,7 @@ class ChadhFictionText(Text, Base):
 
     eafidref = Column(String)
 
-    title = Column(String)
+    title_long = Column(String)
 
     author = Column(String)
 
