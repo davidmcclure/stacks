@@ -45,12 +45,6 @@ class Text:
         return get_text(self.xml, 'attribs attgend')
 
     @try_or_log
-    def publisher(self):
-        """Returns: str
-        """
-        return get_text(self.xml, 'source citn publ')
-
-    @try_or_log
     def period(self):
         """Returns: str
         """
@@ -70,6 +64,12 @@ class Text:
         return get_text(self.xml, 'newatts attdbase')
 
     @try_or_log
+    def publisher(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'source citn publ')
+
+    @try_or_log
     def pub_date(self):
         """Returns: int
         """
@@ -80,6 +80,12 @@ class Text:
         """Returns: int
         """
         return get_text(self.xml, 'newatts attpubn2')
+
+    @try_or_log
+    def pub_city(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'source citn city')
 
     @try_or_log
     def plain_text(self):
@@ -99,11 +105,12 @@ class Text:
             author=self.author(),
             author_id=self.author_id(),
             author_gender=self.author_gender(),
-            publisher=self.publisher(),
             period=self.period(),
             genre=self.genre(),
             database=self.database(),
+            publisher=self.publisher(),
             pub_date=self.pub_date(),
             pub_date2=self.pub_date2(),
+            pub_city=self.pub_city(),
             text=self.plain_text(),
         )

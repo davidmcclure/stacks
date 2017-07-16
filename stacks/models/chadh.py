@@ -20,14 +20,16 @@ class ChadhFictionText(Text, Base):
 
     author_gender = Column(String)
 
-    publisher = Column(String)
-
     period = Column(String)
 
     genre = Column(String)
 
     database = Column(String)
 
+    publisher = Column(String)
+
     pub_date = Column(Integer)
 
     pub_date2 = Column(Integer)
+
+    pub_city = Column(String)

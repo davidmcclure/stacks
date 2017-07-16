@@ -2,17 +2,19 @@
 
 # C18
 
+# TODO: which id to use?
 F0000001:
   title: The Life of John Buncle, Esq; Containing Various Observations and Reflections, Made in several Parts of the World; And Many extraordinary Relations. [etc.]
   author: Amory, Thomas, 1691?-1788?
   author_id: 36
   author_gender: m
-  publisher: Printed for J. Noon, [etc.]
   period: C18B
   genre: Fictional autobiography
   database: Eighteenth-Century Fiction
+  publisher: Printed for J. Noon, [etc.]
   pub_date: 1756
   pub_date2: 1766
+  pub_city: London
 
 # C19
 
@@ -21,11 +23,12 @@ FF000001:
   author: Ainsworth, William Harrison, 1805–1882
   author_id: 3523
   author_gender: m
-  publisher: Richard Bentley
   period: C19B
   database: Nineteenth-Century Fiction
+  publisher: Richard Bentley
   pub_date: 1839
   pub_date2: 1840
+  pub_city: London
 
 # Early American
 
@@ -33,37 +36,31 @@ GG0000579:
   title: Hospital Sketches and Camp and Fireside Stories.
   author: Alcott, Louisa May, 1832-1888
   author_id: 2942
-  #author_gender: m
-  publisher: Roberts Brothers
-  #period: C18B
-  #genre: Fictional autobiography
   database: Early American Fiction
+  publisher: Roberts Brothers
   pub_date: 1869
   pub_date2: 1869
+  pub_city: Boston
 
 GG0000578:
   title: Hospital Sketches.
   author: Alcott, Louisa May, 1832-1888
   author_id: 2942
-  #author_gender: m
-  publisher: James Redpath
-  #period: C18B
-  #genre: Fictional autobiography
   database: Early American Fiction
+  publisher: James Redpath
   pub_date: 1863
   pub_date2: 1863
+  pub_city: Boston
 
 GG0000580:
   title: Moods.
   author: Alcott, Louisa May, 1832-1888
   author_id: 2942
-  #author_gender: m
-  publisher: Loring
-  #period: C18B
-  #genre: Fictional autobiography
   database: Early American Fiction
+  publisher: Loring
   pub_date: 1865
   pub_date2: 1865
+  pub_city: Boston
   # TODO: eafidref
   # TODO: city
 
@@ -74,12 +71,13 @@ Y1000149:
   author: Johnson, Richard, 1573-1659?
   author_id: 1180
   author_gender: m
-  publisher: Printed ... for Iohn Wright [etc.]
   # TODO: period vs period_code
   period: JAC
   database: Early English Prose Fiction
+  publisher: Printed ... for Iohn Wright [etc.]
   pub_date: 1607
   pub_date2: 1607
+  pub_city: London
 
 Y1000150:
   # TODO: title_short, title_long
@@ -87,9 +85,10 @@ Y1000150:
   author: Johnson, Richard, 1573-1659?
   author_id: 1180
   author_gender: m
-  publisher: Printed for Elizabeth Burbie [etc.]
   # TODO: period vs period_code
   period: JAC
   database: Early English Prose Fiction
+  publisher: Printed for Elizabeth Burbie [etc.]
   pub_date: 1608
   pub_date2: 1608
+  pub_city: London
