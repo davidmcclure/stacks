@@ -22,10 +22,9 @@ class CHADHFictionExtractor(Extractor):
         Args:
             path (str)
         """
-        source = Source(path)
+        source = Source.from_file(path)
 
-        for text in source.texts():
-            self.corpus.insert_text(text.to_ext_text())
+        self.corpus.index_rows('amfic', source.idref, *source.rows())
 
 
 if __name__ == '__main__':
