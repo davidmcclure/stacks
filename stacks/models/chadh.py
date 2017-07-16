@@ -28,6 +28,8 @@ class ChadhFictionText(Text, Base):
 
     period_code = Column(String)
 
+    period = Column(String)
+
     genre = Column(String)
 
     database = Column(String)

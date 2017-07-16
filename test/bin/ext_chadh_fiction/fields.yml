@@ -10,6 +10,7 @@ Z000000000:
   author_id: 36
   author_gender: m
   period_code: C18B
+  period: Later Eighteenth-Century 1750-1799
   genre: Fictional autobiography
   database: Eighteenth-Century Fiction
   publisher: Printed for J. Noon, [etc.]
@@ -27,6 +28,7 @@ Z000030612:
   author_id: 3523
   author_gender: m
   period_code: C19B
+  period: Mid Nineteenth-Century 1835-1869
   database: Nineteenth-Century Fiction
   publisher: Richard Bentley
   pub_date: 1839
@@ -84,6 +86,7 @@ Z000024772:
   author_id: 1180
   author_gender: m
   period_code: JAC
+  period: Jacobean and Caroline 1603-1660
   database: Early English Prose Fiction
   publisher: Printed ... for Iohn Wright [etc.]
   pub_date: 1607
@@ -98,6 +101,7 @@ Z000024812:
   author_id: 1180
   author_gender: m
   period_code: JAC
+  period: Jacobean and Caroline 1603-1660
   database: Early English Prose Fiction
   publisher: Printed for Elizabeth Burbie [etc.]
   pub_date: 1608
@@ -112,6 +116,7 @@ Z000024840:
   author_id: 1180
   author_gender: m
   period_code: JAC
+  period: Jacobean and Caroline 1603-1660
   database: Early English Prose Fiction
   publisher: Printed for Cuthbert Burbie [etc.]
   pub_date: 1597

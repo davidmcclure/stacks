@@ -68,6 +68,12 @@ class Text:
         """
         return get_text(self.xml, 'attribs attperi')
 
+    @try_or_log
+    def period(self):
+        """Returns: str
+        """
+        return get_text(self.xml, 'newatts attperi')
+
     # TODO: Handle multiple <attgenre>.
     @try_or_log
     def genre(self):
@@ -127,6 +133,7 @@ class Text:
             author_id=self.author_id(),
             author_gender=self.author_gender(),
             period_code=self.period_code(),
+            period=self.period(),
             genre=self.genre(),
             database=self.database(),
             publisher=self.publisher(),
