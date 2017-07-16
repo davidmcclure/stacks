@@ -5,7 +5,6 @@ import attr
 from cached_property import cached_property
 
 from stacks.utils import get_text, try_or_log
-from stacks.sources import XMLSource
 from stacks.models import ChadhFictionText
 
 

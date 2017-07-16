@@ -1,13 +1,29 @@
 
+import attr
 
 from cached_property import cached_property
+from bs4 import BeautifulSoup
 
 from stacks.utils import get_text, try_or_log, parse_8d_date
 from stacks.models import AmficText
-from stacks.sources import XMLSource
 
 
-class Text(XMLSource):
+@attr.s
+class Text:
+
+    xml = attr.ib()
+
+    @classmethod
+    def from_file(cls, path):
+        """Hydrate from a file path.
+
+        Args:
+            path (str)
+
+        Returns: cls
+        """
+        with open(path, 'r') as fh:
+            return cls(BeautifulSoup(fh, 'xml'))
 
     @cached_property
     def psmid(self):

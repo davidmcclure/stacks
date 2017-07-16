@@ -7,7 +7,6 @@ from html import unescape
 from bs4 import BeautifulSoup
 
 from stacks.utils import get_text
-from stacks.sources import XMLSource
 
 from .text import Text
 

@@ -5,13 +5,10 @@ import attr
 import gzip
 
 from cached_property import cached_property
+from bs4 import BeautifulSoup
 
-from stacks.sources import XMLSource
 from stacks.utils import get_text, try_or_log, parse_year
 from stacks.models import EEBOText
-
-
-from bs4 import BeautifulSoup
 
 
 @attr.s
