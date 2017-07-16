@@ -1,6 +1,7 @@
 
 
 import attr
+import os
 
 from cached_property import cached_property
 from html import unescape
@@ -14,6 +15,8 @@ from .text import Text
 @attr.s
 class Source:
 
+    slug = attr.ib()
+
     xml = attr.ib()
 
     @classmethod
@@ -25,9 +28,11 @@ class Source:
 
         Returns: cls
         """
-        with open(path, 'rb') as fh:
-            markup = unescape(fh.read().decode())
-            return cls(BeautifulSoup(markup, 'xml'))
+        slug = os.path.splitext(os.path.basename(path))[0]
+
+        with open(path, 'r') as fh:
+            markup = unescape(fh.read())
+            return cls(slug, BeautifulSoup(markup, 'xml'))
 
     def texts(self):
         """Yields: Text
@@ -40,10 +45,3 @@ class Source:
         """
         for text in self.texts():
             yield text.row()
-
-    @cached_property
-    def idref(self):
-        """Returns: str
-        """
-        # Does it work to just take the first idref?
-        return get_text(self.xml, 'comhd0 idref')

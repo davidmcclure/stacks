@@ -26,7 +26,7 @@ class CHADHFictionExtractor(Extractor):
 
         rows = list(source.rows())
 
-        self.corpus.index_rows('chadh-fiction', source.idref, *rows)
+        self.corpus.index_rows('chadh-fiction', source.slug, *rows)
 
 
 if __name__ == '__main__':
