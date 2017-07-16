@@ -25,8 +25,8 @@ class Source:
 
         Returns: cls
         """
-        with open(path, 'r') as fh:
-            markup = unescape(fh.read())
+        with open(path, 'rb') as fh:
+            markup = unescape(fh.read().decode())
             return cls(BeautifulSoup(markup, 'xml'))
 
     def texts(self):
