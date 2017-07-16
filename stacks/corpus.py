@@ -89,7 +89,8 @@ class Corpus:
         for row in rows:
             if getattr(row, '_text', None):
                 self._write_text(row)
-                self._write_tokens(row)
+                # TODO|dev
+                # self._write_tokens(row)
 
     def _pickle_rows(self, corpus, source, rows):
         """Pickle row instances.

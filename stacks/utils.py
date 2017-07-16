@@ -87,7 +87,8 @@ def try_or_log(f):
         try:
             return f(*args, **kwargs)
         except Exception as e:
-            logging.exception('message')
+            # TODO|dev
+            # logging.exception('message')
             return None
     return wrapper
 

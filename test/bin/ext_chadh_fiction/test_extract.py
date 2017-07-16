@@ -22,10 +22,9 @@ def extract(mpi):
 def test_fields(idref, fields):
 
     row = ChadhFictionText.query.get(idref)
-    print(idref, row)
 
-    # for key, val in fields.items():
-        # assert getattr(row, key) == val
+    for key, val in fields.items():
+        assert getattr(row, key) == val
 
 
 # @pytest.mark.parametrize('psmid,text', texts.items())

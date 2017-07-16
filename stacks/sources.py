@@ -2,6 +2,7 @@
 
 import attr
 
+from html import unescape
 from bs4 import BeautifulSoup
 
 
@@ -19,5 +20,6 @@ class XMLSource:
 
         Returns: cls
         """
-        with open(path, 'rb') as fh:
-            return cls(BeautifulSoup(fh, 'xml'))
+        with open(path, 'r') as fh:
+            markup = unescape(fh.read())
+            return cls(BeautifulSoup(markup, 'xml'))

@@ -3,25 +3,93 @@
 # C18
 
 F0000001:
-  title: John Buncle (1756-1766)
+  title: The Life of John Buncle, Esq; Containing Various Observations and Reflections, Made in several Parts of the World; And Many extraordinary Relations. [etc.]
+  author: Amory, Thomas, 1691?-1788?
+  author_id: 36
+  author_gender: m
+  publisher: Printed for J. Noon, [etc.]
+  period: C18B
+  genre: Fictional autobiography
+  database: Eighteenth-Century Fiction
+  pub_date: 1756
+  pub_date2: 1766
 
 # C19
 
 FF000001:
-  title: Jack Sheppard. A Romance (1839-40)
+  title: Jack Sheppard. A Romance. By W. Harrison Ainsworth, Esq. ... With Illustrations by George Cruikshank. In Three Volumes.
+  author: Ainsworth, William Harrison, 1805–1882
+  author_id: 3523
+  author_gender: m
+  publisher: Richard Bentley
+  period: C19B
+  database: Nineteenth-Century Fiction
+  pub_date: 1839
+  pub_date2: 1840
 
 # Early American
 
 GG0000579:
-  title: Hospital Sketches and Camp and Fireside Stories. (1869)
+  title: Hospital Sketches and Camp and Fireside Stories.
+  author: Alcott, Louisa May, 1832-1888
+  author_id: 2942
+  #author_gender: m
+  publisher: Roberts Brothers
+  #period: C18B
+  #genre: Fictional autobiography
+  database: Early American Fiction
+  pub_date: 1869
+  pub_date2: 1869
 
 GG0000578:
-  title: Hospital sketches. (1863)
+  title: Hospital Sketches.
+  author: Alcott, Louisa May, 1832-1888
+  author_id: 2942
+  #author_gender: m
+  publisher: James Redpath
+  #period: C18B
+  #genre: Fictional autobiography
+  database: Early American Fiction
+  pub_date: 1863
+  pub_date2: 1863
+
+GG0000580:
+  title: Moods.
+  author: Alcott, Louisa May, 1832-1888
+  author_id: 2942
+  #author_gender: m
+  publisher: Loring
+  #period: C18B
+  #genre: Fictional autobiography
+  database: Early American Fiction
+  pub_date: 1865
+  pub_date2: 1865
+  # TODO: eafidref
+  # TODO: city
 
 # Early English Prose
 
-Y1000001:
-  title: Alcander and Philocrates (1696)
+Y1000149:
+  title: The Pleasant Conceites Of Old Hobson the merry Londoner, full of humorous discourses, and witty meriments. Whereat the quickest wittes may laugh, and the Wiser sort take pleasure
+  author: Johnson, Richard, 1573-1659?
+  author_id: 1180
+  author_gender: m
+  publisher: Printed ... for Iohn Wright [etc.]
+  # TODO: period vs period_code
+  period: JAC
+  database: Early English Prose Fiction
+  pub_date: 1607
+  pub_date2: 1607
 
-Y1000002:
-  title: A. C. mery talys [1526]
+Y1000150:
+  # TODO: title_short, title_long
+  title: 'The Most Famovs History of the seuen Champions of Christendome: Saint George of England, Saint Denis of Fraunce, Saint Iames of Spayne, Saint Anthony of Italie, Saint Andrew of Scotland, Saint Patricke of Ireland, and Saint Dauid of Wales; Shewing their Honorable battailes by Sea and Land: their Tilts, Iousts and Turnaments for Ladies: their Combats with Giants, Monsters, and Dragons: their aduentures in forraine Nations: their inchauntments in the holy Land: their Knighthoods, Prowesse and Chiualtry, in Europe, Affrica, and Asia, with their victories against the enemies of Christ'
+  author: Johnson, Richard, 1573-1659?
+  author_id: 1180
+  author_gender: m
+  publisher: Printed for Elizabeth Burbie [etc.]
+  # TODO: period vs period_code
+  period: JAC
+  database: Early English Prose Fiction
+  pub_date: 1608
+  pub_date2: 1608
