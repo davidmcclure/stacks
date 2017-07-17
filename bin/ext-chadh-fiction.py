@@ -2,7 +2,7 @@
 
 
 from stacks.extractor import Extractor
-from stacks.corpora.chadh_fiction import Corpus, Source
+from stacks.corpora.chadh import FictionCorpus, FictionSource
 
 
 class CHADHFictionExtractor(Extractor):
@@ -12,7 +12,7 @@ class CHADHFictionExtractor(Extractor):
 
         Returns: list
         """
-        corpus = Corpus.from_env()
+        corpus = FictionCorpus.from_env()
 
         return list(corpus.source_paths())
 
@@ -22,7 +22,7 @@ class CHADHFictionExtractor(Extractor):
         Args:
             path (str)
         """
-        source = Source.from_file(path)
+        source = FictionSource.from_file(path)
 
         rows = list(source.rows())
 
