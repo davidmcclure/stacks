@@ -72,3 +72,32 @@ class ChadhPoetryText(Text, Base):
     pub_date = Column(Integer)
 
     pub_date2 = Column(Integer)
+
+
+class ChadhDramaText(Text, Base):
+
+    __tablename__ = 'chadh_drama_text'
+
+    id = Column(String, primary_key=True)
+
+    database = Column(String)
+
+    title = Column(String)
+
+    title_full = Column(String)
+
+    author = Column(String)
+
+    author_id = Column(Integer)
+
+    author_gender = Column(String)
+
+    publisher = Column(String)
+
+    pub_date = Column(Integer)
+
+    pub_date2 = Column(Integer)
+
+    pub_city = Column(String)
+
+    # TODO: genre, subjects
