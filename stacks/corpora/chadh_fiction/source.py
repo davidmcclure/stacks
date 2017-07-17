@@ -37,20 +37,11 @@ class Source:
     def texts(self):
         """Yields: Text
         """
-        raise NotImplementedError
+        for tree in self.xml.find_all('div0'):
+            yield Text(tree)
 
     def rows(self):
         """Produce rows for each text.
         """
         for text in self.texts():
             yield text.row()
-
-
-@attr.s
-class FictionSource(Source):
-
-    def texts(self):
-        """Yields: Text
-        """
-        for tree in self.xml.find_all('div0'):
-            yield Text(tree)
