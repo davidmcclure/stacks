@@ -83,8 +83,11 @@ class Play:
     def plain_text(self):
         """Returns: str
         """
-        # TODO: Scrub out metadata.
-        return ' '.join(self.xml.strings)
+        # TODO: Does this get everything?
+        return ' '.join([
+            p.get_text(separator=' ', strip=True).replace('\n', ' ')
+            for p in self.xml.select_one('play').find_all(['p', 'l'])
+        ])
 
     def row(self):
         """Assemble a database row.
