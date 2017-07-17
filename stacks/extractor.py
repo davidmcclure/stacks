@@ -68,5 +68,5 @@ class Extractor:
             except Exception as e:
                 logging.exception('message')
 
-            if i % 100 == 0:
-                print(rank, i)
+            # if i % 100 == 0:
+            print(rank, i)
