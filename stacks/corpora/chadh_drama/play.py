@@ -53,7 +53,7 @@ class Play:
     def author_gender(self):
         """Returns: str
         """
-        return get_text(self.xml, 'attribs attgend')
+        return get_text(self.xml, 'attribs attgend').lower()
 
     @try_or_log
     def publisher(self):

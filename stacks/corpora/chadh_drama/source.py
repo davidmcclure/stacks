@@ -30,9 +30,8 @@ class Source:
         """
         slug = os.path.splitext(os.path.basename(path))[0]
 
-        with open(path, 'r') as fh:
-            markup = unescape(fh.read())
-            return cls(slug, BeautifulSoup(markup, 'xml'))
+        with open(path, 'rb') as fh:
+            return cls(slug, BeautifulSoup(fh, 'lxml'))
 
     def plays(self):
         """Yields: Text

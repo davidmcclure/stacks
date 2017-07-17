@@ -14,13 +14,19 @@ Z000610757:
   pub_date2: 1809
   pub_city: Boston
 
-## C20
+# C20
 
-#Z000767880:
-  #title: "A Man's House: A Play in Three Acts by John Drinkwater"
-  #author_full: Drinkwater, John, 1882–1937
-  #year: 1934
-  #text: Salathiel's house in Jerusalem. A terrace on the upper floor, looking out on to the hills.
+Z000767880:
+  database: Twentieth-Century Drama
+  title: A Man's House
+  title_full: "A Man's House: A Play in Three Acts by John Drinkwater"
+  author: Drinkwater, John, 1882–1937
+  author_id: 693
+  author_gender: m
+  publisher: Sidgwick & Jackson, Ltd.
+  pub_date: 1934
+  pub_date2: 1934
+  pub_city: London
 
 #Z000767889:
   #title: "Abraham Lincoln: A Play by John Drinkwater"
