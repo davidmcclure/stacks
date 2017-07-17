@@ -41,3 +41,12 @@ class ChadhFictionText(Text, Base):
     pub_date2 = Column(Integer)
 
     pub_city = Column(String)
+
+
+class ChadhPoetryText(Text, Base):
+
+    __tablename__ = 'chadh_poetry_text'
+
+    id = Column(String, primary_key=True)
+
+    attidref = Column(String)
