@@ -28,22 +28,40 @@ Z000767880:
   pub_date2: 1934
   pub_city: London
 
-#Z000767889:
-  #title: "Abraham Lincoln: A Play by John Drinkwater"
-  #author_full: Drinkwater, John, 1882–1937
-  #year: 1919
-  #text: First, my purpose is that not of the historian but of the dramatist.
+Z000767889:
+  database: Twentieth-Century Drama
+  title: Abraham Lincoln
+  title_full: 'Abraham Lincoln: A Play by John Drinkwater'
+  author: Drinkwater, John, 1882–1937
+  author_id: 693
+  author_gender: m
+  publisher: Sidgwick & Jackson, Ltd.
+  pub_date: 1919
+  pub_date2: 1919
+  pub_city: London
 
-## English
+# English
 
-#Z000047343:
-  #title: The castle of Otranto (1848)
-  #author_full: À Beckett, Gilbert Abbott, 1811-1856
-  #year: 1848
-  #text: Time flies, you know; thro' life one quickly flings
+Z000047343:
+  database: English Drama
+  title: The castle of Otranto (1848)
+  title_full: "The Castle Of Otranto: A Romantic Extravaganza, In One Act, As Performed At The Theatre Royal, Haymarket. By Gilbert Abbott À Beckett. Correctly Printed From The Prompter's Copy, With The Cast Of Characters, Costume, Scenic Arrangement Sides Of Entrance And Exit, And Relative Positions Of The Dramatis Personae. Illustrated With An Engraving By Mr. Sleigh, From a Drawing taken during the Representation"
+  author: À Beckett, Gilbert Abbott, 1811-1856
+  author_id: 1
+  author_gender: m
+  publisher: Published At The National Acting Drama Office
+  pub_date: 1848
+  pub_date2: 1848
+  pub_city: London
 
-#Z000047356:
-  #title: The man with the carpet bag [1866]
-  #author_full: À Beckett, Gilbert Abbott, 1811-1856
-  #year: 1866
-  #text: Well, Mr. Grimes, what are you now upon?
+Z000047356:
+  database: English Drama
+  title: The man with the carpet bag [1866]
+  title_full: The Man with the Carpet Bag. A Farce, in One Act. By Gilbert Abbott A Beckett ... with an illustration, and notes, biographical and critical, by D. G.
+  author: À Beckett, Gilbert Abbott, 1811-1856
+  author_id: 1
+  author_gender: m
+  publisher: Thomas Hailes Lacy
+  pub_date: 1866
+  pub_date2: 1866
+  pub_city: London
