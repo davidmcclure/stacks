@@ -95,8 +95,11 @@ class Poem:
     def plain_text(self):
         """Returns: str
         """
-        # TODO: Scrub out metadata.
-        return ' '.join(self.xml.strings)
+        # TODO: Does this get everything?
+        return ' '.join([
+            p.get_text(separator=' ', strip=True).replace('\n', ' ')
+            for p in self.xml.find_all('l')
+        ])
 
     def row(self):
         """Assemble a database row.
