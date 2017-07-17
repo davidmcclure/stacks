@@ -4,7 +4,6 @@ import attr
 import os
 
 from cached_property import cached_property
-from html import unescape
 from bs4 import BeautifulSoup
 
 from stacks.utils import get_text
@@ -31,8 +30,7 @@ class Source:
         slug = os.path.splitext(os.path.basename(path))[0]
 
         with open(path, 'r') as fh:
-            markup = unescape(fh.read())
-            return cls(slug, BeautifulSoup(markup, 'xml'))
+            return cls(slug, BeautifulSoup(fh, 'lxml'))
 
     def texts(self):
         """Yields: Text
