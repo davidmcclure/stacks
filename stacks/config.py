@@ -16,6 +16,7 @@ class Config(CleanConfig):
 
     config_dirs = [
         os.path.dirname(__file__),
+        '/share/PI/malgeehe/config/stacks',
         '/etc/stacks',
     ]
 
