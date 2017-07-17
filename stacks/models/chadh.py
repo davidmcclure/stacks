@@ -55,6 +55,10 @@ class ChadhPoetryText(Text, Base):
 
     vol_title = Column(String)
 
+    vol_publisher = Column(String)
+
+    vol_date = Column(Integer)
+
     title = Column(String)
 
     author = Column(String)
@@ -63,10 +67,8 @@ class ChadhPoetryText(Text, Base):
 
     rhyme = Column(Boolean)
 
-    period = Column(Boolean)
+    period = Column(String)
 
     pub_date = Column(Integer)
 
     pub_date2 = Column(Integer)
-
-    vol_date = Column(Integer)

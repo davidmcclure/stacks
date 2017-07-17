@@ -96,13 +96,13 @@ class Text:
     def pub_date(self):
         """Returns: int
         """
-        return get_text(self.xml, 'newatts attpubn1')
+        return int(get_text(self.xml, 'newatts attpubn1'))
 
     @try_or_log
     def pub_date2(self):
         """Returns: int
         """
-        return get_text(self.xml, 'newatts attpubn2')
+        return int(get_text(self.xml, 'newatts attpubn2'))
 
     @try_or_log
     def pub_city(self):

@@ -5,7 +5,7 @@ from stacks.extractor import Extractor
 from stacks.corpora.chadh_poetry import Corpus, Source
 
 
-class CHADHPoetryExtractor(Extractor):
+class CHADHFictionExtractor(Extractor):
 
     def args(self):
         """Provide a list of source paths.
@@ -22,11 +22,12 @@ class CHADHPoetryExtractor(Extractor):
         Args:
             path (str)
         """
-        source = Source(path)
+        source = Source.from_file(path)
 
-        for poem in source.poems():
-            self.corpus.insert_text(poem.to_ext_text())
+        rows = list(source.rows())
+
+        self.corpus.index_rows('chadh-poetry', source.slug, *rows)
 
 
 if __name__ == '__main__':
-    CHADHPoetryExtractor()()
+    CHADHFictionExtractor()()

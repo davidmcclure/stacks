@@ -9,7 +9,7 @@ from .ncco import NCCOText, NCCOSubjectHead
 from .amfic import AmficText
 from .bpo import BPOArticle, BPOContributor, BPOFlexTerm
 from .eebo import EEBOText
-from .chadh import ChadhFictionText
+from .chadh import ChadhFictionText, ChadhPoetryText
 
 
 def reset_db():
