@@ -9,7 +9,7 @@ from test.utils import read_yaml
 
 
 fields = read_yaml(__file__, 'fields.yml')
-# texts = read_yaml(__file__, 'texts.yml')
+texts = read_yaml(__file__, 'texts.yml')
 
 
 @pytest.fixture(scope='module', autouse=True)
@@ -27,9 +27,9 @@ def test_fields(idref, fields):
         assert getattr(row, key) == val
 
 
-# @pytest.mark.parametrize('idref,text', texts.items())
-# def test_text(idref, text, ext_corpus):
+@pytest.mark.parametrize('idref,text', texts.items())
+def test_text(idref, text, ext_corpus):
 
-    # row = ChadhFictionText.query.get(idref)
+    row = ChadhDramaText.query.get(idref)
 
-    # assert text in ext_corpus.load_text(row)
+    assert text in ext_corpus.load_text(row)
