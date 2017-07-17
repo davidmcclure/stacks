@@ -1,6 +1,6 @@
 
 
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Boolean
 
 from stacks.models import Base
 from .text import Text
@@ -50,3 +50,23 @@ class ChadhPoetryText(Text, Base):
     id = Column(String, primary_key=True)
 
     attidref = Column(String)
+
+    database = Column(String)
+
+    vol_title = Column(String)
+
+    title = Column(String)
+
+    author = Column(String)
+
+    author_id = Column(Integer)
+
+    rhyme = Column(Boolean)
+
+    period = Column(Boolean)
+
+    pub_date = Column(Integer)
+
+    pub_date2 = Column(Integer)
+
+    vol_date = Column(Integer)
