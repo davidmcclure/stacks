@@ -30,6 +30,7 @@ class ChadhFictionText(Text, Base):
 
     period = Column(String)
 
+    # TODO: Handle multiple.
     genre = Column(String)
 
     database = Column(String)

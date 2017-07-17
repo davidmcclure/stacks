@@ -1,27 +1,47 @@
 
 
+import attr
 import os
 
+from cached_property import cached_property
+from html import unescape
 from bs4 import BeautifulSoup
+
+from stacks.utils import get_text
 
 from .play import Play
 
 
+@attr.s
 class Source:
 
-    def __init__(self, path):
-        """Parse the XML.
+    slug = attr.ib()
+
+    xml = attr.ib()
+
+    @classmethod
+    def from_file(cls, path):
+        """Hydrate from a file path.
 
         Args:
-            path (str): The text path.
-        """
-        self.path = os.path.abspath(path)
+            path (str)
 
-        with open(self.path, 'rb') as fh:
-            self.xml = BeautifulSoup(fh, 'lxml')
+        Returns: cls
+        """
+        slug = os.path.splitext(os.path.basename(path))[0]
+
+        with open(path, 'r') as fh:
+            markup = unescape(fh.read())
+            return cls(slug, BeautifulSoup(markup, 'xml'))
 
     def plays(self):
-        """Yields: Play
+        """Yields: Text
         """
         for tree in self.xml.find_all('div0'):
             yield Play(tree)
+
+    def rows(self):
+        """Produce rows for each text.
+        """
+        for play in self.plays():
+            yield play.row()

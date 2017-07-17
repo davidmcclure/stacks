@@ -91,7 +91,7 @@ class Play:
 
         Returns: AmficText
         """
-        return ChadhFictionText(
+        return ChadhDramaText(
             id=self.idref,
             database=self.database(),
             title=self.title(),

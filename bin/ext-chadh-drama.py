@@ -22,12 +22,11 @@ class CHADHDramaExtractor(Extractor):
         Args:
             path (str)
         """
-        source = Source(path)
+        source = Source.from_file(path)
 
-        # TODO: Wrap each insert in a try/except?
+        rows = list(source.rows())
 
-        for play in source.plays():
-            self.corpus.insert_text(play.to_ext_text())
+        self.corpus.index_rows('chadh-drama', source.slug, *rows)
 
 
 if __name__ == '__main__':
