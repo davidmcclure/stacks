@@ -77,11 +77,19 @@ Z300221389:
   pub_date: 1981
   pub_date2: 1981
 
-#Z300221390:
-  #title: LORCA
-  #author_full: Kaufman, Bob
-  #year: 1981
-  #text: Split ears of morning earth green now
+Z300221390:
+  attidref: J3010024
+  database: Twentieth-Century American Poetry
+  vol_title: 'The Ancient Rain: Poems, 1956–1978 (1981) , New Directions'
+  vol_publisher: New Directions
+  vol_date: 1981
+  title: LORCA
+  author: Kaufman, Bob
+  author_id: 1193
+  #rhyme: true
+  period: Twentieth-Century 1900-1999
+  pub_date: 1981
+  pub_date2: 1981
 
 ## C20 American
 
