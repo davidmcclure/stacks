@@ -4,6 +4,8 @@ import numpy as np
 import ujson
 import logging
 
+from datetime import datetime as dt
+
 from stacks.corpus import Corpus
 
 
@@ -69,4 +71,4 @@ class Extractor:
                 logging.exception('message')
 
             # if i % 100 == 0:
-            print(rank, i)
+            print(dt.now().isoformat(), rank, i)
