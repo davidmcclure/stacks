@@ -3,6 +3,7 @@
 import numpy as np
 import ujson
 import logging
+import random
 
 from datetime import datetime as dt
 
@@ -43,6 +44,12 @@ class Extractor:
         # ** Scatter path segments.
 
         if rank == 0:
+
+            args = self.args()
+
+            # Shuffle to avoid "striping," imbalances in the size of the inputs
+            # for different segments.
+            random.shuffle(args)
 
             segments = [
                 ujson.dumps(list(s))
