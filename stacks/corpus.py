@@ -6,11 +6,10 @@ import pickle
 import bz2
 import ujson
 
-from cityhash import CityHash32
 from boltons.iterutils import chunked_iter
 
 from stacks import session, config
-from stacks.utils import scan_paths, tokenize
+from stacks.utils import scan_paths, tokenize, md5
 
 
 # TODO: Unit test.
@@ -41,7 +40,7 @@ class Corpus:
         Returns: str
         """
         # Form the hash directories.
-        source_hash = str(CityHash32(source))
+        source_hash = md5(source)
         prefix = source_hash[:3]
         suffix = source_hash[3:]
 

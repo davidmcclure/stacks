@@ -4,6 +4,7 @@ import re
 import scandir
 import os
 import logging
+import hashlib
 
 from datetime import datetime as dt
 
@@ -103,5 +104,23 @@ def parse_year(text):
 
 def parse_8d_date(text):
     """Parse a date string.
+
+    Args:
+        text (str)
+
+    Returns: datetime
     """
     return dt.strptime(text, '%Y%m%d').date()
+
+
+def md5(value):
+    """Get checksum for string value.
+
+    Args:
+        value (str)
+
+    Returns: str
+    """
+    h = hashlib.md5()
+    h.update(value.encode())
+    return h.hexdigest()

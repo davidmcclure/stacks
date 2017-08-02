@@ -2,10 +2,10 @@
 
 import os
 
-from cityhash import CityHash32
-
-from sqlalchemy.inspection import inspect
 from sqlalchemy import Column, String
+from sqlalchemy.inspection import inspect
+
+from stacks.utils import md5
 
 
 class Text:
@@ -23,7 +23,7 @@ class Text:
 
         # Mirror table name, hash the PK.
         self.corpus = self.__tablename__
-        self.text_hash = str(CityHash32(str(pk_val)))
+        self.text_hash = md5(pk_val)
 
         self._text = kwargs.pop('text')
 
