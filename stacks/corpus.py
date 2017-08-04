@@ -6,6 +6,7 @@ import pickle
 import bz2
 import ujson
 
+from datetime import datetime as dt
 from boltons.iterutils import chunked_iter
 
 from stacks import session, config
@@ -156,7 +157,7 @@ class Corpus:
         for i, chunk in enumerate(chunks):
             session.bulk_save_objects(chunk)
             session.commit()
-            print(i)
+            print(dt.now().isoformat(), i)
 
     def load_text(self, row):
         """Given a metadata row, hydrate plain text.
