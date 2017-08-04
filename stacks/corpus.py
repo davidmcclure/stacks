@@ -149,11 +149,14 @@ class Corpus:
         Args:
             chunk_size (int): Insert page size.
         """
-        for chunk in chunked_iter(self.db_rows(), chunk_size):
-            session.bulk_save_objects(chunk)
-            session.flush()
+        rows = self.db_rows()
 
-        session.commit()
+        chunks = chunked_iter(rows, chunk_size)
+
+        for i, chunk in enumerate(chunks):
+            session.bulk_save_objects(chunk)
+            session.commit()
+            print(i)
 
     def load_text(self, row):
         """Given a metadata row, hydrate plain text.
