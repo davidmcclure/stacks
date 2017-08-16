@@ -29,22 +29,9 @@ class Corpus:
         """
         self.path = os.path.abspath(path)
 
-    def zip_paths(self):
-        """Get paths to each of the .zip archives.
+    def article_paths(self):
+        """Generate paths to the XML sources.
 
         Yields: str
         """
-        return scan_paths(self.path, '\.zip$')
-
-    def xml_paths(self):
-        """Get (archive, path) tuples for each of the compressed XML sources.
-
-        Yields: (str, str)
-        """
-        # Walk .zip files.
-        for zpath in self.zip_paths():
-            with ZipFile(zpath) as archive:
-
-                # Walk zipped XML files.
-                for name in archive.namelist():
-                    yield (zpath, name)
+        return scan_paths(self.path, '\.xml$')

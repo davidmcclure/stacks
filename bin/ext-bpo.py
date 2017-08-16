@@ -14,15 +14,12 @@ class BPOExtractor(Extractor):
         """
         corpus = Corpus.from_env()
 
-        return [
-            dict(zipfile_path=zpath, xml_name=name)
-            for zpath, name in corpus.xml_paths()
-        ]
+        return list(corpus.article_paths())
 
-    def flush(self, *args, **kwargs):
+    def flush(self, path):
         """Flush a text.
         """
-        article = Article.from_file(*args, **kwargs)
+        article = Article.from_file(path)
 
         self.corpus.index_rows('bpo', article.record_id, *article.rows())
 

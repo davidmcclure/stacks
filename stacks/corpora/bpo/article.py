@@ -17,18 +17,16 @@ class Article:
     xml = attr.ib()
 
     @classmethod
-    def from_file(cls, zipfile_path, xml_name):
-        """Extract the XML source, parse the tree.
+    def from_file(cls, path):
+        """Hydrate from a file path.
 
         Args:
-            zipfile_path (str)
-            xml_name (str)
+            path (str)
 
         Returns: cls
         """
-        with ZipFile(zipfile_path) as zfile:
-            with zfile.open(xml_name) as fh:
-                return cls(BeautifulSoup(fh, 'xml'))
+        with open(path, 'r') as fh:
+            return cls(BeautifulSoup(fh, 'xml'))
 
     @cached_property
     def record_id(self):
@@ -146,7 +144,7 @@ class Article:
         """
         xml = get_text(self.xml, 'Abstract')
 
-        return BeautifulSoup(xml).text
+        return BeautifulSoup(xml, 'xml').text
 
     @try_or_log
     def full_text(self):

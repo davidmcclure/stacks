@@ -43,7 +43,7 @@ def get_text(tree, selector):
     """
     tag = tree.select_one(selector)
 
-    return ' '.join(tag.stripped_strings) or None
+    return (' '.join(tag.stripped_strings) or None) if tag else None
 
 
 def tokenize(text):
