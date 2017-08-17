@@ -19,26 +19,25 @@
   pagination: 344-350
   url_doc_view: http://search.proquest.com/docview/2444597/
 
-#'2432362':
-  #date_time_stamp: 2016-01-27T12:55:54
-  #action_code: change
-  #record_title: Arson
-  #publication_id: 581
-  #publication_title: The English review,  1908-1937
-  #publication_qualifier: London
-  #publisher: The English Review Ltd etc.
-  #alpha_pub_date: Mar 1913
-  #numeric_pub_date: 1913-03-01
-  #source_type: Historical Periodicals
-  ## TODO: Handle multiple object types?
-  #object_type: Feature
-  #language_code: ENG
-  #issn: 2043-2275
-  #start_page: 567
-  #end_page: 571
-  #pagination: 567-571
-  #url_doc_view: http://search.proquest.com/docview/2432362/
-  #abstract: HE was like nothing so much as a wet hedgehog. His hair was white, and the six days' beard that shone silvery against the brick-red of his face was snow-white. His eyes were red and small, and looked like little red painted holes in his face. He was shaggy and his hair grew almost down to his eyebrows. He had no back to his head, and large transparent ears, white like paper, stuck out low down on his skull.
+'2458058':
+  date_time_stamp: 2016-01-27T12:55:58
+  action_code: change
+  record_title: Cover
+  publication_id: 14004
+  publication_title: Fortnightly review, May 1865-June 1934
+  publication_qualifier: London
+  publisher: Chapman and Hall.
+  alpha_pub_date: Jan 1, 1866
+  numeric_pub_date: 1866-01-01
+  source_type: Historical Periodicals
+  # TODO: Handle multiple object types?
+  object_type: Front Matter
+  language_code: ENG
+  issn: 2043-2887
+  start_page: 385
+  end_page: 385
+  pagination: 385-385
+  url_doc_view: http://search.proquest.com/docview/2458058/
 
 #'2433513':
   #date_time_stamp: 2016-01-27T13:04:59

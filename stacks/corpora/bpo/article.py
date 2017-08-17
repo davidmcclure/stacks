@@ -204,6 +204,7 @@ class Article:
                 record_id=self.record_id,
                 role=get_text(contrib, 'ContribRole'),
                 last_name=get_text(contrib, 'LastName'),
+                middle_name=get_text(contrib, 'MiddleName'),
                 first_name=get_text(contrib, 'FirstName'),
                 person_name=get_text(contrib, 'PersonName'),
                 original_form=get_text(contrib, 'OriginalForm'),

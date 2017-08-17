@@ -8,13 +8,22 @@
   - name: DerivedSubject
     value: GREAT BRITAIN - Intellectual Life
 
-#'2432362':
+'2458058':
 
-  #- name: DerivedSubject
-    #value: ENGLISH LITERATURE - 20th Century
+  - name: DerivedSubject
+    value: BOOKS - REVIEWS
 
-  #- name: DerivedSubject
-    #value: GREAT BRITAIN - Intellectual Life
+  - name: DerivedSubject
+    value: GREAT BRITAIN - Politics and Government - 20th Century
+
+  - name: DerivedSubject
+    value: ENGLISH ESSAYS
+
+  - name: DerivedSubject
+    value: ENGLISH LITERATURE - 19th Century
+
+  - name: DerivedSubject
+    value: ENGLISH LITERATURE - 20th Century
 
 #'2433513':
 
