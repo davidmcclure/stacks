@@ -18,7 +18,7 @@ pathlib
 python-slugify
 invoke
 schematics
-numpy
+numpy==1.11.3
 mpi4py
 blessings
 tabulate
