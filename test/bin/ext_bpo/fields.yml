@@ -39,39 +39,40 @@
   pagination: 385-385
   url_doc_view: http://search.proquest.com/docview/2458058/
 
-#'2433513':
-  #date_time_stamp: 2016-01-27T13:04:59
-  #action_code: change
-  #record_title: The Inviolable Hour
-  #publication_id: 581
-  #publication_title: The English review,  1908-1937
-  #publication_qualifier: London
-  #publisher: The English Review Ltd etc.
-  #alpha_pub_date: Dec 1912
-  #numeric_pub_date: 1912-12-01
-  #source_type: Historical Periodicals
-  #object_type: Poem
-  #language_code: ENG
-  #issn: 2043-2275
-  #start_page: 7
-  #end_page: 8
-  #pagination: 7-8
-  #url_doc_view: http://search.proquest.com/docview/2433513/
+'2580930':
+  date_time_stamp: 2016-01-27T13:07:54
+  action_code: change
+  record_title: HAPPINESS AND RICHES.
+  publication_id: 374
+  publication_title: Chambers's Edinburgh journal, Feb. 1832- Dec. 1853
+  publication_qualifier: London
+  alpha_pub_date: Jun 12, 1847
+  numeric_pub_date: 1847-06-12
+  source_type: Historical Periodicals
+  object_type: Feature
+  language_code: ENG
+  issn: 0950-4702
+  start_page: 384
+  end_page: 384
+  pagination: 384-384
+  url_doc_view: http://search.proquest.com/docview/2580930/
 
-#'2433681':
-  #date_time_stamp: 2016-01-27T13:04:46
-  #action_code: change
-  #record_title: A CHRISTMAS GARLAND.
-  #publication_id: 581
-  #publication_title: The English review,  1908-1937
-  #publication_qualifier: London
-  #publisher: The English Review Ltd etc.
-  #numeric_pub_date: 1913-01-01
-  #source_type: Historical Periodicals
-  #object_type: Review
-  #language_code: ENG
-  #issn: 2043-2275
-  #start_page: 331
-  #end_page: 332
-  #pagination: 331-332
-  #url_doc_view: http://search.proquest.com/docview/2433681/
+'3446461':
+  date_time_stamp: 2016-01-27T13:10:28
+  action_code: change
+  record_title: LONDON COMMONS.
+  publication_id: 2317
+  publication_title: The English illustrated magazine
+  publication_qualifier: London
+  publisher: Central Publishing
+  alpha_pub_date: Nov 1885
+  numeric_pub_date: 1885-11-01
+  source_type: Historical Periodicals
+  object_type: Feature
+  language_code: ENG
+  issn: 2043-2690
+  start_page: 84
+  end_page: 95
+  pagination: 84-95
+  url_doc_view: http://search.proquest.com/docview/3446461/
+  abstract: IF it is desired to find a common where cricket reigns less supreme than at Clapham, a short drive will take us to the spot. On the left of the Clapham Road a mile or two beyond the common, a narrow lane passing for the most part between park palings and high, old-fashioned walls-if the gate happens to be open we may get a glimpse of a really fine old brick house standing behind a bold carriage-sweep with lawn and flower-beds and a wealth of wistaria-leads in a very short time to the twin commons of Tooting Graveney and Tooting Bec.

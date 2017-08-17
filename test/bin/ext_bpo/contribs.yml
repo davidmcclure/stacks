@@ -20,38 +20,21 @@
     person_name: George Henry Lewes
     original_form: Lewes, George Henry, 1817-1878
 
-#'2432362':
+'2580930':
 
-  #- role: Author
-    #last_name: Cannan
-    #first_name: Gilbert
-    #person_name: Gilbert Cannan
-    #original_form: Cannan, Gilbert
+  - role: Author
+    original_form: Newspaper paragraph
 
-  #- role: Editor
-    #last_name: Harrison
-    #first_name: Austin
-    #person_name: Austin Harrison
-    #original_form: Harrison, Austin
+  - role: Editor
+    last_name: Chambers
+    first_name: William
+    person_name: William Chambers
+    original_form: Chambers, William, 1800-1883
 
-#'2433513':
+'3446461':
 
-  #- role: Author
-    #last_name: Drinkwater
-    #first_name: John
-    #person_name: John Drinkwater
-    #original_form: Drinkwater, John
-
-  #- role: Editor
-    #last_name: Harrison
-    #first_name: Austin
-    #person_name: Austin Harrison
-    #original_form: Harrison, Austin
-
-#'2433681':
-
-  #- role: Editor
-    #last_name: Harrison
-    #first_name: Austin
-    #person_name: Austin Harrison
-    #original_form: Harrison, Austin
+  - role: Author
+    last_name: Hunter
+    first_name: Robert
+    person_name: Robert Hunter
+    original_form: HUNTER, ROBERT

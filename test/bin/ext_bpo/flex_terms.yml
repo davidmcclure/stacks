@@ -25,18 +25,21 @@
   - name: DerivedSubject
     value: ENGLISH LITERATURE - 20th Century
 
-#'2433513':
+'2580930':
 
-  #- name: DerivedSubject
-    #value: ENGLISH LITERATURE - 20th Century
+  - name: DerivedSubject
+    value: BIOGRAPHY
 
-  #- name: DerivedSubject
-    #value: GREAT BRITAIN - Intellectual Life
+  - name: DerivedSubject
+    value: ENGLISH POETRY - 19th Century
 
-#'2433681':
+'3446461':
 
-  #- name: DerivedSubject
-    #value: ENGLISH LITERATURE - 20th Century
+  - name: DerivedSubject
+    value: ART AND LITERATURE - 19th Century
 
-  #- name: DerivedSubject
-    #value: GREAT BRITAIN - Intellectual Life
+  - name: DerivedSubject
+    value: ART AND LITERATURE - 20th Century
+
+  - name: DerivedSubject
+    value: ILLUSTRATED PERIODICALS
