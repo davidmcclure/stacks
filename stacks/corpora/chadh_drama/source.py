@@ -4,7 +4,6 @@ import attr
 import os
 
 from cached_property import cached_property
-from html import unescape
 from bs4 import BeautifulSoup
 
 from stacks.utils import get_text
