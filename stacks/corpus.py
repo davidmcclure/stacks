@@ -141,8 +141,11 @@ class Corpus:
         Yields: Text
         """
         for path in scan_paths(self.path, '\.p'):
+
             with open(path, 'rb') as fh:
                 yield from pickle.load(fh)
+
+            print(dt.now().isoformat(), path)
 
     def load_db(self, chunk_size=1000):
         """Write db rows.
@@ -155,8 +158,10 @@ class Corpus:
         chunks = chunked_iter(rows, chunk_size)
 
         for i, chunk in enumerate(chunks):
+
             session.bulk_save_objects(chunk)
             session.commit()
+
             print(dt.now().isoformat(), i)
 
     def load_text(self, row):
