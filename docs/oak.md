@@ -55,7 +55,7 @@ Instead, I archived the individual sub-directories under `stacks` separately. On
 
 Where `dist` contains the raw, tarballed transmission data for each corpus, `raw` contains the unpacked, original copies of the corpora, and `ext` is the normalized data produced by the corpus manager.
 
-Each of these directories was archived separately under `/oak/stanford/groups/malgeehe/stacks`. Additionally, each of the individual corpus directories under `raw` - the original, canonical versions of each corpus - were also archived individually, to make it very easy to get access each individual corpus. On Oak:
+Each of these directories was archived separately under `/oak/stanford/groups/malgeehe/stacks`. Additionally, each of the corpus directories under `raw` - the original, canonical versions of each corpus - were also archived separately, to make it very easy to get access each individual corpus. On Oak:
 
 ```
 /oak/stanford/groups/malgeehe/stacks
