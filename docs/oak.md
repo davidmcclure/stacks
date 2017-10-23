@@ -3,7 +3,7 @@
 
 As of 10/22/17, all data on the scratch disk has been backed up on Oak. Ideally, we'd be able to just copy the data over as-is, but, since we've got a 1.5M-file quota on Oak - and 16M files on scratch - we had to package up the data as a collection of tar archives, which vastly reduces the file count on Oak.
 
-Generally, top-level directories on scratch were archived as separate archives. The original data looks like this:
+Generally, top-level directories on scratch were backed up as separate archives. The original data looks like this:
 
 ```
 /scratch/PI/malgeehe/data
